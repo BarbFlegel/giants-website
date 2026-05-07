@@ -26,23 +26,23 @@ const services = [
   {
     title: "Functional Training",
     description:
-      "High-energy sessions focused on strength, conditioning, mobility, and discipline for all levels.",
+      "High-energy sessions focused on strength, conditioning, mobility, and discipline. Designed for all levels, from beginners to athletes.",
     includes: [
       "Full-body workouts",
-      "Mobility & endurance",
+      "Mobility & endurance training",
       "Personalized coaching",
-      "Team challenges",
+      "Team-based challenges",
     ],
-    pricing: ["Group: €10–€15", "1-on-1: €20–€80", "Monthly: €30–€50"],
+    pricing: ["Group: €10–€15", "1-on-1: €20–€80", "Monthly pass: €30–€50"],
   },
   {
     title: "Basketball Skills & Conditioning",
     description:
-      "Skill-focused training to improve technique, game IQ, and physical conditioning.",
+      "Skill-focused training to improve ball handling, shooting, footwork, game IQ, and physical conditioning.",
     includes: [
       "Technical drills",
       "Game situations",
-      "Speed & agility",
+      "Speed & agility work",
       "Conditioning circuits",
     ],
     pricing: ["Group: €12–€20", "Private: €30–€90", "Team: €100–€180"],
@@ -50,51 +50,137 @@ const services = [
   {
     title: "Corporate Team Building",
     description:
-      "Interactive sessions designed to improve communication, trust, and teamwork.",
+      "Interactive team experiences using physical challenges and structured exercises to improve communication, trust, and performance.",
     includes: [
       "Team challenges",
       "Leadership exercises",
       "Communication drills",
-      "Competitive activities",
+      "Fun competitive activities",
     ],
     pricing: ["60–90 min: €600–€1200", "Half-day: €1200–€2500"],
   },
   {
     title: "Company Tournaments",
     description:
-      "Competitive sport tournaments designed for companies and organizations.",
+      "Medium-level competitive tournaments designed for companies to engage teams through sport, competition, and collaboration.",
     includes: [
       "Tournament setup",
       "Team coordination",
       "Game facilitation",
-      "Event atmosphere",
+      "Energy-driven environment",
     ],
     pricing: ["Half-day: €1200–€2500", "Full-day: €2500–€5000"],
   },
   {
     title: "Youth Basketball Bootcamp",
     description:
-      "Structured summer program for young players focused on fundamentals and confidence.",
+      "A structured summer program for U8–U10 focused on fundamentals, confidence, and enjoyment of the game.",
     includes: [
       "Daily skill development",
       "Fun competitions",
       "Team games",
       "Discipline & teamwork",
     ],
-    pricing: ["Weekly camp: €40–€150"],
+    pricing: ["Weekly camp: €40–€150 per child"],
   },
   {
     title: "Sports & Community Events",
     description:
-      "Community-driven experiences combining sport, music, food, and connection.",
-    includes: [
-      "Open workouts",
-      "Basketball games",
-      "Social experiences",
-    ],
+      "Organized events combining sport, music, food, and community engagement.",
+    includes: ["Open workouts", "Basketball games", "Social experiences"],
     pricing: ["Entry: €5–€15", "Private hosting: €300–€2000"],
   },
 ];
+
+const communityPrograms = [
+  {
+    title: "Old Age Home Workshops",
+    description:
+      "Gentle adapted sessions focused on mobility, coordination, and social interaction for elderly participants.",
+    includes: [
+      "Light movement exercises",
+      "Coordination activities",
+      "Social engagement",
+    ],
+    pricing: ["Session: €20–€60"],
+  },
+  {
+    title: "Board Games Tournaments",
+    description:
+      "Relaxed competitive events encouraging strategy, connection, and fun.",
+    includes: ["Strategy games", "Social tournaments", "Private events"],
+    pricing: ["Entry: €5–€10", "Private event: €150–€300"],
+  },
+  {
+    title: "Philosophy Talks & Sit-ins",
+    description:
+      "Open discussions exploring mindset, discipline, purpose, and personal growth.",
+    includes: [
+      "Mindset discussions",
+      "Open conversations",
+      "Community reflection",
+    ],
+    pricing: ["Entry: €5–€10", "Private group session: €100–€200"],
+  },
+  {
+    title: "Debates & Discussion Events",
+    description:
+      "Structured debates encouraging communication, critical thinking, and perspective sharing.",
+    includes: [
+      "Debate sessions",
+      "Group discussions",
+      "Hosted community events",
+    ],
+    pricing: ["Entry: €5–€10", "Hosted event: €100–€250"],
+  },
+  {
+    title: "Camping & Outdoor Experiences",
+    description:
+      "Immersive experiences combining nature, movement, reflection, and group bonding.",
+    includes: ["Outdoor training", "Group activities", "Reflection & connection"],
+    pricing: ["€50–€150 per participant"],
+  },
+];
+
+function ServiceCard({
+  title,
+  description,
+  includes,
+  pricing,
+}: {
+  title: string;
+  description: string;
+  includes: string[];
+  pricing: string[];
+}) {
+  return (
+    <div className="flex flex-col rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
+      <h3 className="text-xl font-semibold text-orange-300">{title}</h3>
+
+      <p className="mt-4 leading-7 text-zinc-300">{description}</p>
+
+      <div className="mt-5">
+        <p className="font-semibold text-white">Includes:</p>
+
+        <ul className="mt-3 space-y-2 text-sm text-zinc-300">
+          {includes.map((item) => (
+            <li key={item}>• {item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mt-5 rounded-2xl bg-black/50 p-4">
+        <p className="font-semibold text-white">Pricing:</p>
+
+        <ul className="mt-3 space-y-2 text-sm text-zinc-300">
+          {pricing.map((price) => (
+            <li key={price}>{price}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -213,9 +299,7 @@ export default function Home() {
         className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2 md:items-center"
       >
         <div>
-          <h2 className="text-3xl font-bold md:text-4xl">
-            About GIANTS
-          </h2>
+          <h2 className="text-3xl font-bold md:text-4xl">About GIANTS</h2>
 
           <p className="mt-6 leading-8 text-zinc-300">
             GIANTS is a movement-driven initiative focused on building
@@ -253,9 +337,7 @@ export default function Home() {
       {/* ACTIVITIES */}
       <section id="activities" className="bg-zinc-950 px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold md:text-4xl">
-            What We Do
-          </h2>
+          <h2 className="text-3xl font-bold md:text-4xl">What We Do</h2>
 
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
@@ -305,46 +387,59 @@ export default function Home() {
             Training, events, and community programs
           </h2>
 
-          <p className="mt-4 max-w-3xl leading-8 text-zinc-300">
-            GIANTS offers community-driven and professional services designed to
-            build strength, connection, confidence, and wellbeing.
+          <p className="mt-4 max-w-4xl text-lg leading-8 text-zinc-300">
+            GIANTS combines community access with professional services.
+            <br className="hidden md:block" />
+            Paid sessions and corporate experiences help support inclusive
+            activities for vulnerable groups.
           </p>
+
+          <div className="mt-6 rounded-3xl border border-orange-500/30 bg-orange-500/10 p-5 text-orange-100">
+            <p className="font-semibold text-orange-300">Community access</p>
+
+            <p className="mt-2 leading-7 text-zinc-300">
+              Selected activities can be offered free of charge for refugees,
+              children’s homes, and community organizations, depending on
+              availability and partnership support.
+            </p>
+          </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <div
+              <ServiceCard
                 key={service.title}
-                className="flex flex-col rounded-3xl border border-zinc-800 bg-zinc-900 p-6"
-              >
-                <h3 className="text-xl font-semibold text-orange-300">
-                  {service.title}
-                </h3>
-
-                <p className="mt-4 leading-7 text-zinc-300">
-                  {service.description}
-                </p>
-
-                <div className="mt-5">
-                  <p className="font-semibold text-white">Includes:</p>
-
-                  <ul className="mt-3 space-y-2 text-sm text-zinc-300">
-                    {service.includes.map((item) => (
-                      <li key={item}>• {item}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mt-5 rounded-2xl bg-black/50 p-4">
-                  <p className="font-semibold text-white">Pricing:</p>
-
-                  <ul className="mt-3 space-y-2 text-sm text-zinc-300">
-                    {service.pricing.map((price) => (
-                      <li key={price}>{price}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+                title={service.title}
+                description={service.description}
+                includes={service.includes}
+                pricing={service.pricing}
+              />
             ))}
+          </div>
+
+          <div className="mt-20">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-orange-300">
+              Community & Social Programs
+            </p>
+
+            <h3 className="mt-3 text-3xl font-bold">Connection beyond sport</h3>
+
+            <p className="mt-4 max-w-3xl leading-8 text-zinc-300">
+              GIANTS also creates social and wellbeing-focused experiences
+              designed to encourage connection, reflection, inclusion, and
+              personal growth.
+            </p>
+
+            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {communityPrograms.map((program) => (
+                <ServiceCard
+                  key={program.title}
+                  title={program.title}
+                  description={program.description}
+                  includes={program.includes}
+                  pricing={program.pricing}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="mt-12 rounded-3xl border border-orange-500/30 bg-orange-500 p-8 text-center text-black">
@@ -427,7 +522,7 @@ export default function Home() {
               href="https://chat.whatsapp.com/FbHUNvazjmz91fsWDUx3Qx?mode=gi_t"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-black px-6 py-3 font-semibold text-white border border-zinc-700 transition hover:scale-105"
+              className="flex items-center gap-2 rounded-full border border-zinc-700 bg-black px-6 py-3 font-semibold text-white transition hover:scale-105"
             >
               <FaWhatsapp className="text-green-500" size={22} />
               WhatsApp
@@ -437,7 +532,7 @@ export default function Home() {
               href="https://www.instagram.com/decult1111?igsh=YWh1ZmJjNWt5amZ5"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-black px-6 py-3 font-semibold text-white border border-zinc-700 transition hover:scale-105"
+              className="flex items-center gap-2 rounded-full border border-zinc-700 bg-black px-6 py-3 font-semibold text-white transition hover:scale-105"
             >
               <FaInstagram className="text-fuchsia-400" size={22} />
               Instagram
@@ -447,7 +542,7 @@ export default function Home() {
               href="https://www.tiktok.com/@de.cult?_r=1&_t=ZG-95OKtugVZLM"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-black px-6 py-3 font-semibold text-white border border-zinc-700 transition hover:scale-105"
+              className="flex items-center gap-2 rounded-full border border-zinc-700 bg-black px-6 py-3 font-semibold text-white transition hover:scale-105"
             >
               <FaTiktok className="text-white" size={22} />
               TikTok
@@ -457,7 +552,7 @@ export default function Home() {
               href="https://www.facebook.com/share/1c4oNWvWC9/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-black px-6 py-3 font-semibold text-white border border-zinc-700 transition hover:scale-105"
+              className="flex items-center gap-2 rounded-full border border-zinc-700 bg-black px-6 py-3 font-semibold text-white transition hover:scale-105"
             >
               <FaFacebook className="text-blue-500" size={22} />
               Facebook
@@ -487,8 +582,9 @@ export default function Home() {
                   GIANTS
                 </p>
 
-                <p className="text-sm text-zinc-300">
-                  Respect What Feeds Your Soul
+                <p className="mt-2 max-w-sm text-sm leading-6 text-zinc-300">
+                  GIANTS is more than training. It’s a space to grow, connect,
+                  and elevate — physically and mentally.
                 </p>
               </div>
             </div>
@@ -508,7 +604,7 @@ export default function Home() {
                 href="https://www.instagram.com/decult1111?igsh=YWh1ZmJjNWt5amZ5"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open GIANTS Instagram profile"
+                aria-label="Open GIANTS Instagram"
                 className="text-fuchsia-400 transition hover:scale-110"
               >
                 <FaInstagram />
@@ -518,7 +614,7 @@ export default function Home() {
                 href="https://www.tiktok.com/@de.cult?_r=1&_t=ZG-95OKtugVZLM"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open GIANTS TikTok profile"
+                aria-label="Open GIANTS TikTok"
                 className="text-white transition hover:scale-110"
               >
                 <FaTiktok />
@@ -528,7 +624,7 @@ export default function Home() {
                 href="https://www.facebook.com/share/1c4oNWvWC9/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open GIANTS Facebook profile"
+                aria-label="Open GIANTS Facebook"
                 className="text-blue-500 transition hover:scale-110"
               >
                 <FaFacebook />
