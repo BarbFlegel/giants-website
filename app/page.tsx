@@ -9,6 +9,13 @@ import {
 
 const events = [
   {
+    title: "GIANTS Community Session",
+    image: "/images/giants-community-session.png",
+    date: "9 May 2026",
+    time: "13:00 – 15:00",
+    location: "Sporthal Parkloods — Basketball Court 1",
+  },
+  {
     title: "Afro Beats & Bounce",
     image: "/images/afro-bounce.png",
   },
@@ -137,7 +144,11 @@ const communityPrograms = [
     title: "Camping & Outdoor Experiences",
     description:
       "Immersive experiences combining nature, movement, reflection, and group bonding.",
-    includes: ["Outdoor training", "Group activities", "Reflection & connection"],
+    includes: [
+      "Outdoor training",
+      "Group activities",
+      "Reflection & connection",
+    ],
     pricing: ["€50–€150 per participant"],
   },
 ];
@@ -154,7 +165,7 @@ function ServiceCard({
   pricing: string[];
 }) {
   return (
-    <div className="flex flex-col rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
+    <div className="group flex flex-col rounded-3xl border border-zinc-800 bg-zinc-900 p-6 transition hover:-translate-y-1 hover:border-orange-500/60 hover:shadow-[0_0_35px_rgba(249,115,22,0.25)]">
       <h3 className="text-xl font-semibold text-orange-300">{title}</h3>
 
       <p className="mt-4 leading-7 text-zinc-300">{description}</p>
@@ -185,6 +196,14 @@ function ServiceCard({
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
+      {/* ANNOUNCEMENT BAR */}
+      <a
+        href="#events"
+        className="block border-b border-orange-500/20 bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 px-4 py-3 text-center text-sm font-bold tracking-wide text-black transition hover:brightness-110"
+      >
+        🔥 GIANTS Community Session • 9 May 2026 • Antwerp • All Levels Welcome
+      </a>
+
       {/* HEADER */}
       <header className="sticky top-0 z-50 border-b border-zinc-800 bg-black/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -217,13 +236,6 @@ export default function Home() {
             </Link>
 
             <Link
-              href="#activities"
-              className="transition hover:text-orange-400"
-            >
-              Activities
-            </Link>
-
-            <Link
               href="#services"
               className="transition hover:text-orange-400"
             >
@@ -245,15 +257,15 @@ export default function Home() {
       <section className="relative overflow-hidden bg-gradient-to-b from-orange-950 via-black to-black px-6 py-20 text-center md:py-28">
         <div className="mx-auto max-w-5xl">
           <div className="mb-8 flex justify-center">
-            <div className="relative h-44 w-44 overflow-hidden rounded-full border border-orange-500/40 bg-black shadow-lg shadow-orange-900/40 md:h-52 md:w-52">
+            <div className="relative h-44 w-44 overflow-hidden rounded-full border border-orange-500/60 bg-black shadow-[0_0_60px_rgba(249,115,22,0.45)] md:h-52 md:w-52">
               <Image
                 src="/images/giants-logo.png"
                 alt="GIANTS logo"
                 fill
                 unoptimized
+                priority
                 sizes="(max-width: 768px) 176px, 208px"
                 className="object-contain scale-150"
-                priority
               />
             </div>
           </div>
@@ -278,7 +290,7 @@ export default function Home() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="#join"
-              className="rounded-full bg-orange-500 px-8 py-4 font-semibold text-black transition hover:scale-105"
+              className="rounded-full bg-orange-500 px-8 py-4 font-bold text-black shadow-[0_0_25px_rgba(249,115,22,0.35)] transition hover:scale-105 hover:bg-orange-400"
             >
               Join the Movement
             </Link>
@@ -327,63 +339,24 @@ export default function Home() {
             src="/images/about-us.jpg"
             alt="About GIANTS"
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
             priority
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
           />
         </div>
       </section>
 
-      {/* ACTIVITIES */}
-      <section id="activities" className="bg-zinc-950 px-6 py-20">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold md:text-4xl">What We Do</h2>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
-              <h3 className="text-xl font-semibold text-orange-300">
-                Basketball
-              </h3>
-
-              <p className="mt-4 leading-7 text-zinc-300">
-                Basketball sessions focused on discipline, teamwork, confidence,
-                and enjoyment of the game.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
-              <h3 className="text-xl font-semibold text-orange-300">
-                Functional Training
-              </h3>
-
-              <p className="mt-4 leading-7 text-zinc-300">
-                High-energy movement sessions designed to build strength,
-                mobility, endurance, and consistency.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-zinc-800 bg-zinc-900 p-6">
-              <h3 className="text-xl font-semibold text-orange-300">
-                Community Events
-              </h3>
-
-              <p className="mt-4 leading-7 text-zinc-300">
-                Sport, music, food, and social experiences bringing people
-                together through movement and connection.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* SERVICES */}
-      <section id="services" className="bg-black px-6 py-20">
+      <section
+        id="services"
+        className="bg-gradient-to-b from-black via-zinc-950 to-black px-6 py-24"
+      >
         <div className="mx-auto max-w-6xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-orange-300">
-            Our Services
+          <p className="text-sm font-bold uppercase tracking-[0.45em] text-orange-400">
+            OUR SERVICES
           </p>
 
-          <h2 className="mt-3 text-3xl font-bold md:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold md:text-5xl">
             Training, events, and community programs
           </h2>
 
@@ -417,8 +390,8 @@ export default function Home() {
           </div>
 
           <div className="mt-20">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-orange-300">
-              Community & Social Programs
+            <p className="text-sm font-bold uppercase tracking-[0.45em] text-orange-400">
+              COMMUNITY & SOCIAL PROGRAMS
             </p>
 
             <h3 className="mt-3 text-3xl font-bold">Connection beyond sport</h3>
@@ -442,7 +415,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-12 rounded-3xl border border-orange-500/30 bg-orange-500 p-8 text-center text-black">
+          <div className="mt-12 rounded-3xl border border-orange-500/30 bg-orange-500 p-8 text-center text-black shadow-[0_0_35px_rgba(249,115,22,0.25)]">
             <h3 className="text-2xl font-bold">
               GIANTS is more than training.
             </h3>
@@ -451,13 +424,6 @@ export default function Home() {
               It’s a space to grow, connect, and elevate — physically and
               mentally.
             </p>
-
-            <a
-              href="#join"
-              className="mt-6 inline-flex rounded-full bg-black px-6 py-3 font-semibold text-white transition hover:scale-105"
-            >
-              Contact Us
-            </a>
           </div>
         </div>
       </section>
@@ -477,21 +443,32 @@ export default function Home() {
           {events.map((event) => (
             <div
               key={event.title}
-              className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900"
+              className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 transition hover:-translate-y-1 hover:border-orange-500/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.25)]"
             >
-              <div className="relative h-[380px] w-full bg-black">
+              <div className="relative h-[520px] w-full bg-black">
                 <Image
                   src={event.image}
                   alt={event.title}
                   fill
                   unoptimized
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-contain object-center"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-top"
                 />
               </div>
 
               <div className="p-5">
                 <h3 className="text-xl font-semibold">{event.title}</h3>
+
+                {event.date && (
+                  <div className="mt-3 space-y-1 text-sm text-zinc-300">
+                    <p className="text-orange-300">
+                      {event.date}
+                      {event.time && ` • ${event.time}`}
+                    </p>
+
+                    {event.location && <p>{event.location}</p>}
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -505,7 +482,7 @@ export default function Home() {
       >
         <div className="mx-auto max-w-5xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-black/70">
-            Join the Community
+            JOIN THE COMMUNITY
           </p>
 
           <h2 className="mt-3 text-4xl font-bold md:text-5xl">
