@@ -5,13 +5,17 @@ import {
   FaFacebook,
   FaTiktok,
   FaWhatsapp,
+  FaEnvelope,
 } from "react-icons/fa";
+
+const facebookUrl = "https://www.facebook.com/share/1GjwX7uSzo/";
+const email = "giants.decult@gmail.com";
 
 const events = [
   {
     title: "GIANTS Community Session",
     image: "/images/giants-community-session.png",
-    date: "9 May 2026",
+    date: "Past event • 9 May 2026",
     time: "13:00 – 15:00",
     location: "Sporthal Parkloods — Basketball Court 1",
   },
@@ -201,7 +205,7 @@ export default function Home() {
         href="#events"
         className="block border-b border-orange-500/20 bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 px-4 py-3 text-center text-sm font-bold tracking-wide text-black transition hover:brightness-110"
       >
-        🔥 GIANTS Community Session • 9 May 2026 • Antwerp • All Levels Welcome
+        🔥 Recent GIANTS Community Session • 9 May 2026 • Antwerp
       </a>
 
       {/* HEADER */}
@@ -396,12 +400,6 @@ export default function Home() {
 
             <h3 className="mt-3 text-3xl font-bold">Connection beyond sport</h3>
 
-            <p className="mt-4 max-w-3xl leading-8 text-zinc-300">
-              GIANTS also creates social and wellbeing-focused experiences
-              designed to encourage connection, reflection, inclusion, and
-              personal growth.
-            </p>
-
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {communityPrograms.map((program) => (
                 <ServiceCard
@@ -433,11 +431,6 @@ export default function Home() {
         <h2 className="text-3xl font-bold md:text-4xl">
           Events & Activities
         </h2>
-
-        <p className="mt-4 max-w-2xl text-zinc-300">
-          Regular community workouts, basketball-based activities, and social
-          experiences designed to bring people together.
-        </p>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {events.map((event) => (
@@ -490,49 +483,58 @@ export default function Home() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-black/85 md:text-lg">
-            Connect with the community, hear about upcoming workouts, and join
-            inclusive events built around movement, energy, and wellbeing.
+            Connect with the community, hear about upcoming workouts, ask about
+            services, or collaborate with GIANTS.
           </p>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          {/* ICONS ONLY */}
+          <div className="mt-10 flex flex-wrap justify-center gap-6 text-3xl">
             <a
               href="https://chat.whatsapp.com/FbHUNvazjmz91fsWDUx3Qx?mode=gi_t"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-zinc-700 bg-black px-6 py-3 font-semibold text-white transition hover:scale-105"
+              aria-label="WhatsApp"
+              className="rounded-full bg-black p-5 text-green-500 transition hover:scale-110"
             >
-              <FaWhatsapp className="text-green-500" size={22} />
-              WhatsApp
+              <FaWhatsapp />
+            </a>
+
+            <a
+              href={`mailto:${email}`}
+              aria-label="Email"
+              className="rounded-full bg-black p-5 text-orange-300 transition hover:scale-110"
+            >
+              <FaEnvelope />
             </a>
 
             <a
               href="https://www.instagram.com/decult1111?igsh=YWh1ZmJjNWt5amZ5"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-zinc-700 bg-black px-6 py-3 font-semibold text-white transition hover:scale-105"
+              aria-label="Instagram"
+              className="rounded-full bg-black p-5 text-fuchsia-400 transition hover:scale-110"
             >
-              <FaInstagram className="text-fuchsia-400" size={22} />
-              Instagram
+              <FaInstagram />
             </a>
 
             <a
               href="https://www.tiktok.com/@de.cult?_r=1&_t=ZG-95OKtugVZLM"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-zinc-700 bg-black px-6 py-3 font-semibold text-white transition hover:scale-105"
+              aria-label="TikTok"
+              className="rounded-full bg-black p-5 text-white transition hover:scale-110"
             >
-              <FaTiktok className="text-white" size={22} />
-              TikTok
+              <FaTiktok />
             </a>
 
             <a
-              href="https://www.facebook.com/share/1c4oNWvWC9/"
+              href={facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full border border-zinc-700 bg-black px-6 py-3 font-semibold text-white transition hover:scale-105"
+              aria-label="Facebook"
+              className="rounded-full bg-black p-5 text-blue-500 transition hover:scale-110"
             >
-              <FaFacebook className="text-blue-500" size={22} />
-              Facebook
+              <FaFacebook />
             </a>
           </div>
         </div>
@@ -571,17 +573,25 @@ export default function Home() {
                 href="https://chat.whatsapp.com/FbHUNvazjmz91fsWDUx3Qx?mode=gi_t"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open GIANTS WhatsApp community"
+                aria-label="WhatsApp"
                 className="text-green-500 transition hover:scale-110"
               >
                 <FaWhatsapp />
               </a>
 
               <a
+                href={`mailto:${email}`}
+                aria-label="Email"
+                className="text-orange-300 transition hover:scale-110"
+              >
+                <FaEnvelope />
+              </a>
+
+              <a
                 href="https://www.instagram.com/decult1111?igsh=YWh1ZmJjNWt5amZ5"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open GIANTS Instagram"
+                aria-label="Instagram"
                 className="text-fuchsia-400 transition hover:scale-110"
               >
                 <FaInstagram />
@@ -591,17 +601,17 @@ export default function Home() {
                 href="https://www.tiktok.com/@de.cult?_r=1&_t=ZG-95OKtugVZLM"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open GIANTS TikTok"
+                aria-label="TikTok"
                 className="text-white transition hover:scale-110"
               >
                 <FaTiktok />
               </a>
 
               <a
-                href="https://www.facebook.com/share/1c4oNWvWC9/"
+                href={facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Open GIANTS Facebook"
+                aria-label="Facebook"
                 className="text-blue-500 transition hover:scale-110"
               >
                 <FaFacebook />
