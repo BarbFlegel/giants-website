@@ -418,15 +418,22 @@ export default async function Home({
           </div>
 
           <div className="hidden items-center gap-8 md:flex">
-            <nav className="flex gap-8 text-lg font-medium text-zinc-200">
-              <Link href={`/${locale}#about`} className="transition hover:text-orange-400">{t.nav.about}</Link>
-              <Link href={`/${locale}#services`} className="transition hover:text-orange-400">{t.nav.services}</Link>
-              <Link href={`/${locale}#events`} className="transition hover:text-orange-400">{t.nav.events}</Link>
-              <Link href={`/${locale}#gallery`} className="transition hover:text-orange-400">{t.nav.gallery}</Link>
-              <Link href={`/${locale}#join`} className="transition hover:text-orange-400">{t.nav.join}</Link>
+            <nav className="hidden gap-7 text-base font-semibold text-zinc-200 md:flex">
+              <Link href={`/${locale}#about`} className="transition hover:text-orange-400">
+                {t.nav.about}
+              </Link>
+              <Link href={`/${locale}#services`} className="transition hover:text-orange-400">
+                {t.nav.services}
+              </Link>
+              <Link href={`/${locale}#events`} className="transition hover:text-orange-400">
+                {t.nav.events}
+              </Link>
+              <Link href={`/${locale}#join`} className="transition hover:text-orange-400">
+                {t.nav.join}
+              </Link>
             </nav>
 
-            <div className="flex gap-2 text-sm font-bold">
+            <div className="flex gap-2 text-xs font-bold">
               {locales.map((item) => (
                 <Link
                   key={item}
