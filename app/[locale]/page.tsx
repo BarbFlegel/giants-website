@@ -466,7 +466,7 @@ export default async function Home({
         </div>
       </section>
 
-      <section id="about" className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2 md:items-center">
+      <section id="about" className="scroll-mt-36 mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2 md:items-center">
         <div>
           <h2 className="text-3xl font-bold md:text-4xl">{t.about.title}</h2>
           <p className="mt-6 leading-8 text-zinc-300">{t.about.p1}</p>
@@ -484,7 +484,7 @@ export default async function Home({
         </div>
       </section>
 
-      <section id="services" className="bg-gradient-to-b from-black via-zinc-950 to-black px-6 py-24">
+      <section id="services" className="scroll-mt-36 bg-gradient-to-b from-black via-zinc-950 to-black px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <p className="text-sm font-bold uppercase tracking-[0.45em] text-orange-400">{t.services.eyebrow}</p>
 
@@ -525,7 +525,7 @@ export default async function Home({
         </div>
       </section>
 
-      <section id="events" className="mx-auto max-w-6xl px-6 py-20">
+      <section id="events" className="scroll-mt-36 mx-auto max-w-6xl px-6 py-20">
         <h2 className="text-3xl font-bold md:text-4xl">{t.events.title}</h2>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -554,7 +554,7 @@ export default async function Home({
         </div>
       </section>
 
-      <section id="gallery" className="bg-zinc-950 px-6 py-20">
+      <section id="gallery" className="scroll-mt-36 bg-zinc-950 px-6 py-20">
         <div className="mx-auto max-w-6xl">
           <p className="text-sm font-bold uppercase tracking-[0.45em] text-orange-400">{t.gallery.eyebrow}</p>
 
