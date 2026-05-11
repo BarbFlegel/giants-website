@@ -468,7 +468,7 @@ export default async function Home({
 
       <section id="about" className="scroll-mt-36 mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2 md:items-center">
         <div>
-          <h2 className="text-3xl font-bold md:text-4xl">{t.about.title}</h2>
+          <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl">{t.about.title}</h2>
           <p className="mt-6 leading-8 text-zinc-300">{t.about.p1}</p>
           <p className="mt-4 leading-8 text-zinc-300">{t.about.p2}</p>
 
@@ -488,7 +488,7 @@ export default async function Home({
         <div className="mx-auto max-w-6xl">
           <p className="text-sm font-bold uppercase tracking-[0.45em] text-orange-400">{t.services.eyebrow}</p>
 
-          <h2 className="mt-3 text-3xl font-bold md:text-5xl">{t.services.title}</h2>
+          <h2 className="mt-3 text-4xl font-extrabold tracking-tight md:text-6xl">{t.services.title}</h2>
 
           <p className="mt-4 max-w-4xl text-lg leading-8 text-zinc-300">
             {t.services.intro1}
@@ -526,7 +526,7 @@ export default async function Home({
       </section>
 
       <section id="events" className="scroll-mt-36 mx-auto max-w-6xl px-6 py-20">
-        <h2 className="text-3xl font-bold md:text-4xl">{t.events.title}</h2>
+        <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl">{t.events.title}</h2>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {events.map((event) => (
@@ -558,7 +558,7 @@ export default async function Home({
         <div className="mx-auto max-w-6xl">
           <p className="text-sm font-bold uppercase tracking-[0.45em] text-orange-400">{t.gallery.eyebrow}</p>
 
-          <h2 className="mt-3 text-3xl font-bold md:text-4xl">{t.gallery.title}</h2>
+          <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl">{t.gallery.title}</h2>
 
           <p className="mt-4 max-w-3xl leading-8 text-zinc-300">{t.gallery.text}</p>
 
