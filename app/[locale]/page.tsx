@@ -487,20 +487,20 @@ function SectionHeader({
   return (
     <div className="mx-auto max-w-4xl text-center md:mx-0 md:text-left">
       <p
-        className={`text-xl font-black uppercase tracking-[0.35em] md:text-2xl ${
+        className={`text-sm font-black uppercase tracking-[0.3em] sm:text-base md:text-xl ${
           dark ? "text-orange-400" : "text-black/70"
         }`}
       >
         {label}
       </p>
 
-      <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
+      <h2 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
         {title}
       </h2>
 
       {description && (
         <p
-          className={`mt-4 max-w-3xl text-base leading-8 md:text-lg ${
+          className={`mt-4 max-w-3xl text-base leading-7 sm:text-lg sm:leading-8 ${
             dark ? "text-zinc-300" : "text-black/85"
           }`}
         >
@@ -927,7 +927,7 @@ export default async function Home({
 
       <section
         id="join"
-        className="scroll-mt-40 bg-gradient-to-b from-orange-500 to-orange-600 px-6 py-20 text-black"
+        className="scroll-mt-40 bg-gradient-to-b from-orange-500 to-orange-600 px-6 py-14 text-black sm:py-16 md:py-20"
       >
         <div className="mx-auto max-w-6xl">
           <div className="max-w-3xl text-center md:text-left">
@@ -938,13 +938,12 @@ export default async function Home({
               dark={false}
             />
 
-            <div className="mt-10 flex flex-wrap justify-center gap-5 text-2xl md:justify-start">
-              <a
+          <div className="mt-8 flex flex-wrap justify-center gap-4 text-xl sm:text-2xl md:justify-start">              <a
                 href="https://chat.whatsapp.com/FbHUNvazjmz91fsWDUx3Qx?mode=gi_t"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="rounded-full bg-black p-4 text-green-500 transition hover:scale-110"
+                className="rounded-full bg-black p-3 sm:p-4 text-green-500 transition hover:scale-110"
               >
                 <FaWhatsapp />
               </a>
@@ -962,7 +961,7 @@ export default async function Home({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="rounded-full bg-black p-4 text-fuchsia-400 transition hover:scale-110"
+                className="rounded-full bg-black p-3 sm:p-4 text-fuchsia-400 transition hover:scale-110"
               >
                 <FaInstagram />
               </a>
@@ -972,7 +971,7 @@ export default async function Home({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
-                className="rounded-full bg-black p-4 text-white transition hover:scale-110"
+                className="rounded-full bg-black p-3 sm:p-4 text-white transition hover:scale-110"
               >
                 <FaTiktok />
               </a>
@@ -982,7 +981,7 @@ export default async function Home({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="rounded-full bg-black p-4 text-blue-500 transition hover:scale-110"
+                className="rounded-full bg-black p-3 sm:p-4 text-blue-500 transition hover:scale-110"
               >
                 <FaFacebook />
               </a>
