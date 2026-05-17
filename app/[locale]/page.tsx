@@ -12,7 +12,7 @@ import {
 const locales = ["en", "fr", "nl", "de"] as const;
 type Locale = (typeof locales)[number];
 
-const facebookUrl = "https://www.facebook.com/share/1GjwX7uSzo/";
+const facebookUrl = "https://www.facebook.com/share/1c4oNWvWC9/";
 const email = "giants.decult@gmail.com";
 
 const translations = {
@@ -485,22 +485,22 @@ function SectionHeader({
   dark?: boolean;
 }) {
   return (
-    <div className="mx-auto max-w-4xl text-center md:mx-0 md:text-left">
+    <div className="mx-auto max-w-4xl text-center">
       <p
-        className={`text-sm font-black uppercase tracking-[0.3em] sm:text-base md:text-xl ${
+        className={`text-xl font-black uppercase tracking-[0.35em] md:text-2xl ${
           dark ? "text-orange-400" : "text-black/70"
         }`}
       >
         {label}
       </p>
 
-      <h2 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
+      <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
         {title}
       </h2>
 
       {description && (
         <p
-          className={`mt-4 max-w-3xl text-base leading-7 sm:text-lg sm:leading-8 ${
+          className={`mt-4 max-w-3xl text-base leading-8 md:text-lg ${
             dark ? "text-zinc-300" : "text-black/85"
           }`}
         >
@@ -806,8 +806,8 @@ export default async function Home({
                 {t.community.introTitle}
               </p>
 
-              <p className="mx-auto mt-3 max-w-3xl text-lg leading-8 text-zinc-300 md:mx-0">
-                {t.community.introText}
+              <p className="mx-auto mt-3 max-w-5xl text-base leading-8 text-zinc-300 md:mx-0 md:text-lg md:whitespace-nowrap">
+  c              {t.community.introText}
               </p>
             </div>
 
@@ -929,21 +929,25 @@ export default async function Home({
         id="join"
         className="scroll-mt-40 bg-gradient-to-b from-orange-500 to-orange-600 px-6 py-14 text-black sm:py-16 md:py-20"
       >
-        <div className="mx-auto max-w-6xl">
-          <div className="max-w-3xl text-center md:text-left">
+        <div className="mx-auto flex max-w-6xl justify-center">
+          <div className="flex w-full max-w-3xl flex-col items-center text-center">
             <SectionHeader
               label={t.labels.join}
               title={t.sectionTitles.join}
-              description={t.join.text}
               dark={false}
             />
 
-          <div className="mt-8 flex flex-wrap justify-center gap-4 text-xl sm:text-2xl md:justify-start">              <a
+            <p className="mt-5 max-w-2xl text-base leading-8 text-black/90 sm:text-lg">
+              {t.join.text}
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-5 text-2xl">
+              <a
                 href="https://chat.whatsapp.com/FbHUNvazjmz91fsWDUx3Qx?mode=gi_t"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="rounded-full bg-black p-3 sm:p-4 text-green-500 transition hover:scale-110"
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-black text-green-500 transition hover:scale-110"
               >
                 <FaWhatsapp />
               </a>
@@ -951,7 +955,7 @@ export default async function Home({
               <a
                 href={`mailto:${email}`}
                 aria-label="Email"
-                className="rounded-full bg-black p-4 text-orange-300 transition hover:scale-110"
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-black text-orange-300 transition hover:scale-110"
               >
                 <FaEnvelope />
               </a>
@@ -961,7 +965,7 @@ export default async function Home({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="rounded-full bg-black p-3 sm:p-4 text-fuchsia-400 transition hover:scale-110"
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-black text-fuchsia-400 transition hover:scale-110"
               >
                 <FaInstagram />
               </a>
@@ -971,7 +975,7 @@ export default async function Home({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
-                className="rounded-full bg-black p-3 sm:p-4 text-white transition hover:scale-110"
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-black text-white transition hover:scale-110"
               >
                 <FaTiktok />
               </a>
@@ -981,7 +985,7 @@ export default async function Home({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="rounded-full bg-black p-3 sm:p-4 text-blue-500 transition hover:scale-110"
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-black text-blue-500 transition hover:scale-110"
               >
                 <FaFacebook />
               </a>
@@ -989,7 +993,7 @@ export default async function Home({
           </div>
         </div>
       </section>
-
+      
       <footer className="border-t border-zinc-800 bg-black px-6 py-8 text-white">
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left">
           <div className="flex items-center gap-4">
