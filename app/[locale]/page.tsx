@@ -19,7 +19,7 @@ const translations = {
   en: {
     nav: {
       about: "About",
-      services: "Services",
+      services: "Experiences",
       community: "Community",
       events: "Events",
       gallery: "Gallery",
@@ -27,7 +27,7 @@ const translations = {
     },
     labels: {
       about: "About",
-      services: "Services",
+      services: "Experiences",
       community: "Community",
       events: "Events",
       gallery: "Gallery",
@@ -35,7 +35,7 @@ const translations = {
     },
     sectionTitles: {
       about: "Movement through community",
-      services: "Programs & experiences",
+      services: "Sport, events & immersive experiences",
       community: "Social impact initiatives",
       events: "Featured sessions",
       gallery: "Community moments",
@@ -118,8 +118,7 @@ const translations = {
     },
     sectionTitles: {
       about: "Le mouvement par la communauté",
-      services: "Programmes & expériences",
-      community: "Initiatives à impact social",
+      services: "Sport, événements & expériences immersives",      community: "Initiatives à impact social",
       events: "Sessions en avant",
       gallery: "Moments communautaires",
       join: "Rejoindre le mouvement",
@@ -201,7 +200,7 @@ const translations = {
     },
     sectionTitles: {
       about: "Beweging via community",
-      services: "Programma’s & ervaringen",
+      services: "Sport, events & belevingen",
       community: "Sociale impact initiatieven",
       events: "Uitgelichte sessies",
       gallery: "Community momenten",
@@ -284,7 +283,7 @@ const translations = {
     },
     sectionTitles: {
       about: "Bewegung durch Gemeinschaft",
-      services: "Programme & Erlebnisse",
+      services: "Sport, events & belevingen",
       community: "Initiativen mit sozialer Wirkung",
       events: "Ausgewählte Sessions",
       gallery: "Community-Momente",
@@ -363,7 +362,23 @@ const serviceData = [
     pricing: ["Group: €10–€15", "1-on-1: €20–€80", "Monthly pass: €30–€50"],
   },
   {
-    title: "Basketball Skills & Conditioning",
+    title: "GIANTS Birthday Experience",
+    description:
+      "A high-energy birthday concept combining basketball, movement games, team challenges, music, and unforgettable GIANTS moments.",
+    includes: [
+      "Birthday game flow",
+      "Basketball-inspired challenges",
+      "Team games & mini competitions",
+      "MVP moment / birthday spotlight",
+      "Optional flyer and theme concept",
+    ],
+    pricing: [
+      "Custom pricing based on duration, location, and group size",
+      "Trial session available",
+    ],
+  },
+  {
+    title: "Basketball Experience",
     description:
       "Skill-focused training to improve ball handling, shooting, footwork, game IQ, and physical conditioning.",
     includes: [
@@ -375,7 +390,7 @@ const serviceData = [
     pricing: ["Group: €12–€20", "Private: €30–€90", "Team: €100–€180"],
   },
   {
-    title: "Corporate Team Building",
+    title: "Team Building Experience",
     description:
       "Interactive team experiences using physical challenges and structured exercises to improve communication, trust, and performance.",
     includes: [
@@ -411,7 +426,7 @@ const serviceData = [
     pricing: ["Weekly camp: €40–€150 per child"],
   },
   {
-    title: "Sports & Community Events",
+    title: "Community Sport Events",
     description:
       "Organized events combining sport, music, food, and community engagement.",
     includes: ["Open workouts", "Basketball games", "Social experiences"],
@@ -797,6 +812,34 @@ export default async function Home({
             ))}
           </div>
 
+          <div className="mt-12 rounded-3xl border border-orange-500/30 bg-gradient-to-br from-orange-500/20 via-zinc-950 to-black p-8 text-center md:text-left">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-orange-400">
+              Birthday Experience
+            </p>
+
+            <h3 className="mt-4 text-3xl font-bold text-white">
+              Celebrate like a GIANT
+            </h3>
+
+            <p className="mt-4 max-w-3xl text-base leading-8 text-zinc-300 md:text-lg">
+              The GIANTS birthday concept turns a celebration into a full active experience:
+              basketball-inspired games, team challenges, music, MVP moments, and high-energy
+              memories for kids, teens, and groups.
+            </p>
+
+            <div className="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">
+              {["Train", "Connect", "Celebrate", "Play like a GIANT"].map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-orange-500/30 bg-black/40 px-4 py-2 text-sm font-bold text-orange-300"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+          
+
           <div
             id="community"
             className="scroll-mt-40 mt-24 border-t border-orange-500/30 pt-16"
@@ -807,7 +850,7 @@ export default async function Home({
               </p>
 
               <p className="mx-auto mt-3 max-w-5xl text-base leading-8 text-zinc-300 md:mx-0 md:text-lg md:whitespace-nowrap">
-  c              {t.community.introText}
+                {t.community.introText}
               </p>
             </div>
 
