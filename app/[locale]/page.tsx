@@ -516,8 +516,7 @@ export default async function Home({
                   : "border-zinc-800 hover:border-orange-500/60"
               }`}
             >
-              <div className="relative h-[430px] w-full bg-black md:h-[520px]">
-                <Image
+            <div className="relative h-[260px] sm:h-[360px] md:h-[520px] w-full overflow-hidden bg-black">                <Image
                   src={event.image}
                   alt={event.title}
                   fill
