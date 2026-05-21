@@ -58,6 +58,7 @@ export type Experience = {
   description: string;
   includes: string[];
   pricing: string[];
+  tags?: string[];
   featured?: boolean;
 };
 
@@ -66,6 +67,12 @@ export type CommunityProgram = {
   description: string;
   includes: string[];
   pricing: string[];
+  tags?: string[];
+};
+
+export type HeroStat = {
+  number: string;
+  label: string;
 };
 
 export const translations = {
@@ -76,7 +83,7 @@ export const translations = {
       community: "Community",
       events: "Events",
       gallery: "Gallery",
-      join: "Join",
+      join: "Collaborate",
     },
     labels: {
       about: "About",
@@ -84,14 +91,14 @@ export const translations = {
       community: "Community",
       events: "Events",
       gallery: "Gallery",
-      join: "Join",
+      join: "Connect",
       birthday: "Birthday Experience",
     },
     sectionTitles: {
       about: "Movement through community",
       experiences: "Sport, events & immersive experiences",
       community: "Social impact initiatives",
-      events: "Upcoming & featured sessions",
+      events: "Upcoming & featured experiences",
       gallery: "Community moments",
       join: "Join the movement",
       birthday: "Celebrate like a GIANT",
@@ -101,40 +108,56 @@ export const translations = {
       eyebrow: "DE CULT PRESENTS",
       title: "GIANTS",
       subtitle: "Respect What Feeds Your Soul",
-      text: "A community-based initiative built around movement, connection, basketball, wellbeing, and immersive social experiences.",
+      brandStatement:
+        "More than training — GIANTS creates immersive sport and community experiences.",
+      text: "A community-based movement built around basketball, movement, games, wellbeing, and unforgettable shared moments.",
       join: "Join the Movement",
-      learn: "Learn More",
-      proof: ["Open to all levels", "Basketball · Movement · Wellbeing", "Community-first energy"],
+      learn: "Explore Experiences",
+      proof: [
+        "Open to all levels",
+        "Basketball experiences",
+        "Movement • Games • Events",
+      ],
+      stats: [
+        { number: "100+", label: "Participants" },
+        { number: "10+", label: "Community experiences" },
+        { number: "4", label: "Experience formats" },
+      ],
     },
     about: {
-      p1: "GIANTS is a movement-driven initiative focused on building discipline, confidence, teamwork, and wellbeing through sport and community.",
-      p2: "We use basketball, functional training, social events, birthdays, and community activities as tools to connect and uplift people from all backgrounds.",
+      p1: "GIANTS is a movement-driven initiative built around discipline, confidence, teamwork, and community energy.",
+      p2: "Through basketball, movement games, social events, birthday concepts, and community activities, GIANTS creates spaces where people can connect, move, celebrate, and grow together.",
       bullets: [
-        "Accessible to all levels",
+        "Open to all levels",
         "Community-focused",
         "Sport, games & experiences",
         "Mental & physical wellbeing",
-        "Open to all ages",
+        "Built for connection and energy",
       ],
     },
     experiences: {
-      intro1: "GIANTS combines sport, movement, games, and community energy into memorable experiences.",
-      intro2: "Paid sessions and private/corporate experiences help support inclusive activities for vulnerable groups.",
+      intro1:
+        "GIANTS turns sport, movement, games, and community energy into memorable experiences.",
+      intro2:
+        "Private, group, and corporate experiences help support inclusive activities for vulnerable groups.",
       accessTitle: "Community access",
-      accessText: "Selected activities can be offered free of charge for refugees, children’s homes, and community organizations, depending on availability and partnership support.",
-      includes: "Includes:",
-      pricing: "Pricing:",
+      accessText:
+        "Selected activities can be offered free of charge for refugees, children’s homes, and community organizations, depending on availability and partnership support.",
+      includes: "Experience includes:",
+      pricing: "Offer:",
       mottoTitle: "GIANTS is more than training.",
-      mottoText: "It’s a space to grow, connect, celebrate, and elevate — physically and mentally.",
+      mottoText: "A space to train, connect, celebrate, and grow together.",
     },
     birthday: {
-      intro: "The GIANTS birthday concept turns a celebration into a full active experience: basketball-inspired games, team challenges, music, MVP moments, and high-energy memories for kids, teens, and groups.",
+      intro:
+        "The GIANTS birthday concept turns a celebration into a full active experience: basketball-inspired games, team challenges, music, MVP moments, and high-energy memories for kids, teens, and groups.",
       tags: ["Train", "Connect", "Celebrate", "Play like a GIANT"],
-      cta: "Ask about birthday sessions",
+      cta: "Ask about birthday experiences",
     },
     community: {
       introTitle: "Beyond training",
-      introText: "These programs focus on connection, reflection, social inclusion, and wellbeing outside of traditional sport.",
+      introText:
+        "These experiences focus on connection, reflection, social inclusion, and wellbeing beyond traditional sport.",
     },
     events: {
       birthday: "Luke Othello’s 9th Birthday",
@@ -151,12 +174,12 @@ export const translations = {
       comingSoon: "Coming soon",
     },
     gallery: {
-      text: "Real photos from GIANTS sessions and community activities.",
+      text: "Real moments from GIANTS experiences, sessions, and community activities.",
       one: "Community basketball moments",
-      two: "Training and movement session",
+      two: "Training and movement energy",
     },
     join: {
-      text: "Join the community, ask about sessions, or collaborate with us.",
+      text: "Join a session, ask about a birthday or team experience, or collaborate with the GIANTS community.",
     },
     footer: {
       copyright: "© 2026 GIANTS",
@@ -178,14 +201,14 @@ export const translations = {
       community: "Communauté",
       events: "Événements",
       gallery: "Galerie",
-      join: "Rejoindre",
+      join: "Contact",
       birthday: "Expérience anniversaire",
     },
     sectionTitles: {
       about: "Le mouvement par la communauté",
       experiences: "Sport, événements & expériences immersives",
       community: "Initiatives à impact social",
-      events: "Sessions à venir & en avant",
+      events: "Expériences à venir & en avant",
       gallery: "Moments communautaires",
       join: "Rejoindre le mouvement",
       birthday: "Célébrer comme un GIANT",
@@ -195,40 +218,56 @@ export const translations = {
       eyebrow: "DE CULT PRÉSENTE",
       title: "GIANTS",
       subtitle: "Respect What Feeds Your Soul",
-      text: "Une initiative communautaire construite autour du mouvement, de la connexion, du basketball, du bien-être et d’expériences sociales immersives.",
+      brandStatement:
+        "Plus qu’un entraînement — GIANTS crée des expériences sportives et communautaires immersives.",
+      text: "Une initiative communautaire construite autour du basketball, du mouvement, des jeux, du bien-être et de moments partagés mémorables.",
       join: "Rejoindre le mouvement",
-      learn: "En savoir plus",
-      proof: ["Accessible à tous", "Basketball · Mouvement · Bien-être", "Énergie communautaire"],
+      learn: "Explorer les expériences",
+      proof: [
+        "Accessible à tous les niveaux",
+        "Expériences basketball",
+        "Mouvement • Jeux • Events",
+      ],
+      stats: [
+        { number: "100+", label: "Participants" },
+        { number: "10+", label: "Expériences communautaires" },
+        { number: "4", label: "Formats d’expérience" },
+      ],
     },
     about: {
-      p1: "GIANTS est une initiative portée par le mouvement, axée sur la discipline, la confiance, l’esprit d’équipe et le bien-être à travers le sport et la communauté.",
-      p2: "Nous utilisons le basketball, l’entraînement fonctionnel, les événements sociaux, les anniversaires et les activités communautaires comme outils pour connecter et soutenir des personnes de tous horizons.",
+      p1: "GIANTS est une initiative portée par le mouvement, construite autour de la discipline, de la confiance, de l’esprit d’équipe et de l’énergie communautaire.",
+      p2: "À travers le basketball, les jeux de mouvement, les événements sociaux, les concepts d’anniversaire et les activités communautaires, GIANTS crée des espaces pour se connecter, bouger, célébrer et grandir ensemble.",
       bullets: [
         "Accessible à tous les niveaux",
         "Axé sur la communauté",
         "Sport, jeux & expériences",
         "Bien-être mental et physique",
-        "Ouvert à tous les âges",
+        "Conçu pour la connexion et l’énergie",
       ],
     },
     experiences: {
-      intro1: "GIANTS combine sport, mouvement, jeux et énergie communautaire dans des expériences mémorables.",
-      intro2: "Les sessions payantes et expériences privées/corporate aident à soutenir des activités inclusives pour les groupes vulnérables.",
+      intro1:
+        "GIANTS transforme le sport, le mouvement, les jeux et l’énergie communautaire en expériences mémorables.",
+      intro2:
+        "Les expériences privées, de groupe et corporate aident à soutenir des activités inclusives pour les groupes vulnérables.",
       accessTitle: "Accès communautaire",
-      accessText: "Certaines activités peuvent être proposées gratuitement aux réfugiés, foyers d’enfants et organisations communautaires, selon les disponibilités et le soutien des partenaires.",
-      includes: "Inclus :",
-      pricing: "Tarifs :",
+      accessText:
+        "Certaines activités peuvent être proposées gratuitement aux réfugiés, foyers d’enfants et organisations communautaires, selon les disponibilités et le soutien des partenaires.",
+      includes: "L’expérience inclut :",
+      pricing: "Offre :",
       mottoTitle: "GIANTS est plus qu’un entraînement.",
-      mottoText: "C’est un espace pour grandir, se connecter, célébrer et s’élever — physiquement et mentalement.",
+      mottoText: "Un espace pour s’entraîner, se connecter, célébrer et grandir ensemble.",
     },
     birthday: {
-      intro: "Le concept anniversaire GIANTS transforme une fête en expérience active complète : jeux inspirés du basketball, défis en équipe, musique, moments MVP et souvenirs pleins d’énergie.",
+      intro:
+        "Le concept anniversaire GIANTS transforme une fête en expérience active complète : jeux inspirés du basketball, défis en équipe, musique, moments MVP et souvenirs pleins d’énergie.",
       tags: ["Train", "Connect", "Celebrate", "Play like a GIANT"],
-      cta: "Demander une session anniversaire",
+      cta: "Demander une expérience anniversaire",
     },
     community: {
       introTitle: "Au-delà de l’entraînement",
-      introText: "Ces programmes mettent l’accent sur la connexion, la réflexion, l’inclusion sociale et le bien-être au-delà du sport traditionnel.",
+      introText:
+        "Ces expériences mettent l’accent sur la connexion, la réflexion, l’inclusion sociale et le bien-être au-delà du sport traditionnel.",
     },
     events: {
       birthday: "9e anniversaire de Luke Othello",
@@ -245,12 +284,12 @@ export const translations = {
       comingSoon: "Bientôt",
     },
     gallery: {
-      text: "Photos réelles des sessions GIANTS et des activités communautaires.",
+      text: "Moments réels des expériences GIANTS, sessions et activités communautaires.",
       one: "Moments de basketball communautaire",
-      two: "Session d’entraînement et de mouvement",
+      two: "Énergie d’entraînement et de mouvement",
     },
     join: {
-      text: "Rejoignez la communauté, posez vos questions sur les sessions ou collaborez avec nous.",
+      text: "Rejoignez une session, demandez une expérience anniversaire ou team building, ou collaborez avec la communauté GIANTS.",
     },
     footer: {
       copyright: "© 2026 GIANTS",
@@ -272,14 +311,14 @@ export const translations = {
       community: "Community",
       events: "Events",
       gallery: "Galerij",
-      join: "Meedoen",
+      join: "Contact",
       birthday: "Verjaardagservaring",
     },
     sectionTitles: {
       about: "Beweging via community",
       experiences: "Sport, events & belevingen",
       community: "Sociale impact initiatieven",
-      events: "Komende & uitgelichte sessies",
+      events: "Komende & uitgelichte ervaringen",
       gallery: "Community momenten",
       join: "Word deel van de beweging",
       birthday: "Vier als een GIANT",
@@ -289,40 +328,56 @@ export const translations = {
       eyebrow: "DE CULT PRESENTEERT",
       title: "GIANTS",
       subtitle: "Respect What Feeds Your Soul",
-      text: "Een community-initiatief rond beweging, verbinding, basketbal, welzijn en immersieve sociale ervaringen.",
+      brandStatement:
+        "Meer dan training — GIANTS creëert immersieve sport- en community-ervaringen.",
+      text: "Een community-initiatief rond basketbal, beweging, games, welzijn en onvergetelijke gedeelde momenten.",
       join: "Word deel van de beweging",
-      learn: "Meer info",
-      proof: ["Toegankelijk voor iedereen", "Basketbal · Beweging · Welzijn", "Community-first energie"],
+      learn: "Ontdek ervaringen",
+      proof: [
+        "Open voor alle niveaus",
+        "Basketbalervaringen",
+        "Beweging • Games • Events",
+      ],
+      stats: [
+        { number: "100+", label: "Deelnemers" },
+        { number: "10+", label: "Community-ervaringen" },
+        { number: "4", label: "Ervaringsformats" },
+      ],
     },
     about: {
-      p1: "GIANTS is een bewegingsgericht initiatief dat discipline, zelfvertrouwen, teamwork en welzijn opbouwt via sport en community.",
-      p2: "We gebruiken basketbal, functionele training, sociale events, verjaardagen en community-activiteiten om mensen te verbinden en te versterken.",
+      p1: "GIANTS is een bewegingsgericht initiatief rond discipline, zelfvertrouwen, teamwork en community-energie.",
+      p2: "Via basketbal, bewegingsgames, sociale events, verjaardagsconcepten en community-activiteiten creëert GIANTS ruimtes om te verbinden, bewegen, vieren en samen te groeien.",
       bullets: [
-        "Toegankelijk voor alle niveaus",
+        "Open voor alle niveaus",
         "Community-gericht",
         "Sport, games & ervaringen",
         "Mentaal en fysiek welzijn",
-        "Open voor alle leeftijden",
+        "Gebouwd voor verbinding en energie",
       ],
     },
     experiences: {
-      intro1: "GIANTS combineert sport, beweging, games en community-energie in memorabele ervaringen.",
-      intro2: "Betaalde sessies en privé/corporate ervaringen helpen inclusieve activiteiten voor kwetsbare groepen te ondersteunen.",
+      intro1:
+        "GIANTS verandert sport, beweging, games en community-energie in memorabele ervaringen.",
+      intro2:
+        "Privé-, groeps- en corporate ervaringen ondersteunen inclusieve activiteiten voor kwetsbare groepen.",
       accessTitle: "Community access",
-      accessText: "Geselecteerde activiteiten kunnen gratis worden aangeboden aan vluchtelingen, kinderhuizen en community-organisaties, afhankelijk van beschikbaarheid en partnersteun.",
-      includes: "Inbegrepen:",
-      pricing: "Prijzen:",
+      accessText:
+        "Geselecteerde activiteiten kunnen gratis worden aangeboden aan vluchtelingen, kinderhuizen en community-organisaties, afhankelijk van beschikbaarheid en partnersteun.",
+      includes: "Ervaring omvat:",
+      pricing: "Aanbod:",
       mottoTitle: "GIANTS is meer dan training.",
-      mottoText: "Het is een ruimte om te groeien, verbinden, vieren en jezelf te verheffen — fysiek en mentaal.",
+      mottoText: "Een ruimte om te trainen, verbinden, vieren en samen te groeien.",
     },
     birthday: {
-      intro: "Het GIANTS-verjaardagsconcept maakt van een feest een actieve totaalervaring: basketbalgerichte games, teamuitdagingen, muziek, MVP-momenten en onvergetelijke energie.",
+      intro:
+        "Het GIANTS-verjaardagsconcept maakt van een feest een actieve totaalervaring: basketbalgerichte games, teamuitdagingen, muziek, MVP-momenten en onvergetelijke energie.",
       tags: ["Train", "Connect", "Celebrate", "Play like a GIANT"],
-      cta: "Vraag naar verjaardagssessies",
+      cta: "Vraag naar verjaardagservaringen",
     },
     community: {
       introTitle: "Voorbij training",
-      introText: "Deze programma’s focussen op verbinding, reflectie, sociale inclusie en welzijn buiten traditionele sport.",
+      introText:
+        "Deze ervaringen focussen op verbinding, reflectie, sociale inclusie en welzijn buiten traditionele sport.",
     },
     events: {
       birthday: "Luke Othello’s 9e verjaardag",
@@ -339,12 +394,12 @@ export const translations = {
       comingSoon: "Binnenkort",
     },
     gallery: {
-      text: "Echte foto’s van GIANTS-sessies en community-activiteiten.",
+      text: "Echte momenten uit GIANTS-ervaringen, sessies en community-activiteiten.",
       one: "Community basketbalmomenten",
-      two: "Training en bewegingssessie",
+      two: "Training- en bewegingsenergie",
     },
     join: {
-      text: "Word deel van de community, vraag naar sessies of werk met ons samen.",
+      text: "Word deel van de community, vraag naar een verjaardags- of teamervaring, of werk samen met GIANTS.",
     },
     footer: {
       copyright: "© 2026 GIANTS",
@@ -366,14 +421,14 @@ export const translations = {
       community: "Community",
       events: "Events",
       gallery: "Galerie",
-      join: "Mitmachen",
+      join: "Kontakt",
       birthday: "Geburtstagserlebnis",
     },
     sectionTitles: {
       about: "Bewegung durch Gemeinschaft",
       experiences: "Sport, Events & Erlebnisse",
       community: "Initiativen mit sozialer Wirkung",
-      events: "Kommende & ausgewählte Sessions",
+      events: "Kommende & ausgewählte Erlebnisse",
       gallery: "Community-Momente",
       join: "Werde Teil der Bewegung",
       birthday: "Feiere wie ein GIANT",
@@ -383,40 +438,56 @@ export const translations = {
       eyebrow: "DE CULT PRÄSENTIERT",
       title: "GIANTS",
       subtitle: "Respect What Feeds Your Soul",
-      text: "Eine Community-Initiative rund um Bewegung, Verbindung, Basketball, Wohlbefinden und immersive soziale Erlebnisse.",
+      brandStatement:
+        "Mehr als Training — GIANTS schafft immersive Sport- und Community-Erlebnisse.",
+      text: "Eine Community-Initiative rund um Basketball, Bewegung, Spiele, Wohlbefinden und unvergessliche gemeinsame Momente.",
       join: "Werde Teil der Bewegung",
-      learn: "Mehr erfahren",
-      proof: ["Für alle zugänglich", "Basketball · Bewegung · Wohlbefinden", "Community-first Energie"],
+      learn: "Erlebnisse entdecken",
+      proof: [
+        "Offen für alle Niveaus",
+        "Basketball-Erlebnisse",
+        "Bewegung • Spiele • Events",
+      ],
+      stats: [
+        { number: "100+", label: "Teilnehmer" },
+        { number: "10+", label: "Community-Erlebnisse" },
+        { number: "4", label: "Erlebnisformate" },
+      ],
     },
     about: {
-      p1: "GIANTS ist eine bewegungsorientierte Initiative, die Disziplin, Selbstvertrauen, Teamgeist und Wohlbefinden durch Sport und Community fördert.",
-      p2: "Wir nutzen Basketball, funktionelles Training, soziale Events, Geburtstage und Community-Aktivitäten, um Menschen zu verbinden und zu stärken.",
+      p1: "GIANTS ist eine bewegungsorientierte Initiative rund um Disziplin, Selbstvertrauen, Teamgeist und Community-Energie.",
+      p2: "Durch Basketball, Bewegungsspiele, soziale Events, Geburtstagskonzepte und Community-Aktivitäten schafft GIANTS Räume, um sich zu verbinden, zu bewegen, zu feiern und gemeinsam zu wachsen.",
       bullets: [
-        "Für alle Niveaus zugänglich",
+        "Offen für alle Niveaus",
         "Community-orientiert",
         "Sport, Spiele & Erlebnisse",
         "Mentales und körperliches Wohlbefinden",
-        "Offen für alle Altersgruppen",
+        "Gebaut für Verbindung und Energie",
       ],
     },
     experiences: {
-      intro1: "GIANTS verbindet Sport, Bewegung, Spiele und Community-Energie zu besonderen Erlebnissen.",
-      intro2: "Bezahlte Sessions und private/corporate Erlebnisse unterstützen inklusive Aktivitäten für vulnerable Gruppen.",
+      intro1:
+        "GIANTS macht aus Sport, Bewegung, Spielen und Community-Energie besondere Erlebnisse.",
+      intro2:
+        "Private, Gruppen- und Corporate-Erlebnisse unterstützen inklusive Aktivitäten für vulnerable Gruppen.",
       accessTitle: "Community-Zugang",
-      accessText: "Ausgewählte Aktivitäten können für Geflüchtete, Kinderheime und Community-Organisationen kostenlos angeboten werden, abhängig von Verfügbarkeit und Partnerunterstützung.",
-      includes: "Enthält:",
-      pricing: "Preise:",
+      accessText:
+        "Ausgewählte Aktivitäten können für Geflüchtete, Kinderheime und Community-Organisationen kostenlos angeboten werden, abhängig von Verfügbarkeit und Partnerunterstützung.",
+      includes: "Erlebnis umfasst:",
+      pricing: "Angebot:",
       mottoTitle: "GIANTS ist mehr als Training.",
-      mottoText: "Es ist ein Raum zum Wachsen, Verbinden, Feiern und Weiterkommen — körperlich und mental.",
+      mottoText: "Ein Raum zum Trainieren, Verbinden, Feiern und gemeinsamen Wachsen.",
     },
     birthday: {
-      intro: "Das GIANTS-Geburtstagskonzept macht aus einer Feier ein aktives Erlebnis: basketball-inspirierte Spiele, Team-Challenges, Musik, MVP-Momente und unvergessliche Energie.",
+      intro:
+        "Das GIANTS-Geburtstagskonzept macht aus einer Feier ein aktives Erlebnis: basketball-inspirierte Spiele, Team-Challenges, Musik, MVP-Momente und unvergessliche Energie.",
       tags: ["Train", "Connect", "Celebrate", "Play like a GIANT"],
-      cta: "Geburtstagssession anfragen",
+      cta: "Geburtstagserlebnis anfragen",
     },
     community: {
       introTitle: "Über Training hinaus",
-      introText: "Diese Programme fördern Verbindung, Reflexion, soziale Inklusion und Wohlbefinden außerhalb des klassischen Sports.",
+      introText:
+        "Diese Erlebnisse fördern Verbindung, Reflexion, soziale Inklusion und Wohlbefinden außerhalb des klassischen Sports.",
     },
     events: {
       birthday: "Luke Othellos 9. Geburtstag",
@@ -433,12 +504,12 @@ export const translations = {
       comingSoon: "Bald",
     },
     gallery: {
-      text: "Echte Fotos aus GIANTS-Sessions und Community-Aktivitäten.",
+      text: "Echte Momente aus GIANTS-Erlebnissen, Sessions und Community-Aktivitäten.",
       one: "Community-Basketball-Momente",
-      two: "Training und Bewegungssession",
+      two: "Trainings- und Bewegungsenergie",
     },
     join: {
-      text: "Werde Teil der Community, frage nach Sessions oder arbeite mit uns zusammen.",
+      text: "Werde Teil der Community, frage nach einem Geburtstags- oder Team-Erlebnis oder arbeite mit GIANTS zusammen.",
     },
     footer: {
       copyright: "© 2026 GIANTS",
@@ -449,7 +520,8 @@ export const translations = {
 export const experienceData: Experience[] = [
   {
     title: "GIANTS Birthday Experience",
-    description: "A high-energy birthday concept combining basketball, movement games, team challenges, music, and unforgettable GIANTS moments.",
+    description:
+      "A high-energy birthday concept combining basketball, movement games, team challenges, music, and unforgettable GIANTS moments.",
     includes: [
       "Birthday game flow",
       "Basketball-inspired challenges",
@@ -458,108 +530,146 @@ export const experienceData: Experience[] = [
       "Optional flyer and theme concept",
     ],
     pricing: [
-      "Custom pricing based on duration, location, and group size",
-      "Trial session available",
+      "Custom offer based on duration, location, theme, and group size",
+      "Trial birthday experience available",
     ],
+    tags: ["Birthday", "Basketball", "Team Games"],
     featured: true,
   },
   {
-    title: "Functional Training",
-    description: "High-energy sessions focused on strength, conditioning, mobility, and discipline. Designed for all levels, from beginners to athletes.",
+    title: "Functional Movement Experience",
+    description:
+      "High-energy movement experiences focused on strength, conditioning, mobility, rhythm, and confidence.",
     includes: [
-      "Full-body workouts",
-      "Mobility & endurance training",
-      "Personalized coaching",
+      "Full-body movement",
+      "Mobility & endurance",
+      "Group energy",
       "Team-based challenges",
     ],
-    pricing: ["Group: €10–€15", "1-on-1: €20–€80", "Monthly pass: €30–€50"],
+    pricing: [
+      "Group experiences: from €10–€15 per person",
+      "Private coaching: from €30",
+      "Monthly access: available on request",
+    ],
+    tags: ["Movement", "Energy", "Wellbeing"],
   },
   {
     title: "Basketball Experience",
-    description: "Skill-focused basketball experiences to improve ball handling, shooting, footwork, game IQ, and confidence.",
+    description:
+      "Skill-focused basketball experiences built around ball handling, shooting, game situations, confidence, and team energy.",
     includes: [
       "Technical drills",
       "Game situations",
       "Speed & agility work",
-      "Conditioning circuits",
+      "Confidence-building challenges",
     ],
-    pricing: ["Group: €12–€20", "Private: €30–€90", "Team: €100–€180"],
+    pricing: [
+      "Group experiences: from €12–€20 per person",
+      "Private training: from €30",
+      "Team experiences: custom offer",
+    ],
+    tags: ["Basketball", "Skills", "Teamwork"],
   },
   {
-    title: "Team Building Experience",
-    description: "Interactive team experiences using movement challenges and structured exercises to improve communication, trust, and performance.",
+    title: "Team Experience Events",
+    description:
+      "Interactive group experiences using movement challenges, competition, and teamwork to build communication, trust, and shared energy.",
     includes: [
       "Team challenges",
-      "Leadership exercises",
+      "Leadership games",
       "Communication drills",
-      "Fun competitive activities",
+      "Competitive activities",
     ],
-    pricing: ["Custom pricing based on format, duration, and group size"],
+    pricing: [
+      "Corporate and group packages available on request",
+      "Pricing depends on duration, format, and group size",
+    ],
+    tags: ["Corporate", "Teams", "Challenges"],
   },
   {
     title: "Youth Basketball Bootcamp",
-    description: "A structured summer program for U8–U10 focused on fundamentals, confidence, discipline, and enjoyment of the game.",
+    description:
+      "A structured youth basketball experience focused on fundamentals, confidence, discipline, teamwork, and joy of the game.",
     includes: [
       "Daily skill development",
       "Fun competitions",
       "Team games",
       "Discipline & teamwork",
     ],
-    pricing: ["Weekly camp: €40–€150 per child"],
+    pricing: [
+      "Weekly camp: from €40–€150 per child",
+      "Final offer depends on duration and program format",
+    ],
+    tags: ["Youth", "Basketball", "Confidence"],
   },
   {
     title: "Community Sport Events",
-    description: "Organized events combining sport, music, food, and community engagement.",
-    includes: ["Open workouts", "Basketball games", "Social experiences"],
-    pricing: ["Entry: €5–€15", "Private hosting: custom pricing"],
+    description:
+      "Community experiences combining sport, music, food, movement, and social connection.",
+    includes: ["Open workouts", "Basketball games", "Music & social moments"],
+    pricing: [
+      "Community entry: from €5–€15",
+      "Private event hosting: custom offer",
+    ],
+    tags: ["Community", "Music", "Events"],
   },
 ];
 
 export const communityPrograms: CommunityProgram[] = [
   {
     title: "Old Age Home Workshops",
-    description: "Gentle adapted sessions focused on mobility, coordination, and social interaction for elderly participants.",
+    description:
+      "Gentle adapted experiences focused on mobility, coordination, memory, and social interaction for elderly participants.",
     includes: [
       "Light movement exercises",
       "Coordination activities",
       "Social engagement",
     ],
-    pricing: ["Session: €20–€60"],
+    pricing: ["From €20–€60 per session", "Partnership options available"],
+    tags: ["Care", "Mobility", "Connection"],
   },
   {
     title: "Board Games Tournaments",
-    description: "Relaxed competitive events encouraging strategy, connection, and fun.",
+    description:
+      "Relaxed competitive experiences encouraging strategy, connection, and fun.",
     includes: ["Strategy games", "Social tournaments", "Private events"],
-    pricing: ["Entry: €5–€10", "Private event: €150–€300"],
+    pricing: ["Entry from €5–€10", "Private event: custom offer"],
+    tags: ["Games", "Social", "Strategy"],
   },
   {
     title: "Philosophy Talks & Sit-ins",
-    description: "Open discussions exploring mindset, discipline, purpose, and personal growth.",
+    description:
+      "Open community conversations exploring mindset, discipline, purpose, identity, and personal growth.",
     includes: [
       "Mindset discussions",
       "Open conversations",
       "Community reflection",
     ],
-    pricing: ["Entry: €5–€10", "Private group session: €100–€200"],
+    pricing: ["Entry from €5–€10", "Private group session: custom offer"],
+    tags: ["Mindset", "Reflection", "Growth"],
   },
   {
     title: "Debates & Discussion Events",
-    description: "Structured debates encouraging communication, critical thinking, and perspective sharing.",
+    description:
+      "Structured discussion experiences encouraging communication, critical thinking, confidence, and perspective sharing.",
     includes: [
       "Debate sessions",
       "Group discussions",
       "Hosted community events",
     ],
-    pricing: ["Entry: €5–€10", "Hosted event: €100–€250"],
+    pricing: ["Entry from €5–€10", "Hosted event: custom offer"],
+    tags: ["Debate", "Voice", "Perspective"],
   },
   {
     title: "Camping & Outdoor Experiences",
-    description: "Immersive experiences combining nature, movement, reflection, and group bonding.",
+    description:
+      "Outdoor experiences combining nature, movement, reflection, and group bonding.",
     includes: [
       "Outdoor training",
       "Group activities",
       "Reflection & connection",
     ],
-    pricing: ["€50–€150 per participant"],
+    pricing: ["From €50–€150 per participant", "Depends on duration and format"],
+    tags: ["Outdoors", "Bonding", "Nature"],
   },
 ];
