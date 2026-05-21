@@ -6,16 +6,8 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export default async function Home({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-
-  if (!locales.includes(locale as Locale)) {
-    notFound();
-  }
-
+  if (!locales.includes(locale as Locale)) notFound();
   return <HomeClient locale={locale as Locale} />;
 }
