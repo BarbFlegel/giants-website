@@ -1,15 +1,53 @@
 import Image from "next/image";
-import { galleryItems, type Translation } from "../content";
+import { galleryItems } from "../content/gallery";
 import FadeUp from "./FadeUp";
 import SectionHeader from "./SectionHeader";
 
-export default function GallerySection({ t }: { t: Translation }) {
+export default function GallerySection({ t }: { t: any }) {
   return (
-    <section id="gallery" className="scroll-mt-40 bg-zinc-950 px-6 py-16 text-center md:py-20 md:text-left">
+    <section
+      id="gallery"
+      className="scroll-mt-40 bg-zinc-950 px-6 py-16 md:py-20"
+    >
       <div className="mx-auto max-w-6xl">
-        <FadeUp><SectionHeader label={t.labels.gallery} title={t.sectionTitles.gallery} description={t.gallery.text} /></FadeUp>
+        <FadeUp>
+          <SectionHeader
+            label={t.labels.gallery}
+            title={t.sectionTitles.gallery}
+            description={t.gallery.text}
+          />
+        </FadeUp>
+
         <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {galleryItems.map((item, index) => <FadeUp key={`${item.titleKey}-${index}`}><article className="overflow-hidden rounded-3xl border border-zinc-800 bg-black text-left transition hover:-translate-y-1 hover:border-orange-500/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.25)]"><div className="relative h-[300px] w-full sm:h-[360px]">{item.type === "video" && item.video ? <video autoPlay muted loop playsInline poster={item.image} className="h-full w-full object-cover object-top"><source src={item.video} type="video/mp4" /></video> : <Image src={item.image} alt={t.gallery[item.titleKey]} fill sizes="(max-width: 768px) 90vw, 50vw" className="object-cover object-top" />}</div><div className="p-5"><h3 className="text-lg font-semibold text-white">{t.gallery[item.titleKey]}</h3></div></article></FadeUp>)}
+          {galleryItems.map((item, index) => (
+            <FadeUp key={`${item.image}-${index}`}>
+              <article className="group overflow-hidden rounded-3xl border border-zinc-800 bg-black transition duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[0_0_30px_rgba(249,115,22,0.15)]">
+
+                <div className="relative h-[260px] w-full overflow-hidden sm:h-[320px] md:h-[380px]">
+                  <Image
+                    src={item.image}
+                    alt={`${t.sectionTitles.gallery} ${index + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-center transition duration-700 group-hover:scale-105"
+                  />
+
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent p-5">
+                    <h3 className="text-lg font-semibold text-white">
+                      {index === 0
+                        ? "Community basketball moments"
+                        : index === 1
+                        ? "Training and movement energy"
+                        : index === 2
+                        ? "Team connection and challenges"
+                        : "GIANTS immersive experiences"}
+                    </h3>
+                  </div>
+                </div>
+
+              </article>
+            </FadeUp>
+          ))}
         </div>
       </div>
     </section>
