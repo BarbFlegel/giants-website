@@ -51,10 +51,10 @@ export default function CommunitySection({ t }: { t: any }) {
           </div>
         </DragScroll>
 
-        <div className="mt-10 text-center">
+        <div className="mt-10 flex justify-center">
           <a
             href="#join"
-            className="rounded-full border border-orange-500 px-6 py-3 font-bold text-orange-300 transition hover:bg-orange-500 hover:text-black"
+            className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-orange-500 px-8 py-4 text-base font-black text-orange-300 transition hover:scale-105 hover:bg-orange-500 hover:text-black sm:w-auto sm:min-w-[240px]"
           >
             Partner With GIANTS
           </a>

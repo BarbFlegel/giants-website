@@ -11,7 +11,7 @@ export const communityPrograms: CommunityProgram[] = [
       "Coordination activities",
       "Social engagement",
     ],
-    offer: ["Partnership-based activity", "Subject to availability and support"],
+    packages: ["Partnership-based activity", "Subject to availability and support"],
   },
   {
     title: "Board Games Tournaments",
@@ -19,7 +19,7 @@ export const communityPrograms: CommunityProgram[] = [
       "Relaxed competitive experiences encouraging strategy, connection, and fun.",
     tags: ["Games", "Social", "Strategy"],
     includes: ["Strategy games", "Social tournaments", "Private events"],
-    offer: ["Partnership-based activity", "Subject to availability and support"],
+    packages: ["Partnership-based activity", "Subject to availability and support"],
   },
   {
     title: "Philosophy Talks & Sit-ins",
@@ -27,7 +27,7 @@ export const communityPrograms: CommunityProgram[] = [
       "Open community conversations exploring mindset, discipline, purpose, identity, and personal growth.",
     tags: ["Mindset", "Reflection", "Growth"],
     includes: ["Mindset discussions", "Open conversations", "Community reflection"],
-    offer: ["Partnership-based activity", "Subject to availability and support"],
+    packages: ["Partnership-based activity", "Subject to availability and support"],
   },
   {
     title: "Debates & Discussion Events",
@@ -35,7 +35,7 @@ export const communityPrograms: CommunityProgram[] = [
       "Structured discussion experiences encouraging communication, critical thinking, and perspective sharing.",
     tags: ["Debate", "Dialogue", "Community"],
     includes: ["Debate sessions", "Group discussions", "Hosted community events"],
-    offer: ["Partnership-based activity", "Subject to availability and support"],
+    packages: ["Partnership-based activity", "Subject to availability and support"],
   },
   {
     title: "Camping & Outdoor Experiences",
@@ -43,7 +43,7 @@ export const communityPrograms: CommunityProgram[] = [
       "Immersive outdoor experiences combining nature, movement, reflection, and group bonding.",
     tags: ["Outdoor", "Nature", "Bonding"],
     includes: ["Outdoor movement", "Group activities", "Reflection & connection"],
-    offer: [
+    packages: [
       "Partnership-based activity",
       "Subject to availability and support",
     ],
