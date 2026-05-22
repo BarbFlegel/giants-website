@@ -16,20 +16,24 @@ export default function EventsSection({ t }: { t: any }) {
     >
       <div className="mx-auto max-w-6xl">
         <FadeUp>
-          <SectionHeader label={t.labels.events} title={t.sectionTitles.events} />
+          <SectionHeader
+            label={t.labels.events}
+            title={t.sectionTitles.events}
+            description="Featured moments, upcoming concepts, and community experiences."
+          />
         </FadeUp>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
           <FadeUp>
-            <article className="overflow-hidden rounded-3xl border border-orange-500/50 bg-zinc-900">
-              <div className="relative h-[320px] w-full bg-black sm:h-[420px] lg:h-[560px]">
+            <article className="group overflow-hidden rounded-3xl border border-orange-500/40 bg-zinc-900 transition hover:-translate-y-1 hover:border-orange-400/70 hover:shadow-[0_0_35px_rgba(249,115,22,0.18)]">
+              <div className="relative h-[300px] w-full overflow-hidden bg-black sm:h-[420px] lg:h-[560px]">
                 <Image
                   src={featured.image}
                   alt={t.events.birthday}
                   fill
                   unoptimized
                   sizes="(max-width: 1024px) 100vw, 60vw"
-                  className="object-cover object-top"
+                  className="object-cover object-top transition duration-700 group-hover:scale-105"
                 />
               </div>
 
@@ -49,22 +53,29 @@ export default function EventsSection({ t }: { t: any }) {
                 <p className="mt-1 text-zinc-300">
                   {t.events.birthdayLocation}
                 </p>
+
+                <a
+                  href="#join"
+                  className="mt-6 inline-flex rounded-full bg-orange-500 px-5 py-3 text-sm font-bold text-black transition hover:scale-105 hover:bg-orange-400"
+                >
+                  Ask About This Event
+                </a>
               </div>
             </article>
           </FadeUp>
 
           <div className="grid gap-6">
-            {rest.slice(0, 3).map((event) => (
+            {rest.slice(0, 3).map((event: EventItem) => (
               <FadeUp key={event.title}>
-                <article className="grid overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 md:grid-cols-[180px_1fr]">
-                  <div className="relative h-[220px] bg-black md:h-full">
+                <article className="group grid overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 transition hover:-translate-y-1 hover:border-orange-500/50 md:grid-cols-[180px_1fr]">
+                  <div className="relative h-[220px] overflow-hidden bg-black md:h-full">
                     <Image
                       src={event.image}
                       alt={event.title}
                       fill
                       unoptimized
                       sizes="300px"
-                      className="object-cover object-top"
+                      className="object-cover object-top transition duration-700 group-hover:scale-105"
                     />
                   </div>
 
@@ -93,6 +104,15 @@ export default function EventsSection({ t }: { t: any }) {
               </FadeUp>
             ))}
           </div>
+        </div>
+
+        <div className="mt-10 text-center">
+          <a
+            href="#join"
+            className="rounded-full border border-orange-500 px-6 py-3 font-bold text-orange-300 transition hover:bg-orange-500 hover:text-black"
+          >
+            Plan an Experience With Us
+          </a>
         </div>
       </div>
     </section>

@@ -1,19 +1,57 @@
-import { experienceData, type Translation } from "../content";
+import { experienceData } from "../content/experiences";
+import DragScroll from "./DragScroll";
 import ExperienceCard from "./ExperienceCard";
 import FadeUp from "./FadeUp";
 import SectionHeader from "./SectionHeader";
 
-export default function ExperiencesSection({ t }: { t: Translation }) {
+export default function ExperiencesSection({ t }: { t: any }) {
   return (
-    <section id="experiences" className="scroll-mt-40 bg-gradient-to-b from-black via-zinc-950 to-black px-6 py-16 md:py-20">
-      <div className="mx-auto max-w-6xl text-center md:text-left">
+    <section
+      id="experiences"
+      className="scroll-mt-40 overflow-hidden bg-gradient-to-b from-black via-zinc-950 to-black px-6 py-16 md:py-20"
+    >
+      <div className="mx-auto max-w-6xl">
         <FadeUp>
-          <SectionHeader label={t.labels.experiences} title={t.sectionTitles.experiences} />
-          <p className="mx-auto mt-4 max-w-4xl text-lg leading-8 text-zinc-300 md:mx-0">{t.experiences.intro1}<br className="hidden md:block" />{t.experiences.intro2}</p>
-          <div className="mx-auto mt-6 rounded-3xl border border-orange-500/30 bg-orange-500/10 p-5 text-orange-100 md:mx-0"><p className="font-semibold text-orange-300">{t.experiences.accessTitle}</p><p className="mt-2 leading-7 text-zinc-300">{t.experiences.accessText}</p></div>
+          <SectionHeader
+            label={t.labels.experiences}
+            title={t.sectionTitles.experiences}
+            description={`${t.experiences.intro1} ${t.experiences.intro2}`}
+          />
         </FadeUp>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{experienceData.map((item) => <ExperienceCard key={item.title} item={item} labels={{ includes: t.experiences.includes, offer: t.experiences.offer }} />)}</div>
-        <FadeUp><div className="mt-12 rounded-3xl border border-orange-500/30 bg-orange-500 p-8 text-center text-black shadow-[0_0_35px_rgba(249,115,22,0.25)]"><h3 className="text-2xl font-bold">{t.experiences.mottoTitle}</h3><p className="mx-auto mt-3 max-w-2xl leading-8">{t.experiences.mottoText}</p></div></FadeUp>
+
+        <DragScroll className="mt-10 pb-4">
+          <div className="flex gap-6">
+            {experienceData.map((experience) => (
+              <div
+                key={experience.title}
+                className="min-w-[85%] sm:min-w-[55%] lg:min-w-[360px]"
+              >
+                <ExperienceCard
+                  item={experience}
+                  labels={{
+                    includes: t.experiences.includes,
+                    packages: t.experiences.packages,
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </DragScroll>
+        <div className="mt-10 flex flex-wrap justify-center gap-4">
+          <a
+            href="#join"
+            className="rounded-full bg-orange-500 px-6 py-3 font-bold text-black transition hover:scale-105"
+          >
+            Book an Experience
+          </a>
+
+          <a
+            href="#events"
+            className="rounded-full border border-orange-500 px-6 py-3 font-bold text-orange-300 transition hover:bg-orange-500 hover:text-black"
+          >
+            Explore Events
+          </a>
+        </div>
       </div>
     </section>
   );

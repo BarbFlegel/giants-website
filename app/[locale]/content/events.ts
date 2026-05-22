@@ -1,10 +1,4 @@
-export type EventItem = {
-  title: string;
-  image: string;
-  status: string;
-  date?: string;
-  location?: string;
-};
+import type { EventItem } from "./types";
 
 export const eventItems: EventItem[] = [
   {

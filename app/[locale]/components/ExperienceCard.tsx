@@ -1,7 +1,7 @@
 import { type Experience } from "../content";
 import FadeUp from "./FadeUp";
 
-export default function ExperienceCard({ item, labels, className = "" }: { item: Experience; labels: { includes: string; offer: string }; className?: string }) {
+export default function ExperienceCard({ item, labels, className = "" }: { item: Experience; labels: { includes: string; packages: string }; className?: string }) {
   return (
     <FadeUp className={className}>
       <article className="relative flex h-full flex-col justify-between rounded-3xl border border-zinc-800 bg-zinc-900 p-6 text-left transition hover:-translate-y-1 hover:border-orange-500/60 hover:shadow-[0_0_40px_rgba(249,115,22,0.25)]">
@@ -33,12 +33,12 @@ export default function ExperienceCard({ item, labels, className = "" }: { item:
         </div>
         <div className="mt-6 rounded-2xl bg-black/50 p-4">
           <p className="font-semibold text-white">
-            {labels.offer}
+            {labels.packages}
           </p>
           <ul className="mt-3 space-y-2 text-sm text-zinc-300">
-            {item.offer.map((offer) =>
-              <li key={offer}>
-                {offer}
+            {item.packages.map((package) =>
+              <li key={package}>
+                {package}
               </li>)}
           </ul>
         </div>

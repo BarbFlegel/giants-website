@@ -11,10 +11,7 @@ export const communityPrograms: CommunityProgram[] = [
       "Coordination activities",
       "Social engagement",
     ],
-    offer: [
-      "From €20–€60 per session",
-      "Partnership options available",
-    ],
+    offer: ["Partnership-based activity", "Subject to availability and support"],
   },
   {
     title: "Board Games Tournaments",
@@ -22,7 +19,7 @@ export const communityPrograms: CommunityProgram[] = [
       "Relaxed competitive experiences encouraging strategy, connection, and fun.",
     tags: ["Games", "Social", "Strategy"],
     includes: ["Strategy games", "Social tournaments", "Private events"],
-    offer: ["Entry from €5–€10", "Private event: custom offer"],
+    offer: ["Partnership-based activity", "Subject to availability and support"],
   },
   {
     title: "Philosophy Talks & Sit-ins",
@@ -30,7 +27,7 @@ export const communityPrograms: CommunityProgram[] = [
       "Open community conversations exploring mindset, discipline, purpose, identity, and personal growth.",
     tags: ["Mindset", "Reflection", "Growth"],
     includes: ["Mindset discussions", "Open conversations", "Community reflection"],
-    offer: ["Entry from €5–€10", "Private group session: custom offer"],
+    offer: ["Partnership-based activity", "Subject to availability and support"],
   },
   {
     title: "Debates & Discussion Events",
@@ -38,7 +35,7 @@ export const communityPrograms: CommunityProgram[] = [
       "Structured discussion experiences encouraging communication, critical thinking, and perspective sharing.",
     tags: ["Debate", "Dialogue", "Community"],
     includes: ["Debate sessions", "Group discussions", "Hosted community events"],
-    offer: ["Entry from €5–€10", "Hosted event: custom offer"],
+    offer: ["Partnership-based activity", "Subject to availability and support"],
   },
   {
     title: "Camping & Outdoor Experiences",
@@ -47,8 +44,8 @@ export const communityPrograms: CommunityProgram[] = [
     tags: ["Outdoor", "Nature", "Bonding"],
     includes: ["Outdoor movement", "Group activities", "Reflection & connection"],
     offer: [
-      "From €50–€150 per participant",
-      "Depends on duration and format",
+      "Partnership-based activity",
+      "Subject to availability and support",
     ],
   },
 ];

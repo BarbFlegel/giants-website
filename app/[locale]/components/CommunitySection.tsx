@@ -19,6 +19,19 @@ export default function CommunitySection({ t }: { t: any }) {
           />
         </FadeUp>
 
+        <FadeUp>
+          <div className="mt-8 rounded-3xl border border-orange-500/30 bg-orange-500/10 p-5 text-center md:text-left">
+            <p className="text-sm font-bold uppercase tracking-[0.25em] text-orange-300">
+              Community access
+            </p>
+
+            <p className="mt-3 leading-7 text-zinc-300">
+              Community sport events are free. Social impact initiatives can be
+              offered through partnerships, availability, and community support.
+            </p>
+          </div>
+        </FadeUp>
+
         <DragScroll className="mt-10 pb-4">
           <div className="flex gap-6">
             {communityPrograms.map((program) => (
@@ -30,13 +43,22 @@ export default function CommunitySection({ t }: { t: any }) {
                   item={program}
                   labels={{
                     includes: t.experiences.includes,
-                    offer: t.experiences.offer,
+                    packages: t.experiences.packages,
                   }}
                 />
               </div>
             ))}
           </div>
         </DragScroll>
+
+        <div className="mt-10 text-center">
+          <a
+            href="#join"
+            className="rounded-full border border-orange-500 px-6 py-3 font-bold text-orange-300 transition hover:bg-orange-500 hover:text-black"
+          >
+            Partner With GIANTS
+          </a>
+        </div>
       </div>
     </section>
   );

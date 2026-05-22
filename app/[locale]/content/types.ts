@@ -10,14 +10,34 @@ export type NavContent = { about: string; experiences: string; community: string
 export type SectionLabels = NavContent & { energy: string };
 export type SectionTitles = NavContent & { energy: string };
 export type AboutContent = { p1: string; p2: string; bullets: string[] };
-export type ExperiencesIntro = { intro1: string; intro2: string; accessTitle: string; accessText: string; includes: string; offer: string; mottoTitle: string; mottoText: string };
+export type ExperiencesIntro = { intro1: string; intro2: string; accessTitle: string; accessText: string; includes: string; offer: string ; mottoTitle: string; mottoText: string, packages: string; };
 export type CommunityIntro = { introTitle: string; introText: string };
 export type EventTranslations = { birthday: string; birthdayDate: string; birthdayTime: string; birthdayLocation: string; session: string; past: string; afro: string; bbq: string; workout: string; upcoming: string; pastLabel: string; comingSoon: string };
 export type GalleryContent = { text: string; one: string; two: string };
 export type JoinContent = { text: string };
 export type FooterContent = { copyright: string };
 export type Translation = { nav: NavContent; labels: SectionLabels; sectionTitles: SectionTitles; bar: string; hero: HeroContent; about: AboutContent; experiences: ExperiencesIntro; community: CommunityIntro; events: EventTranslations; gallery: GalleryContent; join: JoinContent; footer: FooterContent };
-export type Experience = { title: string; description: string; includes: string[]; offer: string[]; tags: string[]; featured?: boolean };
+export type Experience = {
+  title: string;
+  description: string;
+  tags: string[];
+  includes: string[];
+  packages: string[];
+  featured?: boolean;
+};
 export type CommunityProgram = Experience;
-export type EventItem = { titleKey: keyof EventTranslations; image: string; dateKey?: keyof EventTranslations; timeKey?: keyof EventTranslations; locationKey?: keyof EventTranslations; statusKey: keyof EventTranslations; type?: "birthday" | "standard" };
-export type GalleryItem = { titleKey: keyof GalleryContent; image: string; type?: "image" | "video"; video?: string };
+export type EventItem = {
+  title: string;
+  image: string;
+  status: string;
+  date?: string;
+  time?: string;
+  location?: string;
+  type?: "birthday" | "standard";
+};
+export type GalleryItem = {
+  titleKey: keyof GalleryContent;
+  image: string;
+  type?: "image" | "video";
+  video?: string
+};

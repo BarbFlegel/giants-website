@@ -1,31 +1,166 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { type Locale, type Translation } from "../content";
-import FadeUp from "./FadeUp";
+import { motion } from "framer-motion";
+import type { Locale, Translation } from "../content/types";
 
-export default function Hero({ locale, t }: { locale: Locale; t: Translation }) {
+const heroImages = [
+  "/images/hero-giants-premium.jpg",
+  "/images/hero-giants-action.jpg",
+  "/images/hero-giants-community.jpg",
+];
+
+export default function Hero({
+  locale,
+  t,
+}: {
+  locale: Locale;
+  t: Translation;
+}) {
   return (
-    <section className="relative overflow-hidden border-b border-orange-500/20 bg-black">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,115,0,0.18),transparent_60%)]" />
-      <div className="relative mx-auto flex min-h-[82vh] max-w-6xl flex-col items-center justify-center px-6 py-20 text-center md:py-24">
-        <FadeUp><span className="mb-6 inline-flex rounded-full border border-orange-500/30 bg-orange-500/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.3em] text-orange-300">{t.hero.eyebrow}</span></FadeUp>
-        <FadeUp delay={0.1}><h1 className="text-5xl font-black uppercase tracking-[0.12em] text-white sm:text-6xl md:text-8xl">{t.hero.title}</h1></FadeUp>
-        <FadeUp delay={0.2}><p className="mt-5 text-2xl font-bold text-orange-300 md:text-4xl">{t.hero.subtitle}</p></FadeUp>
-        <FadeUp delay={0.3}><p className="mt-4 text-xs font-bold uppercase tracking-[0.45em] text-orange-400 sm:text-sm">{t.hero.mantra}</p></FadeUp>
-        <FadeUp delay={0.4}><div className="mt-10 max-w-3xl space-y-5 text-base leading-8 text-zinc-300 md:text-xl"><p>{t.hero.text}</p><p className="text-white">{t.hero.brandStatement}</p></div></FadeUp>
-        <FadeUp delay={0.5}>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
-            <Link href={`/${locale}#events`} className="flex min-h-14 w-72 items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-center font-bold text-black shadow-[0_0_25px_rgba(249,115,22,0.35)] transition hover:scale-105 hover:bg-orange-400 sm:w-64">{t.hero.primaryCta}</Link>
-            <Link href={`/${locale}#experiences`} className="flex min-h-14 w-72 items-center justify-center rounded-full border border-orange-400 px-8 py-4 text-center font-semibold text-orange-300 transition hover:bg-orange-500/10 sm:w-64">{t.hero.secondaryCta}</Link>
-            <Link href={`/${locale}#join`} className="flex min-h-14 w-72 items-center justify-center rounded-full border border-zinc-500 px-8 py-4 text-center font-semibold text-white transition hover:border-white sm:w-64">{t.hero.tertiaryCta}</Link>
-          </div>
-        </FadeUp>
-        <FadeUp delay={0.6}>
-          <div className="mt-12 grid gap-4 sm:grid-cols-3 md:gap-6">
-            {t.hero.stats.map((stat) => <div key={stat.label} className="rounded-3xl border border-zinc-800 bg-zinc-950/80 px-8 py-6"><p className="text-3xl font-black text-orange-400">{stat.number}</p><p className="mt-3 text-[10px] font-bold uppercase tracking-[0.28em] text-zinc-400 sm:text-xs">{stat.label}</p></div>)}
-          </div>
-        </FadeUp>
+    <section className="relative isolate overflow-hidden border-b border-orange-500/20 bg-black px-6 py-20 text-center md:py-28">
+      {/* Animated background images */}
+      <div className="absolute inset-0 -z-20">
+        {heroImages.map((src, index) => (
+          <motion.div
+            key={src}
+            className="absolute inset-0"
+            initial={{ opacity: index === 0 ? 1 : 0, scale: 1.04 }}
+            animate={{
+              opacity: [0, 1, 1, 0],
+              scale: [1.04, 1.08, 1.1, 1.04],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              delay: index * 4,
+              ease: "easeInOut",
+            }}
+          >
+            <Image
+              src={src}
+              alt="GIANTS community basketball atmosphere"
+              fill
+              priority={index === 0}
+              sizes="100vw"
+              className="object-cover object-center opacity-35"
+            />
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Premium dark overlay */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/80 to-black" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.25),transparent_55%)]" />
+
+      <div className="mx-auto flex min-h-[72vh] max-w-5xl flex-col items-center justify-center">
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="mb-5 rounded-full border border-orange-500/30 bg-orange-500/10 px-5 py-2 text-xs font-black uppercase tracking-[0.35em] text-orange-300"
+        >
+          {t.hero.eyebrow}
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-5xl font-black uppercase tracking-[0.12em] text-white sm:text-6xl md:text-8xl"
+        >
+          {t.hero.title}
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="mt-5 text-xl font-bold text-orange-300 md:text-3xl"
+        >
+          {t.hero.subtitle}
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-4 text-xs font-bold uppercase tracking-[0.45em] text-orange-400 sm:text-sm"
+        >
+          Train • Connect • Elevate
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mx-auto mt-8 max-w-3xl text-base leading-8 text-zinc-300 md:text-lg"
+        >
+          {t.hero.text}
+        </motion.p>
+
+        {t.hero.brandStatement && (
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mx-auto mt-4 max-w-3xl text-base font-semibold leading-8 text-white md:text-lg"
+          >
+            {t.hero.brandStatement}
+          </motion.p>
+        )}
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap"
+        >
+          <Link
+            href={`/${locale}#events`}
+            className="flex min-h-14 w-72 items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-center font-bold text-black shadow-[0_0_25px_rgba(249,115,22,0.35)] transition hover:scale-105 hover:bg-orange-400 sm:w-64"
+          >
+            Join a Session
+          </Link>
+
+          <Link
+            href={`/${locale}#experiences`}
+            className="flex min-h-14 w-72 items-center justify-center rounded-full border border-orange-400 px-8 py-4 text-center font-semibold text-orange-300 transition hover:bg-orange-500/10 sm:w-64"
+          >
+            Book an Experience
+          </Link>
+
+          <Link
+            href={`/${locale}#join`}
+            className="flex min-h-14 w-72 items-center justify-center rounded-full border border-zinc-500 px-8 py-4 text-center font-semibold text-white transition hover:border-white sm:w-64"
+          >
+            Collaborate
+          </Link>
+        </motion.div>
+
+        {t.hero.stats && (
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-12 grid gap-4 sm:grid-cols-3"
+          >
+            {t.hero.stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-2xl border border-zinc-800 bg-black/50 px-5 py-4 backdrop-blur"
+              >
+                <p className="text-2xl font-black text-orange-400">
+                  {stat.number}
+                </p>
+                <p className="mt-1 text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+        )}
       </div>
     </section>
   );
