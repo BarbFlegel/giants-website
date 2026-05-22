@@ -82,6 +82,15 @@ export default function Hero({
           {t.hero.eyebrow}
         </motion.p>
 
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mx-auto mt-5 max-w-2xl text-sm font-bold uppercase tracking-[0.25em] text-orange-300 md:text-base"
+        >
+          Built for movement, connection, and unforgettable community energy.
+        </motion.p>
+
         <motion.h1
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}

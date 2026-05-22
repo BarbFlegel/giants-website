@@ -4,8 +4,7 @@ export const experienceData: Experience[] = [
   {
     title: "GIANTS Birthday Experience",
    description:
-  "Basketball-inspired movement experiences built around energy, games, and community connection.",
-    tags: ["Birthday", "Basketball", "Team Games"],
+  "An immersive birthday atmosphere built around basketball, movement, music, and unforgettable group energy.",    tags: ["Birthday", "Basketball", "Team Games"],
     featured: true,
     includes: [
       "Birthday game flow",
@@ -23,8 +22,7 @@ export const experienceData: Experience[] = [
   {
     title: "Movement & Basketball Sessions",
     description:
-      "High-energy sport experiences combining functional movement, basketball, games, discipline, and community energy.",
-    tags: ["Basketball", "Movement", "Community"],
+  "Basketball-inspired movement experiences driven by energy, rhythm, and community connection.",    tags: ["Basketball", "Movement", "Community"],
     includes: [
       "Functional movement",
       "Basketball-inspired drills",
@@ -39,9 +37,8 @@ export const experienceData: Experience[] = [
 
   {
     title: "Team Experience Events",
-    description:
-      "Interactive team experiences using movement, games, and challenges to build communication, trust, and collective energy.",
-    tags: ["Teams", "Leadership", "Challenges"],
+   description:
+  "Interactive team experiences focused on connection, communication, and collective energy.",    tags: ["Teams", "Leadership", "Challenges"],
     includes: [
       "Team challenges",
       "Communication games",
@@ -55,9 +52,8 @@ export const experienceData: Experience[] = [
 
   {
     title: "Youth Basketball Bootcamp",
-    description:
-      "A structured youth experience focused on basketball fundamentals, confidence, discipline, teamwork, and fun.",
-    tags: ["Youth", "Basketball", "Bootcamp"],
+   description:
+  "High-energy youth basketball experiences combining confidence, teamwork, discipline, and fun.",    tags: ["Youth", "Basketball", "Bootcamp"],
     includes: [
       "Skill development",
       "Team games",
@@ -73,8 +69,7 @@ export const experienceData: Experience[] = [
   {
     title: "Community Sport Events",
     description:
-      "Open community sport experiences bringing people together through movement, music, games, and shared energy.",
-    tags: ["Free", "Community", "Sport"],
+  "Open community moments bringing people together through movement, games, music, and shared energy.",    tags: ["Free", "Community", "Sport"],
     includes: [
       "Open workouts",
       "Basketball games",
