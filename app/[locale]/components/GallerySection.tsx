@@ -7,7 +7,7 @@ export default function GallerySection({ t }: { t: any }) {
   return (
     <section
       id="gallery"
-      className="scroll-mt-40 bg-zinc-950 px-6 py-16 md:py-20"
+      className="scroll-mt-40 bg-zinc-950 px-6 py-12 md:py-16"
     >
       <div className="mx-auto max-w-6xl">
         <FadeUp>

@@ -16,7 +16,7 @@ export default function SectionHeader({
     <div className={`max-w-4xl ${alignment}`}>
       <p className={`text-sm font-black uppercase tracking-[0.3em] sm:text-base md:text-xl ${dark ? "text-orange-400" : "text-black/70"}`}>{label}</p>
       <h2 className="mt-3 text-3xl font-black tracking-tight text-white sm:text-4xl">{title}</h2>
-      {description && <p className={`mt-4 max-w-3xl text-base leading-7 sm:text-lg sm:leading-8 ${dark ? "text-zinc-300" : "text-black/85"}`}>{description}</p>}
+      {description && <p className={`mt-4 max-w-4xl text-base leading-7 sm:text-lg sm:leading-7 ${dark ? "text-zinc-300" : "text-black/85"}`}>{description}</p>}
     </div>
   );
 }

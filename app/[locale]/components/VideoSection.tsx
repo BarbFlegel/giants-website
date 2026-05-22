@@ -3,7 +3,7 @@ import SectionHeader from "./SectionHeader";
 
 export default function VideoSection({ t }: { t: any }) {
   return (
-    <section className="bg-black px-6 py-16 md:py-20">
+    <section className="bg-black px-6 py-12 md:py-16">
       <div className="mx-auto max-w-6xl">
         <FadeUp>
           <SectionHeader
