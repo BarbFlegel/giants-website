@@ -16,7 +16,7 @@ export default function EventsSection({ t }: { t: any }) {
   return (
     <section
       id="events"
-      className="scroll-mt-40 bg-black px-6 py-12 md:py-16"
+      className="scroll-mt-40 bg-black px-6 py-10 md:py-14"
     >
       <div className="mx-auto max-w-6xl">
         <FadeUp>
@@ -33,7 +33,7 @@ export default function EventsSection({ t }: { t: any }) {
               type="button"
               onClick={() => setIsPosterOpen(true)}
               aria-label="Open birthday event poster"
-              className="group block w-full overflow-hidden rounded-3xl border border-orange-500/40 bg-zinc-900 text-left transition hover:-translate-y-1 hover:border-orange-400/70 hover:shadow-[0_0_35px_rgba(249,115,22,0.18)]"
+              className="group block w-full overflow-hidden rounded-3xl border border-zinc-700 bg-zinc-900 text-left transition hover:-translate-y-1 hover:border-orange-400/70 hover:shadow-[0_0_35px_rgba(249,115,22,0.18)]"
             >
               <div className="relative h-[280px] w-full overflow-hidden bg-black sm:h-[380px] md:h-[460px] lg:h-[520px]">
                 <Image

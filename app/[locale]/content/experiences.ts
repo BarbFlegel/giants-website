@@ -3,8 +3,8 @@ import type { Experience } from "./types";
 export const experienceData: Experience[] = [
   {
     title: "GIANTS Birthday Experience",
-    description:
-      "A high-energy birthday concept combining basketball, movement games, team challenges, music, and unforgettable GIANTS moments.",
+   description:
+  "Basketball-inspired movement experiences built around energy, games, and community connection.",
     tags: ["Birthday", "Basketball", "Team Games"],
     featured: true,
     includes: [

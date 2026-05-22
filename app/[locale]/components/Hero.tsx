@@ -52,6 +52,24 @@ export default function Hero({
 
       {/* Premium dark overlay */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/80 to-black" />
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <p className="absolute left-[8%] top-[18%] text-6xl font-black uppercase tracking-[0.25em] text-white/[0.03] animate-pulse">
+          Movement
+        </p>
+
+        <p className="absolute right-[10%] top-[30%] text-5xl font-black uppercase tracking-[0.25em] text-orange-500/[0.04] animate-pulse">
+          Energy
+        </p>
+
+        <p className="absolute bottom-[18%] left-[12%] text-7xl font-black uppercase tracking-[0.25em] text-white/[0.02] animate-pulse">
+          Community
+        </p>
+
+        <p className="absolute bottom-[12%] right-[12%] text-5xl font-black uppercase tracking-[0.25em] text-orange-400/[0.03] animate-pulse">
+          Experience
+        </p>
+</div>
+
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.25),transparent_55%)]" />
 
       <div className="mx-auto flex min-h-[72vh] max-w-5xl flex-col items-center justify-center">

@@ -14,7 +14,7 @@ export default function ExperienceCard({
 }) {
   return (
     <article
-      className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 transition duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[0_0_30px_rgba(249,115,22,0.12)] ${className}`}
+      className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 transition duration-500 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-[0_0_30px_rgba(249,115,22,0.12)] ${className}`}
     >
       {/* Featured ribbon */}
       {item.featured && (

@@ -8,7 +8,7 @@ export default function ExperiencesSection({ t }: { t: any }) {
   return (
     <section
       id="experiences"
-      className="scroll-mt-40 overflow-hidden bg-gradient-to-b from-black via-zinc-950 to-black px-6 py-12 md:py-16"
+      className="scroll-mt-40 overflow-hidden bg-gradient-to-b from-black via-zinc-950 to-black px-6 py-10 md:py-14"
     >
       <div className="mx-auto max-w-6xl">
         <FadeUp>

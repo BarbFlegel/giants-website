@@ -8,7 +8,7 @@ export default function CommunitySection({ t }: { t: any }) {
   return (
     <section
       id="community"
-      className="scroll-mt-40 overflow-hidden bg-black px-6 py-12 md:py-16"
+      className="scroll-mt-40 overflow-hidden bg-black px-6 py-10 md:py-14"
     >
       <div className="mx-auto max-w-6xl">
         <FadeUp>
@@ -45,6 +45,7 @@ export default function CommunitySection({ t }: { t: any }) {
                     includes: t.experiences.includes,
                     packages: t.experiences.packages,
                   }}
+                  className="bg-zinc-900/60 border-zinc-700"
                 />
               </div>
             ))}
