@@ -10,8 +10,16 @@ export type NavContent = { about: string; experiences: string; community: string
 export type SectionLabels = NavContent & { energy: string };
 export type SectionTitles = NavContent & { energy: string };
 export type AboutContent = { p1: string; p2: string; bullets: string[] };
-export type ExperiencesIntro = { intro1: string; intro2: string; accessTitle: string; accessText: string; includes: string; offer: string ; mottoTitle: string; mottoText: string, packages: string; };
-export type CommunityIntro = { introTitle: string; introText: string };
+export type ExperiencesIntro = {
+  intro1: string;
+  intro2: string;
+  accessTitle: string;
+  accessText: string;
+  includes: string;
+  packages: string;
+  mottoTitle: string;
+  mottoText: string;
+};export type CommunityIntro = { introTitle: string; introText: string };
 export type EventTranslations = { birthday: string; birthdayDate: string; birthdayTime: string; birthdayLocation: string; session: string; past: string; afro: string; bbq: string; workout: string; upcoming: string; pastLabel: string; comingSoon: string };
 export type GalleryContent = { text: string; one: string; two: string };
 export type JoinContent = { text: string };
