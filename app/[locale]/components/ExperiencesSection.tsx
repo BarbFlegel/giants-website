@@ -38,17 +38,16 @@ export default function ExperiencesSection({ t }: { t: any }) {
           </div>
         </DragScroll>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
+        <div className="mx-auto mt-10 grid w-full max-w-4xl gap-4 sm:grid-cols-2">
           <a
             href="#join"
-            className="inline-flex min-h-14 w-full items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-base font-black text-black transition hover:scale-105 hover:bg-orange-400 sm:w-auto sm:min-w-[240px]"
-          >
+            className="inline-flex min-h-16 w-full items-center justify-center rounded-full border border-orange-500 px-10 py-5 text-lg font-black text-orange-300 transition hover:scale-105 hover:bg-orange-500 hover:text-black"          >
             Book an Experience
           </a>
 
           <a
             href="#events"
-            className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-orange-500 px-8 py-4 text-base font-black text-orange-300 transition hover:scale-105 hover:bg-orange-500 hover:text-black sm:w-auto sm:min-w-[240px]"
+            className="inline-flex min-h-16 w-full items-center justify-center rounded-full border border-orange-500 px-10 py-5 text-lg font-black text-orange-300 transition hover:scale-105 hover:bg-orange-500 hover:text-black"
           >
             Explore Events
           </a>

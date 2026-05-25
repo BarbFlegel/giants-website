@@ -3,21 +3,25 @@
 import Image from "next/image";
 import { useState } from "react";
 import { eventItems } from "../content/events";
-import type { EventItem } from "../content/types";
+import type { EventItem, Locale } from "../content/types";
 import FadeUp from "./FadeUp";
 import SectionHeader from "./SectionHeader";
 
-export default function EventsSection({ t }: { t: any }) {
+export default function EventsSection({
+  locale,
+  t,
+}: {
+  locale: Locale;
+  t: any;
+}) {
   const featured: EventItem | undefined = eventItems[0];
+  const pastEvents = eventItems.slice(1, 4);
   const [isPosterOpen, setIsPosterOpen] = useState(false);
 
   if (!featured) return null;
 
   return (
-    <section
-      id="events"
-      className="scroll-mt-40 bg-black px-6 py-10 md:py-14"
-    >
+    <section id="events" className="scroll-mt-40 bg-black px-6 py-10 md:py-14">
       <div className="mx-auto max-w-6xl">
         <FadeUp>
           <SectionHeader
@@ -33,7 +37,7 @@ export default function EventsSection({ t }: { t: any }) {
               type="button"
               onClick={() => setIsPosterOpen(true)}
               aria-label="Open birthday event poster"
-              className="group block w-full overflow-hidden rounded-3xl border border-zinc-700 bg-zinc-900 text-left transition hover:-translate-y-1 hover:border-orange-400/70 hover:shadow-[0_0_35px_rgba(249,115,22,0.18)]"
+              className="group block w-full overflow-hidden rounded-3xl border border-orange-500/40 bg-zinc-900 text-left transition hover:-translate-y-1 hover:border-orange-400/70 hover:shadow-[0_0_35px_rgba(249,115,22,0.18)]"
             >
               <div className="relative h-[280px] w-full overflow-hidden bg-black sm:h-[380px] md:h-[460px] lg:h-[520px]">
                 <Image
@@ -58,11 +62,15 @@ export default function EventsSection({ t }: { t: any }) {
                 {featured.title}
               </h3>
 
-              <p className="mt-4 text-orange-300">
-                {featured.date} • {featured.time}
-              </p>
+              {(featured.date || featured.time) && (
+                <p className="mt-4 text-orange-300">
+                  {[featured.date, featured.time].filter(Boolean).join(" • ")}
+                </p>
+              )}
 
-              <p className="mt-2 text-zinc-300">{featured.location}</p>
+              {featured.location && (
+                <p className="mt-2 text-zinc-300">{featured.location}</p>
+              )}
 
               <p className="mt-6 max-w-2xl leading-7 text-zinc-300">
                 A premium birthday basketball experience built around games,
@@ -76,17 +84,17 @@ export default function EventsSection({ t }: { t: any }) {
                 <p>• High-energy group atmosphere</p>
               </div>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+              <div className="mt-8 grid w-full gap-4 sm:grid-cols-2">
                 <a
-                  href="#join"
-                  className="inline-flex min-h-14 w-full items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-base font-black text-black transition hover:scale-105 hover:bg-orange-400 sm:w-auto sm:min-w-[240px]"
+                  href={`/${locale}/contact`}
+                  className="inline-flex min-h-16 w-full items-center justify-center rounded-full bg-orange-500 px-8 py-5 text-base font-black text-black transition hover:scale-105 hover:bg-orange-400"
                 >
                   Ask About This Event
                 </a>
 
                 <a
-                  href="#join"
-                  className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-orange-500 px-8 py-4 text-base font-black text-orange-300 transition hover:scale-105 hover:bg-orange-500 hover:text-black sm:w-auto sm:min-w-[240px]"
+                  href={`/${locale}/contact`}
+                  className="inline-flex min-h-16 w-full items-center justify-center rounded-full border border-orange-500 px-8 py-5 text-base font-black text-orange-300 transition hover:scale-105 hover:bg-orange-500 hover:text-black"
                 >
                   Book an Experience
                 </a>
@@ -102,6 +110,58 @@ export default function EventsSection({ t }: { t: any }) {
             </div>
           </FadeUp>
         </div>
+
+        {pastEvents.length > 0 && (
+          <div className="mt-12 border-t border-zinc-800 pt-8">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.35em] text-orange-400">
+                  Past moments
+                </p>
+
+                <h3 className="mt-3 text-2xl font-black text-white">
+                  Previous GIANTS experiences
+                </h3>
+              </div>
+
+              <a
+                href="#gallery"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-orange-500 px-6 py-3 text-sm font-black text-orange-300 transition hover:bg-orange-500 hover:text-black"
+              >
+                View Gallery
+              </a>
+            </div>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              {pastEvents.map((event) => (
+                <article
+                  key={event.title}
+                  className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5 transition hover:-translate-y-1 hover:border-orange-500/40"
+                >
+                  <p className="text-xs font-black uppercase tracking-[0.25em] text-orange-400">
+                    {event.status}
+                  </p>
+
+                  <h4 className="mt-3 text-lg font-black text-white">
+                    {event.title}
+                  </h4>
+
+                  {(event.date || event.time) && (
+                    <p className="mt-3 text-sm text-orange-300">
+                      {[event.date, event.time].filter(Boolean).join(" • ")}
+                    </p>
+                  )}
+
+                  {event.location && (
+                    <p className="mt-1 text-sm text-zinc-400">
+                      {event.location}
+                    </p>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {isPosterOpen && (

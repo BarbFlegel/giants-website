@@ -21,7 +21,8 @@ export default function HomeClient({ locale }: { locale: Locale }) {
       <Header locale={locale} t={t} />
       <Hero locale={locale} t={t} />
       <AboutSection t={t} />
-      <ExperiencesSection t={t} />
+      <ExperiencesSection locale={locale} t={t} />
+      <EventsSection locale={locale} t={t} />
       <CommunitySection t={t} />
       <EventsSection t={t} />
       <VideoSection t={t} />

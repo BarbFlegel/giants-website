@@ -44,14 +44,14 @@ export default function Hero({
               fill
               priority={index === 0}
               sizes="100vw"
-              className="object-cover object-center opacity-35"
+              className="object-cover object-center opacity-55"
             />
           </motion.div>
         ))}
       </div>
 
       {/* Premium dark overlay */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/70 via-black/80 to-black" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/55 via-black/65 to-black/90" />
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <p className="absolute left-[8%] top-[18%] text-6xl font-black uppercase tracking-[0.25em] text-white/[0.03] animate-pulse">
           Movement
@@ -159,7 +159,7 @@ export default function Hero({
           </Link>
 
           <Link
-            href={`/${locale}#join`}
+            href={`/${locale}/contact`}
             className="flex min-h-14 w-72 items-center justify-center rounded-full border border-zinc-500 px-8 py-4 text-center font-semibold text-white transition hover:border-white sm:w-64"
           >
             Collaborate

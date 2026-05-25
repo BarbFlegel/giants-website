@@ -27,8 +27,9 @@ export default function Header({ locale, t }: { locale: Locale; t: Translation }
               <Link href={`/${locale}#community`} className="transition hover:text-orange-400">{t.nav.community}</Link>
               <Link href={`/${locale}#events`} className="transition hover:text-orange-400">{t.nav.events}</Link>
               <Link href={`/${locale}#gallery`} className="transition hover:text-orange-400">{t.nav.gallery}</Link>
-              <Link href={`/${locale}#join`} className="transition hover:text-orange-400">{t.nav.join}</Link>
-            </nav>
+              <Link href={`/${locale}/contact`} className="transition hover:text-orange-400">
+                {t.nav.join}
+              </Link>            </nav>
             <details className="relative shrink-0">
               <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-zinc-700 px-3 py-2 text-xs font-bold text-orange-300 transition hover:border-orange-400">🌍 {locale.toUpperCase()}</summary>
               <div className="absolute right-0 z-50 mt-2 flex w-[58px] flex-col gap-0.5 rounded-lg border border-orange-500/20 bg-zinc-900/80 px-2 py-1.5 text-xs font-bold shadow-lg backdrop-blur-md">
