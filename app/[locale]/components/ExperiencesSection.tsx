@@ -3,9 +3,15 @@ import DragScroll from "./DragScroll";
 import ExperienceCard from "./ExperienceCard";
 import FadeUp from "./FadeUp";
 import SectionHeader from "./SectionHeader";
+import type { Locale } from "../content";
 
-export default function ExperiencesSection({ t }: { t: any }) {
-  return (
+export default function ExperiencesSection({
+  locale,
+  t,
+}: {
+  locale: Locale;
+  t: any;
+}) {  return (
     <section
       id="experiences"
       className="scroll-mt-40 overflow-hidden bg-gradient-to-b from-black via-zinc-950 to-black px-6 py-10 md:py-14"
@@ -38,16 +44,17 @@ export default function ExperiencesSection({ t }: { t: any }) {
           </div>
         </DragScroll>
 
-        <div className="mx-auto mt-10 grid w-full max-w-4xl gap-4 sm:grid-cols-2">
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
           <a
-            href="#join"
-            className="inline-flex min-h-16 w-full items-center justify-center rounded-full border border-orange-500 px-10 py-5 text-lg font-black text-orange-300 transition hover:scale-105 hover:bg-orange-500 hover:text-black"          >
+            href={`/${locale}/contact`}
+            className="flex min-h-[64px] w-full items-center justify-center rounded-full bg-orange-500 px-8 text-lg font-black text-black transition hover:scale-[1.02] hover:bg-orange-400"
+          >
             Book an Experience
           </a>
 
           <a
             href="#events"
-            className="inline-flex min-h-16 w-full items-center justify-center rounded-full border border-orange-500 px-10 py-5 text-lg font-black text-orange-300 transition hover:scale-105 hover:bg-orange-500 hover:text-black"
+            className="flex min-h-[64px] w-full items-center justify-center rounded-full border border-orange-500 bg-orange-500/10 px-8 text-lg font-black text-orange-300 transition hover:scale-[1.02] hover:bg-orange-500 hover:text-black"
           >
             Explore Events
           </a>

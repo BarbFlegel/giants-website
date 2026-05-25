@@ -1,10 +1,17 @@
+import type { Locale } from "../content";
 import { communityPrograms } from "../content/community";
 import DragScroll from "./DragScroll";
 import ExperienceCard from "./ExperienceCard";
 import FadeUp from "./FadeUp";
 import SectionHeader from "./SectionHeader";
 
-export default function CommunitySection({ t }: { t: any }) {
+export default function CommunitySection({
+  locale,
+  t,
+}: {
+  locale: Locale;
+  t: any;
+}) {
   return (
     <section
       id="community"
@@ -24,7 +31,6 @@ export default function CommunitySection({ t }: { t: any }) {
             <p className="text-sm font-bold uppercase tracking-[0.25em] text-orange-300">
               Community access
             </p>
-
             <p className="mt-3 leading-7 text-zinc-300">
               Community sport events are free. Social impact initiatives can be
               offered through partnerships, availability, and community support.
@@ -45,17 +51,17 @@ export default function CommunitySection({ t }: { t: any }) {
                     includes: t.experiences.includes,
                     packages: t.experiences.packages,
                   }}
-                  className="bg-zinc-900/60 border-zinc-700"
+                  className="border-zinc-700 bg-zinc-900/60"
                 />
               </div>
             ))}
           </div>
         </DragScroll>
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-6">
           <a
-            href="#join"
-            className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-orange-500 px-8 py-4 text-base font-black text-orange-300 transition hover:scale-105 hover:bg-orange-500 hover:text-black sm:w-auto sm:min-w-[240px]"
+            href={`/${locale}/contact`}
+            className="flex min-h-[64px] w-full items-center justify-center rounded-full bg-orange-500 px-8 text-lg font-black text-black transition hover:scale-[1.02] hover:bg-orange-400"
           >
             Partner With GIANTS
           </a>

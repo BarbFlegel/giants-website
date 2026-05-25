@@ -20,11 +20,9 @@ export default function HomeClient({ locale }: { locale: Locale }) {
     <main className="min-h-screen bg-black text-white">
       <Header locale={locale} t={t} />
       <Hero locale={locale} t={t} />
-      <AboutSection t={t} />
       <ExperiencesSection locale={locale} t={t} />
       <EventsSection locale={locale} t={t} />
-      <CommunitySection t={t} />
-      <EventsSection t={t} />
+      <CommunitySection locale={locale} t={t} />
       <VideoSection t={t} />
       <GallerySection t={t} />
       <JoinSection t={t} />
@@ -33,7 +31,7 @@ export default function HomeClient({ locale }: { locale: Locale }) {
         <a href="#events" className="flex-1 rounded-full bg-orange-500 py-3 text-center text-sm font-bold text-black">
           Join
         </a>
-        <a href="#join" className="flex-1 rounded-full border border-orange-500 py-3 text-center text-sm font-bold text-orange-300">
+        <a href={`/${locale}/contact`} className="flex-1 rounded-full border border-orange-500 py-3 text-center text-sm font-bold text-orange-300">
           Book
         </a>
       </div>

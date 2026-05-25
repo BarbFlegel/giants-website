@@ -11,7 +11,7 @@ export const eventItems: EventItem[] = [
     image: "/images/giants-community-session.png",
     status: "Past event",
     date: "9 May 2026",
-    location: "Sporthal Parkloods — Basketball Court 1",
+    location: "Sporthal Parkloods - Basketball Court 1",
   },
   {
     title: "Afro Beats & Bounce",

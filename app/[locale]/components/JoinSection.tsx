@@ -13,7 +13,6 @@ export default function JoinSection({ t }: { t: Translation }) {
           <SocialIcons />
         </FadeUp>
       </div>
-      <ContactForm />
     </section>
   );
 }
