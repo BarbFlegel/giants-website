@@ -136,27 +136,40 @@ export default function EventsSection({
               {pastEvents.map((event) => (
                 <article
                   key={event.title}
-                  className="rounded-2xl border border-zinc-800 bg-zinc-950 p-5 transition hover:-translate-y-1 hover:border-orange-500/40"
+                  className="group relative min-h-[260px] overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 transition hover:-translate-y-1 hover:border-orange-500/40"
                 >
-                  <p className="text-xs font-black uppercase tracking-[0.25em] text-orange-400">
-                    {event.status}
-                  </p>
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    unoptimized
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center opacity-65 transition duration-700 group-hover:scale-105 group-hover:opacity-80"
+                  />
 
-                  <h4 className="mt-3 text-lg font-black text-white">
-                    {event.title}
-                  </h4>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/20" />
 
-                  {(event.date || event.time) && (
-                    <p className="mt-3 text-sm text-orange-300">
-                      {[event.date, event.time].filter(Boolean).join(" • ")}
+                  <div className="relative z-10 flex min-h-[260px] flex-col justify-end p-5">
+                    <p className="text-xs font-black uppercase tracking-[0.25em] text-orange-400">
+                      {event.status}
                     </p>
-                  )}
 
-                  {event.location && (
-                    <p className="mt-1 text-sm text-zinc-400">
-                      {event.location}
-                    </p>
-                  )}
+                    <h4 className="mt-3 text-xl font-black text-white">
+                      {event.title}
+                    </h4>
+
+                    {(event.date || event.time) && (
+                      <p className="mt-3 text-sm text-orange-300">
+                        {[event.date, event.time].filter(Boolean).join(" • ")}
+                      </p>
+                    )}
+
+                    {event.location && (
+                      <p className="mt-1 text-sm text-zinc-300">
+                        {event.location}
+                      </p>
+                    )}
+                  </div>
                 </article>
               ))}
             </div>
