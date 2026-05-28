@@ -29,11 +29,11 @@ export default function CommunitySection({
         <FadeUp>
           <div className="mt-8 rounded-3xl border border-orange-500/30 bg-orange-500/10 p-5 text-center md:text-left">
             <p className="text-sm font-bold uppercase tracking-[0.25em] text-orange-300">
-              Community access
+              {t.experiences.accessTitle}
             </p>
+
             <p className="mt-3 leading-7 text-zinc-300">
-              Community sport events are free. Social impact initiatives can be
-              offered through partnerships, availability, and community support.
+              {t.experiences.accessText}
             </p>
           </div>
         </FadeUp>
@@ -43,7 +43,7 @@ export default function CommunitySection({
             {communityPrograms.map((program) => (
               <div
                 key={program.title}
-                className="min-w-[85%] sm:min-w-[55%] lg:min-w-[360px]"
+                className="min-w-[78%] sm:min-w-[55%] lg:min-w-[360px]"
               >
                 <ExperienceCard
                   item={program}
@@ -52,6 +52,7 @@ export default function CommunitySection({
                     packages: t.experiences.packages,
                   }}
                   className="border-zinc-700 bg-zinc-900/60"
+                  ctaHref={`/${locale}/contact`}
                 />
               </div>
             ))}
@@ -63,7 +64,7 @@ export default function CommunitySection({
             href={`/${locale}/contact`}
             className="flex min-h-[64px] w-full items-center justify-center rounded-full bg-orange-500 px-8 text-lg font-black text-black transition hover:scale-[1.02] hover:bg-orange-400"
           >
-            Partner With GIANTS
+            {t.nav.join}
           </a>
         </div>
       </div>

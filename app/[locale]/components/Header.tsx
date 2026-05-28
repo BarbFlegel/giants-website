@@ -8,15 +8,14 @@ export default function Header({ locale, t }: { locale: Locale; t: Translation }
   const langLink = (targetLocale: Locale) => `/${targetLocale}`;
   return (
     <>
-      <a href={`/${locale}#events`} className="block border-b border-orange-500/20 bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 px-4 py-3 text-center text-xs font-bold tracking-wide text-black transition hover:brightness-110 sm:text-sm">{t.bar}</a>
+      <a href={`/${locale}#events`} className="block border-b border-orange-500/20 bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 px-4 py-2.5 text-center text-xs font-bold tracking-wide text-black transition hover:brightness-110 sm:text-sm">{t.bar}</a>
       <header className="sticky top-0 z-50 border-b border-zinc-800 bg-black/95 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-5 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-4 lg:flex-row lg:items-center lg:justify-between">
           <Link href={`/${locale}`} className="flex items-center justify-center gap-4 text-center lg:justify-start lg:text-left">
-            <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-black md:h-20 md:w-20">
-              <Image src="/images/giants-logo.png" alt="GIANTS logo" fill unoptimized sizes="80px" className="object-contain scale-150" />
+            <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-black sm:h-12 sm:w-12 md:h-16 md:w-16">              <Image src="/images/giants-logo.png" alt="GIANTS logo" fill unoptimized sizes="80px" className="object-contain scale-150" />
             </div>
             <div>
-              <p className="text-2xl font-bold tracking-[0.18em] text-white sm:text-3xl">GIANTS</p>
+              <p className="min-w-[78%] sm:min-w-[55%] lg:min-w-[360px]">GIANTS</p>
               <p className="max-w-xs text-[10px] font-semibold uppercase tracking-[0.18em] text-orange-300 sm:text-xs">Movement · Community · Wellbeing</p>
             </div>
           </Link>

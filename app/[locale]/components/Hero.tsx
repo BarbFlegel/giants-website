@@ -19,7 +19,7 @@ export default function Hero({
   t: Translation;
 }) {
   return (
-    <section className="relative isolate overflow-hidden border-b border-orange-500/20 bg-black px-6 py-20 text-center md:py-28">
+    <section className="relative isolate overflow-hidden border-b border-orange-500/20 bg-black px-4 py-12 text-center md:px-6 md:py-24">
       {/* Animated background images */}
       <div className="absolute inset-0 -z-20">
         {heroImages.map((src, index) => (
@@ -72,7 +72,7 @@ export default function Hero({
 
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.25),transparent_55%)]" />
 
-      <div className="mx-auto flex min-h-[72vh] max-w-5xl flex-col items-center justify-center">
+      <div className="mx-auto flexmin-h-[58vh] md:min-h-[72vh] max-w-5xl flex-col items-center justify-center">
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,8 +86,7 @@ export default function Hero({
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mx-auto mt-5 max-w-2xl text-sm font-bold uppercase tracking-[0.25em] text-orange-300 md:text-base"
-        >
+          className="mx-auto mt-4 max-w-2xl text-xs font-bold uppercase tracking-[0.18em] text-orange-300 md:text-base md:tracking-[0.25em]"        >
           Built for movement, connection, and unforgettable community energy.
         </motion.p>
 
@@ -95,8 +94,7 @@ export default function Hero({
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-5xl font-black uppercase tracking-[0.12em] text-white sm:text-6xl md:text-8xl"
-        >
+          className="text-4xl font-black uppercase tracking-[0.1em] text-white sm:text-6xl md:text-8xl"        >
           {t.hero.title}
         </motion.h1>
 

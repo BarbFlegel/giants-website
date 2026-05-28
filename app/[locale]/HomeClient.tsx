@@ -27,11 +27,11 @@ export default function HomeClient({ locale }: { locale: Locale }) {
       <GallerySection t={t} />
       <JoinSection t={t} />
       <Footer t={t} />
-      <div className="fixed bottom-0 left-0 right-0 z-50 flex gap-2 border-t border-zinc-800 bg-black/95 p-3 md:hidden">
-        <a href="#events" className="flex-1 rounded-full bg-orange-500 py-3 text-center text-sm font-bold text-black">
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex gap-2 border-t border-zinc-800 bg-black/95 p-2 md:hidden">
+        <a href="#events" className="flex-1 rounded-full bg-orange-500 py-2.5 text-center text-sm font-bold text-black">
           Join
         </a>
-        <a href={`/${locale}/contact`} className="flex-1 rounded-full border border-orange-500 py-3 text-center text-sm font-bold text-orange-300">
+        <a href={`/${locale}/contact`} className="flex-1 rounded-full border border-orange-500 py-2.5 text-center text-sm font-bold text-orange-300">
           Book
         </a>
       </div>

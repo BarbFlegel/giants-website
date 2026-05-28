@@ -89,14 +89,14 @@ export default function EventsSection({
                   href={`/${locale}/contact`}
                   className="inline-flex min-h-16 w-full items-center justify-center rounded-full bg-orange-500 px-8 py-5 text-base font-black text-black transition hover:scale-105 hover:bg-orange-400"
                 >
-                  Ask About This Event
+                  {t.events.askEvent}
                 </a>
 
                 <a
                   href={`/${locale}/contact`}
                   className="inline-flex min-h-16 w-full items-center justify-center rounded-full border border-orange-500 px-8 py-5 text-base font-black text-orange-300 transition hover:scale-105 hover:bg-orange-500 hover:text-black"
                 >
-                  Book an Experience
+                  {t.events.bookExperience}
                 </a>
               </div>
 
@@ -105,7 +105,7 @@ export default function EventsSection({
                 onClick={() => setIsPosterOpen(true)}
                 className="mt-5 text-sm font-bold text-orange-300 underline-offset-4 transition hover:text-orange-400 hover:underline"
               >
-                View poster fullscreen
+                {t.events.viewPoster}
               </button>
             </div>
           </FadeUp>
@@ -116,20 +116,19 @@ export default function EventsSection({
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="text-sm font-black uppercase tracking-[0.35em] text-orange-400">
-                  Past moments
+                  {t.events.pastMoments}
                 </p>
 
                 <h3 className="mt-3 text-2xl font-black text-white">
-                  Previous GIANTS experiences
+                  {t.events.previousExperiences}
                 </h3>
               </div>
 
               <a
                 href="#gallery"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border border-orange-500 px-6 py-3 text-sm font-black text-orange-300 transition hover:bg-orange-500 hover:text-black"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-orange-500 px-6 py- text-sm font-black text-orange-300 transition hover:bg-orange-500 hover:text-black"
               >
-                View Gallery
-              </a>
+              {t.events.viewGallery}              </a>
             </div>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -187,7 +186,7 @@ export default function EventsSection({
         >
           <button
             type="button"
-            className="absolute right-5 top-5 z-10 rounded-full bg-orange-500 px-5 py-3 font-black text-black transition hover:scale-105 hover:bg-orange-400"
+            className="absolute right-5 top-5 z-10 rounded-full bg-orange-500 px-5 py-2.5 font-black text-black transition hover:scale-105 hover:bg-orange-400"
             onClick={() => setIsPosterOpen(false)}
           >
             Close

@@ -30,8 +30,7 @@ export default function ExperiencesSection({
             {experienceData.map((experience) => (
               <div
                 key={experience.title}
-                className="min-w-[85%] sm:min-w-[55%] lg:min-w-[360px]"
-              >
+                className="min-w-[78%] sm:min-w-[55%] lg:min-w-[360px]"              >
                 <ExperienceCard
                   item={experience}
                   labels={{
@@ -54,8 +53,7 @@ export default function ExperiencesSection({
 
           <a
             href="#events"
-            className="flex min-h-[64px] w-full items-center justify-center rounded-full border border-orange-500 bg-orange-500/10 px-8 text-lg font-black text-orange-300 transition hover:scale-[1.02] hover:bg-orange-500 hover:text-black"
-          >
+            className="flex min-h-[64px] w-full items-center justify-center rounded-full border border-orange-500 bg-orange-500/10 px-8 text-lg font-black text-orange-300 transition hover:scale-[1.02] hover:bg-orange-500 hover:text-black">
             Explore Events
           </a>
         </div>
