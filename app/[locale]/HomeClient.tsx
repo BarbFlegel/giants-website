@@ -35,6 +35,21 @@ export default function HomeClient({ locale }: { locale: Locale }) {
           Book
         </a>
       </div>
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex gap-2 border-t border-zinc-800 bg-black/90 p-2 backdrop-blur-md md:hidden">
+        <a
+          href="#events"
+          className="flex-1 rounded-full bg-orange-500 py-3 text-center text-sm font-black text-black"
+        >
+          Join
+        </a>
+
+        <a
+          href={`/${locale}/contact`}
+          className="flex-1 rounded-full border border-orange-500 py-3 text-center text-sm font-black text-orange-300"
+        >
+          Book
+        </a>
+      </div>
     </main>
   );
 }

@@ -64,8 +64,8 @@ export type EventItem = {
   type?: "birthday" | "standard";
 };
 export type GalleryItem = {
-  titleKey: keyof GalleryContent;
+  title: string;
   image: string;
   type?: "image" | "video";
-  video?: string
+  video?: string;
 };

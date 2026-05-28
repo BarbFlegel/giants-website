@@ -16,16 +16,16 @@ export const eventItems: EventItem[] = [
   {
     title: "Afro Beats & Bounce",
     image: "/images/afro-bounce.png",
-    status: "Coming soon",
+    status: "Past event",
   },
   {
     title: "Workout & BBQ Party",
     image: "/images/bbq-party.png",
-    status: "Coming soon",
+    status: "Past event",
   },
   {
     title: "Community Workout",
     image: "/images/workout-session.png",
-    status: "Coming soon",
+    status: "Past event",
   },
 ];

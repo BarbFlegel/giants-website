@@ -135,8 +135,7 @@ export default function EventsSection({
               {pastEvents.map((event) => (
                 <article
                   key={event.title}
-                  className="group relative min-h-[260px] overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 transition hover:-translate-y-1 hover:border-orange-500/40"
-                >
+                  className="group relative min-h-[150px] overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 transition hover:border-orange-500/40 sm:min-h-[220px] md:min-h-[260px]"                >
                   <Image
                     src={event.image}
                     alt={event.title}
@@ -148,23 +147,23 @@ export default function EventsSection({
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/20" />
 
-                  <div className="relative z-10 flex min-h-[260px] flex-col justify-end p-5">
+                  <div className="relative z-10 flex min-h-[150px] flex-col justify-end p-4 sm:min-h-[220px] md:min-h-[260px] md:p-5">
                     <p className="text-xs font-black uppercase tracking-[0.25em] text-orange-400">
                       {event.status}
                     </p>
 
-                    <h4 className="mt-3 text-xl font-black text-white">
+                    <h4 className="mt-2 text-lg font-black text-white md:text-xl">
                       {event.title}
                     </h4>
 
                     {(event.date || event.time) && (
-                      <p className="mt-3 text-sm text-orange-300">
+                      <p className="mt-2 text-xs text-orange-300 md:text-sm">
                         {[event.date, event.time].filter(Boolean).join(" • ")}
                       </p>
                     )}
 
                     {event.location && (
-                      <p className="mt-1 text-sm text-zinc-300">
+                      <p className="mt-1 text-xs text-zinc-300 md:text-sm">
                         {event.location}
                       </p>
                     )}
