@@ -1,10 +1,10 @@
 import Image from "next/image";
 import FadeUp from "./FadeUp";
+import type { Locale } from "../content/types";
 
 const tags = ["Movement", "Connection", "Community", "Birthday Experience"];
 
-export default function BirthdayEventSection() {
-  return (
+export default function BirthdayEventSection({ locale }: { locale: Locale }) {  return (
     <section id="events" className="bg-black px-4 py-20 text-white">
       <div className="mx-auto max-w-6xl">
         <FadeUp>
@@ -61,7 +61,7 @@ export default function BirthdayEventSection() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href="#contact"
+                  href={`/${locale}/contact`}
                   className="rounded-full bg-orange-500 px-6 py-3 font-bold text-black"
                 >
                   Join the Event

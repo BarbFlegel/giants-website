@@ -59,12 +59,19 @@ export default function CommunitySection({
           </div>
         </DragScroll>
 
-        <div className="mt-6">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
           <a
             href={`/${locale}/contact`}
-            className="flex min-h-[64px] w-full items-center justify-center rounded-full bg-orange-500 px-8 text-lg font-black text-black transition hover:scale-[1.02] hover:bg-orange-400"
+            className="rounded-full bg-orange-500 px-8 py-4 text-center font-black text-black"
           >
-            {t.nav.join}
+            Join Us
+          </a>
+
+          <a
+            href={`/${locale}/contact`}
+            className="rounded-full border border-orange-500 px-8 py-4 text-center font-black text-orange-300"
+          >
+            Collaborate
           </a>
         </div>
       </div>

@@ -41,8 +41,17 @@ export type EventTranslations = {
   previousExperiences: string;
   viewGallery: string;
 };
-export type GalleryContent = { text: string; one: string; two: string };
-export type JoinContent = { text: string };
+export type GalleryContent = {
+  text: string;
+  one: string;
+  two: string;
+  photosLabel: string;
+  videosLabel: string;
+  photosTitle: string;
+  videosTitle: string;
+  viewPhotos: string;
+  viewVideos: string;
+};export type JoinContent = { text: string };
 export type FooterContent = { copyright: string };
 export type Translation = { nav: NavContent; labels: SectionLabels; sectionTitles: SectionTitles; bar: string; hero: HeroContent; about: AboutContent; experiences: ExperiencesIntro; community: CommunityIntro; events: EventTranslations; gallery: GalleryContent; join: JoinContent; footer: FooterContent };
 export type Experience = {

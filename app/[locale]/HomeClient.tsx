@@ -11,8 +11,6 @@ import GallerySection from "./components/GallerySection";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import JoinSection from "./components/JoinSection";
-import VideoSection from "./components/VideoSection";
-import UpcomingRibbon from "./components/UpcomingRibbon";
 
 export default function HomeClient({ locale }: { locale: Locale }) {
   const t = translations[locale];
@@ -20,7 +18,6 @@ export default function HomeClient({ locale }: { locale: Locale }) {
   return (
     <main className="min-h-screen bg-black pb-20 text-white md:pb-0">
       <Header locale={locale} t={t} />
-      <UpcomingRibbon />
       <Hero locale={locale} t={t} />
 
       <ExperiencesSection locale={locale} t={t} />
@@ -28,8 +25,7 @@ export default function HomeClient({ locale }: { locale: Locale }) {
       <EventsSection locale={locale} t={t} />
       <CommunitySection locale={locale} t={t} />
 
-      <VideoSection t={t} />
-      <GallerySection t={t} />
+      <GallerySection locale={locale} t={t} />
       <JoinSection t={t} />
       <Footer t={t} />
 

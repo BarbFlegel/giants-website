@@ -78,8 +78,7 @@ export default function Hero({
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-5xl text-4xl font-black uppercase leading-tight tracking-[0.08em] text-white sm:text-6xl md:text-8xl"
-        >
+className="max-w-4xl text-4xl font-black uppercase leading-tight tracking-[0.06em] text-white sm:text-5xl md:text-7xl"        >
           Unlock Human Potential Through Movement.
         </motion.h1>
 
@@ -103,7 +102,7 @@ export default function Hero({
             href={`/${locale}#events`}
             className="flex min-h-14 w-72 items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-center font-bold text-black shadow-[0_0_25px_rgba(249,115,22,0.35)] transition hover:scale-105 hover:bg-orange-400 sm:w-64"
           >
-            Join the Movement
+            Build with GIANTS
           </Link>
 
           <Link
@@ -115,9 +114,9 @@ export default function Hero({
 
           <Link
             href={`/${locale}/contact`}
-            className="flex min-h-14 w-72 items-center justify-center rounded-full border border-zinc-500 px-8 py-4 text-center font-semibold text-white transition hover:border-white sm:w-64"
+            className="flex min-h-14 w-72 items-center justify-center rounded-full border border-zinc-500 px-8 py-4 text-center font-semibold text-white transition hover:border-white sm:w-auto"
           >
-            Collaborate With GIANTS
+            Collaborate
           </Link>
         </motion.div>
         <motion.div

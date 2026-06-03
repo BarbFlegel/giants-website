@@ -2,11 +2,11 @@ import Link from "next/link";
 
 export default function UpcomingRibbon() {
   return (
-    <Link
+    <a
       href="#events"
-      className="block bg-gradient-to-r from-purple-700 via-yellow-500 to-purple-700 px-4 py-3 text-center text-sm font-bold uppercase tracking-wide text-black hover:opacity-90"
+      className="block border-b border-orange-500/30 bg-gradient-to-r from-black via-orange-600 to-black px-4 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-white"
     >
       🔥 Upcoming Birthday Experience • 14 June • Merksem
-    </Link>
+    </a>
   );
 }

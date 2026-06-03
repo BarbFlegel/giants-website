@@ -11,16 +11,52 @@ type VideoItem = {
 
 const videos: VideoItem[] = [
   {
-    title: "Basketball training energy",
+    title: "Basketball Training 1",
     src: "/videos/basketball-training1.mp4",
   },
   {
-    title: "Movement and team drills",
+    title: "Functional Training",
+    src: "/videos/giants-community-functional-training.mp4",
+  },
+  {
+    title: "Basketball Training 2",
     src: "/videos/basketball-training2.mp4",
   },
   {
-    title: "Board games community moment",
+    title: "Board Games",
     src: "/videos/board-games.mp4",
+  },
+  {
+    title: "GIANTS Community Video 1",
+    src: "/videos/giants-community-video-1.mp4",
+  },
+  {
+    title: "GIANTS Community Video 2",
+    src: "/videos/giants-community-video-2.mp4",
+  },
+  {
+    title: "GIANTS Community Video 3",
+    src: "/videos/giants-community-video-3.mp4",
+  },
+  {
+    title: "GIANTS Community Video 4",
+    src: "/videos/giants-community-video-4.mp4",
+  },
+  {
+    title: "GIANTS Community Video 5",
+    src: "/videos/giants-community-video-5.mp4",
+  },
+  {
+    title: "GIANTS Community Video 6",
+    src: "/videos/giants-community-video-6.mp4",
+  },
+  {
+    title: "GIANTS Community Video 7",
+    src: "/videos/giants-community-video-7.mp4",
+  },
+  {
+    title: "GIANTS Community Video 8",
+    src: "/videos/giants-community-video-8.mp4",
   },
 ];
 

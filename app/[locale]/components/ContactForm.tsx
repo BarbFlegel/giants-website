@@ -51,7 +51,7 @@ export default function ContactForm() {
         <p className="text-zinc-300">Prefer a quick conversation?</p>
 
         <a
-          href="https://wa.me/324XXXXXXXX?text=Hi%20GIANTS%2C%20I%27d%20like%20to%20book%20or%20ask%20about%20an%20experience."
+          href="https://wa.me/32465545947?text=Hi%20GIANTS,%20I'd%20like%20to%20learn%20more%20about%20your%20experiences."
           target="_blank"
           rel="noopener noreferrer"
           className="rounded-full bg-green-500 px-8 py-4 font-black text-black transition hover:scale-105 hover:bg-green-400"
