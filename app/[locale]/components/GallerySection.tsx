@@ -8,7 +8,7 @@ import SectionHeader from "./SectionHeader";
 
 export default function GallerySection({ t }: { t: any }) {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-  const previewItems = galleryItems.slice(0, 2);
+  const previewItems = galleryItems.slice(0, 6);
 
   return (
     <section
@@ -24,20 +24,16 @@ export default function GallerySection({ t }: { t: any }) {
           />
         </FadeUp>
 
-        <div className="mt-8 grid gap-5 sm:grid-cols-2">
+        <div className="mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4">
           {previewItems.map((item, index) => (
             <FadeUp key={`${item.image}-${index}`}>
-              <article
-                className={`group overflow-hidden rounded-3xl border border-zinc-800 bg-black transition duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[0_0_30px_rgba(249,115,22,0.15)] ${
-                  index === 1 ? "hidden sm:block" : ""
-                }`}
-              >
-                <div className="relative h-[220px] overflow-hidden sm:h-[280px] md:h-[360px]">
+              <article className="group min-w-[280px] snap-start overflow-hidden rounded-3xl border border-zinc-800 bg-black transition duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[0_0_30px_rgba(249,115,22,0.15)] sm:min-w-[360px]">
+                <div className="relative h-[220px] overflow-hidden sm:h-[280px]">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="320px"
                     className="object-cover object-center transition duration-700 group-hover:scale-105"
                   />
 

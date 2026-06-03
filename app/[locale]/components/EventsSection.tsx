@@ -73,15 +73,25 @@ export default function EventsSection({
               )}
 
               <p className="mt-6 max-w-2xl leading-7 text-zinc-300">
-                A premium birthday basketball experience built around games,
-                teamwork, movement, music, and unforgettable GIANTS moments.
-              </p>
+                  GIANTS Birthday Experience brings movement, connection and community together through playful challenges, shared moments and high-energy experiences.
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {["Movement", "Connection", "Community", "Experience"].map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-orange-500/15 px-3 py-1 text-xs font-semibold text-orange-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+              </div>
 
               <div className="mt-6 grid gap-3 text-sm text-zinc-300 sm:grid-cols-2">
-                <p>• Basketball-inspired challenges</p>
-                <p>• Team wars & mini games</p>
-                <p>• MVP birthday spotlight</p>
-                <p>• High-energy group atmosphere</p>
+                <p>• Movement & wellbeing activities</p>
+                <p>• Team challenges & experiences</p>
+                <p>• Community connection</p>
+                <p>• Positive energy & celebration</p>
               </div>
 
               <div className="mt-8 grid w-full gap-4 sm:grid-cols-2">
@@ -131,11 +141,10 @@ export default function EventsSection({
               {t.events.viewGallery}              </a>
             </div>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-3">
-              {pastEvents.map((event) => (
+            <div className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4">              {pastEvents.map((event) => (
                 <article
                   key={event.title}
-                  className="group relative min-h-[150px] overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 transition hover:border-orange-500/40 sm:min-h-[220px] md:min-h-[260px]"                >
+                  className="group relative min-h-[180px] min-w-[280px] snap-start overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 transition hover:border-orange-500/40 sm:min-h-[220px] sm:min-w-[340px] md:min-h-[260px]"                >
                   <Image
                     src={event.image}
                     alt={event.title}
