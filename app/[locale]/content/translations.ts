@@ -47,8 +47,8 @@ export const translations: Record<Locale, Translation> = {
   },
 
   fr: {
-    nav: { about: "À propos", experiences: "Expériences", community: "Impact", events: "Events", gallery: "Galerie", join: "Contact" },
-    labels: { about: "À propos", experiences: "Expériences", community: "Communauté", events: "Événements", gallery: "Galerie", join: "Collaborer", energy: "Énergie" },
+    nav: { about: "À propos", experiences: "Expériences", community: "Impact", events: "Events", gallery: "Moments", join: "Contact" },
+    labels: { about: "À propos", experiences: "Expériences", community: "Communauté", events: "Événements", gallery: "Moments", join: "Collaborer", energy: "Énergie" },
     sectionTitles: { about: "Le mouvement par la communauté", experiences: "Expériences sportives & communautaires immersives", community: "Initiatives à impact social", events: "Expériences à venir & en avant", gallery: "Moments communautaires", join: "Construire avec GIANTS", energy: "Vivre GIANTS en mouvement" },
     bar: "🔥 Prochaine expérience anniversaire GIANTS • 14 juin 2026 • Merksem",
     hero: heroContent.fr,
@@ -91,8 +91,8 @@ export const translations: Record<Locale, Translation> = {
   },
 
   nl: {
-    nav: { about: "Over", experiences: "Ervaringen", community: "Impact", events: "Events", gallery: "Galerij", join: "Contact" },
-    labels: { about: "Over", experiences: "Ervaringen", community: "Community", events: "Events", gallery: "Galerij", join: "Samenwerken", energy: "Energie" },
+    nav: { about: "Over", experiences: "Ervaringen", community: "Impact", events: "Events", gallery: "Momenten", join: "Contact" },
+    labels: { about: "Over", experiences: "Ervaringen", community: "Community", events: "Events", gallery: "Momenten", join: "Samenwerken", energy: "Energie" },
     sectionTitles: { about: "Beweging via community", experiences: "Meeslepende sport- & community-ervaringen", community: "Sociale impact initiatieven", events: "Komende & uitgelichte ervaringen", gallery: "Momenten vol energie", join: "Bouw mee met GIANTS", energy: "Ervaar GIANTS in beweging" },
     bar: "🔥 Komende GIANTS verjaardagservaring • 14 juni 2026 • Merksem",
     hero: heroContent.nl,
@@ -135,8 +135,8 @@ export const translations: Record<Locale, Translation> = {
   },
 
   de: {
-    nav: { about: "Über uns", experiences: "Erlebnisse", community: "Impact", events: "Events", gallery: "Galerie", join: "Kontakt" },
-    labels: { about: "Über uns", experiences: "Erlebnisse", community: "Community", events: "Events", gallery: "Galerie", join: "Kooperieren", energy: "Energie" },
+    nav: { about: "Über uns", experiences: "Erlebnisse", community: "Impact", events: "Events", gallery: "Momente", join: "Kontakt" },
+    labels: { about: "Über uns", experiences: "Erlebnisse", community: "Community", events: "Events", gallery: "Momente", join: "Kooperieren", energy: "Energie" },
     sectionTitles: { about: "Bewegung durch Gemeinschaft", experiences: "Immersive Sport- & Community-Erlebnisse", community: "Initiativen mit sozialer Wirkung", events: "Kommende & ausgewählte Erlebnisse", gallery: "Momente voller Energie", join: "Mit GIANTS zusammenarbeiten", energy: "GIANTS in Bewegung erleben" },
     bar: "🔥 Kommendes GIANTS Geburtstagserlebnis • 14. Juni 2026 • Merksem",
     hero: heroContent.de,
