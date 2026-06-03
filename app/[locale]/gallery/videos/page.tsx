@@ -2,6 +2,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { locales, translations, type Locale } from "../../content";
 
+export const metadata = {
+  title: "Movement Videos | GIANTS",
+  description:
+    "Watch GIANTS movement, basketball, wellbeing and community experience videos.",
+};
+
 const videos = [
   {
     title: "GIANTS Community Video 1",

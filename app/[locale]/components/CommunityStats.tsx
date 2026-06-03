@@ -8,8 +8,8 @@ const stats = [
 
 export default function CommunityStats() {
   return (
-    <section className="bg-zinc-950 px-4 py-12 text-white">
-      <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-3">
+    <section className="bg-zinc-950 px-6 py-12 text-white">
+  <div className="mx-auto grid max-w-6xl gap-4 sm:grid-cols-3">
         {stats.map((stat) => (
           <FadeUp key={stat.value}>
             <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 text-center">

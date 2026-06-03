@@ -131,14 +131,6 @@ export default function EventsSection({
                     Book Experience
                   </Link>
                 </div>
-
-                <button
-                  type="button"
-                  onClick={() => setIsPosterOpen(true)}
-                  className="mt-5 w-fit text-sm font-black text-orange-300 underline-offset-4 hover:underline"
-                >
-                  View poster fullscreen
-                </button>
               </div>
             </article>
           </FadeUp>

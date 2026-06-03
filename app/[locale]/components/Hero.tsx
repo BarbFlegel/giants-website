@@ -100,14 +100,14 @@ className="max-w-4xl text-4xl font-black uppercase leading-tight tracking-[0.06e
         >
           <Link
             href={`/${locale}#events`}
-            className="flex min-h-14 w-72 items-center justify-center rounded-full bg-orange-500 px-8 py-4 text-center font-bold text-black shadow-[0_0_25px_rgba(249,115,22,0.35)] transition hover:scale-105 hover:bg-orange-400 sm:w-64"
+            className="rounded-full bg-orange-500 px-8 py-4 font-black text-black transition hover:bg-black hover:text-orange-300 hover:ring-1 hover:ring-orange-500"
           >
             Build with GIANTS
           </Link>
 
           <Link
             href={`/${locale}#experiences`}
-            className="flex min-h-14 w-72 items-center justify-center rounded-full border border-orange-400 px-8 py-4 text-center font-semibold text-orange-300 transition hover:bg-orange-500/10 sm:w-64"
+            className="rounded-full border border-orange-500 bg-black px-8 py-4 font-black text-orange-300 transition hover:bg-orange-500 hover:text-black"
           >
             Explore Experiences
           </Link>

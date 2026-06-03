@@ -4,6 +4,12 @@ import { notFound } from "next/navigation";
 import { galleryItems } from "../../content/gallery";
 import { locales, translations, type Locale } from "../../content";
 
+export const metadata = {
+  title: "Community Photos | GIANTS",
+  description:
+    "Explore real moments from GIANTS experiences, events and community sessions.",
+};
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }

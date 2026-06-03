@@ -52,7 +52,7 @@ export default function BirthdayEventSection({ locale }: { locale: Locale }) {  
                 {tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-orange-500/15 px-3 py-1 text-xs font-semibold text-orange-300"
+                    className="flex min-h-14 items-center justify-center rounded-full bg-orange-500 px-7 py-3 font-black text-black transition hover:bg-black hover:text-orange-300 hover:ring-1 hover:ring-orange-500"
                   >
                     {tag}
                   </span>
@@ -62,7 +62,7 @@ export default function BirthdayEventSection({ locale }: { locale: Locale }) {  
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
                   href={`/${locale}/contact`}
-                  className="rounded-full bg-orange-500 px-6 py-3 font-bold text-black"
+                  className="flex min-h-14 items-center justify-center rounded-full bg-orange-500 px-7 py-3 font-black text-black transition hover:bg-black hover:text-orange-300 hover:ring-1 hover:ring-orange-500"
                 >
                   Join the Event
                 </a>
