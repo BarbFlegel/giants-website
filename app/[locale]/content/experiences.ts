@@ -79,4 +79,16 @@ export const experienceData: Experience[] = [
       "Free community experience",
     ],
   },
+  {
+    title: "New Movement Experiences",
+    description:
+      "Upcoming GIANTS concepts combining movement, rhythm, team energy, music, games, and community connection.",
+    tags: ["Coming soon", "Movement", "Music", "Community"],
+    includes: [
+      "Basketball-inspired movement",
+      "Music and rhythm-based energy",
+      "Group games and connection",
+    ],
+    packages: ["Launch details coming soon"],
+  }
 ];
