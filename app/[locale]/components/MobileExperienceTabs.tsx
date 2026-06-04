@@ -1,31 +1,38 @@
 "use client";
 
 import { useState } from "react";
+import type { Locale, Translation } from "../content/types";
 import ExperiencesSection from "./ExperiencesSection";
-import EventsSection from "./EventsSection";
-import GallerySection from "./GallerySection";
+import BirthdayEventSection from "./BirthdayEventSection";
 import CommunitySection from "./CommunitySection";
 
-const tabs = ["Experiences", "Events", "Community"] as const;
+export default function MobileExperienceTabs({
+  locale,
+  t,
+}: {
+  locale: Locale;
+  t: Translation;
+}) {
+  const [activeTab, setActiveTab] = useState<"Experiences" | "Events" | "Community">(
+    "Experiences"
+  );
 
-type Tab = (typeof tabs)[number];
-
-export default function MobileExperienceTabs() {
-  const [activeTab, setActiveTab] = useState<Tab>("Experiences");
+  const tabs = ["Experiences", "Events", "Community"] as const;
 
   return (
-    <section className="md:hidden px-4 py-10">
-      <div className="sticky top-16 z-40 mb-6 rounded-full border border-white/10 bg-black/80 p-1 backdrop-blur-xl">
-        <div className="grid grid-cols-3 gap-1">
+    <section className="md:hidden">
+      <div className="sticky top-[150px] z-30 border-y border-zinc-800 bg-black/95 px-4 py-3 backdrop-blur-md">
+        <div className="grid grid-cols-3 gap-2">
           {tabs.map((tab) => (
             <button
               key={tab}
+              type="button"
               onClick={() => setActiveTab(tab)}
-              className={`rounded-full px-3 py-2 text-xs font-bold uppercase tracking-wide transition ${
+              className={
                 activeTab === tab
-                  ? "bg-orange-500 text-black"
-                  : "text-white/60"
-              }`}
+                  ? "rounded-full bg-orange-500 px-3 py-2 text-xs font-black text-black"
+                  : "rounded-full border border-orange-500/40 px-3 py-2 text-xs font-black text-orange-300"
+              }
             >
               {tab}
             </button>
@@ -33,13 +40,16 @@ export default function MobileExperienceTabs() {
         </div>
       </div>
 
-      {activeTab === "Experiences" && <ExperiencesSection />}
-      {activeTab === "Events" && <EventsSection />}
+      {activeTab === "Experiences" && (
+        <ExperiencesSection locale={locale} t={t} />
+      )}
+
+      {activeTab === "Events" && (
+        <BirthdayEventSection locale={locale} t={t} />
+      )}
+
       {activeTab === "Community" && (
-        <>
-          <CommunitySection />
-          <GallerySection />
-        </>
+        <CommunitySection locale={locale} t={t} />
       )}
     </section>
   );
