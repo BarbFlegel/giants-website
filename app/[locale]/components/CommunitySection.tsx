@@ -27,7 +27,7 @@ export default function CommunitySection({
         </FadeUp>
 
         <FadeUp>
-          <div className="mt-8 rounded-3xl border border-orange-500/30 bg-orange-500/10 p-5 text-center md:text-left">
+          <div className="mt-6 rounded-3xl border border-orange-500/30 bg-orange-500/10 p-5 text-left">
             <p className="text-sm font-bold uppercase tracking-[0.25em] text-orange-300">
               {t.experiences.accessTitle}
             </p>
@@ -38,7 +38,12 @@ export default function CommunitySection({
           </div>
         </FadeUp>
 
-        <DragScroll className="mt-10 pb-4">
+        <div className="mt-4 flex items-center justify-between text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 md:hidden">
+          <span>{t.sliderHint.swipe}</span>
+          <span>{t.sliderHint.drag}</span>
+        </div>
+
+        <DragScroll className="mt-6 pb-4">
           <div className="flex gap-6">
             {communityPrograms.map((program) => (
               <div
@@ -50,30 +55,42 @@ export default function CommunitySection({
                   labels={{
                     includes: t.experiences.includes,
                     packages: t.experiences.packages,
+                    featured: t.experiences.featured,
+                    discoverMore: t.experiences.discoverMore,
                   }}
-                  className="border-zinc-700 bg-zinc-900/60"
                   ctaHref={`/${locale}/contact`}
                 />
               </div>
             ))}
+
+            <div className="min-w-[78%] sm:min-w-[55%] lg:min-w-[360px]">
+              <article className="card-coming-soon">
+                <div>
+                  <p className="text-sm font-black uppercase tracking-[0.25em] text-orange-400">
+                    {t.community.comingSoon.label}
+                  </p>
+
+                  <h3 className="mt-4 text-2xl font-black text-white">
+                    {t.community.comingSoon.title}
+                  </h3>
+
+                  <ul className="mt-4 space-y-3 text-zinc-300">
+                    {t.community.comingSoon.items?.map((item: string) => (
+                      <li key={item}>• {item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <a
+                  href={`/${locale}/contact`}
+                  className="btn-secondary btn-small mt-6"
+                >
+                  {t.community.comingSoon.cta}
+                </a>
+              </article>
+            </div>
           </div>
         </DragScroll>
-
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          <a
-            href={`/${locale}/contact`}
-            className="rounded-full bg-orange-500 px-8 py-4 text-center font-black text-black"
-          >
-            Join Us
-          </a>
-
-          <a
-            href={`/${locale}/contact`}
-            className="rounded-full border border-orange-500 px-8 py-4 text-center font-black text-orange-300"
-          >
-            Collaborate
-          </a>
-        </div>
       </div>
     </section>
   );

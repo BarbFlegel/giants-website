@@ -19,7 +19,7 @@ export default function GallerySection({
   return (
     <section
       id="gallery"
-      className="scroll-mt-40 bg-zinc-950 px-6 py-12 md:py-20"
+      className="scroll-mt-40 bg-zinc-950 px-6 py-12 md:py-16"
     >
       <div className="mx-auto max-w-6xl">
         <FadeUp>
@@ -59,8 +59,7 @@ export default function GallerySection({
                   href={`/${locale}/gallery/photos`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-12 w-full items-center justify-center rounded-full bg-orange-500 px-6 py-3 font-black text-black transition hover:bg-orange-400"
-                >
+                  className="btn-secondary btn-secondary-full">
                   {t.gallery.viewPhotos}
                 </Link>
               </div>

@@ -1,12 +1,12 @@
-import Link from "next/link";
+import type { Translation } from "../content/types";
 
-export default function UpcomingRibbon() {
+export default function UpcomingRibbon({ t }: { t: Translation }) {
   return (
     <a
       href="#events"
-      className="block border-b border-orange-500/30 bg-gradient-to-r from-black via-orange-600 to-black px-4 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-white"
+      className="sticky top-[82px] z-40 block border-y border-orange-500/30 bg-orange-950/70 px-4 py-2.5 text-center text-[0.7rem] font-black uppercase tracking-[0.22em] text-orange-100 backdrop-blur-md transition hover:bg-orange-900/80"
     >
-      🔥 Upcoming Birthday Experience • 14 June • Merksem
+      {t.bar}
     </a>
   );
 }

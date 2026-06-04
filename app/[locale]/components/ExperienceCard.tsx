@@ -3,29 +3,28 @@ import { ArrowRight } from "lucide-react";
 export default function ExperienceCard({
   item,
   labels,
-  className = "",
   ctaHref = "#join",
 }: {
   item: any;
   labels: {
     includes: string;
     packages: string;
+    featured: string;
+    discoverMore: string;
   };
   className?: string;
   ctaHref?: string;
 }) {
   return (
-    <article
-      className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 transition duration-500 hover:-translate-y-1 hover:border-zinc-700 hover:shadow-[0_0_30px_rgba(249,115,22,0.12)] ${className}`}
-    >
+    <article className="flex h-full min-h-[520px] flex-col rounded-3xl border border-zinc-800 bg-zinc-950 p-6 text-left">
       {item.featured && (
-        <div className="bg-orange-500 px-4 py-2 text-center text-xs font-black uppercase tracking-[0.3em] text-black">
-          Upcoming Experience
+        <div className="-mx-6 -mt-6 mb-5 rounded-t-3xl bg-orange-500 px-4 py-3 text-center text-xs font-black uppercase tracking-[0.3em] text-black">
+          {labels.featured}
         </div>
       )}
 
-      <div className="flex h-full flex-col p-5 md:p-6">
-        {item.tags && item.tags.length > 0 && (
+      <div className="flex h-full flex-col">
+        {item.tags?.length > 0 && (
           <div className="mb-4 flex flex-wrap gap-2">
             {item.tags.map((tag: string) => (
               <span
@@ -42,12 +41,10 @@ export default function ExperienceCard({
           {item.title}
         </h3>
 
-        <p className="mt-4 flex-1 leading-7 text-zinc-300">
-          {item.description}
-        </p>
+        <p className="mt-4 leading-7 text-zinc-300">{item.description}</p>
 
-        {item.includes && item.includes.length > 0 && (
-          <div className="mt-6">
+        {item.includes?.length > 0 && (
+          <div className="mt-5">
             <p className="text-xs font-black uppercase tracking-[0.25em] text-orange-400">
               {labels.includes}
             </p>
@@ -63,8 +60,8 @@ export default function ExperienceCard({
           </div>
         )}
 
-        {item.packages && item.packages.length > 0 && (
-          <div className="mt-6 hidden md:block">
+        {item.packages?.length > 0 && (
+          <div className="mt-5 hidden md:block">
             <p className="text-xs font-black uppercase tracking-[0.25em] text-orange-400">
               {labels.packages}
             </p>
@@ -80,12 +77,9 @@ export default function ExperienceCard({
           </div>
         )}
 
-        <div className="mt-auto pt-8">
-          <a
-            href={ctaHref}
-            className="inline-flex items-center gap-2 rounded-full border border-orange-500 px-5 py-3 text-sm font-bold text-orange-300 transition hover:bg-orange-500 hover:text-black"
-          >
-            Discover More
+        <div className="mt-auto pt-6">
+          <a href={ctaHref} className="btn-secondary btn-small inline-flex gap-2">
+            {labels.discoverMore}
             <ArrowRight className="h-4 w-4" />
           </a>
         </div>

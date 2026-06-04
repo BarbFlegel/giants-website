@@ -78,8 +78,9 @@ export default function Hero({
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-className="max-w-4xl text-4xl font-black uppercase leading-tight tracking-[0.06em] text-white sm:text-5xl md:text-7xl"        >
-          Unlock Human Potential Through Movement.
+          className="mx-auto max-w-3xl text-3xl font-black uppercase leading-tight tracking-[0.05em] text-white sm:text-4xl md:text-5xl lg:text-6xl"
+          >
+          {t.hero.title}
         </motion.h1>
 
         <motion.p
@@ -96,28 +97,35 @@ className="max-w-4xl text-4xl font-black uppercase leading-tight tracking-[0.06e
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap"
+          className="mt-10 grid w-full max-w-3xl gap-4 sm:grid-cols-3"
         >
-          <Link
-            href={`/${locale}#events`}
-            className="rounded-full bg-orange-500 px-8 py-4 font-black text-black transition hover:bg-black hover:text-orange-300 hover:ring-1 hover:ring-orange-500"
-          >
-            Build with GIANTS
+          <Link href={`/${locale}#events`} className="btn-primary">
+            {t.hero.primaryCta}
           </Link>
 
-          <Link
-            href={`/${locale}#experiences`}
-            className="rounded-full border border-orange-500 bg-black px-8 py-4 font-black text-orange-300 transition hover:bg-orange-500 hover:text-black"
-          >
-            Explore Experiences
+          <Link href={`/${locale}#experiences`} className="btn-secondary">
+            {t.hero.secondaryCta}
           </Link>
 
-          <Link
-            href={`/${locale}/contact`}
-            className="flex min-h-14 w-72 items-center justify-center rounded-full border border-zinc-500 px-8 py-4 text-center font-semibold text-white transition hover:border-white sm:w-auto"
-          >
-            Collaborate
+          <Link href={`/${locale}/contact`} className="btn-ghost w-full sm:w-auto">
+            {t.hero.tertiaryCta}
           </Link>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center text-sm text-zinc-400"
+        >
+          {t.hero.mantra.split("•").map((item, index, array) => (
+            <span key={`${item}-${index}`} className="flex items-center gap-4">
+              <span>{item.trim()}</span>
+              {index < array.length - 1 && (
+                <span className="hidden text-zinc-500 sm:inline">•</span>
+              )}
+            </span>
+          ))}
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -125,11 +133,6 @@ className="max-w-4xl text-4xl font-black uppercase leading-tight tracking-[0.06e
           transition={{ duration: 0.8, delay: 0.7 }}
           className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-zinc-400"
         >
-          <span>Movement & Wellbeing</span>
-          <span>•</span>
-          <span>Leadership Development</span>
-          <span>•</span>
-          <span>Community Impact</span>
         </motion.div>
       </div>
     </section>

@@ -90,5 +90,6 @@ export const experienceData: Experience[] = [
       "Group games and connection",
     ],
     packages: ["Launch details coming soon"],
+    
   }
 ];

@@ -1,19 +1,21 @@
-export async function generateMetadata({
+import { notFound } from "next/navigation";
+import HomeClient from "./HomeClient";
+import { locales, type Locale } from "./content";
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export default async function Home({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
 
-  return {
-    title: "GIANTS | Movement, Community & Wellbeing",
-    description:
-      "GIANTS creates movement experiences, community programmes, events and social impact initiatives through sport, wellbeing and connection.",
-    openGraph: {
-      title: "GIANTS | Movement, Community & Wellbeing",
-      description:
-        "Unlock human potential through movement, community, wellbeing and social impact.",
-      images: ["/images/hero-giants-premium.jpg"],
-    },
-  };
+  if (!locales.includes(locale as Locale)) {
+    notFound();
+  }
+
+  return <HomeClient locale={locale as Locale} />;
 }

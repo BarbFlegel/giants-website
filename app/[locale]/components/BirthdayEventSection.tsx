@@ -1,83 +1,119 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 import FadeUp from "./FadeUp";
-import type { Locale } from "../content/types";
+import type { Locale, Translation } from "../content/types";
 
 const tags = ["Movement", "Connection", "Community", "Birthday Experience"];
 
-export default function BirthdayEventSection({ locale }: { locale: Locale }) {  return (
-    <section id="events" className="bg-black px-4 py-20 text-white">
+export default function BirthdayEventSection({
+  locale,
+  t,
+}: {
+  locale: Locale;
+  t: Translation;
+}) {
+  const [isPosterOpen, setIsPosterOpen] = useState(false);
+
+  return (
+    <section
+      id="events"
+      className="scroll-mt-40 bg-black px-6 py-12 text-white md:py-16"
+    >
       <div className="mx-auto max-w-6xl">
         <FadeUp>
-          <div className="mb-8">
-            <p className="text-sm font-bold uppercase tracking-[0.3em] text-orange-400">
-              Upcoming Event
-            </p>
-            <h2 className="mt-3 text-4xl font-black uppercase md:text-6xl">
-              GIANTS Birthday Experience
-            </h2>
-          </div>
+          <p className="text-sm font-black uppercase tracking-[0.35em] text-orange-400">
+            {t.events.label}
+          </p>
+
+          <h2 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
+            {t.events.title}
+          </h2>
+
+          <p className="mt-5 max-w-4xl leading-8 text-zinc-300">
+            {t.events.description}
+          </p>
         </FadeUp>
 
-        <div className="grid gap-8 md:grid-cols-[0.95fr_1.05fr] md:items-center">
-          <FadeUp>
-            <div className="overflow-hidden rounded-3xl border border-white/10 bg-zinc-950 shadow-2xl">
-              <div className="relative h-[260px] w-full bg-black sm:h-[380px] md:h-[520px]">
-                <Image
-                  src="/images/birthday-poster.jpg"
-                  alt="GIANTS Birthday Experience poster"
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                  priority
-                />
-              </div>
-            </div>
-          </FadeUp>
+        <div className="mt-8 grid gap-6 lg:grid-cols-2 lg:items-stretch">
+          <button
+            type="button"
+            onClick={() => setIsPosterOpen(true)}
+            aria-label={t.events.viewPoster}
+            className="relative min-h-[520px] overflow-hidden rounded-3xl border border-orange-500/30 bg-zinc-950"
+          >
+            <Image
+              src="/images/luke-birthday-experience.jpg"
+              alt={t.events.birthdayTitle}
+              fill
+              className="object-contain p-3"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
+          </button>
 
           <FadeUp>
-            <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 md:p-8">
-              <p className="text-orange-300 font-semibold">
-                14 June • Merksem • Sport, games & community energy
-              </p>
+            <article className="flex min-h-[520px] flex-col rounded-3xl border border-zinc-800 bg-zinc-950 p-7 md:p-8">
+              <span className="w-fit rounded-full bg-orange-500 px-4 py-2 text-xs font-black uppercase text-black">
+                {t.events.status}
+              </span>
 
-              <h3 className="mt-4 text-3xl font-black uppercase">
-                A celebration of movement, connection and community impact.
+              <h3 className="mt-6 text-3xl font-black leading-tight md:text-4xl">
+                {t.events.birthdayTitle}
               </h3>
 
-              <p className="mt-4 text-white/70">
-                Join GIANTS for a birthday experience built around movement, team games, basketball-inspired challenges, connection and shared community energy.
+              <p className="mt-5 leading-8 text-zinc-300">
+                {t.events.birthdayDescription}
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
                 {tags.map((tag) => (
                   <span
                     key={tag}
-                    className="flex min-h-14 items-center justify-center rounded-full bg-orange-500 px-7 py-3 font-black text-black transition hover:bg-black hover:text-orange-300 hover:ring-1 hover:ring-orange-500"
+                    className="rounded-full bg-orange-500/10 px-3 py-1 text-xs font-semibold text-orange-300"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href={`/${locale}/contact`}
-                  className="flex min-h-14 items-center justify-center rounded-full bg-orange-500 px-7 py-3 font-black text-black transition hover:bg-black hover:text-orange-300 hover:ring-1 hover:ring-orange-500"
-                >
-                  Join the Event
+              <div className="mt-auto grid gap-3 pt-8 sm:grid-cols-2">
+                <a href={`/${locale}/contact`} className="btn-primary">
+                  {t.events.ask}
                 </a>
 
-                <a
-                  href="#gallery"
-                  className="rounded-full border border-white/20 px-6 py-3 font-bold text-white"
-                >
-                  View Community Moments
+                <a href={`/${locale}/contact`} className="btn-secondary">
+                  {t.events.book}
                 </a>
               </div>
-            </div>
+            </article>
           </FadeUp>
         </div>
       </div>
+
+      {isPosterOpen && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/95 p-4">
+          <button
+            type="button"
+            onClick={() => setIsPosterOpen(false)}
+            aria-label={t.events.closePoster}
+            className="absolute right-5 top-5 rounded-full bg-orange-500 px-5 py-3 text-2xl font-black text-black"
+          >
+            ×
+          </button>
+
+          <div className="relative h-[90vh] w-full max-w-5xl">
+            <Image
+              src="/images/luke-birthday-experience.jpg"
+              alt={t.events.birthdayTitle}
+              fill
+              className="object-contain"
+              sizes="100vw"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

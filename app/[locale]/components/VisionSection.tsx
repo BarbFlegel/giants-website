@@ -1,25 +1,27 @@
+import type { Translation } from "../content/types";
 import FadeUp from "./FadeUp";
 
-export default function VisionSection() {
+export default function VisionSection({ t }: { t: Translation }) {
   return (
-    <section id="vision" className="bg-black px-6 py-20 text-white">
+    <section
+      id="vision"
+      className="scroll-mt-52 bg-black px-6 py-10 text-white md:py-12"
+    >
       <div className="mx-auto max-w-6xl">
         <FadeUp>
-          <p className="text-sm font-black uppercase tracking-[0.35em] text-orange-400">
-            Vision
-          </p>
+          <div className="border-b border-orange-500/20 pb-10">
+            <p className="text-sm font-black uppercase tracking-[0.35em] text-orange-400">
+              {t.vision.label}
+            </p>
 
-          <h2 className="mt-4 max-w-4xl text-4xl font-black uppercase md:text-6xl">
-            Building stronger people, stronger communities.
-          </h2>
+            <h2 className="mt-4 max-w-3xl text-3xl font-black uppercase leading-tight md:text-4xl lg:text-[44px]">
+              {t.vision.title}
+            </h2>
 
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-300">
-            GIANTS exists to transform lives through movement, connection and
-            meaningful opportunity. We envision a future where every person,
-            regardless of background or circumstance, has access to experiences,
-            support and opportunities that help them thrive physically,
-            mentally, socially and economically.
-          </p>
+            <p className="mt-5 max-w-3xl text-base leading-8 text-zinc-300">
+              {t.vision.text}
+            </p>
+          </div>
         </FadeUp>
       </div>
     </section>

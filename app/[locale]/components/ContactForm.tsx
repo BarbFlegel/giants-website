@@ -127,8 +127,7 @@ export default function ContactForm() {
 
         <button
           type="submit"
-          className="mt-2 flex min-h-[64px] w-full items-center justify-center rounded-full bg-orange-500 px-8 text-lg font-black text-black transition hover:scale-[1.02] hover:bg-orange-400"
-        >
+          className="btn-primary btn-primary-full" >
           Send Request
         </button>
       </form>
