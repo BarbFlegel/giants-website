@@ -134,3 +134,11 @@ section[id] {
     scroll-margin-top: 190px;
   }
 }
+
+.section-shell {
+  @apply mx-auto w-full max-w-6xl px-6;
+}
+
+.section-spacing {
+  @apply scroll-mt-52 bg-black py-10 text-white md:py-12;
+}
