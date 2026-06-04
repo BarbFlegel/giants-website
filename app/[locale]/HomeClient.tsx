@@ -2,17 +2,16 @@
 
 import { type Locale, translations } from "./content";
 
+import BirthdayEventSection from "./components/BirthdayEventSection";
 import CommunitySection from "./components/CommunitySection";
-import EventsSection from "./components/EventsSection";
 import ExperiencesSection from "./components/ExperiencesSection";
 import Footer from "./components/Footer";
 import GallerySection from "./components/GallerySection";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import JoinSection from "./components/JoinSection";
-import VisionSection from "./components/VisionSection";
 import UpcomingRibbon from "./components/UpcomingRibbon";
-import BirthdayEventSection from "./components/BirthdayEventSection";
+import VisionSection from "./components/VisionSection";
 
 export default function HomeClient({ locale }: { locale: Locale }) {
   const t = translations[locale];
@@ -29,7 +28,6 @@ export default function HomeClient({ locale }: { locale: Locale }) {
       <BirthdayEventSection locale={locale} t={t} />
       <GallerySection locale={locale} t={t} />
       <JoinSection t={t} />
-
       <Footer t={t} />
 
       <div className="fixed bottom-0 left-0 right-0 z-50 grid grid-cols-2 gap-2 border-t border-zinc-800 bg-black/90 p-2 backdrop-blur-md md:hidden">
