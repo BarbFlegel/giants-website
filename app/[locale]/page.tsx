@@ -19,7 +19,3 @@ export default async function Home({
 
   return <HomeClient locale={locale as Locale} />;
 }
-  }
-
-  return <HomeClient locale={locale as Locale} />;
-}
