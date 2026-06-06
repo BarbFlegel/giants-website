@@ -8,13 +8,15 @@ export const translations: Record<Locale, Translation> = {
       tagline: "Movement · Community · Wellbeing",
     },
     nav: {
-      about: "About",
-      vision: "Vision",
-      experiences: "Experiences",
-      community: "Impact",
-      events: "Events",
-      gallery: "Moments",
-      join: "Contact",
+  about: "About",
+  vision: "Vision",
+  experiences: "Experiences",
+  community: "Impact",
+  events: "Events",
+  letters: "Letters",
+  gallery: "Moments",
+  join: "Contact",
+},
     },
     mobileBar: {
       join: "Join",
@@ -63,6 +65,29 @@ export const translations: Record<Locale, Translation> = {
       viewPoster: "View poster fullscreen",
       closePoster: "Close poster",
     },
+letters: {
+  label: "Letters",
+  title: "Letters from GIANTS",
+  description:
+    "Weekly reflections on courage, discipline, mindset, leadership and the mental side of growth.",
+  items: [
+    {
+      label: "Mindset",
+      title: "The Birth of Courage",
+      text: "A weekly space to train the mind, build confidence and grow through challenge.",
+    },
+    {
+      label: "Discipline",
+      title: "Discipline Over Motivation",
+      text: "Small actions, repeated with intention, become the foundation of stronger people.",
+    },
+    {
+      label: "Community",
+      title: "Respect What Feeds Your Soul",
+      text: "Reflections on connection, belonging and building a community that helps people rise.",
+    },
+  ],
+},
     bar: "🔥 Upcoming GIANTS Birthday Experience • 14 June 2026 • Merksem",
     hero: heroContent.en,
     vision: {
@@ -138,14 +163,15 @@ export const translations: Record<Locale, Translation> = {
       tagline: "Movement · Community · Wellbeing",
     },
     nav: {
-      about: "À propos",
-      vision: "Vision",
-      experiences: "Expériences",
-      community: "Impact",
-      events: "Événements",
-      gallery: "Moments",
-      join: "Contact",
-    },
+  about: "À propos",
+  vision: "Vision",
+  experiences: "Expériences",
+  community: "Impact",
+  events: "Événements",
+  letters: "Lettres",
+  gallery: "Moments",
+  join: "Contact",
+},
     mobileBar: {
       join: "Rejoindre",
       book: "Réserver",
@@ -193,6 +219,29 @@ export const translations: Record<Locale, Translation> = {
       viewPoster: "Voir l’affiche en plein écran",
       closePoster: "Fermer l’affiche",
     },
+letters: {
+  label: "Lettres",
+  title: "Lettres de GIANTS",
+  description:
+    "Réflexions hebdomadaires sur le courage, la discipline, le mindset, le leadership et la croissance mentale.",
+  items: [
+    {
+      label: "Mindset",
+      title: "La naissance du courage",
+      text: "Un espace hebdomadaire pour entraîner l’esprit, construire la confiance et grandir à travers les défis.",
+    },
+    {
+      label: "Discipline",
+      title: "La discipline avant la motivation",
+      text: "De petites actions répétées avec intention deviennent la base de personnes plus fortes.",
+    },
+    {
+      label: "Communauté",
+      title: "Respecte ce qui nourrit ton âme",
+      text: "Des réflexions sur la connexion, l’appartenance et une communauté qui aide chacun à s’élever.",
+    },
+  ],
+},
     bar: "🔥 Prochaine expérience anniversaire GIANTS • 14 juin 2026 • Merksem",
     hero: heroContent.fr,
     vision: {
@@ -267,14 +316,15 @@ export const translations: Record<Locale, Translation> = {
       tagline: "Movement · Community · Wellbeing",
     },
     nav: {
-      about: "Over",
-      vision: "Visie",
-      experiences: "Ervaringen",
-      community: "Impact",
-      events: "Events",
-      gallery: "Momenten",
-      join: "Contact",
-    },
+  about: "Over",
+  vision: "Visie",
+  experiences: "Ervaringen",
+  community: "Impact",
+  events: "Events",
+  letters: "Brieven",
+  gallery: "Momenten",
+  join: "Contact",
+},
     mobileBar: {
       join: "Meedoen",
       book: "Boeken",
@@ -322,6 +372,29 @@ export const translations: Record<Locale, Translation> = {
       viewPoster: "Poster volledig bekijken",
       closePoster: "Poster sluiten",
     },
+letters: {
+  label: "Brieven",
+  title: "Brieven van GIANTS",
+  description:
+    "Wekelijkse reflecties over moed, discipline, mindset, leiderschap en de mentale kant van groei.",
+  items: [
+    {
+      label: "Mindset",
+      title: "De geboorte van moed",
+      text: "Een wekelijkse ruimte om de geest te trainen, vertrouwen op te bouwen en te groeien door uitdaging.",
+    },
+    {
+      label: "Discipline",
+      title: "Discipline boven motivatie",
+      text: "Kleine acties, herhaald met intentie, worden de basis van sterkere mensen.",
+    },
+    {
+      label: "Community",
+      title: "Respecteer wat je ziel voedt",
+      text: "Reflecties over verbinding, erbij horen en een community die mensen helpt groeien.",
+    },
+  ],
+},
     bar: "🔥 Komende GIANTS verjaardagservaring • 14 juni 2026 • Merksem",
     hero: heroContent.nl,
     vision: {
@@ -396,14 +469,15 @@ export const translations: Record<Locale, Translation> = {
       tagline: "Movement · Community · Wellbeing",
     },
     nav: {
-      about: "Über uns",
-      vision: "Vision",
-      experiences: "Erlebnisse",
-      community: "Impact",
-      events: "Events",
-      gallery: "Momente",
-      join: "Kontakt",
-    },
+  about: "Über uns",
+  vision: "Vision",
+  experiences: "Erlebnisse",
+  community: "Impact",
+  events: "Events",
+  letters: "Briefe",
+  gallery: "Momente",
+  join: "Kontakt",
+},
     mobileBar: {
       join: "Mitmachen",
       book: "Buchen",
@@ -451,6 +525,29 @@ export const translations: Record<Locale, Translation> = {
       viewPoster: "Poster im Vollbild ansehen",
       closePoster: "Poster schließen",
     },
+letters: {
+  label: "Briefe",
+  title: "Briefe von GIANTS",
+  description:
+    "Wöchentliche Reflexionen über Mut, Disziplin, Mindset, Leadership und die mentale Seite des Wachstums.",
+  items: [
+    {
+      label: "Mindset",
+      title: "Die Geburt des Mutes",
+      text: "Ein wöchentlicher Raum, um den Geist zu trainieren, Selbstvertrauen aufzubauen und durch Herausforderungen zu wachsen.",
+    },
+    {
+      label: "Disziplin",
+      title: "Disziplin vor Motivation",
+      text: "Kleine Handlungen, bewusst wiederholt, werden zur Grundlage stärkerer Menschen.",
+    },
+    {
+      label: "Gemeinschaft",
+      title: "Respektiere, was deine Seele nährt",
+      text: "Reflexionen über Verbindung, Zugehörigkeit und eine Gemeinschaft, die Menschen wachsen lässt.",
+    },
+  ],
+},
     bar: "🔥 Kommendes GIANTS Geburtstagserlebnis • 14. Juni 2026 • Merksem",
     hero: heroContent.de,
     vision: {
