@@ -182,5 +182,14 @@ export type Translation = {
   join: JoinContent;
   footer: FooterContent;
 };
-
+export type LettersContent = {
+  label: string;
+  title: string;
+  description: string;
+  items: {
+    label: string;
+    title: string;
+    text: string;
+  }[];
+};
 
