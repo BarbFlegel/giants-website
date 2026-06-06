@@ -25,6 +25,7 @@ export type NavContent = {
   community: string;
   experiences: string;
   events: string;
+  letters: string;
   gallery: string;
   join: string;
 };
