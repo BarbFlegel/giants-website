@@ -179,10 +179,12 @@ export type Translation = {
   experiences: ExperiencesIntro;
   community: CommunityIntro;
   events: EventTranslations;
-  gallery: GalleryContent;
-  join: JoinContent;
-  footer: FooterContent;
+letters: LettersContent;
+gallery: GalleryContent;
+join: JoinContent;
+footer: FooterContent;
 };
+
 export type LettersContent = {
   label: string;
   title: string;
