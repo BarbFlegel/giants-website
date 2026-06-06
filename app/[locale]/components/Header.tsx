@@ -61,12 +61,17 @@ export default function Header({
             <Link href={`/${locale}#events`} className={navClass}>
               {t.nav.events}
             </Link>
-            <Link href={`/${locale}#gallery`} className={navClass}>
-              {t.nav.gallery}
-            </Link>
-            <Link href={`/${locale}/contact`} className={navClass}>
-              {t.nav.join}
-            </Link>
+            <Link href={`/${locale}#events`} className="transition hover:text-orange-400">
+  {t.nav.events}
+</Link>
+
+<Link href={`/${locale}/letters`} className="transition hover:text-orange-400">
+  {t.nav.letters}
+</Link>
+
+<Link href={`/${locale}#gallery`} className="transition hover:text-orange-400">
+  {t.nav.gallery}
+</Link>
           </nav>
 
           <details className="relative shrink-0">
