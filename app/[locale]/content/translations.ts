@@ -66,26 +66,17 @@ export const translations: Record<Locale, Translation> = {
       viewPoster: "View poster fullscreen",
       closePoster: "Close poster",
     },
-    letters: {
+   letters: {
       label: "Letters",
       title: "Letters from GIANTS",
       description:
-        "Weekly reflections on courage, discipline, mindset, leadership and the mental side of growth.",
+        "Weekly reflections focused on mindset, courage, discipline, wellbeing and personal growth.",
+      facebookCta: "Join the Facebook Community",
       items: [
         {
-          label: "Mindset",
+          label: "Weekly Letter",
           title: "The Birth of Courage",
-          text: "A weekly space to train the mind, build confidence and grow through challenge.",
-        },
-        {
-          label: "Discipline",
-          title: "Discipline Over Motivation",
-          text: "Small actions, repeated with intention, become the foundation of stronger people.",
-        },
-        {
-          label: "Community",
-          title: "Respect What Feeds Your Soul",
-          text: "Reflections on connection, belonging and building a community that helps people rise.",
+          text: "A weekly reflection focused on mindset, courage, discipline, wellbeing and personal growth. Together we strengthen the mind as much as the body.",
         },
       ],
     },
@@ -236,22 +227,13 @@ export const translations: Record<Locale, Translation> = {
       label: "Lettres",
       title: "Lettres de GIANTS",
       description:
-        "Réflexions hebdomadaires sur le courage, la discipline, le mindset, le leadership et la croissance mentale.",
+        "Réflexions hebdomadaires autour du courage, de la discipline, du bien-être et du développement personnel.",
+      facebookCta: "Rejoindre la communauté Facebook",
       items: [
         {
-          label: "Mindset",
+          label: "Lettre hebdomadaire",
           title: "La naissance du courage",
-          text: "Un espace hebdomadaire pour entraîner l’esprit, construire la confiance et grandir à travers les défis.",
-        },
-        {
-          label: "Discipline",
-          title: "La discipline avant la motivation",
-          text: "De petites actions répétées avec intention deviennent la base de personnes plus fortes.",
-        },
-        {
-          label: "Communauté",
-          title: "Respecte ce qui nourrit ton âme",
-          text: "Des réflexions sur la connexion, l’appartenance et une communauté qui aide chacun à s’élever.",
+          text: "Une réflexion hebdomadaire dédiée au courage, à la discipline, au bien-être et à la croissance personnelle.",
         },
       ],
     },
@@ -404,22 +386,13 @@ export const translations: Record<Locale, Translation> = {
       label: "Brieven",
       title: "Brieven van GIANTS",
       description:
-        "Wekelijkse reflecties over moed, discipline, mindset, leiderschap en de mentale kant van groei.",
+        "Wekelijkse reflecties over moed, discipline, welzijn en persoonlijke groei.",
+      facebookCta: "Word lid van de Facebook-community",
       items: [
         {
-          label: "Mindset",
+          label: "Wekelijkse brief",
           title: "De geboorte van moed",
-          text: "Een wekelijkse ruimte om de geest te trainen, vertrouwen op te bouwen en te groeien door uitdaging.",
-        },
-        {
-          label: "Discipline",
-          title: "Discipline boven motivatie",
-          text: "Kleine acties, herhaald met intentie, worden de basis van sterkere mensen.",
-        },
-        {
-          label: "Community",
-          title: "Respecteer wat je ziel voedt",
-          text: "Reflecties over verbinding, erbij horen en een community die mensen helpt groeien.",
+          text: "Een wekelijkse reflectie over moed, discipline, welzijn en persoonlijke ontwikkeling.",
         },
       ],
     },
@@ -569,22 +542,13 @@ export const translations: Record<Locale, Translation> = {
       label: "Briefe",
       title: "Briefe von GIANTS",
       description:
-        "Wöchentliche Reflexionen über Mut, Disziplin, Mindset, Leadership und die mentale Seite des Wachstums.",
+        "Wöchentliche Reflexionen über Mut, Disziplin, Wohlbefinden und persönliches Wachstum.",
+      facebookCta: "Facebook-Community beitreten",
       items: [
         {
-          label: "Mindset",
+          label: "Wöchentlicher Brief",
           title: "Die Geburt des Mutes",
-          text: "Ein wöchentlicher Raum, um den Geist zu trainieren, Selbstvertrauen aufzubauen und durch Herausforderungen zu wachsen.",
-        },
-        {
-          label: "Disziplin",
-          title: "Disziplin vor Motivation",
-          text: "Kleine Handlungen, bewusst wiederholt, werden zur Grundlage stärkerer Menschen.",
-        },
-        {
-          label: "Gemeinschaft",
-          title: "Respektiere, was deine Seele nährt",
-          text: "Reflexionen über Verbindung, Zugehörigkeit und eine Gemeinschaft, die Menschen wachsen lässt.",
+          text: "Eine wöchentliche Reflexion über Mut, Disziplin, Wohlbefinden und persönliches Wachstum.",
         },
       ],
     },

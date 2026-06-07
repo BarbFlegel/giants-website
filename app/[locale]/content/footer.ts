@@ -1,4 +1,4 @@
-export const facebookUrl = "https://www.facebook.com/share/1GjwX7uSzo/";
+export const facebookUrl = "https://www.facebook.com/share/1LU8tYc8Tt/";
 export const email = "giants.decult@gmail.com";
 export const socialLinks = [
   { label: "WhatsApp", href: "https://chat.whatsapp.com/FbHUNvazjmz91fsWDUx3Qx?mode=gi_t", iconName: "whatsapp", className: "text-green-500" },

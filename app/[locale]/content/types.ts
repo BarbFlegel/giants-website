@@ -88,6 +88,7 @@ export type LettersContent = {
   label: string;
   title: string;
   description: string;
+  facebookCta: string;
   items: {
     label: string;
     title: string;
