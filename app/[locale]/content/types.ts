@@ -38,6 +38,33 @@ export type SectionTitles = NavContent & {
   energy: string;
 };
 
+export type BrandContent = {
+  name: string;
+  tagline: string;
+};
+
+export type MobileBarContent = {
+  join: string;
+  book: string;
+};
+
+export type ContactContent = {
+  label: string;
+  title: string;
+  text: string;
+};
+
+export type SliderHintContent = {
+  swipe: string;
+  drag: string;
+};
+
+export type VisionContent = {
+  label: string;
+  title: string;
+  text: string;
+};
+
 export type AboutContent = {
   p1: string;
   p2: string;
@@ -55,6 +82,17 @@ export type EventTranslations = {
   book: string;
   viewPoster: string;
   closePoster: string;
+};
+
+export type LettersContent = {
+  label: string;
+  title: string;
+  description: string;
+  items: {
+    label: string;
+    title: string;
+    text: string;
+  }[];
 };
 
 export type GalleryContent = {
@@ -75,56 +113,6 @@ export type JoinContent = {
 
 export type FooterContent = {
   copyright: string;
-};
-
-export type Experience = {
-  title: string;
-  description: string;
-  tags: string[];
-  includes: string[];
-  packages: string[];
-  featured?: boolean;
-};
-
-export type CommunityProgram = Experience;
-
-export type EventItem = {
-  title: string;
-  image: string;
-  status: string;
-  date?: string;
-  time?: string;
-  location?: string;
-  type?: "birthday" | "standard";
-};
-
-export type GalleryItem = {
-  title: string;
-  image: string;
-  type?: "image" | "video";
-  video?: string;
-};
-
-export type VisionContent = {
-  label: string;
-  title: string;
-  text: string;
-};
-
-export type MobileBarContent = {
-  join: string;
-  book: string;
-};
-
-export type ContactContent = {
-  label: string;
-  title: string;
-  text: string;
-};
-
-export type SliderHintContent = {
-  swipe: string;
-  drag: string;
 };
 
 export type ComingSoonCard = {
@@ -159,9 +147,32 @@ export type CommunityIntro = {
   comingSoon: ComingSoonCard;
 };
 
-export type BrandContent = {
-  name: string;
-  tagline: string;
+export type Experience = {
+  title: string;
+  description: string;
+  tags: string[];
+  includes: string[];
+  packages: string[];
+  featured?: boolean;
+};
+
+export type CommunityProgram = Experience;
+
+export type EventItem = {
+  title: string;
+  image: string;
+  status: string;
+  date?: string;
+  time?: string;
+  location?: string;
+  type?: "birthday" | "standard";
+};
+
+export type GalleryItem = {
+  title: string;
+  image: string;
+  type?: "image" | "video";
+  video?: string;
 };
 
 export type Translation = {
@@ -179,20 +190,8 @@ export type Translation = {
   experiences: ExperiencesIntro;
   community: CommunityIntro;
   events: EventTranslations;
-letters: LettersContent;
-gallery: GalleryContent;
-join: JoinContent;
-footer: FooterContent;
+  letters: LettersContent;
+  gallery: GalleryContent;
+  join: JoinContent;
+  footer: FooterContent;
 };
-
-export type LettersContent = {
-  label: string;
-  title: string;
-  description: string;
-  items: {
-    label: string;
-    title: string;
-    text: string;
-  }[];
-};
-

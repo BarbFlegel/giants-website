@@ -8,15 +8,14 @@ export const translations: Record<Locale, Translation> = {
       tagline: "Movement · Community · Wellbeing",
     },
     nav: {
-  about: "About",
-  vision: "Vision",
-  experiences: "Experiences",
-  community: "Impact",
-  events: "Events",
-  letters: "Letters",
-  gallery: "Moments",
-  join: "Contact",
-},
+      about: "About",
+      vision: "Vision",
+      experiences: "Experiences",
+      community: "Impact",
+      events: "Events",
+      letters: "Letters",
+      gallery: "Moments",
+      join: "Contact",
     },
     mobileBar: {
       join: "Join",
@@ -37,6 +36,7 @@ export const translations: Record<Locale, Translation> = {
       experiences: "Experiences",
       community: "Impact",
       events: "Events",
+      letters: "Letters",
       gallery: "Moments",
       join: "Join the Movement",
       energy: "Energy",
@@ -47,6 +47,7 @@ export const translations: Record<Locale, Translation> = {
       experiences: "Immersive sport & community experiences",
       community: "Social impact initiatives",
       events: "Upcoming & featured experiences",
+      letters: "Letters from GIANTS",
       gallery: "Community moments",
       join: "Build with GIANTS",
       energy: "Experience GIANTS in motion",
@@ -65,29 +66,29 @@ export const translations: Record<Locale, Translation> = {
       viewPoster: "View poster fullscreen",
       closePoster: "Close poster",
     },
-letters: {
-  label: "Letters",
-  title: "Letters from GIANTS",
-  description:
-    "Weekly reflections on courage, discipline, mindset, leadership and the mental side of growth.",
-  items: [
-    {
-      label: "Mindset",
-      title: "The Birth of Courage",
-      text: "A weekly space to train the mind, build confidence and grow through challenge.",
+    letters: {
+      label: "Letters",
+      title: "Letters from GIANTS",
+      description:
+        "Weekly reflections on courage, discipline, mindset, leadership and the mental side of growth.",
+      items: [
+        {
+          label: "Mindset",
+          title: "The Birth of Courage",
+          text: "A weekly space to train the mind, build confidence and grow through challenge.",
+        },
+        {
+          label: "Discipline",
+          title: "Discipline Over Motivation",
+          text: "Small actions, repeated with intention, become the foundation of stronger people.",
+        },
+        {
+          label: "Community",
+          title: "Respect What Feeds Your Soul",
+          text: "Reflections on connection, belonging and building a community that helps people rise.",
+        },
+      ],
     },
-    {
-      label: "Discipline",
-      title: "Discipline Over Motivation",
-      text: "Small actions, repeated with intention, become the foundation of stronger people.",
-    },
-    {
-      label: "Community",
-      title: "Respect What Feeds Your Soul",
-      text: "Reflections on connection, belonging and building a community that helps people rise.",
-    },
-  ],
-},
     bar: "🔥 Upcoming GIANTS Birthday Experience • 14 June 2026 • Merksem",
     hero: heroContent.en,
     vision: {
@@ -107,17 +108,21 @@ letters: {
       ],
     },
     experiences: {
-      intro1: "GIANTS turns sport, movement, games, and community energy into memorable experiences.",
-      intro2: "Paid private and corporate experiences help support inclusive community activities for vulnerable groups.",
+      intro1:
+        "GIANTS turns sport, movement, games, and community energy into memorable experiences.",
+      intro2:
+        "Paid private and corporate experiences help support inclusive community activities for vulnerable groups.",
       accessTitle: "Community access",
-      accessText: "Selected activities can be offered free of charge for refugees, children’s homes, and community organizations, depending on availability and partnership support.",
+      accessText:
+        "Selected activities can be offered free of charge for refugees, children’s homes, and community organizations, depending on availability and partnership support.",
       includes: "Experience includes:",
       packages: "Packages:",
       featured: "Upcoming experience",
       discoverMore: "Discover More",
       mottoTitle: "GIANTS is more than training.",
       mottoText: "A space to train, connect, celebrate, and grow together.",
-      moreText: "More GIANTS experiences, bootcamps and community concepts are coming soon.",
+      moreText:
+        "More GIANTS experiences, bootcamps and community concepts are coming soon.",
       comingSoon: {
         label: "Coming soon",
         title: "More Experiences",
@@ -127,17 +132,23 @@ letters: {
     },
     community: {
       introTitle: "Beyond training",
-      introText: "These programmes focus on connection, reflection, social inclusion, and wellbeing outside traditional sport.",
-      moreText: "More community programmes and partnership formats are being developed.",
+      introText:
+        "These programmes focus on connection, reflection, social inclusion, and wellbeing outside traditional sport.",
+      moreText:
+        "More community programmes and partnership formats are being developed.",
       comingSoon: {
         label: "Coming soon",
         title: "More Programmes Coming",
         text: "Partnerships, youth initiatives, social projects and leadership experiences are being developed.",
-        items: ["Partnerships", "Youth initiatives", "Social projects", "Leadership experiences"],
+        items: [
+          "Partnerships",
+          "Youth initiatives",
+          "Social projects",
+          "Leadership experiences",
+        ],
         cta: "Join Us",
       },
     },
-   
     gallery: {
       text: "Choose photos or videos from GIANTS experiences, sessions and community moments.",
       one: "Community basketball moments",
@@ -158,20 +169,20 @@ letters: {
   },
 
   fr: {
-     brand: {
+    brand: {
       name: "GIANTS",
       tagline: "Movement · Community · Wellbeing",
     },
     nav: {
-  about: "À propos",
-  vision: "Vision",
-  experiences: "Expériences",
-  community: "Impact",
-  events: "Événements",
-  letters: "Lettres",
-  gallery: "Moments",
-  join: "Contact",
-},
+      about: "À propos",
+      vision: "Vision",
+      experiences: "Expériences",
+      community: "Impact",
+      events: "Événements",
+      letters: "Lettres",
+      gallery: "Moments",
+      join: "Contact",
+    },
     mobileBar: {
       join: "Rejoindre",
       book: "Réserver",
@@ -191,6 +202,7 @@ letters: {
       experiences: "Expériences",
       community: "Impact",
       events: "Événements",
+      letters: "Lettres",
       gallery: "Moments",
       join: "Contact",
       energy: "Énergie",
@@ -201,6 +213,7 @@ letters: {
       experiences: "Expériences sportives & communautaires immersives",
       community: "Initiatives à impact social",
       events: "Expériences à venir & en avant",
+      letters: "Lettres de GIANTS",
       gallery: "Moments communautaires",
       join: "Construire avec GIANTS",
       energy: "Vivre GIANTS en mouvement",
@@ -219,34 +232,35 @@ letters: {
       viewPoster: "Voir l’affiche en plein écran",
       closePoster: "Fermer l’affiche",
     },
-letters: {
-  label: "Lettres",
-  title: "Lettres de GIANTS",
-  description:
-    "Réflexions hebdomadaires sur le courage, la discipline, le mindset, le leadership et la croissance mentale.",
-  items: [
-    {
-      label: "Mindset",
-      title: "La naissance du courage",
-      text: "Un espace hebdomadaire pour entraîner l’esprit, construire la confiance et grandir à travers les défis.",
+    letters: {
+      label: "Lettres",
+      title: "Lettres de GIANTS",
+      description:
+        "Réflexions hebdomadaires sur le courage, la discipline, le mindset, le leadership et la croissance mentale.",
+      items: [
+        {
+          label: "Mindset",
+          title: "La naissance du courage",
+          text: "Un espace hebdomadaire pour entraîner l’esprit, construire la confiance et grandir à travers les défis.",
+        },
+        {
+          label: "Discipline",
+          title: "La discipline avant la motivation",
+          text: "De petites actions répétées avec intention deviennent la base de personnes plus fortes.",
+        },
+        {
+          label: "Communauté",
+          title: "Respecte ce qui nourrit ton âme",
+          text: "Des réflexions sur la connexion, l’appartenance et une communauté qui aide chacun à s’élever.",
+        },
+      ],
     },
-    {
-      label: "Discipline",
-      title: "La discipline avant la motivation",
-      text: "De petites actions répétées avec intention deviennent la base de personnes plus fortes.",
-    },
-    {
-      label: "Communauté",
-      title: "Respecte ce qui nourrit ton âme",
-      text: "Des réflexions sur la connexion, l’appartenance et une communauté qui aide chacun à s’élever.",
-    },
-  ],
-},
     bar: "🔥 Prochaine expérience anniversaire GIANTS • 14 juin 2026 • Merksem",
     hero: heroContent.fr,
     vision: {
       label: "Vision",
-      title: "Construire des personnes plus fortes, des communautés plus fortes.",
+      title:
+        "Construire des personnes plus fortes, des communautés plus fortes.",
       text: "GIANTS existe pour transformer des vies à travers le mouvement, la connexion et des opportunités significatives. Nous créons des expériences qui aident les personnes à s’épanouir physiquement, mentalement, socialement et économiquement.",
     },
     about: {
@@ -261,17 +275,22 @@ letters: {
       ],
     },
     experiences: {
-      intro1: "GIANTS transforme le sport, le mouvement, les jeux et l’énergie communautaire en expériences mémorables.",
-      intro2: "Les expériences privées et corporate soutiennent aussi des activités inclusives pour les groupes vulnérables.",
+      intro1:
+        "GIANTS transforme le sport, le mouvement, les jeux et l’énergie communautaire en expériences mémorables.",
+      intro2:
+        "Les expériences privées et corporate soutiennent aussi des activités inclusives pour les groupes vulnérables.",
       accessTitle: "Accès communautaire",
-      accessText: "Certaines activités peuvent être proposées gratuitement aux réfugiés, foyers d’enfants et organisations communautaires, selon les disponibilités et le soutien des partenaires.",
+      accessText:
+        "Certaines activités peuvent être proposées gratuitement aux réfugiés, foyers d’enfants et organisations communautaires, selon les disponibilités et le soutien des partenaires.",
       includes: "L’expérience comprend :",
       packages: "Formules :",
       featured: "Expérience à venir",
       discoverMore: "Découvrir",
       mottoTitle: "GIANTS est plus qu’un entraînement.",
-      mottoText: "Un espace pour s’entraîner, se connecter, célébrer et grandir ensemble.",
-      moreText: "D’autres expériences GIANTS, bootcamps et concepts communautaires arrivent bientôt.",
+      mottoText:
+        "Un espace pour s’entraîner, se connecter, célébrer et grandir ensemble.",
+      moreText:
+        "D’autres expériences GIANTS, bootcamps et concepts communautaires arrivent bientôt.",
       comingSoon: {
         label: "Bientôt",
         title: "Plus d’expériences",
@@ -281,13 +300,20 @@ letters: {
     },
     community: {
       introTitle: "Au-delà de l’entraînement",
-      introText: "Ces programmes mettent l’accent sur la connexion, la réflexion, l’inclusion sociale et le bien-être au-delà du sport traditionnel.",
-      moreText: "D’autres programmes communautaires et formats de partenariat sont en cours de développement.",
+      introText:
+        "Ces programmes mettent l’accent sur la connexion, la réflexion, l’inclusion sociale et le bien-être au-delà du sport traditionnel.",
+      moreText:
+        "D’autres programmes communautaires et formats de partenariat sont en cours de développement.",
       comingSoon: {
         label: "Bientôt",
         title: "Plus de programmes à venir",
         text: "Partenariats, initiatives jeunesse, projets sociaux et expériences de leadership sont en développement.",
-        items: ["Partenariats", "Initiatives jeunesse", "Projets sociaux", "Expériences de leadership"],
+        items: [
+          "Partenariats",
+          "Initiatives jeunesse",
+          "Projets sociaux",
+          "Expériences de leadership",
+        ],
         cta: "Nous rejoindre",
       },
     },
@@ -311,20 +337,20 @@ letters: {
   },
 
   nl: {
-     brand: {
+    brand: {
       name: "GIANTS",
       tagline: "Movement · Community · Wellbeing",
     },
     nav: {
-  about: "Over",
-  vision: "Visie",
-  experiences: "Ervaringen",
-  community: "Impact",
-  events: "Events",
-  letters: "Brieven",
-  gallery: "Momenten",
-  join: "Contact",
-},
+      about: "Over",
+      vision: "Visie",
+      experiences: "Ervaringen",
+      community: "Impact",
+      events: "Events",
+      letters: "Brieven",
+      gallery: "Momenten",
+      join: "Contact",
+    },
     mobileBar: {
       join: "Meedoen",
       book: "Boeken",
@@ -344,6 +370,7 @@ letters: {
       experiences: "Ervaringen",
       community: "Impact",
       events: "Events",
+      letters: "Brieven",
       gallery: "Momenten",
       join: "Contact",
       energy: "Energie",
@@ -354,6 +381,7 @@ letters: {
       experiences: "Meeslepende sport- & community-ervaringen",
       community: "Sociale impact initiatieven",
       events: "Komende & uitgelichte ervaringen",
+      letters: "Brieven van GIANTS",
       gallery: "Momenten vol energie",
       join: "Bouw mee met GIANTS",
       energy: "Ervaar GIANTS in beweging",
@@ -372,29 +400,29 @@ letters: {
       viewPoster: "Poster volledig bekijken",
       closePoster: "Poster sluiten",
     },
-letters: {
-  label: "Brieven",
-  title: "Brieven van GIANTS",
-  description:
-    "Wekelijkse reflecties over moed, discipline, mindset, leiderschap en de mentale kant van groei.",
-  items: [
-    {
-      label: "Mindset",
-      title: "De geboorte van moed",
-      text: "Een wekelijkse ruimte om de geest te trainen, vertrouwen op te bouwen en te groeien door uitdaging.",
+    letters: {
+      label: "Brieven",
+      title: "Brieven van GIANTS",
+      description:
+        "Wekelijkse reflecties over moed, discipline, mindset, leiderschap en de mentale kant van groei.",
+      items: [
+        {
+          label: "Mindset",
+          title: "De geboorte van moed",
+          text: "Een wekelijkse ruimte om de geest te trainen, vertrouwen op te bouwen en te groeien door uitdaging.",
+        },
+        {
+          label: "Discipline",
+          title: "Discipline boven motivatie",
+          text: "Kleine acties, herhaald met intentie, worden de basis van sterkere mensen.",
+        },
+        {
+          label: "Community",
+          title: "Respecteer wat je ziel voedt",
+          text: "Reflecties over verbinding, erbij horen en een community die mensen helpt groeien.",
+        },
+      ],
     },
-    {
-      label: "Discipline",
-      title: "Discipline boven motivatie",
-      text: "Kleine acties, herhaald met intentie, worden de basis van sterkere mensen.",
-    },
-    {
-      label: "Community",
-      title: "Respecteer wat je ziel voedt",
-      text: "Reflecties over verbinding, erbij horen en een community die mensen helpt groeien.",
-    },
-  ],
-},
     bar: "🔥 Komende GIANTS verjaardagservaring • 14 juni 2026 • Merksem",
     hero: heroContent.nl,
     vision: {
@@ -414,17 +442,21 @@ letters: {
       ],
     },
     experiences: {
-      intro1: "GIANTS maakt van sport, beweging, games en community-energie memorabele ervaringen.",
-      intro2: "Private en corporate ervaringen helpen inclusieve community-activiteiten voor kwetsbare groepen ondersteunen.",
+      intro1:
+        "GIANTS maakt van sport, beweging, games en community-energie memorabele ervaringen.",
+      intro2:
+        "Private en corporate ervaringen helpen inclusieve community-activiteiten voor kwetsbare groepen ondersteunen.",
       accessTitle: "Community-toegang",
-      accessText: "Geselecteerde activiteiten kunnen gratis worden aangeboden aan vluchtelingen, kinderhuizen en community-organisaties, afhankelijk van beschikbaarheid en partnersteun.",
+      accessText:
+        "Geselecteerde activiteiten kunnen gratis worden aangeboden aan vluchtelingen, kinderhuizen en community-organisaties, afhankelijk van beschikbaarheid en partnersteun.",
       includes: "Ervaring omvat:",
       packages: "Pakketten:",
       featured: "Aankomende ervaring",
       discoverMore: "Ontdek meer",
       mottoTitle: "GIANTS is meer dan training.",
       mottoText: "Een plek om te trainen, verbinden, vieren en samen te groeien.",
-      moreText: "Meer GIANTS-ervaringen, bootcamps en communityconcepten komen binnenkort.",
+      moreText:
+        "Meer GIANTS-ervaringen, bootcamps en communityconcepten komen binnenkort.",
       comingSoon: {
         label: "Binnenkort",
         title: "Meer ervaringen",
@@ -434,13 +466,19 @@ letters: {
     },
     community: {
       introTitle: "Voorbij training",
-      introText: "Deze programma’s focussen op verbinding, reflectie, sociale inclusie en welzijn buiten traditionele sport.",
+      introText:
+        "Deze programma’s focussen op verbinding, reflectie, sociale inclusie en welzijn buiten traditionele sport.",
       moreText: "Meer communityprogramma’s en samenwerkingsvormen worden ontwikkeld.",
       comingSoon: {
         label: "Binnenkort",
         title: "Meer programma’s binnenkort",
         text: "Partnerschappen, jeugdinitiatieven, sociale projecten en leiderschapservaringen worden ontwikkeld.",
-        items: ["Partnerschappen", "Jeugdinitiatieven", "Sociale projecten", "Leiderschapservaringen"],
+        items: [
+          "Partnerschappen",
+          "Jeugdinitiatieven",
+          "Sociale projecten",
+          "Leiderschapservaringen",
+        ],
         cta: "Meedoen",
       },
     },
@@ -464,20 +502,20 @@ letters: {
   },
 
   de: {
-     brand: {
+    brand: {
       name: "GIANTS",
       tagline: "Movement · Community · Wellbeing",
     },
     nav: {
-  about: "Über uns",
-  vision: "Vision",
-  experiences: "Erlebnisse",
-  community: "Impact",
-  events: "Events",
-  letters: "Briefe",
-  gallery: "Momente",
-  join: "Kontakt",
-},
+      about: "Über uns",
+      vision: "Vision",
+      experiences: "Erlebnisse",
+      community: "Impact",
+      events: "Events",
+      letters: "Briefe",
+      gallery: "Momente",
+      join: "Kontakt",
+    },
     mobileBar: {
       join: "Mitmachen",
       book: "Buchen",
@@ -497,6 +535,7 @@ letters: {
       experiences: "Erlebnisse",
       community: "Impact",
       events: "Events",
+      letters: "Briefe",
       gallery: "Momente",
       join: "Kontakt",
       energy: "Energie",
@@ -507,6 +546,7 @@ letters: {
       experiences: "Immersive Sport- & Community-Erlebnisse",
       community: "Initiativen mit sozialer Wirkung",
       events: "Kommende & ausgewählte Erlebnisse",
+      letters: "Briefe von GIANTS",
       gallery: "Momente voller Energie",
       join: "Mit GIANTS zusammenarbeiten",
       energy: "GIANTS in Bewegung erleben",
@@ -525,29 +565,29 @@ letters: {
       viewPoster: "Poster im Vollbild ansehen",
       closePoster: "Poster schließen",
     },
-letters: {
-  label: "Briefe",
-  title: "Briefe von GIANTS",
-  description:
-    "Wöchentliche Reflexionen über Mut, Disziplin, Mindset, Leadership und die mentale Seite des Wachstums.",
-  items: [
-    {
-      label: "Mindset",
-      title: "Die Geburt des Mutes",
-      text: "Ein wöchentlicher Raum, um den Geist zu trainieren, Selbstvertrauen aufzubauen und durch Herausforderungen zu wachsen.",
+    letters: {
+      label: "Briefe",
+      title: "Briefe von GIANTS",
+      description:
+        "Wöchentliche Reflexionen über Mut, Disziplin, Mindset, Leadership und die mentale Seite des Wachstums.",
+      items: [
+        {
+          label: "Mindset",
+          title: "Die Geburt des Mutes",
+          text: "Ein wöchentlicher Raum, um den Geist zu trainieren, Selbstvertrauen aufzubauen und durch Herausforderungen zu wachsen.",
+        },
+        {
+          label: "Disziplin",
+          title: "Disziplin vor Motivation",
+          text: "Kleine Handlungen, bewusst wiederholt, werden zur Grundlage stärkerer Menschen.",
+        },
+        {
+          label: "Gemeinschaft",
+          title: "Respektiere, was deine Seele nährt",
+          text: "Reflexionen über Verbindung, Zugehörigkeit und eine Gemeinschaft, die Menschen wachsen lässt.",
+        },
+      ],
     },
-    {
-      label: "Disziplin",
-      title: "Disziplin vor Motivation",
-      text: "Kleine Handlungen, bewusst wiederholt, werden zur Grundlage stärkerer Menschen.",
-    },
-    {
-      label: "Gemeinschaft",
-      title: "Respektiere, was deine Seele nährt",
-      text: "Reflexionen über Verbindung, Zugehörigkeit und eine Gemeinschaft, die Menschen wachsen lässt.",
-    },
-  ],
-},
     bar: "🔥 Kommendes GIANTS Geburtstagserlebnis • 14. Juni 2026 • Merksem",
     hero: heroContent.de,
     vision: {
@@ -567,17 +607,22 @@ letters: {
       ],
     },
     experiences: {
-      intro1: "GIANTS macht aus Sport, Bewegung, Spielen und Community-Energie besondere Erlebnisse.",
-      intro2: "Private und Corporate-Erlebnisse unterstützen inklusive Community-Aktivitäten für vulnerable Gruppen.",
+      intro1:
+        "GIANTS macht aus Sport, Bewegung, Spielen und Community-Energie besondere Erlebnisse.",
+      intro2:
+        "Private und Corporate-Erlebnisse unterstützen inklusive Community-Aktivitäten für vulnerable Gruppen.",
       accessTitle: "Community-Zugang",
-      accessText: "Ausgewählte Aktivitäten können für Geflüchtete, Kinderheime und Community-Organisationen kostenlos angeboten werden, abhängig von Verfügbarkeit und Partnerunterstützung.",
+      accessText:
+        "Ausgewählte Aktivitäten können für Geflüchtete, Kinderheime und Community-Organisationen kostenlos angeboten werden, abhängig von Verfügbarkeit und Partnerunterstützung.",
       includes: "Erlebnis enthält:",
       packages: "Pakete:",
       featured: "Kommendes Erlebnis",
       discoverMore: "Mehr erfahren",
       mottoTitle: "GIANTS ist mehr als Training.",
-      mottoText: "Ein Raum zum Trainieren, Verbinden, Feiern und gemeinsamen Wachsen.",
-      moreText: "Weitere GIANTS-Erlebnisse, Bootcamps und Community-Konzepte folgen bald.",
+      mottoText:
+        "Ein Raum zum Trainieren, Verbinden, Feiern und gemeinsamen Wachsen.",
+      moreText:
+        "Weitere GIANTS-Erlebnisse, Bootcamps und Community-Konzepte folgen bald.",
       comingSoon: {
         label: "Demnächst",
         title: "Mehr Erlebnisse",
@@ -587,13 +632,20 @@ letters: {
     },
     community: {
       introTitle: "Über Training hinaus",
-      introText: "Diese Programme fördern Verbindung, Reflexion, soziale Inklusion und Wohlbefinden außerhalb des klassischen Sports.",
-      moreText: "Weitere Community-Programme und Partnerschaftsformate werden entwickelt.",
+      introText:
+        "Diese Programme fördern Verbindung, Reflexion, soziale Inklusion und Wohlbefinden außerhalb des klassischen Sports.",
+      moreText:
+        "Weitere Community-Programme und Partnerschaftsformate werden entwickelt.",
       comingSoon: {
         label: "Demnächst",
         title: "Weitere Programme folgen",
         text: "Partnerschaften, Jugendinitiativen, soziale Projekte und Leadership-Erlebnisse werden entwickelt.",
-        items: ["Partnerschaften", "Jugendinitiativen", "Soziale Projekte", "Leadership-Erlebnisse"],
+        items: [
+          "Partnerschaften",
+          "Jugendinitiativen",
+          "Soziale Projekte",
+          "Leadership-Erlebnisse",
+        ],
         cta: "Mitmachen",
       },
     },

@@ -46,32 +46,33 @@ export default function Header({
 
         <div className="flex flex-col items-center gap-3 lg:flex-row lg:gap-5">
           <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2">
-            <Link href={`/${locale}#about`} className={navClass}>
-              {t.nav.about}
-            </Link>
-            <Link href={`/${locale}#vision`} className={navClass}>
+            <Link href={`/${locale}/vision`} className={navClass}>
               {t.nav.vision}
             </Link>
-            <Link href={`/${locale}#community`} className={navClass}>
+
+            <Link href={`/${locale}/impact`} className={navClass}>
               {t.nav.community}
             </Link>
-            <Link href={`/${locale}#experiences`} className={navClass}>
+
+            <Link href={`/${locale}/experiences`} className={navClass}>
               {t.nav.experiences}
             </Link>
-            <Link href={`/${locale}#events`} className={navClass}>
+
+            <Link href={`/${locale}/events`} className={navClass}>
               {t.nav.events}
             </Link>
-            <Link href={`/${locale}#events`} className="transition hover:text-orange-400">
-  {t.nav.events}
-</Link>
 
-<Link href={`/${locale}/letters`} className="transition hover:text-orange-400">
-  {t.nav.letters}
-</Link>
+            <Link href={`/${locale}/letters`} className={navClass}>
+              {t.nav.letters}
+            </Link>
 
-<Link href={`/${locale}#gallery`} className="transition hover:text-orange-400">
-  {t.nav.gallery}
-</Link>
+            <Link href={`/${locale}#gallery`} className={navClass}>
+              {t.nav.gallery}
+            </Link>
+
+            <Link href={`/${locale}/contact`} className={navClass}>
+              {t.nav.join}
+            </Link>
           </nav>
 
           <details className="relative shrink-0">
