@@ -195,6 +195,7 @@ export type Translation = {
   gallery: GalleryContent;
   join: JoinContent;
   footer: FooterContent;
+  contactForm: ContactFormContent;
 };
 
 export type ContactFormContent = {
