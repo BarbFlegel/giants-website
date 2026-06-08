@@ -18,27 +18,27 @@ export default function Header({
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-800 bg-black/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-3 lg:flex-row lg:justify-between">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-4 lg:flex-row lg:justify-between">
         <Link
           href={`/${locale}`}
-          className="flex items-center justify-center gap-3 text-center lg:text-left"
+          className="flex items-center justify-center gap-4 text-center lg:text-left"
         >
-          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-black">
+          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-black md:h-14 md:w-14">
             <Image
               src="/images/giants-logo.png"
               alt="GIANTS logo"
               fill
               unoptimized
-              sizes="48px"
-              className="scale-150 object-contain"
+              sizes="64px"
+              className="object-contain scale-150"
             />
           </div>
 
           <div>
-            <p className="text-sm font-black uppercase text-white">
+            <p className="text-lg font-black uppercase tracking-wide text-white">
               {t.brand.name}
             </p>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-orange-300">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-orange-300">
               {t.brand.tagline}
             </p>
           </div>
@@ -46,27 +46,31 @@ export default function Header({
 
         <div className="flex flex-col items-center gap-3 lg:flex-row lg:gap-5">
           <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+            <Link href={`/${locale}`} className={navClass}>
+              Home
+            </Link>
+
             <Link href={`/${locale}/vision`} className={navClass}>
               {t.nav.vision}
-            </Link>
-
-            <Link href={`/${locale}/impact`} className={navClass}>
-              {t.nav.community}
-            </Link>
-
-            <Link href={`/${locale}/experiences`} className={navClass}>
-              {t.nav.experiences}
-            </Link>
-
-            <Link href={`/${locale}/events`} className={navClass}>
-              {t.nav.events}
             </Link>
 
             <Link href={`/${locale}/letters`} className={navClass}>
               {t.nav.letters}
             </Link>
 
-            <Link href={`/${locale}#gallery`} className={navClass}>
+            <Link href={`/${locale}/experiences`} className={navClass}>
+              {t.nav.experiences}
+            </Link>
+
+            <Link href={`/${locale}/impact`} className={navClass}>
+              {t.nav.community}
+            </Link>
+
+            <Link href={`/${locale}/events`} className={navClass}>
+              {t.nav.events}
+            </Link>
+
+            <Link href={`/${locale}/moments`} className={navClass}>
               {t.nav.gallery}
             </Link>
 
