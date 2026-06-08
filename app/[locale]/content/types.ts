@@ -196,3 +196,13 @@ export type Translation = {
   join: JoinContent;
   footer: FooterContent;
 };
+
+export type ContactFormContent = {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  submit: string;
+  whatsapp: string;
+  success: string;
+};
