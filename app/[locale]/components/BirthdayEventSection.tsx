@@ -21,6 +21,7 @@ export default function BirthdayEventSection({
       image: "/images/luke-birthday-experience.jpg",
       cta: t.events.book,
       href: `/${locale}/contact`,
+      external: false,
     },
     {
       status: "Coming soon",
@@ -38,20 +39,21 @@ export default function BirthdayEventSection({
       image: "/images/giants-logo.png",
       cta: t.events.ask,
       href: `/${locale}/contact`,
+      external: false,
     },
   ];
 
   return (
     <section
       id="events"
-      className="scroll-mt-40 overflow-hidden bg-black px-6 py-12 text-white md:py-16"
+      className="scroll-mt-40 overflow-hidden bg-black px-4 py-12 text-white md:px-6 md:py-16"
     >
       <div className="mx-auto max-w-6xl">
         <p className="text-sm font-black uppercase tracking-[0.35em] text-orange-400">
           {t.events.label}
         </p>
 
-        <h2 className="mt-4 text-3xl font-black uppercase leading-tight md:text-5xl">
+        <h2 className="mt-4 text-4xl font-black uppercase leading-tight md:text-5xl">
           {t.events.title}
         </h2>
 
@@ -59,21 +61,21 @@ export default function BirthdayEventSection({
           {t.events.description}
         </p>
 
-        <div className="mt-4 flex items-center justify-between text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 md:hidden">
+        <div className="mt-6 flex items-center justify-between text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">
           <span>{t.sliderHint.swipe}</span>
           <span>{t.sliderHint.drag}</span>
         </div>
 
-        <div className="mt-10 flex gap-6 overflow-x-auto pb-6">
+        <div className="mt-8 flex gap-5 overflow-x-auto pb-6">
           {events.map((event) => (
             <article
               key={event.title}
-              className="flex min-w-[82%] flex-col overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 sm:min-w-[55%] lg:min-w-[360px]"
+              className="flex min-w-[86%] flex-col overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 sm:min-w-[55%] lg:min-w-[360px]"
             >
               <button
                 type="button"
                 onClick={() => setOpenPoster(event.image)}
-                className="relative h-[360px] bg-black"
+                className="relative h-[320px] bg-black md:h-[360px]"
                 aria-label={t.events.viewPoster}
               >
                 <Image
@@ -81,7 +83,7 @@ export default function BirthdayEventSection({
                   alt={event.title}
                   fill
                   className="object-contain p-3"
-                  sizes="(max-width: 768px) 82vw, 360px"
+                  sizes="(max-width: 768px) 86vw, 360px"
                 />
               </button>
 
@@ -90,17 +92,19 @@ export default function BirthdayEventSection({
                   {event.status}
                 </span>
 
-                <h3 className="mt-5 text-2xl font-black text-white">
+                <h3 className="mt-5 text-2xl font-black leading-tight text-white">
                   {event.title}
                 </h3>
 
-                <p className="mt-4 leading-7 text-zinc-300">{event.text}</p>
+                <p className="mt-4 leading-7 text-zinc-300">
+                  {event.text}
+                </p>
 
                 <a
                   href={event.href}
                   target={event.external ? "_blank" : undefined}
                   rel={event.external ? "noopener noreferrer" : undefined}
-                  className="btn-primary mt-auto pt-0"
+                  className="btn-primary mt-8"
                 >
                   {event.cta}
                 </a>
