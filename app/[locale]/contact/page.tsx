@@ -39,8 +39,8 @@ export default async function ContactPage({
             {t.contact.text}
           </p>
 
-          <div className="max-w-4xl">
-            <ContactForm />
+          <div className="mt-10 max-w-4xl">
+            <ContactForm t={t} />
           </div>
         </div>
       </section>
