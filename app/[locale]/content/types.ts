@@ -181,8 +181,8 @@ export type Translation = {
   nav: NavContent;
   mobileBar: MobileBarContent;
   contact: ContactContent;
-  sliderHint: SliderHintContent;
   contactForm: ContactFormContent;
+  sliderHint: SliderHintContent;
   labels: SectionLabels;
   sectionTitles: SectionTitles;
   bar: string;
