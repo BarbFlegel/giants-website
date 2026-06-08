@@ -32,4 +32,4 @@ export default async function EventsPage({
       <Footer t={t} />
     </main>
   );
-}
+}d
