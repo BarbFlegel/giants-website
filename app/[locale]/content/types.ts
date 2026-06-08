@@ -182,6 +182,7 @@ export type Translation = {
   mobileBar: MobileBarContent;
   contact: ContactContent;
   sliderHint: SliderHintContent;
+  contactForm: ContactFormContent;
   labels: SectionLabels;
   sectionTitles: SectionTitles;
   bar: string;
@@ -195,7 +196,6 @@ export type Translation = {
   gallery: GalleryContent;
   join: JoinContent;
   footer: FooterContent;
-  contactForm: ContactFormContent;
 };
 
 export type ContactFormContent = {
