@@ -2,14 +2,12 @@
 
 import { type Locale, translations } from "./content";
 
-import BirthdayEventSection from "./components/BirthdayEventSection";
 import Footer from "./components/Footer";
-import GallerySection from "./components/GallerySection";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import JoinSection from "./components/JoinSection";
+import LandingPreviews from "./components/LandingPreviews";
 import UpcomingRibbon from "./components/UpcomingRibbon";
-import VisionSection from "./components/VisionSection";
 
 export default function HomeClient({ locale }: { locale: Locale }) {
   const t = translations[locale];
@@ -20,9 +18,9 @@ export default function HomeClient({ locale }: { locale: Locale }) {
       <UpcomingRibbon t={t} />
 
       <Hero locale={locale} t={t} />
-      <VisionSection t={t} />
-      <BirthdayEventSection locale={locale} t={t} />
-      <GallerySection locale={locale} t={t} />
+
+      <LandingPreviews locale={locale} t={t} />
+
       <JoinSection t={t} />
 
       <Footer t={t} />
