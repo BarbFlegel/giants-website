@@ -11,28 +11,34 @@ export default function LandingPreviews({
   const cards = [
     {
       label: t.nav.vision,
-      title: t.vision.title,
-      text: t.vision.text,
+      title: "Vision",
+      text: "The mission, philosophy and long-term purpose behind GIANTS.",
       href: `/${locale}/vision`,
     },
     {
       label: t.nav.letters,
       title: t.letters.title,
-      text: t.letters.description,
+      text: "Weekly mindset reflections around courage, discipline and growth.",
       href: `/${locale}/letters`,
     },
     {
+      label: t.nav.experiences,
+      title: t.sectionTitles.experiences,
+      text: "Bookable formats: basketball, movement, team building and birthdays.",
+      href: `/${locale}/experiences`,
+    },
+    {
       label: t.nav.events,
-      title: t.events.birthdayTitle,
-      text: t.events.birthdayDescription,
+      title: t.events.title,
+      text: "Current and upcoming dated GIANTS moments.",
       href: `/${locale}/events`,
     },
   ];
 
   return (
-    <section className="bg-black px-6 py-12 text-white md:py-16">
+    <section className="bg-black px-4 py-12 text-white md:px-6 md:py-16">
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {cards.map((card) => (
             <Link
               key={card.href}
@@ -47,11 +53,11 @@ export default function LandingPreviews({
                 {card.title}
               </h2>
 
-              <p className="mt-4 line-clamp-4 leading-7 text-zinc-300">
+              <p className="mt-4 leading-7 text-zinc-300">
                 {card.text}
               </p>
 
-              <p className="mt-6 font-black text-orange-300 group-hover:text-orange-400">
+              <p className="mt-6 font-black text-orange-300">
                 Explore →
               </p>
             </Link>
