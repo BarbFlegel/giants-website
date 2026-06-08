@@ -1,8 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import type { Translation } from "../content/types";
 
-export default function ContactForm() {
+export default function ContactForm({
+  t,
+}: {
+  t: Translation;
+}) {
   const [sent, setSent] = useState(false);
 
   const inputClass =
@@ -36,19 +41,29 @@ export default function ContactForm() {
     return (
       <div className="mt-10 rounded-3xl border border-orange-500/40 bg-orange-500/10 p-8 text-center">
         <h3 className="text-2xl font-black text-orange-300">
-          Request sent successfully.
+          {t.contactForm.success}
         </h3>
-        <p className="mt-3 text-zinc-300">
-          Thank you — GIANTS will get back to you soon.
-        </p>
       </div>
     );
   }
 
   return (
     <>
-      <div className="mb-8 mt-10 flex flex-col items-center gap-4 rounded-3xl border border-green-500/30 bg-green-500/10 p-6 text-center">
-        <p className="text-zinc-300">Prefer a quick conversation?</p>
+      <div className="mb-8 rounded-3xl border border-orange-500/20 bg-orange-500/10 p-6">
+        <h3 className="text-2xl font-black text-white">
+          🚀 Build Something With GIANTS
+        </h3>
+
+        <p className="mt-3 text-zinc-300">
+          Events, community projects, team building, birthdays,
+          wellbeing initiatives and collaborations.
+        </p>
+      </div>
+
+      <div className="mb-8 flex flex-col items-center gap-4 rounded-3xl border border-green-500/30 bg-green-500/10 p-6 text-center">
+        <p className="text-zinc-300">
+          Prefer a quick conversation?
+        </p>
 
         <a
           href="https://wa.me/32465545947?text=Hi%20GIANTS,%20I'd%20like%20to%20learn%20more%20about%20your%20experiences."
@@ -56,26 +71,27 @@ export default function ContactForm() {
           rel="noopener noreferrer"
           className="rounded-full bg-green-500 px-8 py-4 font-black text-black transition hover:scale-105 hover:bg-green-400"
         >
-          Book via WhatsApp
+          {t.contactForm.whatsapp}
         </a>
       </div>
 
       <form
         onSubmit={handleSubmit}
-        className="mt-10 grid gap-5 rounded-[2rem] border border-orange-500/30 bg-gradient-to-br from-orange-500/15 via-zinc-950 to-black p-6 shadow-[0_0_40px_rgba(249,115,22,0.12)] md:p-8"
+        className="grid gap-5 rounded-[2rem] border border-orange-500/30 bg-gradient-to-br from-orange-500/15 via-zinc-950 to-black p-6 shadow-[0_0_40px_rgba(249,115,22,0.12)] md:p-8"
       >
         <div className="grid gap-5 md:grid-cols-2">
           <input
             type="text"
             name="name"
-            placeholder="Name"
+            placeholder={t.contactForm.name}
             required
             className={inputClass}
           />
+
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder={t.contactForm.email}
             required
             className={inputClass}
           />
@@ -110,6 +126,7 @@ export default function ContactForm() {
             placeholder="Location / city"
             className={inputClass}
           />
+
           <input
             type="text"
             name="groupSize"
@@ -120,15 +137,16 @@ export default function ContactForm() {
 
         <textarea
           name="message"
-          placeholder="Tell us what you have in mind"
+          placeholder={t.contactForm.message}
           rows={5}
           className={inputClass}
         />
 
         <button
           type="submit"
-          className="btn-primary btn-primary-full" >
-          Send Request
+          className="btn-primary btn-primary-full"
+        >
+          {t.contactForm.submit}
         </button>
       </form>
     </>
