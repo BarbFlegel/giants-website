@@ -36,4 +36,4 @@ export default function HomeClient({ locale }: { locale: Locale }) {
       </div>
     </main>
   );
-}
+}z
