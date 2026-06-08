@@ -22,10 +22,21 @@ export const translations: Record<Locale, Translation> = {
       book: "Book",
     },
     contact: {
-      label: "Contact",
-      title: "Build with GIANTS",
-      text: "Join the community, book an experience, or collaborate with GIANTS.",
-    },
+  label: "Contact",
+  title: "Build with GIANTS",
+  text: "Join the community, book an experience, or collaborate with GIANTS.",
+},
+
+contactForm: {
+  name: "Your Name",
+  email: "Email Address",
+  phone: "Phone Number",
+  message: "Tell us about your idea, event or collaboration",
+  submit: "Send Request",
+  whatsapp: "Chat on WhatsApp",
+  success: "Thanks! We'll get back to you soon.",
+},
+
     sliderHint: {
       swipe: "Swipe",
       drag: "Drag →",
@@ -183,6 +194,15 @@ export const translations: Record<Locale, Translation> = {
       title: "Construire avec GIANTS",
       text: "Rejoignez la communauté, réservez une expérience ou collaborez avec GIANTS.",
     },
+    contactForm: {
+  name: "Votre nom",
+  email: "Adresse e-mail",
+  phone: "Numéro de téléphone",
+  message: "Parlez-nous de votre projet, événement ou collaboration",
+  submit: "Envoyer la demande",
+  whatsapp: "Discuter sur WhatsApp",
+  success: "Merci ! Nous vous répondrons rapidement.",
+},
     sliderHint: {
       swipe: "Balayer",
       drag: "Glisser →",
@@ -498,6 +518,15 @@ export const translations: Record<Locale, Translation> = {
       title: "Mit GIANTS aufbauen",
       text: "Werde Teil der Community, buche ein Erlebnis oder arbeite mit GIANTS zusammen.",
     },
+    contactForm: {
+  name: "Naam",
+  email: "E-mailadres",
+  phone: "Telefoonnummer",
+  message: "Vertel ons over je idee, evenement of samenwerking",
+  submit: "Verzoek versturen",
+  whatsapp: "Chat via WhatsApp",
+  success: "Bedankt! We nemen snel contact op.",
+},
     sliderHint: {
       swipe: "Wischen",
       drag: "Ziehen →",
