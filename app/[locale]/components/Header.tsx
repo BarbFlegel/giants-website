@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { locales, type Locale, type Translation } from "../content";
 
 export default function Header({
@@ -11,25 +13,42 @@ export default function Header({
   locale: Locale;
   t: Translation;
 }) {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
   const langLink = (targetLocale: Locale) => `/${targetLocale}`;
 
-  const navClass =
-    "text-sm font-bold text-white transition hover:text-orange-300";
+  const navItems = [
+    { label: "Home", href: `/${locale}`, match: `/${locale}` },
+    { label: t.nav.vision, href: `/${locale}/vision`, match: "/vision" },
+    { label: t.nav.letters, href: `/${locale}/letters`, match: "/letters" },
+    {
+      label: t.nav.experiences,
+      href: `/${locale}/experiences`,
+      match: "/experiences",
+    },
+    { label: t.nav.community, href: `/${locale}/impact`, match: "/impact" },
+    { label: t.nav.events, href: `/${locale}/events`, match: "/events" },
+    { label: t.nav.gallery, href: `/${locale}/moments`, match: "/moments" },
+    { label: t.nav.join, href: `/${locale}/contact`, match: "/contact" },
+  ];
+
+  const isActive = (match: string) => {
+    if (match === `/${locale}`) return pathname === `/${locale}`;
+    return pathname.includes(match);
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-800 bg-black/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-4 lg:flex-row lg:justify-between">
-        <Link
-          href={`/${locale}`}
-          className="flex items-center justify-center gap-4 text-center lg:text-left"
-        >
-          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-black md:h-14 md:w-14">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <Link href={`/${locale}`} className="flex items-center gap-3">
+          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-black">
             <Image
               src="/images/giants-logo.png"
               alt="GIANTS logo"
               fill
               unoptimized
-              sizes="64px"
+              sizes="56px"
               className="object-contain scale-150"
             />
           </div>
@@ -38,45 +57,35 @@ export default function Header({
             <p className="text-lg font-black uppercase tracking-wide text-white">
               {t.brand.name}
             </p>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-orange-300">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-orange-300">
               {t.brand.tagline}
             </p>
           </div>
         </Link>
 
-        <div className="flex flex-col items-center gap-3 lg:flex-row lg:gap-5">
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="rounded-full border border-orange-500/40 px-4 py-2 text-sm font-black uppercase tracking-[0.2em] text-orange-300 md:hidden"
+        >
+          Menu
+        </button>
+
+        <div className="hidden items-center gap-5 md:flex">
           <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2">
-            <Link href={`/${locale}`} className={navClass}>
-              Home
-            </Link>
-
-            <Link href={`/${locale}/vision`} className={navClass}>
-              {t.nav.vision}
-            </Link>
-
-            <Link href={`/${locale}/letters`} className={navClass}>
-              {t.nav.letters}
-            </Link>
-
-            <Link href={`/${locale}/experiences`} className={navClass}>
-              {t.nav.experiences}
-            </Link>
-
-            <Link href={`/${locale}/impact`} className={navClass}>
-              {t.nav.community}
-            </Link>
-
-            <Link href={`/${locale}/events`} className={navClass}>
-              {t.nav.events}
-            </Link>
-
-            <Link href={`/${locale}/moments`} className={navClass}>
-              {t.nav.gallery}
-            </Link>
-
-            <Link href={`/${locale}/contact`} className={navClass}>
-              {t.nav.join}
-            </Link>
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={
+                  isActive(item.match)
+                    ? "text-sm font-black text-orange-400"
+                    : "text-sm font-bold text-white transition hover:text-orange-300"
+                }
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
 
           <details className="relative shrink-0">
@@ -102,6 +111,58 @@ export default function Header({
           </details>
         </div>
       </div>
+
+      {open && (
+        <div className="fixed inset-0 z-[999] bg-black/95 px-6 py-6 text-white md:hidden">
+          <div className="flex items-center justify-between">
+            <p className="text-xl font-black uppercase tracking-[0.25em] text-orange-300">
+              Menu
+            </p>
+
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="rounded-full bg-orange-500 px-4 py-2 text-lg font-black text-black"
+            >
+              ×
+            </button>
+          </div>
+
+          <nav className="mt-8 grid gap-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className={
+                  isActive(item.match)
+                    ? "rounded-2xl bg-orange-500 px-5 py-4 text-lg font-black text-black"
+                    : "rounded-2xl border border-zinc-800 bg-zinc-950 px-5 py-4 text-lg font-black text-white"
+                }
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="mt-8 flex flex-wrap gap-2">
+            {locales.map((item) => (
+              <Link
+                key={item}
+                href={langLink(item)}
+                onClick={() => setOpen(false)}
+                className={
+                  item === locale
+                    ? "rounded-full bg-orange-500 px-4 py-2 text-sm font-black text-black"
+                    : "rounded-full border border-orange-500/40 px-4 py-2 text-sm font-black text-orange-300"
+                }
+              >
+                {item.toUpperCase()}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 }
