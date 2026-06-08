@@ -362,6 +362,17 @@ contactForm: {
       title: "Bouw met GIANTS",
       text: "Word deel van de community, boek een ervaring of werk samen met GIANTS.",
     },
+
+    contactForm: {
+  name: "Naam",
+  email: "E-mailadres",
+  phone: "Telefoonnummer",
+  message: "Vertel ons over je idee, evenement of samenwerking",
+  submit: "Verzoek versturen",
+  whatsapp: "Chat via WhatsApp",
+  success: "Bedankt! We nemen snel contact op.",
+},
+
     sliderHint: {
       swipe: "Swipe",
       drag: "Sleep →",
@@ -519,13 +530,13 @@ contactForm: {
       text: "Werde Teil der Community, buche ein Erlebnis oder arbeite mit GIANTS zusammen.",
     },
     contactForm: {
-  name: "Naam",
-  email: "E-mailadres",
-  phone: "Telefoonnummer",
-  message: "Vertel ons over je idee, evenement of samenwerking",
-  submit: "Verzoek versturen",
-  whatsapp: "Chat via WhatsApp",
-  success: "Bedankt! We nemen snel contact op.",
+  name: "Name",
+  email: "E-Mail-Adresse",
+  phone: "Telefonnummer",
+  message: "Erzähl uns von deiner Idee, Veranstaltung oder Zusammenarbeit",
+  submit: "Anfrage senden",
+  whatsapp: "Per WhatsApp kontaktieren",
+  success: "Vielen Dank! Wir melden uns bald.",
 },
     sliderHint: {
       swipe: "Wischen",
