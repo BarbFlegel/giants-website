@@ -1,9 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import { locales, type Locale, type Translation } from "../content";
 
 export default function Header({
@@ -15,6 +15,18 @@ export default function Header({
 }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   const langLink = (targetLocale: Locale) => `/${targetLocale}`;
 
@@ -49,7 +61,7 @@ export default function Header({
               fill
               unoptimized
               sizes="56px"
-              className="object-contain scale-150"
+              className="scale-150 object-contain"
             />
           </div>
 
@@ -66,21 +78,21 @@ export default function Header({
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="rounded-full border border-orange-500/40 px-4 py-2 text-sm font-black uppercase tracking-[0.2em] text-orange-300 md:hidden"
+          className="rounded-full border border-orange-500/40 px-6 py-3 text-lg font-black uppercase tracking-[0.25em] text-orange-300 md:hidden"
         >
           Menu
         </button>
 
         <div className="hidden items-center gap-5 md:flex">
-          <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+          <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={
                   isActive(item.match)
-                    ? "text-sm font-black text-orange-400"
-                    : "text-sm font-bold text-white transition hover:text-orange-300"
+                    ? "text-base font-black text-orange-400"
+                    : "text-base font-black text-white transition hover:text-orange-300"
                 }
               >
                 {item.label}
@@ -113,16 +125,16 @@ export default function Header({
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-[999] bg-black/95 px-6 py-6 text-white md:hidden">
+        <div className="fixed inset-0 z-[9999] overflow-y-auto bg-black px-6 py-6 text-white md:hidden">
           <div className="flex items-center justify-between">
-            <p className="text-xl font-black uppercase tracking-[0.25em] text-orange-300">
+            <p className="text-4xl font-black uppercase tracking-[0.25em] text-orange-300">
               Menu
             </p>
 
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="rounded-full bg-orange-500 px-4 py-2 text-lg font-black text-black"
+              className="rounded-full bg-orange-500 px-6 py-4 text-2xl font-black text-black"
             >
               ×
             </button>
@@ -136,8 +148,8 @@ export default function Header({
                 onClick={() => setOpen(false)}
                 className={
                   isActive(item.match)
-                    ? "rounded-2xl bg-orange-500 px-5 py-4 text-lg font-black text-black"
-                    : "rounded-2xl border border-zinc-800 bg-zinc-950 px-5 py-4 text-lg font-black text-white"
+                    ? "rounded-2xl bg-orange-500 px-6 py-5 text-2xl font-black text-black"
+                    : "rounded-2xl border border-zinc-800 bg-zinc-950 px-6 py-5 text-2xl font-black text-white"
                 }
               >
                 {item.label}
@@ -145,7 +157,7 @@ export default function Header({
             ))}
           </nav>
 
-          <div className="mt-8 flex flex-wrap gap-2">
+          <div className="mt-8 flex flex-wrap gap-2 pb-10">
             {locales.map((item) => (
               <Link
                 key={item}
@@ -153,8 +165,8 @@ export default function Header({
                 onClick={() => setOpen(false)}
                 className={
                   item === locale
-                    ? "rounded-full bg-orange-500 px-4 py-2 text-sm font-black text-black"
-                    : "rounded-full border border-orange-500/40 px-4 py-2 text-sm font-black text-orange-300"
+                    ? "rounded-full bg-orange-500 px-5 py-3 text-sm font-black text-black"
+                    : "rounded-full border border-orange-500/40 px-5 py-3 text-sm font-black text-orange-300"
                 }
               >
                 {item.toUpperCase()}

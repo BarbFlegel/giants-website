@@ -1,4 +1,4 @@
-import type { Locale } from "../content";
+import type { Locale, Translation } from "../content/types";
 import { communityPrograms } from "../content/community";
 import DragScroll from "./DragScroll";
 import ExperienceCard from "./ExperienceCard";
@@ -10,14 +10,14 @@ export default function CommunitySection({
   t,
 }: {
   locale: Locale;
-  t: any;
+  t: Translation;
 }) {
   return (
     <section
       id="community"
-      className="scroll-mt-40 overflow-hidden bg-black px-6 py-10 md:py-14"
+      className="min-h-[calc(100vh-88px)] scroll-mt-40 overflow-hidden bg-black px-4 py-10 text-white md:px-6 md:py-12"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto flex min-h-[calc(100vh-180px)] w-full max-w-6xl flex-col justify-center">
         <FadeUp>
           <SectionHeader
             label={t.labels.community}
@@ -38,17 +38,17 @@ export default function CommunitySection({
           </div>
         </FadeUp>
 
-        <div className="mt-4 flex items-center justify-between text-xs font-bold uppercase tracking-[0.2em] text-zinc-500 md:hidden">
+        <div className="mt-6 flex items-center justify-between text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">
           <span>{t.sliderHint.swipe}</span>
           <span>{t.sliderHint.drag}</span>
         </div>
 
-        <DragScroll className="mt-6 pb-4">
-          <div className="flex gap-6">
+        <DragScroll className="mt-8 pb-6">
+          <div className="flex gap-6 pb-2">
             {communityPrograms.map((program) => (
               <div
                 key={program.title}
-                className="min-w-[78%] sm:min-w-[55%] lg:min-w-[360px]"
+                className="min-w-[88%] sm:min-w-[52%] lg:min-w-[360px]"
               >
                 <ExperienceCard
                   item={program}
@@ -63,8 +63,8 @@ export default function CommunitySection({
               </div>
             ))}
 
-            <div className="min-w-[78%] sm:min-w-[55%] lg:min-w-[360px]">
-              <article className="card-coming-soon">
+            <div className="min-w-[88%] sm:min-w-[52%] lg:min-w-[360px]">
+              <article className="flex h-full min-h-[520px] flex-col rounded-3xl border border-zinc-800 bg-zinc-950 p-6 text-left">
                 <div>
                   <p className="text-sm font-black uppercase tracking-[0.25em] text-orange-400">
                     {t.community.comingSoon.label}
@@ -75,7 +75,7 @@ export default function CommunitySection({
                   </h3>
 
                   <ul className="mt-4 space-y-3 text-zinc-300">
-                    {t.community.comingSoon.items?.map((item: string) => (
+                    {t.community.comingSoon.items?.map((item) => (
                       <li key={item}>• {item}</li>
                     ))}
                   </ul>
@@ -83,7 +83,7 @@ export default function CommunitySection({
 
                 <a
                   href={`/${locale}/contact`}
-                  className="btn-secondary btn-small mt-6"
+                  className="btn-secondary btn-small mt-auto"
                 >
                   {t.community.comingSoon.cta}
                 </a>

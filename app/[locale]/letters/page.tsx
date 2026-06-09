@@ -27,12 +27,6 @@ export default async function LettersPage({
 
       <section className="px-4 py-12 md:px-6 md:py-16">
         <div className="mx-auto max-w-6xl">
-          <Link
-            href={`/${locale}`}
-            className="text-sm font-black text-orange-400"
-          >
-            ← Home
-          </Link>
 
           <p className="mt-10 text-sm font-black uppercase tracking-[0.35em] text-orange-400">
             {t.letters.label}

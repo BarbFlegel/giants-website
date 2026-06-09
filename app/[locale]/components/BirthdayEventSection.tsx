@@ -46,14 +46,14 @@ export default function BirthdayEventSection({
   return (
     <section
       id="events"
-      className="scroll-mt-40 overflow-hidden bg-black px-4 py-12 text-white md:px-6 md:py-16"
+      className="min-h-[calc(100vh-88px)] scroll-mt-40 overflow-hidden bg-black px-4 py-10 text-white md:px-6 md:py-12"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto flex min-h-[calc(100vh-180px)] w-full max-w-6xl flex-col justify-center">
         <p className="text-sm font-black uppercase tracking-[0.35em] text-orange-400">
           {t.events.label}
         </p>
 
-        <h2 className="mt-4 text-4xl font-black uppercase leading-tight md:text-5xl">
+        <h2 className="mt-4 max-w-5xl text-4xl font-black uppercase leading-tight md:text-5xl">
           {t.events.title}
         </h2>
 
@@ -66,16 +66,16 @@ export default function BirthdayEventSection({
           <span>{t.sliderHint.drag}</span>
         </div>
 
-        <div className="mt-8 flex gap-5 overflow-x-auto pb-6">
+        <div className="mt-8 flex gap-6 overflow-x-auto pb-6">
           {events.map((event) => (
             <article
               key={event.title}
-              className="flex min-w-[86%] flex-col overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 sm:min-w-[55%] lg:min-w-[360px]"
+              className="flex min-w-[88%] flex-col overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 sm:min-w-[52%] lg:min-w-[360px]"
             >
               <button
                 type="button"
                 onClick={() => setOpenPoster(event.image)}
-                className="relative h-[320px] bg-black md:h-[360px]"
+                className="relative h-[300px] bg-black md:h-[340px]"
                 aria-label={t.events.viewPoster}
               >
                 <Image
@@ -83,7 +83,7 @@ export default function BirthdayEventSection({
                   alt={event.title}
                   fill
                   className="object-contain p-3"
-                  sizes="(max-width: 768px) 86vw, 360px"
+                  sizes="(max-width: 768px) 88vw, 360px"
                 />
               </button>
 
@@ -96,15 +96,13 @@ export default function BirthdayEventSection({
                   {event.title}
                 </h3>
 
-                <p className="mt-4 leading-7 text-zinc-300">
-                  {event.text}
-                </p>
+                <p className="mt-4 leading-7 text-zinc-300">{event.text}</p>
 
                 <a
                   href={event.href}
                   target={event.external ? "_blank" : undefined}
                   rel={event.external ? "noopener noreferrer" : undefined}
-                  className="btn-primary mt-8"
+                  className="btn-primary mt-auto"
                 >
                   {event.cta}
                 </a>
@@ -115,7 +113,7 @@ export default function BirthdayEventSection({
       </div>
 
       {openPoster && (
-        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/95 p-4">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 p-4">
           <button
             type="button"
             onClick={() => setOpenPoster(null)}
