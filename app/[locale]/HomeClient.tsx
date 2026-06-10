@@ -16,7 +16,7 @@ export default function HomeClient({ locale }: { locale: Locale }) {
   return (
     <main className="min-h-screen bg-black pb-20 text-white md:pb-0">
       <Header locale={locale} t={t} />
-      <UpcomingRibbon t={t} />
+      <UpcomingRibbon />
 
      <Hero locale={locale} t={t} />
     <VisionSection t={t} compact />
