@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 export default function UpcomingRibbon() {
@@ -11,7 +10,7 @@ export default function UpcomingRibbon() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="sticky top-[81px] z-40 w-full border-y border-orange-500/30 bg-orange-950/80 px-3 py-2 text-center text-[10px] font-black uppercase tracking-[0.2em] text-orange-100 backdrop-blur md:top-[73px] md:text-xs"
+        className="sticky top-[88px] z-40 w-full border-y border-orange-500/30 bg-orange-950/90 px-3 py-2 text-center text-[10px] font-black uppercase tracking-[0.16em] text-orange-100 backdrop-blur md:top-[81px] md:text-xs md:tracking-[0.24em]"
       >
         🔥 Upcoming GIANTS Birthday Experience • 20 June 2026 • Antwerp • Tap to view
       </button>
