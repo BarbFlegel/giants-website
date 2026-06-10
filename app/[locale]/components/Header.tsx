@@ -125,7 +125,7 @@ export default function Header({
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-[9999] overflow-y-auto bg-black px-6 py-6 text-white md:hidden">
+  <div className="fixed left-0 top-0 z-[99999] h-dvh w-screen overflow-y-auto bg-black px-6 py-6 text-white md:hidden">
           <div className="flex items-center justify-between">
             <p className="text-4xl font-black uppercase tracking-[0.25em] text-orange-300">
               Menu
