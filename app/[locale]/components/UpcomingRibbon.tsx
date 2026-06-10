@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import type { Translation } from "../content/types";
 
-export default function UpcomingRibbon({ t }: { t?: Translation }) {
+export default function UpcomingRibbon() {
   const [open, setOpen] = useState(false);
 
   return (
@@ -12,33 +11,27 @@ export default function UpcomingRibbon({ t }: { t?: Translation }) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="sticky top-[81px] z-40 w-full border-y border-orange-500/30 bg-orange-950/80 px-4 py-2 text-center text-xs font-black uppercase tracking-[0.24em] text-orange-100 backdrop-blur transition hover:bg-orange-900 md:top-[73px]"
+        className="sticky top-[81px] z-40 w-full border-y border-orange-500/30 bg-orange-950/80 px-3 py-2 text-center text-[10px] font-black uppercase tracking-[0.2em] text-orange-100 backdrop-blur md:top-[73px] md:text-xs"
       >
-        🔥 UPCOMING GIANTS BIRTHDAY EXPERIENCE • 20 JUNE 2026 • ANTWERP • TAP
-        TO VIEW
+        🔥 Upcoming GIANTS Birthday Experience • 20 June 2026 • Antwerp • Tap to view
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 p-4">
+        <div className="fixed inset-0 z-[99999] flex items-center justify-center bg-black p-4">
           <button
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close poster"
-            className="absolute right-5 top-5 rounded-full bg-orange-500 px-5 py-3 text-2xl font-black text-black"
+            className="absolute right-5 top-5 z-10 rounded-full bg-orange-500 px-5 py-3 text-2xl font-black text-black"
           >
             ×
           </button>
 
-          <div className="relative h-[90vh] w-full max-w-4xl">
-            <Image
-              src="/images/luke-birthday-experience.jpg"
-              alt="GIANTS Birthday Experience poster"
-              fill
-              priority
-              sizes="100vw"
-              className="object-contain"
-            />
-          </div>
+          <img
+            src="/images/luke-birthday-experience.jpg"
+            alt="Luke Slam Dunk Birthday poster"
+            className="max-h-[92vh] max-w-full object-contain"
+          />
         </div>
       )}
     </>
