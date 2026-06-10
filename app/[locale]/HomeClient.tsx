@@ -18,8 +18,7 @@ export default function HomeClient({ locale }: { locale: Locale }) {
       <Header locale={locale} t={t} />
       <UpcomingRibbon />
 
-     <Hero locale={locale} t={t} />
-    <VisionSection t={t} compact />
+     <Hero locale={locale} t={t} />    
     <LandingPreviews locale={locale} t={t} />
     <JoinSection t={t} compact />
     <Footer t={t} />
