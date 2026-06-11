@@ -8,12 +8,6 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const metadata = {
-  title: "Impact | GIANTS",
-  description:
-    "Explore GIANTS social impact, community programmes and wellbeing initiatives.",
-};
-
 export default async function ImpactPage({
   params,
 }: {
@@ -23,12 +17,13 @@ export default async function ImpactPage({
 
   if (!locales.includes(locale as Locale)) notFound();
 
-  const t = translations[locale as Locale];
+  const currentLocale = locale as Locale;
+  const t = translations[currentLocale];
 
   return (
     <main className="min-h-screen bg-black text-white">
-      <Header locale={locale as Locale} t={t} />
-      <CommunitySection locale={locale as Locale} t={t} />
+      <Header locale={currentLocale} t={t} />
+      <CommunitySection locale={currentLocale} t={t} />
       <Footer t={t} />
     </main>
   );
