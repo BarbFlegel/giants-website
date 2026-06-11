@@ -28,7 +28,7 @@ export default function Hero({
   }, []);
 
   return (
-    <section className="relative min-h-[calc(100svh-140px)] overflow-hidden border-b border-orange-500/20 bg-black text-white">
+    <section className="relative min-h-[calc(100svh-150px)] overflow-hidden border-b border-orange-500/20 bg-black text-white">
       {heroImages.map((image, index) => (
         <div
           key={image}
@@ -39,9 +39,9 @@ export default function Hero({
         />
       ))}
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/45 to-black" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black" />
 
-      <div className="relative mx-auto flex min-h-[calc(100svh-140px)] max-w-6xl flex-col items-center justify-center px-4 py-14 text-center md:px-6">
+      <div className="relative mx-auto flex min-h-[calc(100svh-150px)] max-w-6xl flex-col items-center justify-center px-4 py-12 text-center md:px-6">
         <p className="rounded-full border border-orange-500/30 bg-orange-500/10 px-5 py-3 text-[11px] font-black uppercase tracking-[0.28em] text-orange-200 md:text-xs">
           {t.hero.eyebrow}
         </p>
@@ -50,7 +50,7 @@ export default function Hero({
           {t.hero.title}
         </h1>
 
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-200 md:text-xl">
+        <p className="mt-6 max-w-3xl text-base leading-7 text-zinc-200 md:text-xl md:leading-8">
           {t.hero.text}
         </p>
 
@@ -68,7 +68,7 @@ export default function Hero({
           </Link>
         </div>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-zinc-400">
+        <div className="mt-8 hidden flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-zinc-400 md:flex">
           <span>Movement & Wellbeing</span>
           <span>•</span>
           <span>Leadership Development</span>
