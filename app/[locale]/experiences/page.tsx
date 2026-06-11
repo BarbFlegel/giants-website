@@ -8,12 +8,6 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export const metadata = {
-  title: "Experiences | GIANTS",
-  description:
-    "Explore GIANTS sport, movement, community and wellbeing experiences.",
-};
-
 export default async function ExperiencesPage({
   params,
 }: {
@@ -23,12 +17,13 @@ export default async function ExperiencesPage({
 
   if (!locales.includes(locale as Locale)) notFound();
 
-  const t = translations[locale as Locale];
+  const currentLocale = locale as Locale;
+  const t = translations[currentLocale];
 
   return (
     <main className="min-h-screen bg-black text-white">
-      <Header locale={locale as Locale} t={t} />
-      <ExperiencesSection locale={locale as Locale} t={t} />
+      <Header locale={currentLocale} t={t} />
+      <ExperiencesSection locale={currentLocale} t={t} />
       <Footer t={t} />
     </main>
   );
