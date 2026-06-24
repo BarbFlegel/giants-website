@@ -17,28 +17,17 @@ export default function Header({
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
 
-  const langLink = (targetLocale: Locale) => `/${targetLocale}`;
-
   const navItems = [
     { label: "Home", href: `/${locale}`, match: `/${locale}` },
     { label: t.nav.vision, href: `/${locale}/vision`, match: "/vision" },
     { label: t.nav.letters, href: `/${locale}/letters`, match: "/letters" },
-    {
-      label: t.nav.experiences,
-      href: `/${locale}/experiences`,
-      match: "/experiences",
-    },
+    { label: t.nav.experiences, href: `/${locale}/experiences`, match: "/experiences" },
     { label: t.nav.community, href: `/${locale}/impact`, match: "/impact" },
     { label: t.nav.events, href: `/${locale}/events`, match: "/events" },
     { label: t.nav.gallery, href: `/${locale}/moments`, match: "/moments" },
@@ -100,15 +89,15 @@ export default function Header({
           </nav>
 
           <details className="relative shrink-0">
-            <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-zinc-700 px-3 py-2 text-xs font-bold text-orange-300 transition hover:border-orange-400">
+            <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-zinc-700 px-3 py-2 text-xs font-bold text-orange-300">
               🌍 {locale.toUpperCase()}
             </summary>
 
-            <div className="absolute right-0 z-50 mt-2 flex w-[58px] flex-col rounded-lg border border-orange-500/20 bg-zinc-900/90 px-2 py-1.5 text-xs font-bold shadow-lg backdrop-blur-md">
+            <div className="absolute right-0 z-50 mt-2 flex w-[58px] flex-col rounded-lg border border-orange-500/20 bg-zinc-900 px-2 py-1.5 text-xs font-bold">
               {locales.map((item) => (
                 <Link
                   key={item}
-                  href={langLink(item)}
+                  href={`/${item}`}
                   className={
                     item === locale
                       ? "rounded px-1 py-0.5 text-right text-orange-400"
@@ -124,22 +113,22 @@ export default function Header({
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-[9999] overflow-y-auto bg-black px-6 py-6 text-white md:hidden">
+        <div className="fixed left-0 top-0 z-[99999] h-dvh w-screen overflow-y-auto bg-black px-6 py-6 text-white md:hidden">
           <div className="flex items-center justify-between">
-            <p className="text-4xl font-black uppercase tracking-[0.25em] text-orange-300">
+            <p className="text-3xl font-black uppercase tracking-[0.25em] text-orange-300">
               Menu
             </p>
 
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="rounded-full bg-orange-500 px-6 py-4 text-2xl font-black text-black"
+              className="rounded-full bg-orange-500 px-5 py-3 text-xl font-black text-black"
             >
               ×
             </button>
           </div>
 
-          <nav className="mt-8 grid gap-3">
+          <nav className="mt-8 grid gap-3 pb-10">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -147,31 +136,14 @@ export default function Header({
                 onClick={() => setOpen(false)}
                 className={
                   isActive(item.match)
-                    ? "rounded-2xl bg-orange-500 px-6 py-5 text-2xl font-black text-black"
-                    : "rounded-2xl border border-zinc-800 bg-zinc-950 px-6 py-5 text-2xl font-black text-white"
+                    ? "rounded-2xl bg-orange-500 px-5 py-3 text-base font-black text-black"
+                    : "rounded-2xl border border-zinc-800 bg-zinc-950 px-5 py-3 text-base font-black text-white"
                 }
               >
                 {item.label}
               </Link>
             ))}
           </nav>
-
-          <div className="mt-8 flex flex-wrap gap-2 pb-10">
-            {locales.map((item) => (
-              <Link
-                key={item}
-                href={langLink(item)}
-                onClick={() => setOpen(false)}
-                className={
-                  item === locale
-                    ? "rounded-full bg-orange-500 px-5 py-3 text-sm font-black text-black"
-                    : "rounded-full border border-orange-500/40 px-5 py-3 text-sm font-black text-orange-300"
-                }
-              >
-                {item.toUpperCase()}
-              </Link>
-            ))}
-          </div>
         </div>
       )}
     </header>

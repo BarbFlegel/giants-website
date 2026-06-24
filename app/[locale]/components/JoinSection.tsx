@@ -13,20 +13,22 @@ export default function JoinSection({
   return (
     <section
       id="join"
-      className={`bg-black px-6 text-white ${
-        compact ? "py-12" : "py-16"
+      className={`bg-black px-4 text-white md:px-6 ${
+        compact ? "py-8 md:py-10" : "py-10 md:py-14"
       }`}
     >
       <div className="mx-auto max-w-6xl">
         <FadeUp>
-          <div className="rounded-3xl border border-orange-500/25 bg-gradient-to-br from-orange-500/15 via-zinc-950 to-black p-8 text-center md:p-12">
-            <SectionHeader
-              label={t.labels.join}
-              title={t.sectionTitles.join}
-              description={t.join.text}
-            />
+          <div className="rounded-3xl border border-orange-500/25 bg-gradient-to-br from-orange-500/15 via-zinc-950 to-black p-5 text-center md:p-12">
+            <div className="hidden md:block">
+              <SectionHeader
+                label={t.labels.join}
+                title={t.sectionTitles.join}
+                description={t.join.text}
+              />
+            </div>
 
-            <div className="mt-8">
+            <div className="flex items-center justify-center md:mt-8">
               <SocialIcons />
             </div>
           </div>

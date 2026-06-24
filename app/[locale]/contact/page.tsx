@@ -17,31 +17,34 @@ export default async function ContactPage({
 
   if (!locales.includes(locale as Locale)) notFound();
 
-  const t = translations[locale as Locale];
+  const currentLocale = locale as Locale;
+  const t = translations[currentLocale];
 
   return (
-    <main className="min-h-screen bg-black pb-28 text-white md:pb-0">
-      <Header locale={locale as Locale} t={t} />
+    <main className="min-h-screen bg-black pb-24 text-white md:pb-0">
+      <Header locale={currentLocale} t={t} />
 
-      <section className="relative min-h-[calc(100vh-88px)] overflow-hidden bg-black px-4 py-12 md:px-6 md:py-16">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(249,115,22,0.18),transparent_60%)]" />
+      <section className="relative overflow-hidden bg-black px-4 py-10 md:px-6 md:py-16">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: "url('/images/hero-giants-premium.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/80 to-black" />
 
-        <div className="relative mx-auto flex min-h-[calc(100vh-180px)] max-w-6xl flex-col justify-center">
-          <div className="mx-auto max-w-4xl text-left md:text-center">
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-orange-300">
-              {t.contact.label}
-            </p>
+        <div className="relative mx-auto max-w-6xl">
+          <p className="text-xs font-black uppercase tracking-[0.35em] text-orange-400 md:text-sm">
+            {t.contact.label}
+          </p>
 
-            <h1 className="mt-4 text-4xl font-black uppercase leading-tight md:text-6xl">
-              {t.contact.title}
-            </h1>
+          <h1 className="mt-4 max-w-4xl text-3xl font-black uppercase leading-tight md:text-6xl">
+            {t.contact.title}
+          </h1>
 
-            <p className="mx-auto mt-5 max-w-3xl leading-8 text-zinc-300">
-              {t.contact.text}
-            </p>
-          </div>
+          <p className="mt-5 max-w-3xl text-base leading-7 text-zinc-300 md:text-lg md:leading-8">
+            {t.contact.text}
+          </p>
 
-          <div className="mx-auto mt-10 w-full max-w-4xl">
+          <div className="mt-8 max-w-4xl">
             <ContactForm t={t} />
           </div>
         </div>
