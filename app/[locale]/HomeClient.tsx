@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { type Locale, translations } from "./content";
-
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -14,63 +13,75 @@ export default function HomeClient({ locale }: { locale: Locale }) {
 
   const cards = [
     {
-      label: t.nav.vision,
-      title: "Vision",
-      text: "The mission, philosophy and long-term purpose behind GIANTS.",
-      href: `/${locale}/vision`,
-    },
-    {
-      label: t.nav.letters,
-      title: t.letters.title,
-      text: "Weekly mindset reflections around courage, discipline and growth.",
+      label: "Mindset",
+      title: "The Birth of Courage",
+      text: "Weekly reflections and movement rituals focused on courage, discipline and personal growth.",
       href: `/${locale}/letters`,
+      featured: true,
     },
     {
-      label: t.nav.experiences,
-      title: t.sectionTitles.experiences,
-      text: "Bookable formats: basketball, movement, team building and birthdays.",
+      label: "Experiences",
+      title: "Bookable Experiences",
+      text: "Birthdays, basketball, team experiences and movement sessions.",
       href: `/${locale}/experiences`,
     },
     {
-      label: t.nav.events,
-      title: t.events.title,
-      text: "Current and upcoming dated GIANTS moments.",
+      label: "Community",
+      title: "Community Impact",
+      text: "Programmes focused on connection, inclusion, wellbeing and social impact.",
+      href: `/${locale}/impact`,
+    },
+    {
+      label: "Events",
+      title: "Upcoming Moments",
+      text: "Dated GIANTS events, birthdays, mindset sessions and community gatherings.",
       href: `/${locale}/events`,
     },
   ];
 
   return (
-    <main className="min-h-screen bg-black pb-20 text-white md:pb-0">
+    <main className="min-h-screen bg-black pb-24 text-white md:pb-0">
       <Header locale={locale} t={t} />
       <UpcomingRibbon />
-
       <Hero locale={locale} t={t} />
 
-      <section className="bg-black px-4 py-10 md:px-6 md:py-16">
-        <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {cards.map((card) => (
-            <Link
-              key={card.href}
-              href={card.href}
-              className="rounded-3xl border border-zinc-800 bg-zinc-950 p-5 transition hover:border-orange-500 md:p-7"
-            >
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-orange-400">
-                {card.label}
-              </p>
+      <section className="bg-black px-4 py-8 md:px-6 md:py-16">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-xs font-black uppercase tracking-[0.35em] text-orange-400 md:text-sm">
+            Explore GIANTS
+          </p>
 
-              <h2 className="mt-3 text-xl font-black leading-tight text-white md:text-2xl">
-                {card.title}
-              </h2>
+          <h2 className="mt-3 text-2xl font-black uppercase md:text-5xl">
+            Experiences, community and mindset.
+          </h2>
 
-              <p className="mt-3 text-sm leading-6 text-zinc-300 md:text-base md:leading-7">
-                {card.text}
-              </p>
+          <div className="mt-6 flex gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-4">
+            {cards.map((card) => (
+              <Link
+                key={card.href}
+                href={card.href}
+                className={`min-w-[82%] rounded-3xl border bg-zinc-950 p-5 transition hover:-translate-y-1 hover:border-orange-500 md:min-w-0 md:p-7 ${
+                  card.featured ? "border-orange-500/60" : "border-zinc-800"
+                }`}
+              >
+                <p className="text-xs font-black uppercase tracking-[0.3em] text-orange-400">
+                  {card.label}
+                </p>
 
-              <p className="mt-5 text-sm font-black text-orange-300">
-                Explore →
-              </p>
-            </Link>
-          ))}
+                <h3 className="mt-3 text-xl font-black leading-tight text-white md:text-2xl">
+                  {card.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-6 text-zinc-300 md:text-base md:leading-7">
+                  {card.text}
+                </p>
+
+                <p className="mt-5 text-sm font-black text-orange-300">
+                  Explore →
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
