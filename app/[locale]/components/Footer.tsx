@@ -1,8 +1,42 @@
 import Image from "next/image";
-import { type Translation } from "../content";
+import Link from "next/link";
+import SocialIcons from "./SocialIcons";
+import type { Translation } from "../content";
 
 export default function Footer({ t }: { t: Translation }) {
   return (
-    <footer className="border-t border-zinc-800 bg-black px-6 py-8 text-white"><div className="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center md:flex-row md:justify-between md:text-left"><div className="flex items-center gap-4"><div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full bg-black sm:h-16 sm:w-16"><Image src="/images/giants-logo.png" alt="GIANTS logo" fill unoptimized sizes="64px" className="object-contain scale-150" /></div><div><p className="text-xl font-bold tracking-[0.18em] sm:text-2xl">GIANTS</p><p className="text-[10px] uppercase tracking-[0.18em] text-orange-300 sm:text-xs">Movement · Community · Wellbeing</p></div></div><p className="text-sm text-zinc-400">{t.footer.copyright}</p></div></footer>
+    <footer className="border-t border-zinc-800 bg-black px-4 py-10 text-white md:px-6">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
+        <Link href="/en" className="flex items-center gap-3">
+          <div className="relative h-12 w-12 overflow-hidden rounded-full bg-black">
+            <Image
+              src="/images/giants-logo.png"
+              alt="GIANTS logo"
+              fill
+              unoptimized
+              sizes="48px"
+              className="scale-150 object-contain"
+            />
+          </div>
+
+          <div>
+            <p className="text-2xl font-black uppercase tracking-[0.22em]">
+              {t.brand.name}
+            </p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-orange-300">
+              {t.brand.tagline}
+            </p>
+          </div>
+        </Link>
+
+        <div className="flex flex-col items-center gap-4 md:items-end">
+          <SocialIcons />
+
+          <p className="text-sm text-zinc-500">
+            © 2026 GIANTS
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 }
