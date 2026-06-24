@@ -1,23 +1,30 @@
 import type { ReactNode } from "react";
 
+type PageHeroImage = "community" | "premium" | "action";
+
+const backgroundClass: Record<PageHeroImage, string> = {
+  community: "bg-[url('/images/hero-giants-community.jpg')]",
+  premium: "bg-[url('/images/hero-giants-premium.jpg')]",
+  action: "bg-[url('/images/hero-giants-action.jpg')]",
+};
+
 export default function PageHero({
   label,
   title,
   text,
-  image = "/images/hero-giants-community.jpg",
+  image = "community",
   children,
 }: {
   label: string;
   title: string;
   text: string;
-  image?: string;
+  image?: PageHeroImage;
   children?: ReactNode;
 }) {
   return (
-    <section className="relative overflow-hidden bg-black px-4 pb-12 pt-[130px] text-white md:px-6 md:pb-16 md:pt-[120px]">
+    <section className="relative overflow-hidden bg-black px-4 pb-10 pt-[112px] text-white md:px-6 md:pb-14 md:pt-[120px]">
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-20"
-        style={{ backgroundImage: `url('${image}')` }}
+        className={`absolute inset-0 bg-cover bg-center opacity-20 ${backgroundClass[image]}`}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/80 to-black" />
 

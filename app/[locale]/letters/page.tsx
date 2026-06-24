@@ -15,6 +15,7 @@ export default async function LettersPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+
   if (!locales.includes(locale as Locale)) notFound();
 
   const currentLocale = locale as Locale;
@@ -25,18 +26,19 @@ export default async function LettersPage({
       <Header locale={currentLocale} t={t} />
 
       <PageHero
-        label="Mindset Letters"
+        label="Mindset"
         title="Letters from GIANTS"
-        text="Weekly reflections focused on mindset, courage, discipline, wellbeing and personal growth."
-        image="/images/hero-giants-premium.jpg"
+        text="Weekly reflections and movement rituals focused on courage, discipline, wellbeing and personal growth."
+        image="premium"
       >
         <div className="mt-10 grid gap-6 lg:grid-cols-2 lg:items-start">
-          <div className="relative min-h-[520px] overflow-hidden rounded-3xl border border-orange-500/25 bg-zinc-950">
+          <div className="relative min-h-[420px] overflow-hidden rounded-3xl border border-orange-500/25 bg-zinc-950 md:min-h-[620px]">
             <Image
               src="/images/birth-of-courage-july.jpg"
-              alt="The Birth of Courage"
+              alt="The Birth of Courage poster"
               fill
-              className="object-contain"
+              priority
+              className="object-contain p-2"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </div>
@@ -51,8 +53,22 @@ export default async function LettersPage({
             </h2>
 
             <p className="mt-4 leading-7 text-zinc-300">
-              Tan and sweat. Thursday mornings. A new GIANTS mindset and movement ritual focused on discipline, focus, courage and community.
+              Tan and sweat. Thursday mornings. A new GIANTS ritual combining
+              movement, mindset, discipline and community energy.
             </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["Mind Strong", "Body Strong", "Discipline", "Community"].map(
+                (tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-orange-500/10 px-3 py-1 text-xs font-bold text-orange-300"
+                  >
+                    {tag}
+                  </span>
+                )
+              )}
+            </div>
 
             <a
               href="https://www.facebook.com/share/1LU8tYc8Tt/"

@@ -34,7 +34,7 @@ export default function HomeClient({ locale }: { locale: Locale }) {
     {
       label: "Events",
       title: "Upcoming Moments",
-      text: "Dated GIANTS events, birthdays, mindset sessions and community gatherings.",
+      text: "Dated GIANTS events, mindset sessions and community gatherings.",
       href: `/${locale}/events`,
     },
   ];

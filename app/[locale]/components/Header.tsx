@@ -26,7 +26,7 @@ export default function Header({
   const navItems = [
     { label: "Home", href: `/${locale}`, match: `/${locale}` },
     { label: t.nav.vision, href: `/${locale}/vision`, match: "/vision" },
-    { label: t.nav.letters, href: `/${locale}/letters`, match: "/letters" },
+    { label: "Mindset", href: `/${locale}/letters`, match: "/letters" },
     { label: t.nav.experiences, href: `/${locale}/experiences`, match: "/experiences" },
     { label: t.nav.community, href: `/${locale}/impact`, match: "/impact" },
     { label: t.nav.events, href: `/${locale}/events`, match: "/events" },
@@ -40,82 +40,85 @@ export default function Header({
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-800 bg-black/95 backdrop-blur">
-<div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">        <Link href={`/${locale}`} className="flex items-center gap-3">
-          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-black">
-            <Image
-              src="/images/giants-logo.png"
-              alt="GIANTS logo"
-              fill
-              unoptimized
-              sizes="56px"
-              className="scale-150 object-contain"
-            />
-          </div>
+    <>
+      <header className="fixed left-0 right-0 top-0 z-50 border-b border-zinc-800 bg-black/95 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+          <Link href={`/${locale}`} className="flex items-center gap-3">
+            <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full bg-black">
+              <Image
+                src="/images/giants-logo.png"
+                alt="GIANTS logo"
+                fill
+                unoptimized
+                sizes="44px"
+                className="scale-150 object-contain"
+              />
+            </div>
 
-          <div>
-            <p className="text-base font-black uppercase tracking-wide text-white">
-              {t.brand.name}
-            </p>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-orange-300">
-              {t.brand.tagline}
-            </p>
-          </div>
-        </Link>
+            <div>
+              <p className="text-base font-black uppercase tracking-wide text-white">
+                {t.brand.name}
+              </p>
+              <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-orange-300">
+                {t.brand.tagline}
+              </p>
+            </div>
+          </Link>
 
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="rounded-full border border-orange-500/40 px-6 py-3 text-lg font-black uppercase tracking-[0.25em] text-orange-300 md:hidden"
-        >
-          Menu
-        </button>
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="rounded-full border border-orange-500/40 px-5 py-2.5 text-sm font-black uppercase tracking-[0.24em] text-orange-300 md:hidden"
+          >
+            Menu
+          </button>
 
-        <div className="hidden items-center gap-5 md:flex">
-          <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={
-                  isActive(item.match)
-                    ? "text-base font-black text-orange-400"
-                    : "text-base font-black text-white transition hover:text-orange-300"
-                }
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <details className="relative shrink-0">
-            <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-zinc-700 px-3 py-2 text-xs font-bold text-orange-300">
-              🌍 {locale.toUpperCase()}
-            </summary>
-
-            <div className="absolute right-0 z-50 mt-2 flex w-[58px] flex-col rounded-lg border border-orange-500/20 bg-zinc-900 px-2 py-1.5 text-xs font-bold">
-              {locales.map((item) => (
+          <div className="hidden items-center gap-5 md:flex">
+            <nav className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+              {navItems.map((item) => (
                 <Link
-                  key={item}
-                  href={`/${item}`}
+                  key={item.href}
+                  href={item.href}
                   className={
-                    item === locale
-                      ? "rounded px-1 py-0.5 text-right text-orange-400"
-                      : "rounded px-1 py-0.5 text-right text-zinc-300 hover:text-orange-400"
+                    isActive(item.match)
+                      ? "text-sm font-black text-orange-400"
+                      : "text-sm font-black text-white transition hover:text-orange-300"
                   }
                 >
-                  {item.toUpperCase()}
+                  {item.label}
                 </Link>
               ))}
-            </div>
-          </details>
+            </nav>
+
+            <details className="relative shrink-0">
+              <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-zinc-700 px-3 py-2 text-xs font-bold text-orange-300">
+                🌍 {locale.toUpperCase()}
+              </summary>
+
+              <div className="absolute right-0 z-50 mt-2 flex w-[58px] flex-col rounded-lg border border-orange-500/20 bg-zinc-900 px-2 py-1.5 text-xs font-bold">
+                {locales.map((item) => (
+                  <Link
+                    key={item}
+                    href={`/${item}`}
+                    className={
+                      item === locale
+                        ? "rounded px-1 py-0.5 text-right text-orange-400"
+                        : "rounded px-1 py-0.5 text-right text-zinc-300 hover:text-orange-400"
+                    }
+                  >
+                    {item.toUpperCase()}
+                  </Link>
+                ))}
+              </div>
+            </details>
+          </div>
         </div>
-      </div>
+      </header>
 
       {open && (
-        <div className="fixed left-0 top-0 z-[99999] h-dvh w-screen overflow-y-auto bg-black px-6 py-6 text-white md:hidden">
+        <div className="fixed inset-0 z-[99999] h-dvh w-screen overflow-y-auto bg-black px-6 py-6 text-white md:hidden">
           <div className="flex items-center justify-between">
-            <p className="text-3xl font-black uppercase tracking-[0.25em] text-orange-300">
+            <p className="text-2xl font-black uppercase tracking-[0.25em] text-orange-300">
               Menu
             </p>
 
@@ -128,7 +131,7 @@ export default function Header({
             </button>
           </div>
 
-          <nav className="mt-8 grid gap-3 pb-10">
+          <nav className="mt-6 grid gap-2 pb-10">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -146,6 +149,6 @@ export default function Header({
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }

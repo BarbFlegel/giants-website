@@ -15,6 +15,7 @@ export default async function EventsPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+
   if (!locales.includes(locale as Locale)) notFound();
 
   const currentLocale = locale as Locale;
@@ -22,18 +23,20 @@ export default async function EventsPage({
 
   const events = [
     {
-      status: "Upcoming",
-      title: "Luke’s Slam Dunk Birthday",
-      date: "20 June 2026",
-      image: "/images/luke-birthday-experience.jpg",
-      text: "A basketball birthday experience with movement, play, energy and community.",
-    },
-    {
       status: "Coming Soon",
       title: "The Birth of Courage",
       date: "9 July 2026",
       image: "/images/birth-of-courage-july.jpg",
       text: "Thursday morning mindset, sweat, discipline and community at Josaphat Park.",
+      href: `/${currentLocale}/letters`,
+    },
+    {
+      status: "Past Experience",
+      title: "Luke’s Slam Dunk Birthday",
+      date: "20 June 2026",
+      image: "/images/luke-birthday-experience.jpg",
+      text: "A basketball birthday experience with movement, play, energy and community.",
+      href: `/${currentLocale}/contact`,
     },
   ];
 
@@ -44,16 +47,21 @@ export default async function EventsPage({
       <PageHero
         label="Events"
         title="Upcoming & featured experiences"
-        text="Current and upcoming GIANTS moments: birthdays, mindset sessions, movement events and community experiences."
-        image="/images/hero-giants-action.jpg"
+        text="Current and upcoming GIANTS moments: mindset sessions, birthdays, movement events and community experiences."
+        image="action"
       >
-        <div className="mt-8 flex gap-5 overflow-x-auto pb-5">
+        <div className="mt-6 flex items-center justify-between text-xs font-black uppercase tracking-[0.28em] text-zinc-500">
+          <span>Swipe</span>
+          <span>Drag →</span>
+        </div>
+
+        <div className="mt-6 flex snap-x gap-5 overflow-x-auto pb-5">
           {events.map((event) => (
             <article
               key={event.title}
-              className="min-w-[86%] overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 md:min-w-[420px]"
+              className="min-w-[86%] snap-start overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 md:min-w-[420px]"
             >
-              <div className="relative h-[420px] bg-black">
+              <div className="relative h-[360px] bg-black md:h-[440px]">
                 <Image
                   src={event.image}
                   alt={event.title}
@@ -76,11 +84,8 @@ export default async function EventsPage({
 
                 <p className="mt-4 leading-7 text-zinc-300">{event.text}</p>
 
-                <a
-                  href={`/${currentLocale}/contact`}
-                  className="btn-primary mt-8 inline-flex"
-                >
-                  Ask / Book
+                <a href={event.href} className="btn-primary mt-8 inline-flex">
+                  Explore
                 </a>
               </div>
             </article>

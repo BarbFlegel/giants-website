@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import PageHero from "../components/PageHero";
 import { locales, translations, type Locale } from "../content";
 
 export function generateStaticParams() {
@@ -23,27 +24,37 @@ export default async function VisionPage({
     <main className="min-h-screen bg-black text-white">
       <Header locale={currentLocale} t={t} />
 
-      <section className="relative overflow-hidden bg-black px-4 py-12 md:px-6 md:py-16">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{ backgroundImage: "url('/images/hero-giants-community.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/80 to-black" />
-
-        <div className="relative mx-auto max-w-6xl">
-          <p className="text-xs font-black uppercase tracking-[0.35em] text-orange-400 md:text-sm">
-            {t.vision.label}
-          </p>
-
-          <h1 className="mt-4 max-w-4xl text-3xl font-black uppercase leading-tight md:text-5xl">
-            {t.vision.title}
-          </h1>
-
-          <p className="mt-5 max-w-3xl text-base leading-7 text-zinc-300 md:text-lg md:leading-8">
-            {t.vision.text}
-          </p>
+      <PageHero
+        label={t.vision.label}
+        title={t.vision.title}
+        text={t.vision.text}
+        image="community"
+      >
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {[
+            {
+              title: "Experience",
+              text: "Creating moments where sport, movement and community become memorable.",
+            },
+            {
+              title: "Community",
+              text: "Building connection, confidence and belonging through shared action.",
+            },
+            {
+              title: "Growth",
+              text: "Strengthening body, mindset, discipline and purpose together.",
+            },
+          ].map((item) => (
+            <article
+              key={item.title}
+              className="rounded-3xl border border-zinc-800 bg-zinc-950/90 p-6"
+            >
+              <h2 className="text-xl font-black text-white">{item.title}</h2>
+              <p className="mt-3 leading-7 text-zinc-300">{item.text}</p>
+            </article>
+          ))}
         </div>
-      </section>
+      </PageHero>
 
       <Footer t={t} />
     </main>
