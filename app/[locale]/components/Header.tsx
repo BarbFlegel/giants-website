@@ -52,8 +52,7 @@ export default function Header({
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-800 bg-black/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link href={`/${locale}`} className="flex items-center gap-3">
+<div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">        <Link href={`/${locale}`} className="flex items-center gap-3">
           <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-black">
             <Image
               src="/images/giants-logo.png"
@@ -66,7 +65,7 @@ export default function Header({
           </div>
 
           <div>
-            <p className="text-lg font-black uppercase tracking-wide text-white">
+            <p className="text-base font-black uppercase tracking-wide text-white">
               {t.brand.name}
             </p>
             <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-orange-300">
