@@ -23,7 +23,11 @@ export default async function ImpactPage({
   return (
     <main className="min-h-screen bg-black text-white">
       <Header locale={currentLocale} t={t} />
-      <CommunitySection locale={currentLocale} t={t} />
+
+      <div className="pt-[72px]">
+        <CommunitySection locale={currentLocale} t={t} />
+      </div>
+
       <Footer t={t} />
     </main>
   );

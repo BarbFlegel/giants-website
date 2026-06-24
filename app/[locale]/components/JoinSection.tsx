@@ -28,7 +28,13 @@ export default function JoinSection({
               />
             </div>
 
-            <div className="flex items-center justify-center md:mt-8">
+            <div className="md:hidden">
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-orange-400">
+                Stay Connected
+              </p>
+            </div>
+
+            <div className="mt-5 flex items-center justify-center md:mt-8">
               <SocialIcons />
             </div>
           </div>

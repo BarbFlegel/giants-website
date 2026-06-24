@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { type Locale, translations } from "./content";
+
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -15,7 +16,7 @@ export default function HomeClient({ locale }: { locale: Locale }) {
     {
       label: "Mindset",
       title: "The Birth of Courage",
-      text: "Weekly reflections and movement rituals focused on courage, discipline and personal growth.",
+      text: "Weekly reflections and rituals focused on courage, discipline and personal growth.",
       href: `/${locale}/letters`,
       featured: true,
     },
@@ -43,6 +44,7 @@ export default function HomeClient({ locale }: { locale: Locale }) {
     <main className="min-h-screen bg-black pb-24 text-white md:pb-0">
       <Header locale={locale} t={t} />
       <UpcomingRibbon />
+
       <Hero locale={locale} t={t} />
 
       <section className="bg-black px-4 py-8 md:px-6 md:py-16">
@@ -60,7 +62,7 @@ export default function HomeClient({ locale }: { locale: Locale }) {
               <Link
                 key={card.href}
                 href={card.href}
-                className={`min-w-[82%] rounded-3xl border bg-zinc-950 p-5 transition hover:-translate-y-1 hover:border-orange-500 md:min-w-0 md:p-7 ${
+                className={`min-w-[82%] rounded-3xl border bg-zinc-950 p-5 transition hover:-translate-y-1 hover:border-orange-500 hover:shadow-[0_0_35px_rgba(249,115,22,0.12)] md:min-w-0 md:p-7 ${
                   card.featured ? "border-orange-500/60" : "border-zinc-800"
                 }`}
               >

@@ -18,6 +18,7 @@ export default function Header({
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+
     return () => {
       document.body.style.overflow = "";
     };
@@ -27,7 +28,11 @@ export default function Header({
     { label: "Home", href: `/${locale}`, match: `/${locale}` },
     { label: t.nav.vision, href: `/${locale}/vision`, match: "/vision" },
     { label: "Mindset", href: `/${locale}/letters`, match: "/letters" },
-    { label: t.nav.experiences, href: `/${locale}/experiences`, match: "/experiences" },
+    {
+      label: t.nav.experiences,
+      href: `/${locale}/experiences`,
+      match: "/experiences",
+    },
     { label: t.nav.community, href: `/${locale}/impact`, match: "/impact" },
     { label: t.nav.events, href: `/${locale}/events`, match: "/events" },
     { label: t.nav.gallery, href: `/${locale}/moments`, match: "/moments" },
@@ -125,6 +130,7 @@ export default function Header({
             <button
               type="button"
               onClick={() => setOpen(false)}
+              aria-label="Close menu"
               className="rounded-full bg-orange-500 px-5 py-3 text-xl font-black text-black"
             >
               ×
