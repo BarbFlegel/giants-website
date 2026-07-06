@@ -1,7 +1,5 @@
+import Link from "next/link";
 import { type Translation } from "../content";
-import FadeUp from "./FadeUp";
-import SectionHeader from "./SectionHeader";
-import SocialIcons from "./SocialIcons";
 
 export default function JoinSection({
   t,
@@ -17,28 +15,28 @@ export default function JoinSection({
         compact ? "py-8 md:py-10" : "py-10 md:py-14"
       }`}
     >
-      <div className="mx-auto max-w-6xl">
-        <FadeUp>
-          <div className="rounded-3xl border border-orange-500/25 bg-gradient-to-br from-orange-500/15 via-zinc-950 to-black p-5 text-center md:p-12">
-            <div className="hidden md:block">
-              <SectionHeader
-                label={t.labels.join}
-                title={t.sectionTitles.join}
-                description={t.join.text}
-              />
-            </div>
+      <div className="mx-auto max-w-6xl text-center">
+        <p className="text-xs font-black uppercase tracking-[0.35em] text-orange-400">
+          Ready to join?
+        </p>
 
-            <div className="md:hidden">
-              <p className="text-xs font-black uppercase tracking-[0.3em] text-orange-400">
-                Stay Connected
-              </p>
-            </div>
+        <h2 className="mt-3 text-3xl font-black uppercase md:text-5xl">
+          Build with GIANTS
+        </h2>
 
-            <div className="mt-5 flex items-center justify-center md:mt-8">
-              <SocialIcons />
-            </div>
-          </div>
-        </FadeUp>
+        <p className="mx-auto mt-4 max-w-2xl text-zinc-300">
+          Book an experience, join a community moment, or collaborate with GIANTS.
+        </p>
+
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
+          <Link href="/en/contact" className="btn-primary">
+            Book an Experience
+          </Link>
+
+          <Link href="/en/events" className="btn-secondary">
+            See Events
+          </Link>
+        </div>
       </div>
     </section>
   );
