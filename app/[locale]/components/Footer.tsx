@@ -5,8 +5,8 @@ import type { Translation } from "../content";
 
 export default function Footer({ t }: { t: Translation }) {
   return (
-    <footer className="border-t border-zinc-800 bg-black px-4 py-10 text-white md:px-6">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
+    <footer className="border-t border-zinc-800 bg-black px-4 py-10 pb-28 text-white md:px-6 md:pb-10">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 text-center">
         <Link href="/en" className="flex items-center gap-3">
           <div className="relative h-12 w-12 overflow-hidden rounded-full bg-black">
             <Image
@@ -29,13 +29,9 @@ export default function Footer({ t }: { t: Translation }) {
           </div>
         </Link>
 
-        <div className="flex flex-col items-center gap-4 md:items-end">
-          <SocialIcons />
+        <SocialIcons />
 
-          <p className="text-sm text-zinc-500">
-            © 2026 GIANTS
-          </p>
-        </div>
+        <p className="text-sm text-zinc-500">© 2026 GIANTS</p>
       </div>
     </footer>
   );
