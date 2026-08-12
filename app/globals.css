@@ -1,144 +1,129 @@
 @import "tailwindcss";
 
+:root {
+  --background: #050505;
+  --foreground: #f8f5ee;
+
+  --giants-orange: #f28c28;
+  --giants-gold: #d9a441;
+  --giants-cream: #efe5d2;
+  --giants-dark: #080808;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: #000;
-  color: white;
+  background: var(--background);
+  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.scrollbar-hide {
-  -ms-overflow-style: none;
+/* ----------------------------------
+   GIANTS HERO
+----------------------------------- */
+
+.giants-hero-image {
+  animation: giantsHeroZoom 18s ease-in-out infinite alternate;
+  transform-origin: center;
 }
 
-.btn-ghost {
-  display: inline-flex;
-  min-height: 52px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 0.9rem 1.6rem;
-  color: #ffffff;
-  font-weight: 900;
-  text-align: center;
-  transition: all 0.25s ease;
-}
+@keyframes giantsHeroZoom {
+  from {
+    transform: scale(1);
+  }
 
-.btn-ghost:hover,
-.btn-ghost:focus-visible {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: #ffffff;
-  transform: translateY(-1px);
-}
-.btn-primary {
-  display: inline-flex;
-  min-height: 52px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9999px;
-  border: 1px solid #f97316;
-  background: #f97316;
-  padding: 0.9rem 1.6rem;
-  color: #000;
-  font-weight: 900;
-  text-align: center;
-  transition: all 0.25s ease;
-}
-
-.btn-primary:hover,
-.btn-primary:focus-visible {
-  background: #fb923c;
-  border-color: #fb923c;
-  transform: translateY(-1px);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  min-height: 52px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9999px;
-  border: 1px solid rgba(249, 115, 22, 0.75);
-  background: rgba(0, 0, 0, 0.35);
-  padding: 0.9rem 1.6rem;
-  color: #fdba74;
-  font-weight: 900;
-  text-align: center;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  transition: all 0.25s ease;
-}
-
-.btn-secondary:hover,
-.btn-secondary:focus-visible {
-  background: rgba(249, 115, 22, 0.12);
-  border-color: #fdba74;
-  color: #ffedd5;
-  transform: translateY(-1px);
-}
-
-.btn-primary-full,
-.btn-secondary-full {
-  width: 100%;
-}
-
-.btn-small {
-  min-height: 44px;
-  padding: 0.65rem 1.25rem;
-  font-size: 0.875rem;
-}
-
-.btn-mobile {
-  min-height: 42px;
-  padding: 0.55rem 1rem;
-  font-size: 0.8rem;
-}
-
-.section-container {
-  @apply mx-auto max-w-6xl px-6;
-}
-
-.section-container {
-  @apply mx-auto max-w-6xl px-6;
-}
-
-.card-coming-soon {
-  display: flex;
-  min-height: 360px;
-  height: 100%;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 1.5rem;
-  border: 1px solid rgba(249, 115, 22, 0.4);
-  background: rgba(249, 115, 22, 0.06);
-  padding: 1.5rem;
-  text-align: left;
-}
-
-section[id] {
-  scroll-margin-top: 150px;
-}
-
-@media (max-width: 768px) {
-  section[id] {
-    scroll-margin-top: 190px;
+  to {
+    transform: scale(1.08);
   }
 }
 
-.section-shell {
-  @apply mx-auto w-full max-w-6xl px-6;
+.giants-glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.2;
+  pointer-events: none;
 }
 
-.section-spacing {
-  @apply scroll-mt-52 bg-black py-10 text-white md:py-12;
+.giants-glow-orange {
+  width: 320px;
+  height: 320px;
+  background: #f28c28;
+  top: 10%;
+  right: -100px;
+  animation: giantsFloat 9s ease-in-out infinite;
+}
+
+.giants-glow-gold {
+  width: 250px;
+  height: 250px;
+  background: #d9a441;
+  bottom: 5%;
+  left: -80px;
+  animation: giantsFloat 12s ease-in-out infinite reverse;
+}
+
+@keyframes giantsFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(20px, -30px, 0);
+  }
+}
+
+/* Subtle film texture */
+.giants-noise {
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.05) 0,
+      transparent 1px
+    );
+  background-size: 5px 5px;
+  opacity: 0.18;
+}
+
+/* ----------------------------------
+   HORIZONTAL SCROLL
+----------------------------------- */
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ----------------------------------
+   ACCESSIBILITY
+----------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--giants-orange);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .giants-hero-image,
+  .giants-glow-orange,
+  .giants-glow-gold {
+    animation: none;
+  }
 }

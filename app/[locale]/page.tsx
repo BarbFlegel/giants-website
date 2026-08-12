@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+
 import HomeClient from "./HomeClient";
 import { locales, type Locale } from "./content";
 
@@ -17,5 +18,7 @@ export default async function Home({
     notFound();
   }
 
-  return <HomeClient locale={locale as Locale} />;
+  const validLocale = locale as Locale;
+
+  return <HomeClient locale={validLocale} />;
 }

@@ -1,102 +1,216 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, CalendarDays, MapPin } from "lucide-react";
 import { notFound } from "next/navigation";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import PageHero from "../components/PageHero";
-import { sanityClient } from "../lib/sanity";
-import { locales, translations, type Locale } from "../content";
 
-type EventItem = {
-  title: string;
-  status: string;
-  date: string;
-  location?: string;
-  description: string;
-  imageUrl: string;
+import WhatsAppButton from "../components/WhatsAppButton";
+
+import {
+  locales,
+  type Locale,
+} from "../content";
+
+type BirthdayPageProps = {
+  params: Promise<{
+    locale: string;
+  }>;
 };
 
-async function getEvents(): Promise<EventItem[]> {
-  return sanityClient.fetch(`
-    *[_type == "event"] | order(date asc) {
-      title,
-      status,
-      date,
-      location,
-      description,
-      "imageUrl": poster.asset->url
-    }
-  `);
+export async function generateMetadata({
+  params,
+}: BirthdayPageProps): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+
+  if (!locales.includes(localeParam as Locale)) {
+    return {};
+  }
+
+  const locale = localeParam as Locale;
+  const t = translations[locale];
+
+  return {
+    title: t.seo.eventTitle,
+    description: t.seo.eventDescription,
+
+    openGraph: {
+      title: t.seo.eventTitle,
+      description: t.seo.eventDescription,
+      type: "website",
+      images: [
+        {
+          url: "/images/events/birthday.jpg",
+          width: 1200,
+          height: 630,
+          alt: t.event.posterAlt,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: t.seo.eventTitle,
+      description: t.seo.eventDescription,
+      images: ["/images/events/birthday.jpg"],
+    },
+  };
 }
 
-export default async function EventsPage({
+export default async function BirthdayEventPage({
   params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  if (!locales.includes(locale as Locale)) notFound();
+}: BirthdayPageProps) {
+  const { locale: localeParam } = await params;
 
-  const currentLocale = locale as Locale;
-  const t = translations[currentLocale];
-  const events = await getEvents();
+  if (!locales.includes(localeParam as Locale)) {
+    notFound();
+  }
+
+  const locale = localeParam as Locale;
+  const t = translations[locale];
 
   return (
     <main className="min-h-screen bg-black text-white">
-      <Header locale={currentLocale} t={t} />
+      {/* Hero */}
+      <section className="relative min-h-[70vh] overflow-hidden">
+        <Image
+          src="/images/events/birthday.jpg"
+          alt={t.event.posterAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
 
-      <PageHero
-        label="Events"
-        title="Upcoming & featured experiences"
-        text="Current and upcoming GIANTS moments: mindset sessions, birthdays, movement events and community experiences."
-        image="action"
-      >
-        <div className="mt-6 flex items-center justify-between text-xs font-black uppercase tracking-[0.28em] text-zinc-500">
-          <span>Swipe</span>
-          <span>Drag →</span>
+        <div className="absolute inset-0 bg-black/60" />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/40 to-black" />
+
+        <div className="relative z-10 mx-auto flex min-h-[70vh] max-w-7xl flex-col justify-end px-5 pb-16 pt-28 sm:px-8 lg:px-12">
+          <Link
+            href={`/${locale}`}
+            className="mb-10 inline-flex w-fit items-center gap-2 text-sm font-bold text-white/70 transition hover:text-orange-400"
+          >
+            <ArrowLeft
+              aria-hidden="true"
+              className="h-4 w-4"
+            />
+
+            {t.event.back}
+          </Link>
+
+          <p className="text-xs font-black uppercase tracking-[0.3em] text-orange-400">
+            {t.event.eyebrow}
+          </p>
+
+          <h1 className="mt-4 max-w-4xl text-5xl font-black uppercase leading-[0.95] sm:text-6xl lg:text-8xl">
+            {t.event.title}
+          </h1>
+
+          <p className="mt-5 text-lg font-bold uppercase tracking-wide text-white/80">
+            {t.event.subtitle}
+          </p>
+
+          <div className="mt-7 flex flex-wrap gap-5 text-sm font-semibold text-white/75">
+            <span className="inline-flex items-center gap-2">
+              <CalendarDays
+                aria-hidden="true"
+                className="h-5 w-5 text-orange-400"
+              />
+
+              {t.event.date}
+            </span>
+
+            <span className="inline-flex items-center gap-2">
+              <MapPin
+                aria-hidden="true"
+                className="h-5 w-5 text-orange-400"
+              />
+
+              {t.event.location}
+            </span>
+          </div>
         </div>
+      </section>
 
-        <div className="mt-6 flex snap-x gap-5 overflow-x-auto pb-5">
-          {events.map((event) => (
-            <article
-              key={event.title}
-              className="min-w-[86%] snap-start overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 md:min-w-[420px]"
-            >
-              <div className="relative h-[360px] bg-black md:h-[440px]">
-                <Image
-                  src={event.imageUrl}
-                  alt={event.title}
-                  fill
-                  className="object-contain p-3"
-                  sizes="420px"
-                />
+      {/* Details */}
+      <section className="px-5 py-16 sm:px-8 lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.2fr_0.8fr]">
+          <div>
+            <p className="max-w-3xl text-xl leading-relaxed text-white/75">
+              {t.event.description}
+            </p>
+
+            <div className="mt-12">
+              <h2 className="text-3xl font-black uppercase">
+                {t.event.expectTitle}
+              </h2>
+
+              <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+                {t.event.expect.map((item: string) => (
+                  <li
+                    key={item}
+                    className="rounded-2xl border border-white/10 bg-white/[0.035] px-5 py-4 text-white/80"
+                  >
+                    <span
+                      className="mr-2 text-orange-400"
+                      aria-hidden="true"
+                    >
+                      •
+                    </span>
+
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Registration */}
+          <aside className="h-fit rounded-3xl border border-orange-500/20 bg-zinc-950 p-7 sm:p-8 lg:sticky lg:top-24">
+            <h2 className="text-2xl font-black uppercase">
+              {t.event.detailsTitle}
+            </h2>
+
+            <dl className="mt-7 space-y-6">
+              <div>
+                <dt className="text-xs font-black uppercase tracking-[0.2em] text-orange-400">
+                  {t.event.dateLabel}
+                </dt>
+
+                <dd className="mt-1 text-lg font-semibold">
+                  {t.event.date}
+                </dd>
               </div>
 
-              <div className="p-6">
-                <span className="rounded-full bg-orange-500 px-4 py-2 text-xs font-black uppercase text-black">
-                  {event.status}
-                </span>
+              <div>
+                <dt className="text-xs font-black uppercase tracking-[0.2em] text-orange-400">
+                  {t.event.placeLabel}
+                </dt>
 
-                <p className="mt-5 text-sm font-black uppercase tracking-[0.25em] text-orange-400">
-                  {event.date}
-                  {event.location ? ` • ${event.location}` : ""}
-                </p>
-
-                <h2 className="mt-3 text-2xl font-black">{event.title}</h2>
-
-                <p className="mt-4 leading-7 text-zinc-300">
-                  {event.description}
-                </p>
-
-                <a href={`/${currentLocale}/contact`} className="btn-primary mt-8 inline-flex">
-                  Ask / Book
-                </a>
+                <dd className="mt-1 text-lg font-semibold">
+                  {t.event.place}
+                </dd>
               </div>
-            </article>
-          ))}
-        </div>
-      </PageHero>
 
-      <Footer t={t} />
+              <div>
+                <dt className="text-xs font-black uppercase tracking-[0.2em] text-orange-400">
+                  {t.event.registrationLabel}
+                </dt>
+
+                <dd className="mt-1 text-white/65">
+                  {t.event.registration}
+                </dd>
+              </div>
+            </dl>
+
+            <WhatsAppButton
+              locale={locale}
+              event
+              className="mt-8 w-full"
+            />
+          </aside>
+        </div>
+      </section>
     </main>
   );
 }

@@ -1,19 +1,61 @@
+"use client";
+
 import { FaWhatsapp } from "react-icons/fa";
 
-export default function WhatsAppButton() {
-  const message = encodeURIComponent(
-    "Hi GIANTS, I’d like to learn more about your experiences."
-  );
+import {
+  getTranslations,
+  type Locale,
+} from "../lib/i18n";
+
+type WhatsAppButtonProps = {
+  locale: Locale;
+  event?: boolean;
+  variant?: "solid" | "outline";
+  className?: string;
+};
+
+const WHATSAPP_NUMBER = "32465545947";
+
+export default function WhatsAppButton({
+  locale,
+  event = false,
+  variant = "solid",
+  className = "",
+}: WhatsAppButtonProps) {
+  const t = getTranslations(locale);
+
+  const message = event
+    ? t.whatsapp.eventMessage
+    : t.whatsapp.message;
+
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    message
+  )}`;
+
+  const baseClasses =
+    "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-black uppercase tracking-wide transition";
+
+  const variantClasses =
+    variant === "solid"
+      ? "bg-[#25D366] text-black hover:brightness-110"
+      : "border border-white/30 bg-black/20 text-white backdrop-blur-sm hover:border-[#25D366] hover:text-[#25D366]";
 
   return (
     <a
-      href={`https://wa.me/32465545947?text=${message}`}
+      href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3 font-black text-black transition hover:scale-105 hover:bg-green-400"
+      aria-label={t.whatsapp.button}
+      className={`${baseClasses} ${variantClasses} ${className}`}
     >
-      <FaWhatsapp />
-      Book via WhatsApp
+      <FaWhatsapp
+        aria-hidden="true"
+        className="text-lg"
+      />
+
+      {event
+        ? t.event.cta
+        : t.whatsapp.button}
     </a>
   );
 }
