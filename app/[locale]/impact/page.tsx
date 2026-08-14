@@ -14,20 +14,14 @@ export default async function ImpactPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-
   if (!locales.includes(locale as Locale)) notFound();
-
   const currentLocale = locale as Locale;
   const t = translations[currentLocale];
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="giants-content-page">
       <Header locale={currentLocale} t={t} />
-
-      <div className="pt-[72px]">
-        <CommunitySection locale={currentLocale} t={t} />
-      </div>
-
+      <CommunitySection locale={currentLocale} t={t} />
       <Footer t={t} />
     </main>
   );

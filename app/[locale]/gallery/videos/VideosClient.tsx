@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
+import type { Locale } from "../../content";
 
 const videos = [
   { title: "Basketball Training 1", src: "/videos/basketball-training1.mp4" },
@@ -17,63 +19,54 @@ const videos = [
   { title: "Community Video 8", src: "/videos/giants-community-video-8.mp4" },
 ];
 
-export default function VideosClient() {
+type VideosClientProps = {
+  locale: Locale;
+};
+
+export default function VideosClient({ locale }: VideosClientProps) {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen bg-black px-6 py-16 text-white">
-      <div className="mx-auto max-w-6xl">
-        <a href="/en#gallery" className="text-sm font-black text-orange-300">
-          ← Back to moments
-        </a>
+    <main className="giants-content-page">
+      <section className="giants-content-section">
+        <div className="giants-content-container">
+          <Link href={`/${locale}/moments`} className="giants-back-link">
+            ← Back to moments
+          </Link>
+          <p className="giants-eyebrow">Videos</p>
+          <h1 className="giants-section-title">Movement Videos</h1>
 
-        <p className="mt-10 text-sm font-black uppercase tracking-[0.35em] text-orange-400">
-          Videos
-        </p>
-
-        <h1 className="mt-3 text-4xl font-black uppercase md:text-6xl">
-          Movement Videos
-        </h1>
-
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {videos.map((video) => (
-            <button
-              key={video.src}
-              type="button"
-              onClick={() => setSelectedVideo(video.src)}
-              className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 text-left transition hover:border-orange-500"
-            >
-              <video
-                muted
-                playsInline
-                preload="metadata"
-                className="aspect-video w-full object-cover"
+          <div className="giants-video-grid">
+            {videos.map((video) => (
+              <button
+                key={video.src}
+                type="button"
+                onClick={() => setSelectedVideo(video.src)}
+                className="giants-video-card"
               >
-                <source src={video.src} type="video/mp4" />
-              </video>
-
-              <p className="p-4 text-sm font-black text-white">{video.title}</p>
-            </button>
-          ))}
+                <video muted playsInline preload="metadata">
+                  <source src={video.src} type="video/mp4" />
+                </video>
+                <div className="giants-video-card-body">
+                  <p>{video.title}</p>
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {selectedVideo && (
-        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/95 p-4">
+        <div className="giants-media-modal" role="dialog" aria-modal="true">
           <button
             type="button"
             onClick={() => setSelectedVideo(null)}
-            className="absolute right-5 top-5 rounded-full bg-orange-500 px-5 py-3 font-black text-black"
+            className="giants-media-close"
+            aria-label="Close video"
           >
-            Close
+            ×
           </button>
-
-          <video
-            controls
-            autoPlay
-            playsInline
-            className="max-h-[85vh] w-full max-w-5xl rounded-3xl bg-black"
-          >
+          <video controls autoPlay playsInline className="giants-media-video">
             <source src={selectedVideo} type="video/mp4" />
           </video>
         </div>

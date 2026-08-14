@@ -1,42 +1,80 @@
-import type { Translation } from "../content/types";
-import FadeUp from "./FadeUp";
+import type {
+  Locale,
+  Translation,
+} from "../content";
+
+type VisionSectionProps = {
+  locale: Locale;
+  t: Translation;
+};
 
 export default function VisionSection({
   t,
-  compact = false,
-}: {
-  t: Translation;
-  compact?: boolean;
-}) {
+}: VisionSectionProps) {
+  const pillars = [
+    {
+      number: "01",
+      title: "Experience",
+      text:
+        "Creating moments where sport, movement and community become memorable.",
+    },
+
+    {
+      number: "02",
+      title: "Community",
+      text:
+        "Building connection, confidence and belonging through shared action.",
+    },
+
+    {
+      number: "03",
+      title: "Growth",
+      text:
+        "Strengthening body, mindset, discipline and purpose together.",
+    },
+  ];
+
   return (
-    <section
-      id="vision"
-      className={`bg-black px-6 text-white ${
-        compact ? "py-14" : "min-h-[calc(100vh-96px)] py-20"
-      }`}
-    >
-      <div className="mx-auto max-w-6xl">
-        <FadeUp>
-          <div className="border-b border-orange-500/20 pb-10">
-            <p className="text-sm font-black uppercase tracking-[0.35em] text-orange-400">
-              {t.vision.label}
-            </p>
+    <section className="giants-content-section">
+      <div className="giants-content-container">
+        <div className="giants-content-intro">
+          <p className="giants-eyebrow">
+            {t.vision.label}
+          </p>
 
-            <h1
-              className={`mt-4 max-w-5xl font-black uppercase leading-tight ${
-                compact
-                  ? "text-3xl md:text-5xl"
-                  : "text-4xl md:text-6xl"
-              }`}
+          <h1 className="giants-page-hero-title">
+            {t.vision.title}
+          </h1>
+
+          <p className="giants-content-intro-text">
+            {t.vision.text}
+          </p>
+        </div>
+
+        <div className="giants-vision-grid">
+          {pillars.map((pillar) => (
+            <article
+              key={pillar.number}
+              className="giants-vision-card"
             >
-              {t.vision.title}
-            </h1>
+              <span className="giants-vision-number">
+                {pillar.number}
+              </span>
 
-            <p className="mt-5 max-w-4xl text-base leading-8 text-zinc-300 md:text-lg">
-              {t.vision.text}
-            </p>
-          </div>
-        </FadeUp>
+              <h3>{pillar.title}</h3>
+
+              <p>{pillar.text}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="giants-vision-statement">
+          <p>
+            Stronger individuals create stronger
+            communities. GIANTS creates the space
+            where both can grow.
+          </p>
+        </div>
       </div>
     </section>
   );

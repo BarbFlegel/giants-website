@@ -25,7 +25,7 @@ export default function HomeClient({
   const home = homeContent[locale];
 
   return (
-    <main className="min-h-screen bg-black pb-24 text-white md:pb-0">
+    <main className="giants-page">
       <Header
         locale={locale}
         t={t}
@@ -35,45 +35,42 @@ export default function HomeClient({
 
       <Hero locale={locale} />
 
-      <section className="bg-black px-4 py-8 md:px-6 md:py-16">
-        <div className="mx-auto max-w-6xl">
-          <p className="text-xs font-black uppercase tracking-[0.35em] text-orange-400 md:text-sm">
+      <section className="giants-explore-section">
+        <div className="giants-container">
+          <p className="giants-eyebrow">
             {home.eyebrow}
           </p>
 
-          <h2 className="mt-3 text-2xl font-black uppercase md:text-5xl">
+          <h2 className="giants-section-title">
             {home.title}
           </h2>
 
-          <div className="mt-6 flex gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-4">
+          <div className="giants-home-grid">
             {home.cards.map((card) => {
-              const href = `/${locale}${card.path}`;
+              const href =
+                `/${locale}${card.path}`;
 
               return (
                 <Link
                   key={href}
                   href={href}
-                  className={`min-w-[82%] rounded-3xl border bg-zinc-950 p-5 transition hover:-translate-y-1 hover:border-orange-500 hover:shadow-[0_0_35px_rgba(249,115,22,0.12)] md:min-w-0 md:p-7 ${
-                    card.featured
-                      ? "border-orange-500/60"
-                      : "border-zinc-800"
-                  }`}
+                  className="giants-home-card"
                 >
-                  <p className="text-xs font-black uppercase tracking-[0.3em] text-orange-400">
+                  <p className="giants-card-label">
                     {card.label}
                   </p>
 
-                  <h3 className="mt-3 text-xl font-black leading-tight text-white md:text-2xl">
+                  <h3 className="giants-card-title">
                     {card.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-6 text-zinc-300 md:text-base md:leading-7">
+                  <p className="giants-card-text">
                     {card.text}
                   </p>
 
-                  <p className="mt-5 text-sm font-black text-orange-300">
-                    {home.exploreCta} →
-                  </p>
+                  <span className="giants-card-cta">
+                    {home.explore} →
+                  </span>
                 </Link>
               );
             })}
@@ -82,25 +79,26 @@ export default function HomeClient({
       </section>
 
       <JoinSection
+        locale={locale}
         t={t}
         compact
       />
 
       <Footer t={t} />
 
-      <div className="fixed bottom-0 left-0 right-0 z-50 grid grid-cols-2 gap-2 border-t border-zinc-800 bg-black/90 p-2 backdrop-blur-md md:hidden">
+      <div className="giants-mobile-bar">
         <Link
           href={`/${locale}/contact`}
-          className="btn-primary btn-mobile"
+          className="giants-button giants-button-primary"
         >
-          {home.mobileJoin}
+          {t.mobileBar.join}
         </Link>
 
         <Link
           href={`/${locale}/contact`}
-          className="btn-secondary btn-mobile"
+          className="giants-button giants-button-secondary"
         >
-          {home.mobileBook}
+          {t.mobileBar.book}
         </Link>
       </div>
     </main>

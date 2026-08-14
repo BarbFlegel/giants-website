@@ -175,20 +175,27 @@ export type GalleryItem = {
   type?: "image" | "video";
   video?: string;
 };
+
+export type RibbonContent = {
+  title: string;
+  location: string;
+  action: string;
+  today: string;
+  oneDay: string;
+  days: (count: number) => string;
+};
+
 export type HomeCardContent = {
   label: string;
   title: string;
   text: string;
   path: string;
-  featured?: boolean;
 };
 
 export type HomeContent = {
   eyebrow: string;
   title: string;
-  exploreCta: string;
-  mobileJoin: string;
-  mobileBook: string;
+  explore: string;
   cards: HomeCardContent[];
 };
 

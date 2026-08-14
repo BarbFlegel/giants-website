@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import "../globals.css";
-
 import {
   getTranslations,
   isLocale,
@@ -38,7 +36,7 @@ export async function generateMetadata({
   return {
     title: {
       default: t.seo.siteTitle,
-      template: `%s | GIANTS`,
+      template: "%s | GIANTS",
     },
 
     description: t.seo.description,
@@ -49,7 +47,7 @@ export async function generateMetadata({
       "basketball Brussels",
       "community sport",
       "functional training",
-      "wellness",
+      "wellbeing",
       "basketball training",
       "community events",
       "sports experiences",
@@ -60,6 +58,7 @@ export async function generateMetadata({
         en: "/en",
         fr: "/fr",
         nl: "/nl",
+        de: "/de",
       },
     },
 
@@ -68,12 +67,16 @@ export async function generateMetadata({
       description: t.seo.description,
       type: "website",
       siteName: "GIANTS",
+
       locale:
         locale === "fr"
           ? "fr_BE"
           : locale === "nl"
             ? "nl_BE"
-            : "en_BE",
+            : locale === "de"
+              ? "de_DE"
+              : "en_BE",
+
       images: [
         {
           url: "/images/hero/giants-hero.png",
@@ -88,7 +91,9 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t.seo.siteTitle,
       description: t.seo.description,
-      images: ["/images/hero/giants-hero.jpg"],
+
+      // Keep the same real image extension as Open Graph.
+      images: ["/images/hero/giants-hero.png"],
     },
 
     robots: {
@@ -104,13 +109,17 @@ export default async function LocaleLayout({
 }: LocaleLayoutProps) {
   const { locale: localeParam } = await params;
 
+  /*
+   * We validate the locale here but DO NOT create
+   * another <html> or <body>.
+   *
+   * Those belong only in app/layout.tsx.
+   */
   const locale: Locale = isLocale(localeParam)
     ? localeParam
     : "en";
 
-  return (
-    <html lang={locale}>
-      <body>{children}</body>
-    </html>
-  );
+  void locale;
+
+  return <>{children}</>;
 }

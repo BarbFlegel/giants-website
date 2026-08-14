@@ -3,13 +3,15 @@ import type {
   Locale,
 } from "./types";
 
-export const homeContent: Record<Locale, HomeContent> = {
+export const homeContent: Record<
+  Locale,
+  HomeContent
+> = {
   en: {
     eyebrow: "Explore GIANTS",
-    title: "Experiences, community and mindset.",
-    exploreCta: "Explore",
-    mobileJoin: "Join",
-    mobileBook: "Book",
+    title:
+      "Experiences, community and mindset.",
+    explore: "Explore",
 
     cards: [
       {
@@ -18,7 +20,6 @@ export const homeContent: Record<Locale, HomeContent> = {
         text:
           "Weekly reflections and rituals focused on courage, discipline and personal growth.",
         path: "/letters",
-        featured: true,
       },
       {
         label: "Experiences",
@@ -46,19 +47,17 @@ export const homeContent: Record<Locale, HomeContent> = {
 
   fr: {
     eyebrow: "Explorer GIANTS",
-    title: "Expériences, communauté et mindset.",
-    exploreCta: "Découvrir",
-    mobileJoin: "Rejoindre",
-    mobileBook: "Réserver",
+    title:
+      "Expériences, communauté et mindset.",
+    explore: "Découvrir",
 
     cards: [
       {
         label: "Mindset",
         title: "La naissance du courage",
         text:
-          "Des réflexions et rituels hebdomadaires autour du courage, de la discipline et du développement personnel.",
+          "Réflexions et rituels autour du courage, de la discipline et du développement personnel.",
         path: "/letters",
-        featured: true,
       },
       {
         label: "Expériences",
@@ -71,7 +70,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         label: "Communauté",
         title: "Impact communautaire",
         text:
-          "Des programmes axés sur la connexion, l'inclusion, le bien-être et l'impact social.",
+          "Programmes autour de la connexion, de l’inclusion, du bien-être et de l’impact social.",
         path: "/impact",
       },
       {
@@ -86,19 +85,17 @@ export const homeContent: Record<Locale, HomeContent> = {
 
   nl: {
     eyebrow: "Ontdek GIANTS",
-    title: "Ervaringen, community en mindset.",
-    exploreCta: "Ontdek",
-    mobileJoin: "Meedoen",
-    mobileBook: "Boeken",
+    title:
+      "Ervaringen, community en mindset.",
+    explore: "Ontdek",
 
     cards: [
       {
         label: "Mindset",
         title: "De geboorte van moed",
         text:
-          "Wekelijkse reflecties en rituelen rond moed, discipline en persoonlijke groei.",
+          "Wekelijkse reflecties rond moed, discipline en persoonlijke groei.",
         path: "/letters",
-        featured: true,
       },
       {
         label: "Ervaringen",
@@ -111,7 +108,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         label: "Community",
         title: "Community-impact",
         text:
-          "Programma's rond verbinding, inclusie, welzijn en maatschappelijke impact.",
+          "Programma’s rond verbinding, inclusie, welzijn en maatschappelijke impact.",
         path: "/impact",
       },
       {
@@ -126,19 +123,17 @@ export const homeContent: Record<Locale, HomeContent> = {
 
   de: {
     eyebrow: "GIANTS entdecken",
-    title: "Erlebnisse, Community und Mindset.",
-    exploreCta: "Entdecken",
-    mobileJoin: "Mitmachen",
-    mobileBook: "Buchen",
+    title:
+      "Erlebnisse, Community und Mindset.",
+    explore: "Entdecken",
 
     cards: [
       {
         label: "Mindset",
         title: "Die Geburt des Mutes",
         text:
-          "Wöchentliche Reflexionen und Rituale zu Mut, Disziplin und persönlichem Wachstum.",
+          "Wöchentliche Reflexionen zu Mut, Disziplin und persönlichem Wachstum.",
         path: "/letters",
-        featured: true,
       },
       {
         label: "Erlebnisse",
@@ -151,7 +146,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         label: "Community",
         title: "Community Impact",
         text:
-          "Programme mit Fokus auf Verbindung, Inklusion, Wohlbefinden und soziale Wirkung.",
+          "Programme zu Verbindung, Inklusion, Wohlbefinden und sozialer Wirkung.",
         path: "/impact",
       },
       {
