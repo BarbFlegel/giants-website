@@ -7,11 +7,12 @@ import { notFound } from "next/navigation";
 import WhatsAppButton from "../components/WhatsAppButton";
 
 import {
+  eventPageContent,
   locales,
   type Locale,
 } from "../content";
 
-type BirthdayPageProps = {
+type EventPageProps = {
   params: Promise<{
     locale: string;
   }>;
@@ -19,7 +20,7 @@ type BirthdayPageProps = {
 
 export async function generateMetadata({
   params,
-}: BirthdayPageProps): Promise<Metadata> {
+}: EventPageProps): Promise<Metadata> {
   const { locale: localeParam } = await params;
 
   if (!locales.includes(localeParam as Locale)) {
@@ -27,38 +28,39 @@ export async function generateMetadata({
   }
 
   const locale = localeParam as Locale;
-  const t = translations[locale];
+  const t = eventPageContent[locale];
 
   return {
-    title: t.seo.eventTitle,
-    description: t.seo.eventDescription,
+    title: t.seo.title,
+    description: t.seo.description,
 
     openGraph: {
-      title: t.seo.eventTitle,
-      description: t.seo.eventDescription,
+      title: t.seo.title,
+      description: t.seo.description,
       type: "website",
+
       images: [
         {
           url: "/images/events/birthday.jpg",
           width: 1200,
           height: 630,
-          alt: t.event.posterAlt,
+          alt: t.posterAlt,
         },
       ],
     },
 
     twitter: {
       card: "summary_large_image",
-      title: t.seo.eventTitle,
-      description: t.seo.eventDescription,
+      title: t.seo.title,
+      description: t.seo.description,
       images: ["/images/events/birthday.jpg"],
     },
   };
 }
 
-export default async function BirthdayEventPage({
+export default async function EventPage({
   params,
-}: BirthdayPageProps) {
+}: EventPageProps) {
   const { locale: localeParam } = await params;
 
   if (!locales.includes(localeParam as Locale)) {
@@ -66,15 +68,14 @@ export default async function BirthdayEventPage({
   }
 
   const locale = localeParam as Locale;
-  const t = translations[locale];
+  const t = eventPageContent[locale];
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* Hero */}
       <section className="relative min-h-[70vh] overflow-hidden">
         <Image
           src="/images/events/birthday.jpg"
-          alt={t.event.posterAlt}
+          alt={t.posterAlt}
           fill
           priority
           sizes="100vw"
@@ -95,19 +96,19 @@ export default async function BirthdayEventPage({
               className="h-4 w-4"
             />
 
-            {t.event.back}
+            {t.back}
           </Link>
 
           <p className="text-xs font-black uppercase tracking-[0.3em] text-orange-400">
-            {t.event.eyebrow}
+            {t.eyebrow}
           </p>
 
           <h1 className="mt-4 max-w-4xl text-5xl font-black uppercase leading-[0.95] sm:text-6xl lg:text-8xl">
-            {t.event.title}
+            {t.title}
           </h1>
 
           <p className="mt-5 text-lg font-bold uppercase tracking-wide text-white/80">
-            {t.event.subtitle}
+            {t.subtitle}
           </p>
 
           <div className="mt-7 flex flex-wrap gap-5 text-sm font-semibold text-white/75">
@@ -117,7 +118,7 @@ export default async function BirthdayEventPage({
                 className="h-5 w-5 text-orange-400"
               />
 
-              {t.event.date}
+              {t.date}
             </span>
 
             <span className="inline-flex items-center gap-2">
@@ -126,27 +127,26 @@ export default async function BirthdayEventPage({
                 className="h-5 w-5 text-orange-400"
               />
 
-              {t.event.location}
+              {t.location}
             </span>
           </div>
         </div>
       </section>
 
-      {/* Details */}
       <section className="px-5 py-16 sm:px-8 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <p className="max-w-3xl text-xl leading-relaxed text-white/75">
-              {t.event.description}
+              {t.description}
             </p>
 
             <div className="mt-12">
               <h2 className="text-3xl font-black uppercase">
-                {t.event.expectTitle}
+                {t.expectTitle}
               </h2>
 
               <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-                {t.event.expect.map((item: string) => (
+                {t.expect.map((item) => (
                   <li
                     key={item}
                     className="rounded-2xl border border-white/10 bg-white/[0.035] px-5 py-4 text-white/80"
@@ -165,47 +165,46 @@ export default async function BirthdayEventPage({
             </div>
           </div>
 
-          {/* Registration */}
           <aside className="h-fit rounded-3xl border border-orange-500/20 bg-zinc-950 p-7 sm:p-8 lg:sticky lg:top-24">
             <h2 className="text-2xl font-black uppercase">
-              {t.event.detailsTitle}
+              {t.detailsTitle}
             </h2>
 
             <dl className="mt-7 space-y-6">
               <div>
                 <dt className="text-xs font-black uppercase tracking-[0.2em] text-orange-400">
-                  {t.event.dateLabel}
+                  {t.dateLabel}
                 </dt>
 
                 <dd className="mt-1 text-lg font-semibold">
-                  {t.event.date}
+                  {t.date}
                 </dd>
               </div>
 
               <div>
                 <dt className="text-xs font-black uppercase tracking-[0.2em] text-orange-400">
-                  {t.event.placeLabel}
+                  {t.placeLabel}
                 </dt>
 
                 <dd className="mt-1 text-lg font-semibold">
-                  {t.event.place}
+                  {t.location}
                 </dd>
               </div>
 
               <div>
                 <dt className="text-xs font-black uppercase tracking-[0.2em] text-orange-400">
-                  {t.event.registrationLabel}
+                  {t.registrationLabel}
                 </dt>
 
                 <dd className="mt-1 text-white/65">
-                  {t.event.registration}
+                  {t.registration}
                 </dd>
               </div>
             </dl>
 
             <WhatsAppButton
-              locale={locale}
-              event
+              message={t.whatsappMessage}
+              label={t.whatsappButton}
               className="mt-8 w-full"
             />
           </aside>

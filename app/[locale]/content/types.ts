@@ -175,6 +175,22 @@ export type GalleryItem = {
   type?: "image" | "video";
   video?: string;
 };
+export type HomeCardContent = {
+  label: string;
+  title: string;
+  text: string;
+  path: string;
+  featured?: boolean;
+};
+
+export type HomeContent = {
+  eyebrow: string;
+  title: string;
+  exploreCta: string;
+  mobileJoin: string;
+  mobileBook: string;
+  cards: HomeCardContent[];
+};
 
 export type Translation = {
   brand: BrandContent;

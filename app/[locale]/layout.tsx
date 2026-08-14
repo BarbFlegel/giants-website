@@ -76,7 +76,7 @@ export async function generateMetadata({
             : "en_BE",
       images: [
         {
-          url: "/images/hero/giants-hero.jpg",
+          url: "/images/hero/giants-hero.png",
           width: 1200,
           height: 630,
           alt: "GIANTS",

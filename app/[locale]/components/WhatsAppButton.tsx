@@ -2,14 +2,10 @@
 
 import { FaWhatsapp } from "react-icons/fa";
 
-import {
-  getTranslations,
-  type Locale,
-} from "../lib/i18n";
-
 type WhatsAppButtonProps = {
-  locale: Locale;
-  event?: boolean;
+  message: string;
+  label: string;
+
   variant?: "solid" | "outline";
   className?: string;
 };
@@ -17,17 +13,11 @@ type WhatsAppButtonProps = {
 const WHATSAPP_NUMBER = "32465545947";
 
 export default function WhatsAppButton({
-  locale,
-  event = false,
+  message,
+  label,
   variant = "solid",
   className = "",
 }: WhatsAppButtonProps) {
-  const t = getTranslations(locale);
-
-  const message = event
-    ? t.whatsapp.eventMessage
-    : t.whatsapp.message;
-
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     message
   )}`;
@@ -45,7 +35,7 @@ export default function WhatsAppButton({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={t.whatsapp.button}
+      aria-label={label}
       className={`${baseClasses} ${variantClasses} ${className}`}
     >
       <FaWhatsapp
@@ -53,9 +43,7 @@ export default function WhatsAppButton({
         className="text-lg"
       />
 
-      {event
-        ? t.event.cta
-        : t.whatsapp.button}
+      {label}
     </a>
   );
 }

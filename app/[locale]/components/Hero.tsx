@@ -1,330 +1,246 @@
-export const locales = ["en", "fr", "nl"] as const;
+"use client";
 
-export type Locale = (typeof locales)[number];
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
-export const defaultLocale: Locale = "en";
+import { heroContent, type Locale } from "../content";
 
-export function isLocale(value: string): value is Locale {
-  return locales.includes(value as Locale);
-}
+type HeroProps = {
+  locale: Locale;
+};
 
-export const translations = {
-  en: {
-    navigation: {
-      about: "About",
-      experiences: "Experiences",
-      events: "Events",
-      community: "Community",
-      gallery: "Gallery",
-      collaborate: "Collaborate",
-    },
+export default function Hero({ locale }: HeroProps) {
+  const t = heroContent[locale];
 
-    hero: {
-      eyebrow: "TRAIN • CONNECT • ELEVATE",
-      title: "More than training.",
-      titleAccent: "A community experience.",
-      description:
-        "GIANTS brings people together through basketball, movement, experiences and community.",
-      primaryCta: "Join a Session",
-      secondaryCta: "Explore Experiences",
-      collaborateCta: "Collaborate With GIANTS",
-      imageAlt:
-        "GIANTS community basketball and training experience",
-    },
+  return (
+    <section
+      className="relative min-h-[720px] overflow-hidden bg-black text-white
+                 sm:min-h-[760px] lg:min-h-[620px]"
+      aria-labelledby="hero-title"
+    >
+      {/* Background image */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Image
+          src="/images/hero/giants-hero.png"
+          alt="GIANTS basketball community experience"
+          fill
+          priority
+          sizes="100vw"
+          className="
+            giants-hero-image
+            object-cover
+            object-[58%_center]
+            sm:object-[60%_center]
+            lg:object-[68%_center]
+          "
+        />
+      </div>
 
-    whatsapp: {
-      button: "Connect on WhatsApp",
-      bookingButton: "Book via WhatsApp",
-      message:
-        "Hi GIANTS 👋 I discovered you through the website and I'd like to know more about your sessions and upcoming experiences.",
-      eventMessage:
-        "Hi GIANTS 👋 I'd like to register for the GIANTS Birthday Experience. Could you send me the details?",
-    },
+      {/* Softer overlays */}
+      <div className="absolute inset-0" />
 
-    testimonials: {
-      eyebrow: "THE COMMUNITY",
-      title: "More than sport.",
-      titleAccent: "People make GIANTS.",
-      description:
-        "GIANTS is built around connection, energy and shared experiences.",
+      <div
+        className="
+          absolute inset-0
+          bg-gradient-to-b
+          from-black/10
+          via-black/10
+          to-black/90
+        "
+      />
 
-      items: [
-        {
-          quote:
-            "You come for the activity, but you stay for the energy and the people.",
-          name: "GIANTS Community",
-          role: "Participant",
-        },
-        {
-          quote:
-            "It feels welcoming and motivating. Everyone can find their place.",
-          name: "GIANTS Community",
-          role: "Participant",
-        },
-        {
-          quote:
-            "More than training. It's movement, connection and good energy.",
-          name: "GIANTS Community",
-          role: "Participant",
-        },
-      ],
-    },
+      <div
+        className="
+          absolute inset-0
+          bg-gradient-to-r
+          from-black/90
+          via-black/45
+          to-black/5
+        "
+      />
 
-    event: {
-      eyebrow: "GIANTS EXPERIENCE",
-      title: "Birthday Experience",
-      subtitle: "Basketball • Games • Community",
-      locationLabel: "Location",
-      location: "Merksem",
-      description:
-        "A special GIANTS experience bringing people together through basketball, games, challenges and community energy.",
+      {/* Mobile readability */}
+      <div
+        className="
+          absolute inset-0
+          bg-gradient-to-t
+          from-black
+          via-black/25
+          to-transparent
+          lg:hidden
+        "
+      />
 
-      expectTitle: "What to expect",
-      expect: [
-        "Basketball activities",
-        "Team games and challenges",
-        "Movement and competition",
-        "Music and community energy",
-        "A welcoming GIANTS atmosphere",
-      ],
+      {/* Content */}
+      <div
+        className="
+          relative z-10
+          mx-auto flex min-h-[720px] max-w-7xl
+          items-end
+          px-5 pb-16 pt-28
+          sm:min-h-[760px] sm:px-8 sm:pb-20
+          lg:min-h-[620px] lg:items-center lg:px-12 lg:py-24
+        "
+      >
+        <div className="max-w-2xl lg:max-w-3xl">
+          {/* Brand line */}
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+            className="
+              text-[11px] font-black uppercase
+              tracking-[0.32em] text-orange-400
+              sm:text-xs lg:text-sm
+            "
+          >
+            {t.eyebrow}
+          </motion.p>
 
-      detailsTitle: "Event details",
-      dateLabel: "Date",
-      date: "14 June",
-      placeLabel: "Place",
-      place: "Merksem",
-      registrationLabel: "Registration",
-      registration: "Contact GIANTS to reserve your place",
+          {/* Main title — intentionally smaller */}
+          <motion.h1
+            id="hero-title"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              delay: 0.08,
+            }}
+            className="
+              mt-4 max-w-[18ch]
+              text-3xl font-black uppercase
+              leading-[1.02] tracking-tight
+              sm:text-4xl
+              md:text-5xl
+              lg:max-w-[16ch] lg:text-6xl
+            "
+          >
+            {t.title}
+          </motion.h1>
 
-      cta: "Register via WhatsApp",
-      back: "Back to GIANTS",
-      posterAlt: "GIANTS Birthday Experience event poster",
-    },
+          {/* Business-card style divider */}
+          <div className="mt-6 flex max-w-lg items-center gap-3">
+            <div className="h-px flex-1 bg-orange-500/60" />
+            <span className="text-orange-400">★</span>
+            <div className="h-px flex-1 bg-orange-500/60" />
+          </div>
 
-    seo: {
-      siteTitle:
-        "GIANTS | Basketball, Movement & Community Experiences",
-      description:
-        "GIANTS creates basketball, movement, wellness and community experiences in Belgium.",
-      eventTitle: "GIANTS Birthday Experience | Merksem",
-      eventDescription:
-        "Join the GIANTS Birthday Experience in Merksem for basketball, games, movement and community.",
-    },
-  },
+          {/* Pillars */}
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.55,
+              delay: 0.16,
+            }}
+            className="
+              mt-5 max-w-xl
+              text-sm font-bold
+              leading-6 text-orange-300
+              sm:text-base
+            "
+          >
+            {t.mantra}
+          </motion.p>
 
-  fr: {
-    navigation: {
-      about: "À propos",
-      experiences: "Expériences",
-      events: "Événements",
-      community: "Communauté",
-      gallery: "Galerie",
-      collaborate: "Collaborer",
-    },
+          {/* Supporting copy */}
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.55,
+              delay: 0.23,
+            }}
+            className="
+              mt-4 max-w-xl
+              text-sm leading-6 text-white/75
+              sm:text-base sm:leading-7
+              lg:text-lg
+            "
+          >
+            {t.subtitle}
+          </motion.p>
 
-    hero: {
-      eyebrow: "S'ENTRAÎNER • SE CONNECTER • S'ÉLEVER",
-      title: "Plus qu'un entraînement.",
-      titleAccent: "Une expérience communautaire.",
-      description:
-        "GIANTS rassemble les gens à travers le basketball, le mouvement, les expériences et la communauté.",
-      primaryCta: "Rejoindre une session",
-      secondaryCta: "Découvrir les expériences",
-      collaborateCta: "Collaborer avec GIANTS",
-      imageAlt:
-        "Expérience communautaire de basketball et d'entraînement GIANTS",
-    },
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.55,
+              delay: 0.3,
+            }}
+            className="
+              mt-8 flex flex-col gap-3
+              sm:flex-row sm:flex-wrap
+            "
+          >
+            <Link
+              href={`/${locale}/contact`}
+              className="
+                inline-flex min-h-12 items-center justify-center
+                rounded-full bg-orange-500
+                px-7 py-3
+                text-xs font-black uppercase tracking-wide
+                text-black
+                shadow-[0_10px_30px_rgba(249,115,22,0.22)]
+                transition
+                hover:-translate-y-0.5
+                hover:bg-orange-400
+                hover:shadow-[0_14px_35px_rgba(249,115,22,0.32)]
+              "
+            >
+              {t.primaryCta}
+            </Link>
 
-    whatsapp: {
-      button: "Nous contacter sur WhatsApp",
-      bookingButton: "Réserver via WhatsApp",
-      message:
-        "Bonjour GIANTS 👋 J'ai découvert votre univers via le site et j'aimerais en savoir plus sur vos sessions et vos prochaines expériences.",
-      eventMessage:
-        "Bonjour GIANTS 👋 J'aimerais m'inscrire à la GIANTS Birthday Experience. Pouvez-vous m'envoyer les informations ?",
-    },
+            <Link
+              href={`/${locale}/experiences`}
+              className="
+                inline-flex min-h-12 items-center justify-center
+                rounded-full border border-white/30
+                bg-black/25
+                px-7 py-3
+                text-xs font-black uppercase tracking-wide
+                text-white
+                backdrop-blur-md
+                transition
+                hover:-translate-y-0.5
+                hover:border-white/60
+                hover:bg-white/10
+              "
+            >
+              {t.secondaryCta}
+            </Link>
 
-    testimonials: {
-      eyebrow: "LA COMMUNAUTÉ",
-      title: "Plus que du sport.",
-      titleAccent: "Les gens font GIANTS.",
-      description:
-        "GIANTS se construit autour de la connexion, de l'énergie et des expériences partagées.",
+            <Link
+              href={`/${locale}/contact`}
+              className="
+                inline-flex min-h-12 items-center justify-center
+                rounded-full border border-orange-500/60
+                px-7 py-3
+                text-xs font-black uppercase tracking-wide
+                text-orange-300
+                transition
+                hover:-translate-y-0.5
+                hover:border-orange-400
+                hover:bg-orange-500/10
+              "
+            >
+              {t.tertiaryCta}
+            </Link>
+          </motion.div>
+        </div>
+      </div>
 
-      items: [
-        {
-          quote:
-            "On vient pour l'activité, mais on reste pour l'énergie et les rencontres.",
-          name: "Communauté GIANTS",
-          role: "Participant",
-        },
-        {
-          quote:
-            "L'ambiance est accueillante et motivante. Chacun peut trouver sa place.",
-          name: "Communauté GIANTS",
-          role: "Participant",
-        },
-        {
-          quote:
-            "Plus qu'un entraînement. Du mouvement, des connexions et une belle énergie.",
-          name: "Communauté GIANTS",
-          role: "Participant",
-        },
-      ],
-    },
-
-    event: {
-      eyebrow: "EXPÉRIENCE GIANTS",
-      title: "Birthday Experience",
-      subtitle: "Basketball • Jeux • Communauté",
-      locationLabel: "Lieu",
-      location: "Merksem",
-
-      description:
-        "Une expérience spéciale GIANTS qui rassemble autour du basketball, des jeux, des challenges et de l'énergie communautaire.",
-
-      expectTitle: "Au programme",
-      expect: [
-        "Activités basketball",
-        "Jeux et challenges en équipe",
-        "Mouvement et compétition",
-        "Musique et énergie communautaire",
-        "L'atmosphère accueillante de GIANTS",
-      ],
-
-      detailsTitle: "Informations",
-      dateLabel: "Date",
-      date: "14 juin",
-      placeLabel: "Lieu",
-      place: "Merksem",
-      registrationLabel: "Inscription",
-      registration: "Contactez GIANTS pour réserver votre place",
-
-      cta: "S'inscrire via WhatsApp",
-      back: "Retour à GIANTS",
-      posterAlt: "Affiche de la GIANTS Birthday Experience",
-    },
-
-    seo: {
-      siteTitle:
-        "GIANTS | Basketball, mouvement & expériences communautaires",
-      description:
-        "GIANTS crée des expériences autour du basketball, du mouvement, du bien-être et de la communauté en Belgique.",
-      eventTitle: "GIANTS Birthday Experience | Merksem",
-      eventDescription:
-        "Rejoignez la GIANTS Birthday Experience à Merksem pour du basketball, des jeux, du mouvement et de la communauté.",
-    },
-  },
-
-  nl: {
-    navigation: {
-      about: "Over ons",
-      experiences: "Ervaringen",
-      events: "Evenementen",
-      community: "Community",
-      gallery: "Galerij",
-      collaborate: "Samenwerken",
-    },
-
-    hero: {
-      eyebrow: "TRAIN • VERBIND • GROEI",
-      title: "Meer dan training.",
-      titleAccent: "Een community-ervaring.",
-      description:
-        "GIANTS brengt mensen samen via basketbal, beweging, ervaringen en community.",
-      primaryCta: "Doe mee met een sessie",
-      secondaryCta: "Ontdek ervaringen",
-      collaborateCta: "Werk samen met GIANTS",
-      imageAlt:
-        "GIANTS community basketbal- en trainingservaring",
-    },
-
-    whatsapp: {
-      button: "Contact via WhatsApp",
-      bookingButton: "Boek via WhatsApp",
-      message:
-        "Hallo GIANTS 👋 Ik heb jullie via de website ontdekt en wil graag meer weten over jullie sessies en komende ervaringen.",
-      eventMessage:
-        "Hallo GIANTS 👋 Ik wil me graag inschrijven voor de GIANTS Birthday Experience. Kunnen jullie mij de details sturen?",
-    },
-
-    testimonials: {
-      eyebrow: "DE COMMUNITY",
-      title: "Meer dan sport.",
-      titleAccent: "Mensen maken GIANTS.",
-      description:
-        "GIANTS draait om verbinding, energie en gedeelde ervaringen.",
-
-      items: [
-        {
-          quote:
-            "Je komt voor de activiteit, maar je blijft voor de energie en de mensen.",
-          name: "GIANTS Community",
-          role: "Deelnemer",
-        },
-        {
-          quote:
-            "De sfeer is gastvrij en motiverend. Iedereen kan hier zijn plaats vinden.",
-          name: "GIANTS Community",
-          role: "Deelnemer",
-        },
-        {
-          quote:
-            "Meer dan training. Beweging, verbinding en positieve energie.",
-          name: "GIANTS Community",
-          role: "Deelnemer",
-        },
-      ],
-    },
-
-    event: {
-      eyebrow: "GIANTS EXPERIENCE",
-      title: "Birthday Experience",
-      subtitle: "Basketbal • Games • Community",
-      locationLabel: "Locatie",
-      location: "Merksem",
-
-      description:
-        "Een speciale GIANTS-ervaring die mensen samenbrengt via basketbal, games, uitdagingen en community-energie.",
-
-      expectTitle: "Wat kun je verwachten?",
-      expect: [
-        "Basketbalactiviteiten",
-        "Teamgames en uitdagingen",
-        "Beweging en competitie",
-        "Muziek en community-energie",
-        "Een gastvrije GIANTS-sfeer",
-      ],
-
-      detailsTitle: "Eventinformatie",
-      dateLabel: "Datum",
-      date: "14 juni",
-      placeLabel: "Plaats",
-      place: "Merksem",
-      registrationLabel: "Inschrijving",
-      registration: "Neem contact op met GIANTS om je plaats te reserveren",
-
-      cta: "Inschrijven via WhatsApp",
-      back: "Terug naar GIANTS",
-      posterAlt: "GIANTS Birthday Experience eventposter",
-    },
-
-    seo: {
-      siteTitle:
-        "GIANTS | Basketbal, beweging & community experiences",
-      description:
-        "GIANTS creëert basketbal-, bewegings-, wellness- en community-ervaringen in België.",
-      eventTitle: "GIANTS Birthday Experience | Merksem",
-      eventDescription:
-        "Doe mee met de GIANTS Birthday Experience in Merksem voor basketbal, games, beweging en community.",
-    },
-  },
-} as const;
-
-export function getTranslations(locale: string) {
-  if (isLocale(locale)) {
-    return translations[locale];
-  }
-
-  return translations[defaultLocale];
+      <div
+        className="
+          absolute bottom-0 left-0
+          h-px w-full
+          bg-gradient-to-r
+          from-transparent via-orange-500 to-transparent
+        "
+        aria-hidden="true"
+      />
+    </section>
+  );
 }

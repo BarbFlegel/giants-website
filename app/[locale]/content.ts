@@ -5,3 +5,5 @@ export * from "./content/community";
 export * from "./content/events";
 export * from "./content/gallery";
 export * from "./content/footer";
+export * from "./content/hero";
+export * from "./content/home";
