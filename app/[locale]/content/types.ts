@@ -82,7 +82,9 @@ export type EventTranslations = {
   book: string;
   viewPoster: string;
   closePoster: string;
-
+  viewDetails: string;
+  bookNow: string;
+  comingSoon: string;
   upcomingTitle: string;
   pastTitle: string;
   emptyLabel: string;
@@ -205,6 +207,11 @@ export type HomeContent = {
   cards: HomeCardContent[];
 };
 
+export type SeoContent = {
+  siteTitle: string;
+  description: string;
+};
+
 export type Translation = {
   brand: BrandContent;
   nav: NavContent;
@@ -225,6 +232,7 @@ export type Translation = {
   gallery: GalleryContent;
   join: JoinContent;
   footer: FooterContent;
+  seo: SeoContent;
 };
 
 export type ContactFormContent = {

@@ -7,6 +7,12 @@ export const translations: Record<Locale, Translation> = {
       name: "GIANTS",
       tagline: "Movement · Community · Wellbeing",
     },
+    seo: {
+      siteTitle:
+        "GIANTS | Basketball, Movement & Community Experiences",
+      description:
+        "GIANTS creates basketball, movement, wellbeing and community experiences in Belgium.",
+    },
     nav: {
       about: "About",
       vision: "Vision",
@@ -76,12 +82,14 @@ contactForm: {
       book: "Book Experience",
       viewPoster: "View poster fullscreen",
       closePoster: "Close poster",
-        upcomingTitle: "Upcoming events",
-  pastTitle: "Past events",
-  emptyLabel: "No dated events published",
-  emptyTitle: "New dates are being prepared.",
-  emptyDescription:
-    "Bookable programmes are available under Experiences. Stories and reflections are available under Mindset.",
+      upcomingTitle: "Upcoming events",
+      pastTitle: "Past events",
+      emptyLabel: "No dated events published",
+      emptyTitle: "New dates are being prepared.",
+      emptyDescription:"Bookable programmes are available under Experiences. Stories and reflections are available under Mindset.",
+      viewDetails: "View details",
+      bookNow: "Book now",
+      comingSoon: "Coming soon",
     },
    letters: {
       label: "Letters",
@@ -181,6 +189,12 @@ contactForm: {
       name: "GIANTS",
       tagline: "Movement · Community · Wellbeing",
     },
+    seo: {
+      siteTitle:
+        "GIANTS | Basketball, mouvement et expériences communautaires",
+      description:
+        "GIANTS crée des expériences de basketball, de mouvement, de bien-être et de communauté en Belgique.",
+    },
     nav: {
       about: "À propos",
       vision: "Vision",
@@ -249,11 +263,13 @@ contactForm: {
       viewPoster: "Voir l’affiche en plein écran",
       closePoster: "Fermer l’affiche",
       upcomingTitle: "Événements à venir",
-  pastTitle: "Événements passés",
-  emptyLabel: "Aucun événement daté publié",
-  emptyTitle: "De nouvelles dates sont en préparation.",
-  emptyDescription:
-    "Les programmes réservables sont disponibles sous Expériences. Les histoires et réflexions sont disponibles sous Mindset.",
+      pastTitle: "Événements passés",
+      emptyLabel: "Aucun événement daté publié",
+      emptyTitle: "De nouvelles dates sont en préparation.",
+      emptyDescription: "Les programmes réservables sont disponibles sous Expériences. Les histoires et réflexions sont disponibles sous Mindset.",
+      viewDetails: "Voir les détails",
+      bookNow: "Réserver",
+      comingSoon: "Bientôt",
     },
     letters: {
       label: "Lettres",
@@ -355,6 +371,12 @@ contactForm: {
       name: "GIANTS",
       tagline: "Movement · Community · Wellbeing",
     },
+    seo: {
+      siteTitle:
+        "GIANTS | Basketbal, beweging en community-ervaringen",
+      description:
+        "GIANTS creëert basketbal-, bewegings-, welzijns- en community-ervaringen in België.",
+    },
     nav: {
       about: "Over",
       vision: "Visie",
@@ -429,7 +451,9 @@ contactForm: {
       emptyLabel: "Geen evenementen gepubliceerd",
       emptyTitle: "Nieuwe data worden voorbereid.",
       emptyDescription: "Boekbare programma’s staan onder Experiences. Verhalen en reflecties staan onder Mindset.",
-
+      viewDetails: "Bekijk details",
+      bookNow: "Boek nu",
+      comingSoon: "Binnenkort",
     },
     letters: {
       label: "Brieven",
@@ -528,6 +552,12 @@ contactForm: {
       name: "GIANTS",
       tagline: "Movement · Community · Wellbeing",
     },
+    seo: {
+      siteTitle:
+        "GIANTS | Basketball, Bewegung und Community-Erlebnisse",
+      description:
+        "GIANTS schafft Basketball-, Bewegungs-, Wohlfühl- und Community-Erlebnisse in Belgien.",
+    },
     nav: {
       about: "Über uns",
       vision: "Vision",
@@ -600,6 +630,9 @@ contactForm: {
       emptyLabel: "Keine Veranstaltungen veröffentlicht",
       emptyTitle: "Neue Termine werden vorbereitet.",
       emptyDescription: "Buchbare Programme finden Sie unter Experiences. Geschichten und Reflexionen finden Sie unter Mindset.",
+      viewDetails: "Details ansehen",
+      bookNow: "Jetzt buchen",
+      comingSoon: "Demnächst",
     },
     letters: {
       label: "Briefe",

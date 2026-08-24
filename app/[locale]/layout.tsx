@@ -1,19 +1,30 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
 import {
   locales,
+  translations,
   type Locale,
 } from "./content";
-import { getTranslations } from "./lib/i18n";
 
 type LocaleLayoutProps = {
   children: ReactNode;
-
   params: Promise<{
     locale: string;
   }>;
 };
+
+const openGraphLocales: Record<Locale, string> = {
+  en: "en_BE",
+  fr: "fr_BE",
+  nl: "nl_BE",
+  de: "de_DE",
+};
+
+function isSupportedLocale(value: string): value is Locale {
+  return locales.includes(value as Locale);
+}
 
 export function generateStaticParams() {
   return locales.map((locale) => ({
@@ -26,13 +37,11 @@ export async function generateMetadata({
 }: LocaleLayoutProps): Promise<Metadata> {
   const { locale: localeParam } = await params;
 
-  const locale: Locale = locales.includes(localeParam as Locale)
-    ? (localeParam as Locale)
+  const locale: Locale = isSupportedLocale(localeParam)
+    ? localeParam
     : "en";
 
-  // The legacy metadata dictionary has EN/FR/NL only; use EN copy for DE
-  // until dedicated German SEO text is added there.
-  const t = getTranslations(locale === "de" ? "en" : locale);
+  const t = translations[locale];
 
   return {
     title: {
@@ -55,11 +64,13 @@ export async function generateMetadata({
     ],
 
     alternates: {
+      canonical: `/${locale}`,
       languages: {
         en: "/en",
         fr: "/fr",
         nl: "/nl",
         de: "/de",
+        "x-default": "/en",
       },
     },
 
@@ -68,22 +79,14 @@ export async function generateMetadata({
       description: t.seo.description,
       type: "website",
       siteName: "GIANTS",
-
-      locale:
-        locale === "fr"
-          ? "fr_BE"
-          : locale === "nl"
-            ? "nl_BE"
-            : locale === "de"
-              ? "de_DE"
-              : "en_BE",
-
+      locale: openGraphLocales[locale],
+      url: `/${locale}`,
       images: [
         {
           url: "/images/hero/giants-hero.png",
           width: 1200,
           height: 630,
-          alt: "GIANTS",
+          alt: "GIANTS community movement",
         },
       ],
     },
@@ -92,8 +95,6 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t.seo.siteTitle,
       description: t.seo.description,
-
-      // Keep the same real image extension as Open Graph.
       images: ["/images/hero/giants-hero.png"],
     },
 
@@ -108,19 +109,11 @@ export default async function LocaleLayout({
   children,
   params,
 }: LocaleLayoutProps) {
-  const { locale: localeParam } = await params;
+  const { locale } = await params;
 
-  /*
-   * We validate the locale here but DO NOT create
-   * another <html> or <body>.
-   *
-   * Those belong only in app/layout.tsx.
-   */
-  const locale: Locale = locales.includes(localeParam as Locale)
-    ? (localeParam as Locale)
-    : "en";
-
-  void locale;
+  if (!isSupportedLocale(locale)) {
+    notFound();
+  }
 
   return <>{children}</>;
 }

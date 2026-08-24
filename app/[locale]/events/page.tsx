@@ -3,7 +3,11 @@ import { notFound } from "next/navigation";
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { locales, translations, type Locale } from "../content";
+import {
+  locales,
+  translations,
+  type Locale,
+} from "../content";
 import { getEvents } from "../lib/sanity";
 import EventCards from "./EventCards";
 
@@ -22,13 +26,17 @@ const dateLocales: Record<Locale, string> = {
   de: "de-DE",
 };
 
+function isSupportedLocale(value: string): value is Locale {
+  return locales.includes(value as Locale);
+}
+
 export async function generateMetadata({
   params,
 }: EventsPageProps): Promise<Metadata> {
   const { locale: localeParam } = await params;
 
-  const locale: Locale = locales.includes(localeParam as Locale)
-    ? (localeParam as Locale)
+  const locale: Locale = isSupportedLocale(localeParam)
+    ? localeParam
     : "en";
 
   const eventsText = translations[locale].events;
@@ -36,6 +44,7 @@ export async function generateMetadata({
   return {
     title: eventsText.title,
     description: eventsText.description,
+
     alternates: {
       canonical: `/${locale}/events`,
       languages: {
@@ -43,7 +52,16 @@ export async function generateMetadata({
         fr: "/fr/events",
         nl: "/nl/events",
         de: "/de/events",
+        "x-default": "/en/events",
       },
+    },
+
+    openGraph: {
+      title: eventsText.title,
+      description: eventsText.description,
+      type: "website",
+      url: `/${locale}/events`,
+      siteName: "GIANTS",
     },
   };
 }
@@ -53,18 +71,22 @@ export default async function EventsPage({
 }: EventsPageProps) {
   const { locale: localeParam } = await params;
 
-  if (!locales.includes(localeParam as Locale)) {
+  if (!isSupportedLocale(localeParam)) {
     notFound();
   }
 
-  const locale = localeParam as Locale;
+  const locale = localeParam;
   const t = translations[locale];
   const eventsText = t.events;
   const cmsEvents = await getEvents();
 
-  const upcomingEvents = cmsEvents.filter(
-    (event) => event.status !== "past",
-  );
+  const upcomingEvents = cmsEvents
+    .filter((event) => event.status !== "past")
+    .sort(
+      (firstEvent, secondEvent) =>
+        new Date(firstEvent.startDate).getTime() -
+        new Date(secondEvent.startDate).getTime(),
+    );
 
   const pastEvents = cmsEvents
     .filter((event) => event.status === "past")
@@ -75,7 +97,8 @@ export default async function EventsPage({
     );
 
   const hasEvents =
-    upcomingEvents.length > 0 || pastEvents.length > 0;
+    upcomingEvents.length > 0 ||
+    pastEvents.length > 0;
 
   return (
     <main className="giants-content-page">
@@ -131,6 +154,7 @@ export default async function EventsPage({
                 events={upcomingEvents}
                 locale={locale}
                 dateLocale={dateLocales[locale]}
+                text={eventsText}
               />
             </section>
           )}
@@ -151,6 +175,7 @@ export default async function EventsPage({
                 events={pastEvents}
                 locale={locale}
                 dateLocale={dateLocales[locale]}
+                text={eventsText}
               />
             </section>
           )}
