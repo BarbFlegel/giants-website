@@ -90,6 +90,22 @@ export type EventTranslations = {
   emptyLabel: string;
   emptyTitle: string;
   emptyDescription: string;
+
+  backToEvents: string;
+  dateLabel: string;
+  endDateLabel: string;
+  locationLabel: string;
+  priceLabel: string;
+  datePending: string;
+  askBook: string;
+  viewMoments: string;
+  statusLabels: EventStatusTranslations;
+};
+
+export type EventStatusTranslations = {
+  upcoming: string;
+  comingSoon: string;
+  past: string;
 };
 
 export type LettersContent = {

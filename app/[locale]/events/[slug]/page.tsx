@@ -4,8 +4,15 @@ import { notFound } from "next/navigation";
 
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import { locales, translations, type Locale } from "../../content";
-import { getEventBySlug } from "../../lib/sanity";
+import {
+  locales,
+  translations,
+  type Locale,
+} from "../../content";
+import {
+  getEventBySlug,
+  type CmsEvent,
+} from "../../lib/sanity";
 
 export const revalidate = 60;
 
@@ -20,107 +27,96 @@ const dateLocales: Record<Locale, string> = {
   en: "en-BE",
   fr: "fr-BE",
   nl: "nl-BE",
-  de: "de-BE",
+  de: "de-DE",
 };
 
-const eventStatusLabels: Record<
-  Locale,
-  Record<"upcoming" | "comingSoon" | "past", string>
-> = {
-  en: {
-    upcoming: "Upcoming event",
-    comingSoon: "Coming soon",
-    past: "Past event",
-  },
-  fr: {
-    upcoming: "Événement à venir",
-    comingSoon: "Bientôt disponible",
-    past: "Événement passé",
-  },
-  nl: {
-    upcoming: "Aankomend evenement",
-    comingSoon: "Binnenkort",
-    past: "Afgelopen evenement",
-  },
-  de: {
-    upcoming: "Bevorstehende Veranstaltung",
-    comingSoon: "Demnächst",
-    past: "Vergangene Veranstaltung",
-  },
-};
-
-const pageLabels: Record<
-  Locale,
-  {
-    back: string;
-    date: string;
-    endDate: string;
-    location: string;
-    price: string;
-    datePending: string;
-    bookNow: string;
-    askBook: string;
-    viewMoments: string;
-  }
-> = {
-  en: {
-    back: "Back to events",
-    date: "Date",
-    endDate: "End",
-    location: "Location",
-    price: "Price",
-    datePending: "To be confirmed",
-    bookNow: "Book now",
-    askBook: "Ask / Book",
-    viewMoments: "View moments",
-  },
-  fr: {
-    back: "Retour aux événements",
-    date: "Date",
-    endDate: "Fin",
-    location: "Lieu",
-    price: "Prix",
-    datePending: "À confirmer",
-    bookNow: "Réserver",
-    askBook: "Demander / Réserver",
-    viewMoments: "Voir les moments",
-  },
-  nl: {
-    back: "Terug naar evenementen",
-    date: "Datum",
-    endDate: "Einde",
-    location: "Locatie",
-    price: "Prijs",
-    datePending: "Nog te bevestigen",
-    bookNow: "Nu boeken",
-    askBook: "Vraag / Boek",
-    viewMoments: "Bekijk momenten",
-  },
-  de: {
-    back: "Zurück zu Veranstaltungen",
-    date: "Datum",
-    endDate: "Ende",
-    location: "Ort",
-    price: "Preis",
-    datePending: "Noch zu bestätigen",
-    bookNow: "Jetzt buchen",
-    askBook: "Anfragen / Buchen",
-    viewMoments: "Momente ansehen",
-  },
-};
-
-function isSupportedLocale(locale: string): locale is Locale {
-  return locales.includes(locale as Locale);
+function isSupportedLocale(value: string): value is Locale {
+  return locales.includes(value as Locale);
 }
 
-function formatEventDate(date: string, locale: Locale) {
+function formatEventDate(
+  dateValue: string,
+  locale: Locale,
+  fallback: string,
+) {
+  const date = new Date(dateValue);
+
+  if (Number.isNaN(date.getTime())) {
+    return fallback;
+  }
+
   return new Intl.DateTimeFormat(dateLocales[locale], {
     day: "numeric",
     month: "long",
     year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-  }).format(new Date(date));
+  }).format(date);
+}
+
+function resolveInternalUrl(
+  url: string,
+  locale: Locale,
+) {
+  if (
+    url.startsWith("http://") ||
+    url.startsWith("https://")
+  ) {
+    return url;
+  }
+
+  if (url.startsWith(`/${locale}/`)) {
+    return url;
+  }
+
+  const normalizedUrl = url.startsWith("/")
+    ? url
+    : `/${url}`;
+
+  return `/${locale}${normalizedUrl}`;
+}
+
+function isExternalUrl(url: string) {
+  return (
+    url.startsWith("http://") ||
+    url.startsWith("https://")
+  );
+}
+
+function getEventAction(
+  event: CmsEvent,
+  locale: Locale,
+) {
+  const text = translations[locale].events;
+
+  if (event.status === "past") {
+    return {
+      href: `/${locale}/moments`,
+      label: text.viewMoments,
+    };
+  }
+
+  if (event.registrationUrl) {
+    return {
+      href: event.registrationUrl,
+      label: event.ctaLabel || text.bookNow,
+    };
+  }
+
+  if (event.detailsUrl) {
+    return {
+      href: resolveInternalUrl(
+        event.detailsUrl,
+        locale,
+      ),
+      label: event.ctaLabel || text.viewDetails,
+    };
+  }
+
+  return {
+    href: `/${locale}/contact`,
+    label: text.askBook,
+  };
 }
 
 export async function generateMetadata({
@@ -138,13 +134,15 @@ export async function generateMetadata({
     return {};
   }
 
+  const text = translations[localeParam].events;
+
   const description =
-    event.description ||
-    `Discover ${event.title}, a GIANTS community event.`;
+    event.description || text.description;
 
   return {
-    title: `${event.title} | GIANTS`,
+    title: event.title,
     description,
+
     alternates: {
       canonical: `/${localeParam}/events/${slug}`,
       languages: {
@@ -152,12 +150,16 @@ export async function generateMetadata({
         fr: `/fr/events/${slug}`,
         nl: `/nl/events/${slug}`,
         de: `/de/events/${slug}`,
+        "x-default": `/en/events/${slug}`,
       },
     },
+
     openGraph: {
       title: `${event.title} | GIANTS`,
       description,
       type: "article",
+      url: `/${localeParam}/events/${slug}`,
+      siteName: "GIANTS",
       images: event.posterUrl
         ? [
             {
@@ -165,6 +167,15 @@ export async function generateMetadata({
               alt: `${event.title} poster`,
             },
           ]
+        : undefined,
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: `${event.title} | GIANTS`,
+      description,
+      images: event.posterUrl
+        ? [event.posterUrl]
         : undefined,
     },
   };
@@ -187,36 +198,27 @@ export default async function EventDetailsPage({
   }
 
   const t = translations[locale];
-  const labels = pageLabels[locale];
+  const text = t.events;
 
   const eventDate =
     event.status === "comingSoon"
-      ? labels.datePending
-      : formatEventDate(event.startDate, locale);
+      ? text.datePending
+      : formatEventDate(
+          event.startDate,
+          locale,
+          text.datePending,
+        );
 
   const eventEndDate = event.endDate
-    ? formatEventDate(event.endDate, locale)
+    ? formatEventDate(
+        event.endDate,
+        locale,
+        text.datePending,
+      )
     : null;
 
-  const actionHref =
-    event.status === "past"
-      ? `/${locale}/moments`
-      : event.registrationUrl ||
-        event.detailsUrl ||
-        `/${locale}/contact`;
-
-  const actionLabel =
-    event.status === "past"
-      ? labels.viewMoments
-      : event.registrationUrl
-        ? event.ctaLabel || labels.bookNow
-        : event.detailsUrl
-          ? event.ctaLabel || labels.bookNow
-          : labels.askBook;
-
-  const isExternalAction =
-    actionHref.startsWith("http://") ||
-    actionHref.startsWith("https://");
+  const action = getEventAction(event, locale);
+  const externalAction = isExternalUrl(action.href);
 
   return (
     <main className="giants-content-page">
@@ -224,8 +226,11 @@ export default async function EventDetailsPage({
 
       <section className="giants-content-section">
         <div className="giants-content-container giants-cms-event-detail">
-          <Link href={`/${locale}/events`} className="giants-back-link">
-            ← {labels.back}
+          <Link
+            href={`/${locale}/events`}
+            className="giants-back-link"
+          >
+            ← {text.backToEvents}
           </Link>
 
           <div className="giants-cms-event-detail-grid">
@@ -235,7 +240,7 @@ export default async function EventDetailsPage({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="giants-cms-event-poster-link"
-                aria-label={`Open the ${event.title} poster`}
+                aria-label={`${text.viewPoster}: ${event.title}`}
               >
                 <img
                   src={event.posterUrl}
@@ -247,50 +252,60 @@ export default async function EventDetailsPage({
 
             <div className="giants-cms-event-detail-copy">
               <p className="giants-eyebrow">
-                {eventStatusLabels[locale][event.status]}
+                {text.statusLabels[event.status]}
               </p>
 
-              <h1 className="giants-section-title">{event.title}</h1>
+              <h1 className="giants-section-title">
+                {event.title}
+              </h1>
 
               {event.description && (
-                <p className="giants-card-text">{event.description}</p>
+                <p className="giants-card-text">
+                  {event.description}
+                </p>
               )}
 
               <dl className="giants-cms-event-details-list">
                 <div>
-                  <dt>{labels.date}</dt>
+                  <dt>{text.dateLabel}</dt>
                   <dd>{eventDate}</dd>
                 </div>
 
                 {eventEndDate && (
                   <div>
-                    <dt>{labels.endDate}</dt>
+                    <dt>{text.endDateLabel}</dt>
                     <dd>{eventEndDate}</dd>
                   </div>
                 )}
 
                 {event.location && (
                   <div>
-                    <dt>{labels.location}</dt>
+                    <dt>{text.locationLabel}</dt>
                     <dd>{event.location}</dd>
                   </div>
                 )}
 
                 {event.price && (
                   <div>
-                    <dt>{labels.price}</dt>
+                    <dt>{text.priceLabel}</dt>
                     <dd>{event.price}</dd>
                   </div>
                 )}
               </dl>
 
               <Link
-                href={actionHref}
+                href={action.href}
                 className="giants-button giants-button-primary"
-                target={isExternalAction ? "_blank" : undefined}
-                rel={isExternalAction ? "noopener noreferrer" : undefined}
+                target={
+                  externalAction ? "_blank" : undefined
+                }
+                rel={
+                  externalAction
+                    ? "noopener noreferrer"
+                    : undefined
+                }
               >
-                {actionLabel}
+                {action.label}
               </Link>
             </div>
           </div>
