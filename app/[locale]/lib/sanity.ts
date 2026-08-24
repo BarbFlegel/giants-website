@@ -4,7 +4,12 @@ const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 
 export const sanityClient = projectId
-  ? createClient({projectId, dataset, apiVersion: '2026-08-24', useCdn: true})
+  ? createClient({
+    projectId,
+    dataset,
+    apiVersion: "2026-08-24",
+    useCdn: false,
+  })
   : null
 
 export type CmsEvent = {
