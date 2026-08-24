@@ -76,6 +76,12 @@ contactForm: {
       book: "Book Experience",
       viewPoster: "View poster fullscreen",
       closePoster: "Close poster",
+        upcomingTitle: "Upcoming events",
+  pastTitle: "Past events",
+  emptyLabel: "No dated events published",
+  emptyTitle: "New dates are being prepared.",
+  emptyDescription:
+    "Bookable programmes are available under Experiences. Stories and reflections are available under Mindset.",
     },
    letters: {
       label: "Letters",
@@ -242,6 +248,12 @@ contactForm: {
       book: "Réserver l’expérience",
       viewPoster: "Voir l’affiche en plein écran",
       closePoster: "Fermer l’affiche",
+      upcomingTitle: "Événements à venir",
+  pastTitle: "Événements passés",
+  emptyLabel: "Aucun événement daté publié",
+  emptyTitle: "De nouvelles dates sont en préparation.",
+  emptyDescription:
+    "Les programmes réservables sont disponibles sous Expériences. Les histoires et réflexions sont disponibles sous Mindset.",
     },
     letters: {
       label: "Lettres",
@@ -412,6 +424,12 @@ contactForm: {
       book: "Boek ervaring",
       viewPoster: "Poster volledig bekijken",
       closePoster: "Poster sluiten",
+      upcomingTitle: "Aankomende evenementen",
+      pastTitle: "Afgelopen evenementen",
+      emptyLabel: "Geen evenementen gepubliceerd",
+      emptyTitle: "Nieuwe data worden voorbereid.",
+      emptyDescription: "Boekbare programma’s staan onder Experiences. Verhalen en reflecties staan onder Mindset.",
+
     },
     letters: {
       label: "Brieven",
@@ -577,6 +595,11 @@ contactForm: {
       book: "Erlebnis buchen",
       viewPoster: "Poster im Vollbild ansehen",
       closePoster: "Poster schließen",
+      upcomingTitle: "Bevorstehende Veranstaltungen",
+      pastTitle: "Vergangene Veranstaltungen",
+      emptyLabel: "Keine Veranstaltungen veröffentlicht",
+      emptyTitle: "Neue Termine werden vorbereitet.",
+      emptyDescription: "Buchbare Programme finden Sie unter Experiences. Geschichten und Reflexionen finden Sie unter Mindset.",
     },
     letters: {
       label: "Briefe",

@@ -1,17 +1,13 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import Header from "../components/Header";
 import Footer from "../components/Footer";
-import EventCards from "./EventCards";
+import Header from "../components/Header";
+import { locales, translations, type Locale } from "../content";
 import { getEvents } from "../lib/sanity";
+import EventCards from "./EventCards";
 
 export const revalidate = 60;
-
-import {
-  translations,
-  locales,
-  type Locale,
-} from "../content";
 
 type EventsPageProps = {
   params: Promise<{
@@ -19,110 +15,144 @@ type EventsPageProps = {
   }>;
 };
 
+const dateLocales: Record<Locale, string> = {
+  en: "en-BE",
+  fr: "fr-BE",
+  nl: "nl-BE",
+  de: "de-DE",
+};
+
+export async function generateMetadata({
+  params,
+}: EventsPageProps): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+
+  const locale: Locale = locales.includes(localeParam as Locale)
+    ? (localeParam as Locale)
+    : "en";
+
+  const eventsText = translations[locale].events;
+
+  return {
+    title: eventsText.title,
+    description: eventsText.description,
+    alternates: {
+      canonical: `/${locale}/events`,
+      languages: {
+        en: "/en/events",
+        fr: "/fr/events",
+        nl: "/nl/events",
+        de: "/de/events",
+      },
+    },
+  };
+}
+
 export default async function EventsPage({
   params,
 }: EventsPageProps) {
-  const { locale: localeParam } =
-    await params;
+  const { locale: localeParam } = await params;
 
-  if (
-    !locales.includes(
-      localeParam as Locale
-    )
-  ) {
+  if (!locales.includes(localeParam as Locale)) {
     notFound();
   }
 
-  const locale =
-    localeParam as Locale;
-
-  const t =
-    translations[locale];
+  const locale = localeParam as Locale;
+  const t = translations[locale];
+  const eventsText = t.events;
   const cmsEvents = await getEvents();
-  const activeEvents = cmsEvents.filter((event) => event.status !== "past");
 
-  const dateLocale: Record<Locale, string> = {
-    en: "en-BE",
-    fr: "fr-BE",
-    nl: "nl-BE",
-    de: "de-BE",
-  };
+  const upcomingEvents = cmsEvents.filter(
+    (event) => event.status !== "past",
+  );
 
-  const pageCopy: Record<Locale, { eyebrow: string; title: string; intro: string; empty: string; preparing: string; guidance: string }> = {
-    en: {
-      eyebrow: "GIANTS EVENTS",
-      title: "Confirmed dates. One clear calendar.",
-      intro: "Find what is scheduled, where it happens and how to register.",
-      empty: "NO DATED EVENTS PUBLISHED",
-      preparing: "New dates are being prepared.",
-      guidance: "Bookable services are under Experiences. Weekly reflections are under Mindset.",
-    },
-    fr: {
-      eyebrow: "ÉVÉNEMENTS GIANTS",
-      title: "Les dates confirmées, au même endroit.",
-      intro: "Découvrez le programme, le lieu et les modalités d’inscription.",
-      empty: "AUCUN ÉVÉNEMENT DATÉ PUBLIÉ",
-      preparing: "De nouvelles dates sont en préparation.",
-      guidance: "Les services à réserver sont dans Expériences. Les réflexions hebdomadaires sont dans Mindset.",
-    },
-    nl: {
-      eyebrow: "GIANTS EVENTS",
-      title: "Bevestigde data in één kalender.",
-      intro: "Bekijk wat gepland staat, waar het plaatsvindt en hoe je inschrijft.",
-      empty: "GEEN EVENTS MET DATUM GEPUBLICEERD",
-      preparing: "Nieuwe data worden voorbereid.",
-      guidance: "Boekbare diensten staan onder Ervaringen. Wekelijkse reflecties staan onder Mindset.",
-    },
-    de: {
-      eyebrow: "GIANTS EVENTS",
-      title: "Bestätigte Termine in einem Kalender.",
-      intro: "Sieh, was geplant ist, wo es stattfindet und wie du dich anmeldest.",
-      empty: "KEINE TERMINIERTEN EVENTS VERÖFFENTLICHT",
-      preparing: "Neue Termine werden vorbereitet.",
-      guidance: "Buchbare Angebote stehen unter Erlebnisse. Wöchentliche Impulse stehen unter Mindset.",
-    },
-  };
-  const copy = pageCopy[locale];
+  const pastEvents = cmsEvents
+    .filter((event) => event.status === "past")
+    .sort(
+      (firstEvent, secondEvent) =>
+        new Date(secondEvent.startDate).getTime() -
+        new Date(firstEvent.startDate).getTime(),
+    );
+
+  const hasEvents =
+    upcomingEvents.length > 0 || pastEvents.length > 0;
 
   return (
     <main className="giants-content-page">
-      <Header
-        locale={locale}
-        t={t}
-      />
+      <Header locale={locale} t={t} />
 
       <section className="giants-page-hero">
         <div className="giants-page-hero-inner">
           <p className="giants-eyebrow">
-            {copy.eyebrow}
+            {eventsText.label}
           </p>
 
           <h1 className="giants-page-hero-title">
-            {copy.title}
+            {eventsText.title}
           </h1>
 
           <p className="giants-page-hero-copy">
-            {copy.intro}
+            {eventsText.description}
           </p>
         </div>
       </section>
 
       <section className="giants-content-section">
         <div className="giants-content-container">
-          {activeEvents.length > 0 ? (
-            <EventCards
-              events={activeEvents}
-              locale={locale}
-              dateLocale={dateLocale[locale]}
-            />
-          ) : (
+          {!hasEvents && (
             <div className="giants-empty-state">
-              <p className="giants-eyebrow">{copy.empty}</p>
-              <h2 className="giants-card-title">{copy.preparing}</h2>
+              <p className="giants-eyebrow">
+                {eventsText.emptyLabel}
+              </p>
+
+              <h2 className="giants-card-title">
+                {eventsText.emptyTitle}
+              </h2>
+
               <p className="giants-card-text">
-                {copy.guidance}
+                {eventsText.emptyDescription}
               </p>
             </div>
+          )}
+
+          {upcomingEvents.length > 0 && (
+            <section
+              className="giants-events-group"
+              aria-labelledby="upcoming-events-title"
+            >
+              <h2
+                id="upcoming-events-title"
+                className="giants-section-title"
+              >
+                {eventsText.upcomingTitle}
+              </h2>
+
+              <EventCards
+                events={upcomingEvents}
+                locale={locale}
+                dateLocale={dateLocales[locale]}
+              />
+            </section>
+          )}
+
+          {pastEvents.length > 0 && (
+            <section
+              className="giants-events-group giants-past-events"
+              aria-labelledby="past-events-title"
+            >
+              <h2
+                id="past-events-title"
+                className="giants-section-title"
+              >
+                {eventsText.pastTitle}
+              </h2>
+
+              <EventCards
+                events={pastEvents}
+                locale={locale}
+                dateLocale={dateLocales[locale]}
+              />
+            </section>
           )}
         </div>
       </section>

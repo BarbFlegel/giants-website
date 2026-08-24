@@ -82,6 +82,12 @@ export type EventTranslations = {
   book: string;
   viewPoster: string;
   closePoster: string;
+
+  upcomingTitle: string;
+  pastTitle: string;
+  emptyLabel: string;
+  emptyTitle: string;
+  emptyDescription: string;
 };
 
 export type LettersContent = {
