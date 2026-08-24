@@ -21,31 +21,31 @@ export default async function ContactPage({
   const t = translations[currentLocale];
 
   return (
-    <main className="min-h-screen bg-black pb-24 text-white md:pb-0">
+    <main className="giants-content-page">
       <Header locale={currentLocale} t={t} />
 
-      <section className="relative overflow-hidden bg-black px-4 py-10 md:px-6 md:py-16">
+      <section className="giants-contact-page">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: "url('/images/hero-giants-premium.jpg')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/80 to-black" />
 
-        <div className="relative mx-auto max-w-6xl">
-          <p className="text-xs font-black uppercase tracking-[0.35em] text-orange-400 md:text-sm">
+        <div className="giants-content-container relative">
+          <p className="giants-eyebrow">
             {t.contact.label}
           </p>
 
-          <h1 className="mt-4 max-w-4xl text-3xl font-black uppercase leading-tight md:text-6xl">
+          <h1 className="giants-page-hero-title">
             {t.contact.title}
           </h1>
 
-          <p className="mt-5 max-w-3xl text-base leading-7 text-zinc-300 md:text-lg md:leading-8">
+          <p className="giants-page-hero-copy">
             {t.contact.text}
           </p>
 
-          <div className="mt-8 max-w-4xl">
-            <ContactForm t={t} />
+          <div className="giants-contact-container">
+            <ContactForm t={t} locale={currentLocale} />
           </div>
         </div>
       </section>

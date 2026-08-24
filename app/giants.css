@@ -876,7 +876,7 @@
    ========================================================= */
 
 .giants-content-section {
-  padding: 68px 20px 84px;
+  padding: 68px 0 84px;
 }
 
 .giants-content-intro {
@@ -1494,9 +1494,23 @@
 }
 
 .giants-contact-container {
-  width: min(820px, 100%);
+  width: 100%;
+  margin-top: 30px;
+}
 
-  margin-inline: auto;
+.giants-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.giants-contact-error {
+  margin: 16px 0 0;
+  color: #fca5a5;
+  font-size: 0.88rem;
+  line-height: 1.5;
 }
 
 .giants-contact-heading {

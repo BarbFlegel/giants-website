@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import type { Translation } from "../content/types";
+import type { Locale, Translation } from "../content/types";
 
-export default function ContactForm({ t }: { t: Translation }) {
+export default function ContactForm({ t, locale }: { t: Translation; locale: Locale }) {
   const [sent, setSent] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
 
-  const inputClass =
-    "w-full rounded-2xl border border-orange-500/25 bg-black px-5 py-4 text-white outline-none transition placeholder:text-zinc-500 focus:border-orange-400 focus:ring-2 focus:ring-orange-500/30";
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -16,19 +16,18 @@ export default function ContactForm({ t }: { t: Translation }) {
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
-      method: "POST",
-      body: formData,
-      headers: {
-        Accept: "application/json",
-      },
-    });
+    setSubmitting(true);
+    setError("");
 
-    if (response.ok) {
+    try {
+      const response = await fetch("/api/contact", { method: "POST", body: formData });
+      if (!response.ok) throw new Error("Request failed");
       setSent(true);
       form.reset();
-    } else {
-      alert("Something went wrong. Please contact GIANTS via WhatsApp.");
+    } catch {
+      setError("Your message could not be sent. Please try again or contact GIANTS via WhatsApp.");
+    } finally {
+      setSubmitting(false);
     }
   }
 
@@ -70,15 +69,17 @@ export default function ContactForm({ t }: { t: Translation }) {
 
       <form
         onSubmit={handleSubmit}
-        className="mt-6 grid gap-5 rounded-[2rem] border border-orange-500/30 bg-gradient-to-br from-orange-500/15 via-zinc-950 to-black p-5 shadow-[0_0_40px_rgba(249,115,22,0.12)] md:p-8"
+        className="giants-contact-form"
       >
-        <div className="grid gap-5 md:grid-cols-2">
+        <input type="hidden" name="locale" value={locale} />
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" className="giants-honeypot" aria-hidden="true" />
+        <div className="giants-contact-row">
           <input
             type="text"
             name="name"
             placeholder={t.contactForm.name}
             required
-            className={inputClass}
+            className="giants-field"
           />
 
           <input
@@ -86,7 +87,7 @@ export default function ContactForm({ t }: { t: Translation }) {
             name="email"
             placeholder={t.contactForm.email}
             required
-            className={inputClass}
+            className="giants-field"
           />
         </div>
 
@@ -94,7 +95,7 @@ export default function ContactForm({ t }: { t: Translation }) {
           id="requestType"
           name="requestType"
           aria-label="Request type"
-          className={inputClass}
+          className="giants-field"
         >
           <option>Book an experience</option>
           <option>Birthday event</option>
@@ -107,44 +108,47 @@ export default function ContactForm({ t }: { t: Translation }) {
           name="message"
           placeholder={t.contactForm.message}
           rows={5}
-          className={inputClass}
+          required
+          className="giants-field"
         />
 
         <button
           type="button"
           onClick={() => setMoreOpen(!moreOpen)}
-          className="rounded-full border border-orange-500/40 px-5 py-3 text-sm font-black text-orange-300"
+          className="giants-contact-more"
+          aria-expanded={moreOpen}
         >
           {moreOpen ? "Hide additional details" : "+ Additional details"}
         </button>
 
         {moreOpen && (
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="giants-contact-extra">
             <input
               type="text"
               name="preferredDate"
               placeholder="Preferred date or period"
-              className={inputClass}
+              className="giants-field"
             />
 
             <input
               type="text"
               name="location"
               placeholder="Location / city"
-              className={inputClass}
+              className="giants-field"
             />
 
             <input
               type="text"
               name="groupSize"
               placeholder="Group size / age group"
-              className={inputClass}
+              className="giants-field"
             />
           </div>
         )}
 
-        <button type="submit" className="btn-primary btn-primary-full">
-          {t.contactForm.submit}
+        {error && <p className="giants-contact-error" role="alert">{error}</p>}
+        <button type="submit" className="giants-contact-submit" disabled={submitting}>
+          {submitting ? "Sending…" : t.contactForm.submit}
         </button>
       </form>
     </>

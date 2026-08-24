@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import {
-  getTranslations,
-  isLocale,
   locales,
   type Locale,
-} from "./lib/i18n";
+} from "./content";
+import { getTranslations } from "./lib/i18n";
 
 type LocaleLayoutProps = {
   children: ReactNode;
@@ -27,11 +26,13 @@ export async function generateMetadata({
 }: LocaleLayoutProps): Promise<Metadata> {
   const { locale: localeParam } = await params;
 
-  const locale: Locale = isLocale(localeParam)
-    ? localeParam
+  const locale: Locale = locales.includes(localeParam as Locale)
+    ? (localeParam as Locale)
     : "en";
 
-  const t = getTranslations(locale);
+  // The legacy metadata dictionary has EN/FR/NL only; use EN copy for DE
+  // until dedicated German SEO text is added there.
+  const t = getTranslations(locale === "de" ? "en" : locale);
 
   return {
     title: {
@@ -115,8 +116,8 @@ export default async function LocaleLayout({
    *
    * Those belong only in app/layout.tsx.
    */
-  const locale: Locale = isLocale(localeParam)
-    ? localeParam
+  const locale: Locale = locales.includes(localeParam as Locale)
+    ? (localeParam as Locale)
     : "en";
 
   void locale;
