@@ -259,6 +259,37 @@
   color: black;
 }
 
+.giants-language-switcher,
+.giants-mobile-languages {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.giants-language-link {
+  min-width: 29px;
+  padding: 6px 5px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--giants-muted);
+  font-size: 0.65rem;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+}
+
+.giants-language-link:hover,
+.giants-language-link:focus-visible,
+.giants-language-link.active {
+  border-color: var(--giants-orange);
+  color: var(--giants-orange-light);
+}
+
+.giants-mobile-languages {
+  margin-top: 24px;
+  justify-content: center;
+}
+
 
 /* =========================================================
    MOBILE / TABLET MENU
@@ -2045,6 +2076,10 @@ textarea.giants-field {
 
 @media (max-width: 1100px) {
   .giants-nav {
+    display: none;
+  }
+
+  .giants-language-switcher {
     display: none;
   }
 

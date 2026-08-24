@@ -67,6 +67,11 @@ export default function Header({
     return `/${locale}${path}`;
   }
 
+  function getLocaleHref(nextLocale: Locale) {
+    const pathWithoutLocale = pathname.replace(/^\/(en|fr|nl|de)(?=\/|$)/, "");
+    return `/${nextLocale}${pathWithoutLocale || ""}`;
+  }
+
   function isActive(path: string) {
     if (!path) {
       return pathname === `/${locale}`;
@@ -140,6 +145,20 @@ export default function Header({
             })}
           </nav>
 
+          <div className="giants-language-switcher" aria-label="Language selection">
+            {(["en", "fr", "nl", "de"] as Locale[]).map((language) => (
+              <Link
+                key={language}
+                href={getLocaleHref(language)}
+                className={`giants-language-link ${language === locale ? "active" : ""}`}
+                aria-current={language === locale ? "page" : undefined}
+                hrefLang={language}
+              >
+                {language.toUpperCase()}
+              </Link>
+            ))}
+          </div>
+
           <button
             type="button"
             className="giants-menu-trigger"
@@ -207,6 +226,20 @@ export default function Header({
               );
             })}
           </nav>
+
+          <div className="giants-mobile-languages" aria-label="Language selection">
+            {(["en", "fr", "nl", "de"] as Locale[]).map((language) => (
+              <Link
+                key={language}
+                href={getLocaleHref(language)}
+                className={`giants-language-link ${language === locale ? "active" : ""}`}
+                aria-current={language === locale ? "page" : undefined}
+                hrefLang={language}
+              >
+                {language.toUpperCase()}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </>
