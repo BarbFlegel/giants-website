@@ -6,9 +6,11 @@ import {
   ribbonContent,
   type Locale,
 } from "../content";
+import type { CmsEvent } from "../lib/sanity";
 
 type UpcomingRibbonProps = {
   locale: Locale;
+  featuredEvent: CmsEvent | null;
 };
 
 function getNextThursday(from = new Date()) {
@@ -33,6 +35,7 @@ function getNextThursday(from = new Date()) {
 
 export default function UpcomingRibbon({
   locale,
+  featuredEvent,
 }: UpcomingRibbonProps) {
   const t = ribbonContent[locale];
 
@@ -67,6 +70,35 @@ export default function UpcomingRibbon({
       : daysUntil === 1
         ? t.oneDay
         : t.days(daysUntil);
+
+  if (featuredEvent) {
+    const eventDate = new Intl.DateTimeFormat(browserLocales[locale], {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(new Date(featuredEvent.startDate));
+    const href = featuredEvent.detailsUrl
+      ? `/${locale}${featuredEvent.detailsUrl.startsWith("/") ? featuredEvent.detailsUrl : `/${featuredEvent.detailsUrl}`}`
+      : featuredEvent.registrationUrl || `/${locale}/events`;
+
+    return (
+      <Link
+        href={href}
+        className="giants-ribbon"
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+      >
+        <div className="giants-ribbon-inner">
+          <span>🔥</span>
+          <span>{featuredEvent.title}</span>
+          <span className="giants-ribbon-accent">•</span>
+          <span className="giants-ribbon-accent">{eventDate}</span>
+          {featuredEvent.location && <span>• {featuredEvent.location}</span>}
+          <span>• {featuredEvent.ctaLabel || "View event"}</span>
+        </div>
+      </Link>
+    );
+  }
 
   return (
     <Link

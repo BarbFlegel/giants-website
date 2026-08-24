@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { experienceData } from "../content/experiences";
 import type { Locale, Translation } from "../content/types";
 import ExperienceCard from "./ExperienceCard";
@@ -19,7 +18,6 @@ export default function ExperiencesSection({
             {t.sectionTitles.experiences}
           </h1>
           <p className="giants-content-intro-text">{t.experiences.intro1}</p>
-          <p className="giants-content-intro-text">{t.experiences.intro2}</p>
         </div>
 
         <div className="giants-access-panel">
@@ -42,25 +40,6 @@ export default function ExperiencesSection({
             />
           ))}
 
-          <article className="giants-content-card">
-            <p className="giants-card-label">
-              {t.experiences.comingSoon.label}
-            </p>
-            <h2 className="giants-content-card-title">
-              {t.experiences.comingSoon.title}
-            </h2>
-            <p className="giants-content-card-description">
-              {t.experiences.comingSoon.text}
-            </p>
-            <div className="giants-moment-action">
-              <Link
-                href={`/${locale}/contact`}
-                className="giants-button giants-button-tertiary"
-              >
-                {t.experiences.comingSoon.cta}
-              </Link>
-            </div>
-          </article>
         </div>
       </div>
     </section>

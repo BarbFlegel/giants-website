@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { galleryItems } from "../../content/gallery";
@@ -8,13 +7,17 @@ import type { Locale } from "../../content";
 
 type PhotosClientProps = {
   locale: Locale;
+  cmsPhotos: Array<{ id: string; image: string; title: string }>;
 };
 
-export default function PhotosClient({ locale }: PhotosClientProps) {
+export default function PhotosClient({ locale, cmsPhotos }: PhotosClientProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<{
     image: string;
     title: string;
   } | null>(null);
+  const photos = cmsPhotos.length > 0
+    ? cmsPhotos
+    : galleryItems.map((item) => ({ id: item.image, image: item.image, title: item.title }));
 
   return (
     <main className="giants-content-page">
@@ -27,21 +30,20 @@ export default function PhotosClient({ locale }: PhotosClientProps) {
           <h1 className="giants-section-title">Community Photos</h1>
 
           <div className="giants-photo-grid">
-            {galleryItems.map((item) => (
+            {photos.map((item) => (
               <button
-                key={item.image}
+                key={item.id}
                 type="button"
                 onClick={() =>
                   setSelectedPhoto({ image: item.image, title: item.title })
                 }
                 className="giants-photo-card"
               >
-                <Image
+                <img
                   src={item.image}
                   alt={item.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
+                  loading="lazy"
                 />
                 <div className="giants-photo-overlay">
                   <p>{item.title}</p>
@@ -63,11 +65,9 @@ export default function PhotosClient({ locale }: PhotosClientProps) {
             ×
           </button>
           <div className="giants-media-modal-inner">
-            <Image
+            <img
               src={selectedPhoto.image}
               alt={selectedPhoto.title}
-              fill
-              sizes="100vw"
               className="object-contain"
             />
           </div>

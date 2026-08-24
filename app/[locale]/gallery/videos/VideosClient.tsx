@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import type { Locale } from "../../content";
 
-const videos = [
+const fallbackVideos = [
   { title: "Basketball Training 1", src: "/videos/basketball-training1.mp4" },
   { title: "Basketball Training 2", src: "/videos/basketball-training2.mp4" },
   { title: "Board Games", src: "/videos/board-games.mp4" },
@@ -21,10 +21,22 @@ const videos = [
 
 type VideosClientProps = {
   locale: Locale;
+  cmsVideos: VideoItem[];
 };
 
-export default function VideosClient({ locale }: VideosClientProps) {
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+type VideoItem = {
+  id: string;
+  title: string;
+  src: string;
+  thumbnail?: string;
+  external?: boolean;
+};
+
+export default function VideosClient({ locale, cmsVideos }: VideosClientProps) {
+  const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
+  const videos: VideoItem[] = cmsVideos.length > 0
+    ? cmsVideos
+    : fallbackVideos.map((video) => ({...video, id: video.src}));
 
   return (
     <main className="giants-content-page">
@@ -39,14 +51,18 @@ export default function VideosClient({ locale }: VideosClientProps) {
           <div className="giants-video-grid">
             {videos.map((video) => (
               <button
-                key={video.src}
+                key={video.id}
                 type="button"
-                onClick={() => setSelectedVideo(video.src)}
+                onClick={() => setSelectedVideo(video)}
                 className="giants-video-card"
               >
-                <video muted playsInline preload="metadata">
-                  <source src={video.src} type="video/mp4" />
-                </video>
+                {video.thumbnail ? (
+                  <img src={video.thumbnail} alt="" loading="lazy" />
+                ) : (
+                  <video muted playsInline preload="metadata">
+                    <source src={video.src} />
+                  </video>
+                )}
                 <div className="giants-video-card-body">
                   <p>{video.title}</p>
                 </div>
@@ -66,9 +82,15 @@ export default function VideosClient({ locale }: VideosClientProps) {
           >
             ×
           </button>
-          <video controls autoPlay playsInline className="giants-media-video">
-            <source src={selectedVideo} type="video/mp4" />
-          </video>
+          {selectedVideo.external ? (
+            <a href={selectedVideo.src} target="_blank" rel="noopener noreferrer" className="giants-button giants-button-primary">
+              Open video
+            </a>
+          ) : (
+            <video controls autoPlay playsInline className="giants-media-video">
+              <source src={selectedVideo.src} />
+            </video>
+          )}
         </div>
       )}
     </main>

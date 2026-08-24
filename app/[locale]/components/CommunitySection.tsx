@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Locale, Translation } from "../content/types";
-import { communityPrograms } from "../content/community";
-import ExperienceCard from "./ExperienceCard";
+import { impactPillars } from "../content/community";
 
 export default function CommunitySection({
   locale,
@@ -21,50 +20,23 @@ export default function CommunitySection({
           <p className="giants-content-intro-text">{t.community.introText}</p>
         </div>
 
-        <div className="giants-access-panel">
-          <p className="giants-access-title">{t.experiences.accessTitle}</p>
-          <p className="giants-access-copy">{t.experiences.accessText}</p>
+        <div className="giants-card-grid">
+          {impactPillars.map((pillar) => (
+            <article key={pillar.title} className="giants-content-card">
+              <p className="giants-card-label">{pillar.label}</p>
+              <h2 className="giants-content-card-title">{pillar.title}</h2>
+              <p className="giants-content-card-description">{pillar.description}</p>
+              <ul className="giants-card-list">
+                {pillar.evidence.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </article>
+          ))}
         </div>
 
-        <div className="giants-card-grid">
-          {communityPrograms.map((program) => (
-            <ExperienceCard
-              key={program.title}
-              item={program}
-              labels={{
-                includes: t.experiences.includes,
-                packages: t.experiences.packages,
-                featured: t.experiences.featured,
-                discoverMore: t.experiences.discoverMore,
-              }}
-              ctaHref={`/${locale}/contact`}
-            />
-          ))}
-
-          <article className="giants-content-card">
-            <p className="giants-card-label">{t.community.comingSoon.label}</p>
-            <h2 className="giants-content-card-title">
-              {t.community.comingSoon.title}
-            </h2>
-            <p className="giants-content-card-description">
-              {t.community.comingSoon.text}
-            </p>
-            {t.community.comingSoon.items && (
-              <ul className="giants-card-list">
-                {t.community.comingSoon.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            )}
-            <div className="giants-moment-action">
-              <Link
-                href={`/${locale}/contact`}
-                className="giants-button giants-button-tertiary"
-              >
-                {t.community.comingSoon.cta}
-              </Link>
-            </div>
-          </article>
+        <div className="giants-moment-action">
+          <Link href={`/${locale}/contact`} className="giants-button giants-button-primary">
+            Become a community partner
+          </Link>
         </div>
       </div>
     </section>

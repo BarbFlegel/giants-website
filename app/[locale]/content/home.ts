@@ -9,8 +9,7 @@ export const homeContent: Record<
 > = {
   en: {
     eyebrow: "Explore GIANTS",
-    title:
-      "Experiences, community and mindset.",
+    title: "Choose your GIANTS path.",
     explore: "Explore",
 
     cards: [
@@ -18,28 +17,28 @@ export const homeContent: Record<
         label: "Mindset",
         title: "The Birth of Courage",
         text:
-          "Weekly reflections and rituals focused on courage, discipline and personal growth.",
+          "Read the weekly reflection and join its movement ritual.",
         path: "/letters",
       },
       {
         label: "Experiences",
         title: "Bookable Experiences",
         text:
-          "Birthdays, basketball, team experiences and movement sessions.",
+          "Book a birthday, basketball session or team programme.",
         path: "/experiences",
       },
       {
         label: "Community",
         title: "Community Impact",
         text:
-          "Programmes focused on connection, inclusion, wellbeing and social impact.",
+          "See who GIANTS supports and how community outcomes are measured.",
         path: "/impact",
       },
       {
         label: "Events",
         title: "Upcoming Moments",
         text:
-          "Dated GIANTS events, mindset sessions and community gatherings.",
+          "View confirmed dates, venues and registration details.",
         path: "/events",
       },
     ],
@@ -47,8 +46,7 @@ export const homeContent: Record<
 
   fr: {
     eyebrow: "Explorer GIANTS",
-    title:
-      "Expériences, communauté et mindset.",
+    title: "Choisissez votre parcours GIANTS.",
     explore: "Découvrir",
 
     cards: [
@@ -56,28 +54,28 @@ export const homeContent: Record<
         label: "Mindset",
         title: "La naissance du courage",
         text:
-          "Réflexions et rituels autour du courage, de la discipline et du développement personnel.",
+          "Lisez la réflexion de la semaine et rejoignez son rituel de mouvement.",
         path: "/letters",
       },
       {
         label: "Expériences",
         title: "Expériences à réserver",
         text:
-          "Anniversaires, basketball, expériences en équipe et sessions de mouvement.",
+          "Réservez un anniversaire, une session de basket ou un programme d’équipe.",
         path: "/experiences",
       },
       {
         label: "Communauté",
         title: "Impact communautaire",
         text:
-          "Programmes autour de la connexion, de l’inclusion, du bien-être et de l’impact social.",
+          "Découvrez les publics soutenus et la manière dont l’impact est mesuré.",
         path: "/impact",
       },
       {
         label: "Événements",
         title: "Moments à venir",
         text:
-          "Événements GIANTS, sessions mindset et rencontres communautaires.",
+          "Consultez les dates, lieux et informations d’inscription confirmés.",
         path: "/events",
       },
     ],
@@ -85,8 +83,7 @@ export const homeContent: Record<
 
   nl: {
     eyebrow: "Ontdek GIANTS",
-    title:
-      "Ervaringen, community en mindset.",
+    title: "Kies jouw GIANTS-pad.",
     explore: "Ontdek",
 
     cards: [
@@ -94,28 +91,28 @@ export const homeContent: Record<
         label: "Mindset",
         title: "De geboorte van moed",
         text:
-          "Wekelijkse reflecties rond moed, discipline en persoonlijke groei.",
+          "Lees de wekelijkse reflectie en doe mee met het bewegingsritueel.",
         path: "/letters",
       },
       {
         label: "Ervaringen",
         title: "Boekbare ervaringen",
         text:
-          "Verjaardagen, basketbal, teamervaringen en bewegingssessies.",
+          "Boek een verjaardag, basketbalsessie of teamprogramma.",
         path: "/experiences",
       },
       {
         label: "Community",
         title: "Community-impact",
         text:
-          "Programma’s rond verbinding, inclusie, welzijn en maatschappelijke impact.",
+          "Ontdek wie GIANTS ondersteunt en hoe de impact wordt gemeten.",
         path: "/impact",
       },
       {
         label: "Events",
         title: "Komende momenten",
         text:
-          "GIANTS-events, mindset-sessies en communitybijeenkomsten.",
+          "Bekijk bevestigde data, locaties en inschrijvingsinformatie.",
         path: "/events",
       },
     ],
@@ -123,8 +120,7 @@ export const homeContent: Record<
 
   de: {
     eyebrow: "GIANTS entdecken",
-    title:
-      "Erlebnisse, Community und Mindset.",
+    title: "Wähle deinen GIANTS-Weg.",
     explore: "Entdecken",
 
     cards: [
@@ -132,28 +128,28 @@ export const homeContent: Record<
         label: "Mindset",
         title: "Die Geburt des Mutes",
         text:
-          "Wöchentliche Reflexionen zu Mut, Disziplin und persönlichem Wachstum.",
+          "Lies den wöchentlichen Impuls und nimm am Bewegungsritual teil.",
         path: "/letters",
       },
       {
         label: "Erlebnisse",
         title: "Buchbare Erlebnisse",
         text:
-          "Geburtstage, Basketball, Teamerlebnisse und Bewegungssessions.",
+          "Buche einen Geburtstag, eine Basketball-Session oder ein Teamprogramm.",
         path: "/experiences",
       },
       {
         label: "Community",
         title: "Community Impact",
         text:
-          "Programme zu Verbindung, Inklusion, Wohlbefinden und sozialer Wirkung.",
+          "Sieh, wen GIANTS unterstützt und wie Wirkung messbar gemacht wird.",
         path: "/impact",
       },
       {
         label: "Events",
         title: "Kommende Momente",
         text:
-          "GIANTS-Events, Mindset-Sessions und Community-Treffen.",
+          "Finde bestätigte Termine, Orte und Anmeldeinformationen.",
         path: "/events",
       },
     ],

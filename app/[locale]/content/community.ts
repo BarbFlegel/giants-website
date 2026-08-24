@@ -1,51 +1,38 @@
-import type { CommunityProgram } from "./types";
+export type ImpactPillar = {
+  label: string;
+  title: string;
+  description: string;
+  evidence: string[];
+};
 
-export const communityPrograms: CommunityProgram[] = [
+/** Impact describes change; offers belong in Experiences and dates in Events. */
+export const impactPillars: ImpactPillar[] = [
   {
-    title: "Old Age Home Workshops",
+    label: "ACCESS",
+    title: "More people included",
     description:
-      "Gentle adapted experiences focused on mobility, coordination, memory, and social interaction for elderly participants.",
-    tags: ["Care", "Mobility", "Connection"],
-    includes: [
-      "Light movement exercises",
-      "Coordination activities",
-      "Social engagement",
-    ],
-    packages: ["Partnership-based activity", "Subject to availability and support"],
+      "Selected activities can be offered with community partners to people who face financial, social or mobility barriers.",
+    evidence: ["Reduced-barrier participation", "Adapted formats", "Partner-led access"],
   },
   {
-    title: "Board Games Tournaments",
+    label: "CONNECTION",
+    title: "Stronger local relationships",
     description:
-      "Relaxed competitive experiences encouraging strategy, connection, and fun.",
-    tags: ["Games", "Social", "Strategy"],
-    includes: ["Strategy games", "Social tournaments", "Private events"],
-    packages: ["Partnership-based activity", "Subject to availability and support"],
+      "Movement, games and conversation create shared experiences where participants can meet, contribute and feel part of a group.",
+    evidence: ["Shared activity", "Social interaction", "Community belonging"],
   },
   {
-    title: "Philosophy Talks & Sit-ins",
+    label: "WELLBEING",
+    title: "Confidence through movement",
     description:
-      "Open community conversations exploring mindset, discipline, purpose, identity, and personal growth.",
-    tags: ["Mindset", "Reflection", "Growth"],
-    includes: ["Mindset discussions", "Open conversations", "Community reflection"],
-    packages: ["Partnership-based activity", "Subject to availability and support"],
+      "Accessible challenges support confidence, coordination and positive routines without making performance the only measure of success.",
+    evidence: ["Confidence", "Everyday movement", "Positive participation"],
   },
   {
-    title: "Debates & Discussion Events",
+    label: "ACCOUNTABILITY",
+    title: "Impact we can demonstrate",
     description:
-      "Structured discussion experiences encouraging communication, critical thinking, and perspective sharing.",
-    tags: ["Debate", "Dialogue", "Community"],
-    includes: ["Debate sessions", "Group discussions", "Hosted community events"],
-    packages: ["Partnership-based activity", "Subject to availability and support"],
-  },
-  {
-    title: "Camping & Outdoor Experiences",
-    description:
-      "Immersive outdoor experiences combining nature, movement, reflection, and group bonding.",
-    tags: ["Outdoor", "Nature", "Bonding"],
-    includes: ["Outdoor movement", "Group activities", "Reflection & connection"],
-    packages: [
-      "Partnership-based activity",
-      "Subject to availability and support",
-    ],
+      "GIANTS can document attendance, partner feedback and participant stories so future impact claims are based on evidence.",
+    evidence: ["Participation records", "Partner feedback", "Consent-based stories"],
   },
 ];

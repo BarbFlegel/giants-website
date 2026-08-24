@@ -13,13 +13,16 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import JoinSection from "./components/JoinSection";
 import UpcomingRibbon from "./components/UpcomingRibbon";
+import type { CmsEvent } from "./lib/sanity";
 
 type HomeClientProps = {
   locale: Locale;
+  featuredEvent: CmsEvent | null;
 };
 
 export default function HomeClient({
   locale,
+  featuredEvent,
 }: HomeClientProps) {
   const t = translations[locale];
   const home = homeContent[locale];
@@ -31,7 +34,7 @@ export default function HomeClient({
         t={t}
       />
 
-      <UpcomingRibbon locale={locale} />
+      <UpcomingRibbon locale={locale} featuredEvent={featuredEvent} />
 
       <Hero locale={locale} />
 

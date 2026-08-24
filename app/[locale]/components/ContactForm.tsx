@@ -21,11 +21,19 @@ export default function ContactForm({ t, locale }: { t: Translation; locale: Loc
 
     try {
       const response = await fetch("/api/contact", { method: "POST", body: formData });
-      if (!response.ok) throw new Error("Request failed");
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        throw new Error(body?.code ?? "REQUEST_FAILED");
+      }
       setSent(true);
       form.reset();
-    } catch {
-      setError("Your message could not be sent. Please try again or contact GIANTS via WhatsApp.");
+    } catch (reason) {
+      const code = reason instanceof Error ? reason.message : "REQUEST_FAILED";
+      setError(
+        code === "EMAIL_NOT_CONFIGURED"
+          ? "Email is not configured on this deployment yet. Please contact GIANTS via WhatsApp."
+          : "Your message could not be sent. Please try again or contact GIANTS via WhatsApp."
+      );
     } finally {
       setSubmitting(false);
     }
