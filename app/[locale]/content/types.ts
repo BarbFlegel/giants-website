@@ -240,6 +240,7 @@ export type Translation = {
   bar: string;
   hero: HeroContent;
   vision: VisionContent;
+  humanDevelopment: HumanDevelopmentContent;
   about: AboutContent;
   experiences: ExperiencesIntro;
   community: CommunityIntro;
@@ -259,4 +260,57 @@ export type ContactFormContent = {
   submit: string;
   whatsapp: string;
   success: string;
+};
+export type HumanDevelopmentProgramme = {
+  title: string;
+  description: string;
+  points: string[];
+  closing?: string;
+};
+
+export type HumanDevelopmentContent = {
+  label: string;
+  title: string;
+  intro: string;
+  detailsLabel: string;
+
+  approach: {
+    title: string;
+    paragraphs: string[];
+  };
+
+  youth: {
+    title: string;
+    programmes: HumanDevelopmentProgramme[];
+  };
+
+  adults: {
+    title: string;
+    programmes: HumanDevelopmentProgramme[];
+  };
+
+  difference: {
+    title: string;
+    paragraphs: string[];
+    journey: string;
+    examples: string[];
+  };
+
+  focus: {
+    title: string;
+    items: {
+      title: string;
+      text: string;
+    }[];
+  };
+
+  important: {
+    title: string;
+    paragraphs: string[];
+  };
+
+  contact: {
+    title: string;
+    button: string;
+  };
 };

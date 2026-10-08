@@ -1,5 +1,6 @@
 import type { Locale, Translation } from "./types";
 import { heroContent } from "./hero";
+import { humanDevelopmentEn } from "./human-development";
 
 export const translations: Record<Locale, Translation> = {
   en: {
@@ -120,6 +121,7 @@ contactForm: {
     },
     bar: "🔥 Upcoming GIANTS Birthday Experience • 14 June 2026 • Merksem",
     hero: heroContent.en,
+    humanDevelopment: humanDevelopmentEn,
     vision: {
       label: "Vision",
       title: "Building stronger people, stronger communities.",
@@ -313,6 +315,7 @@ contactForm: {
     },
     bar: "🔥 Prochaine expérience anniversaire GIANTS • 14 juin 2026 • Merksem",
     hero: heroContent.fr,
+    humanDevelopment: humanDevelopmentEn,
     vision: {
       label: "Vision",
       title:
@@ -510,6 +513,7 @@ contactForm: {
     },
     bar: "🔥 Komende GIANTS verjaardagservaring • 14 juni 2026 • Merksem",
     hero: heroContent.nl,
+    humanDevelopment: humanDevelopmentEn,
     vision: {
       label: "Visie",
       title: "Sterkere mensen, sterkere gemeenschappen bouwen.",
@@ -702,6 +706,7 @@ contactForm: {
     },
     bar: "🔥 Kommendes GIANTS Geburtstagserlebnis • 14. Juni 2026 • Merksem",
     hero: heroContent.de,
+    humanDevelopment: humanDevelopmentEn,
     vision: {
       label: "Vision",
       title: "Stärkere Menschen, stärkere Gemeinschaften aufbauen.",
