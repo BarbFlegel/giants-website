@@ -1,7 +1,6 @@
 import type { Locale, Translation } from "./types";
 import { heroContent } from "./hero";
 import { humanDevelopmentEn } from "./human-development";
-
 export const translations: Record<Locale, Translation> = {
   en: {
     brand: {
@@ -33,7 +32,6 @@ export const translations: Record<Locale, Translation> = {
   title: "Build with GIANTS",
   text: "Join the community, book an experience, or collaborate with GIANTS.",
 },
-
 contactForm: {
   name: "Your Name",
   email: "Email Address",
@@ -43,7 +41,6 @@ contactForm: {
   whatsapp: "Chat on WhatsApp",
   success: "Thanks! We'll get back to you soon.",
 },
-
     sliderHint: {
       swipe: "Swipe",
       drag: "Drag →",
@@ -121,6 +118,13 @@ contactForm: {
     },
     bar: "🔥 Upcoming GIANTS Birthday Experience • 14 June 2026 • Merksem",
     hero: heroContent.en,
+    testimonials: {
+  "eyebrow": "Our community",
+  "title": "Shared experiences.",
+  "titleAccent": "Real voices.",
+  "description": "Reflections from people who have taken part in GIANTS activities.",
+  "items": []
+},
     humanDevelopment: humanDevelopmentEn,
     vision: {
       label: "Vision",
@@ -198,7 +202,6 @@ contactForm: {
       copyright: "© 2026 GIANTS",
     },
   },
-
   fr: {
     brand: {
       name: "GIANTS",
@@ -315,6 +318,13 @@ contactForm: {
     },
     bar: "🔥 Prochaine expérience anniversaire GIANTS • 14 juin 2026 • Merksem",
     hero: heroContent.fr,
+    testimonials: {
+  "eyebrow": "Notre communauté",
+  "title": "Des expériences partagées.",
+  "titleAccent": "Des voix authentiques.",
+  "description": "Les témoignages de personnes ayant participé aux activités GIANTS.",
+  "items": []
+},
     humanDevelopment: humanDevelopmentEn,
     vision: {
       label: "Vision",
@@ -394,7 +404,6 @@ contactForm: {
       copyright: "© 2026 GIANTS",
     },
   },
-
   nl: {
     brand: {
       name: "GIANTS",
@@ -425,7 +434,6 @@ contactForm: {
       title: "Bouw met GIANTS",
       text: "Word deel van de community, boek een ervaring of werk samen met GIANTS.",
     },
-
     contactForm: {
   name: "Naam",
   email: "E-mailadres",
@@ -435,7 +443,6 @@ contactForm: {
   whatsapp: "Chat via WhatsApp",
   success: "Bedankt! We nemen snel contact op.",
 },
-
     sliderHint: {
       swipe: "Swipe",
       drag: "Sleep →",
@@ -513,6 +520,13 @@ contactForm: {
     },
     bar: "🔥 Komende GIANTS verjaardagservaring • 14 juni 2026 • Merksem",
     hero: heroContent.nl,
+    testimonials: {
+  "eyebrow": "Onze community",
+  "title": "Gedeelde ervaringen.",
+  "titleAccent": "Echte stemmen.",
+  "description": "Ervaringen van mensen die hebben deelgenomen aan GIANTS-activiteiten.",
+  "items": []
+},
     humanDevelopment: humanDevelopmentEn,
     vision: {
       label: "Visie",
@@ -589,7 +603,6 @@ contactForm: {
       copyright: "© 2026 GIANTS",
     },
   },
-
   de: {
     brand: {
       name: "GIANTS",
@@ -706,6 +719,13 @@ contactForm: {
     },
     bar: "🔥 Kommendes GIANTS Geburtstagserlebnis • 14. Juni 2026 • Merksem",
     hero: heroContent.de,
+    testimonials: {
+  "eyebrow": "Unsere Community",
+  "title": "Gemeinsame Erlebnisse.",
+  "titleAccent": "Echte Stimmen.",
+  "description": "Erfahrungen von Menschen, die an GIANTS-Aktivitäten teilgenommen haben.",
+  "items": []
+},
     humanDevelopment: humanDevelopmentEn,
     vision: {
       label: "Vision",

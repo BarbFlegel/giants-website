@@ -1,233 +1,106 @@
 export const locales = ["en", "fr", "nl", "de"] as const;
 export type Locale = (typeof locales)[number];
-
-export type Stat = {
-  number: string;
-  label: string;
-};
-
+export type Stat = { number: string; label: string };
 export type HeroContent = {
-  eyebrow: string;
-  title: string;
-  subtitle: string;
-  mantra: string;
-  text: string;
-  brandStatement: string;
-  primaryCta: string;
-  secondaryCta: string;
-  tertiaryCta: string;
-  stats: Stat[];
+  eyebrow: string; title: string; subtitle: string; mantra: string;
+  text: string; brandStatement: string; primaryCta: string;
+  secondaryCta: string; tertiaryCta: string; stats: Stat[];
 };
-
 export type NavContent = {
-  about: string;
-  vision: string;
-  community: string;
-  experiences: string;
-  events: string;
-  letters: string;
-  gallery: string;
-  join: string;
+  about: string; vision: string; community: string; experiences: string;
+  events: string; letters: string; gallery: string; join: string;
 };
-
-export type SectionLabels = NavContent & {
-  energy: string;
-};
-
-export type SectionTitles = NavContent & {
-  energy: string;
-};
-
-export type BrandContent = {
-  name: string;
-  tagline: string;
-};
-
-export type MobileBarContent = {
-  join: string;
-  book: string;
-};
-
-export type ContactContent = {
-  label: string;
-  title: string;
-  text: string;
-};
-
-export type SliderHintContent = {
-  swipe: string;
-  drag: string;
-};
-
-export type VisionContent = {
-  label: string;
-  title: string;
-  text: string;
-};
-
-export type AboutContent = {
-  p1: string;
-  p2: string;
-  bullets: string[];
-};
-
+export type SectionLabels = NavContent & { energy: string };
+export type SectionTitles = NavContent & { energy: string };
+export type BrandContent = { name: string; tagline: string };
+export type MobileBarContent = { join: string; book: string };
+export type ContactContent = { label: string; title: string; text: string };
+export type SliderHintContent = { swipe: string; drag: string };
+export type VisionContent = { label: string; title: string; text: string };
+export type AboutContent = { p1: string; p2: string; bullets: string[] };
 export type EventTranslations = {
-  label: string;
-  title: string;
-  description: string;
-  status: string;
-  birthdayTitle: string;
-  birthdayDescription: string;
-  ask: string;
-  book: string;
-  viewPoster: string;
-  closePoster: string;
-  viewDetails: string;
-  bookNow: string;
-  comingSoon: string;
-  upcomingTitle: string;
-  pastTitle: string;
-  emptyLabel: string;
-  emptyTitle: string;
-  emptyDescription: string;
-
-  backToEvents: string;
-  dateLabel: string;
-  endDateLabel: string;
-  locationLabel: string;
-  priceLabel: string;
-  datePending: string;
-  askBook: string;
-  viewMoments: string;
-  statusLabels: EventStatusTranslations;
+  label: string; title: string; description: string; status: string;
+  birthdayTitle: string; birthdayDescription: string; ask: string; book: string;
+  viewPoster: string; closePoster: string; viewDetails: string; bookNow: string;
+  comingSoon: string; upcomingTitle: string; pastTitle: string;
+  emptyLabel: string; emptyTitle: string; emptyDescription: string;
+  backToEvents: string; dateLabel: string; endDateLabel: string;
+  locationLabel: string; priceLabel: string; datePending: string;
+  askBook: string; viewMoments: string; statusLabels: EventStatusTranslations;
 };
-
 export type EventStatusTranslations = {
-  upcoming: string;
-  comingSoon: string;
-  past: string;
+  upcoming: string; comingSoon: string; past: string;
 };
-
 export type LettersContent = {
-  label: string;
-  title: string;
-  description: string;
-  facebookCta: string;
-  items: {
-    label: string;
-    title: string;
-    text: string;
-  }[];
+  label: string; title: string; description: string; facebookCta: string;
+  items: { label: string; title: string; text: string }[];
 };
-
 export type GalleryContent = {
-  text: string;
-  one: string;
-  two: string;
-  photosLabel: string;
-  videosLabel: string;
-  photosTitle: string;
-  videosTitle: string;
-  viewPhotos: string;
-  viewVideos: string;
+  text: string; one: string; two: string; photosLabel: string;
+  videosLabel: string; photosTitle: string; videosTitle: string;
+  viewPhotos: string; viewVideos: string;
 };
-
-export type JoinContent = {
-  text: string;
-};
-
-export type FooterContent = {
-  copyright: string;
-};
-
+export type JoinContent = { text: string };
+export type FooterContent = { copyright: string };
 export type ComingSoonCard = {
-  label: string;
-  title: string;
-  text: string;
-  cta: string;
-  items?: string[];
+  label: string; title: string; text: string; cta: string; items?: string[];
 };
-
 export type ExperiencesIntro = {
-  intro1: string;
-  intro2: string;
-  accessTitle: string;
-  accessText: string;
-  includes: string;
-  packages: string;
-  featured: string;
-  discoverMore: string;
-  mottoTitle: string;
-  mottoText: string;
-  moreText: string;
+  intro1: string; intro2: string; accessTitle: string; accessText: string;
+  includes: string; packages: string; featured: string; discoverMore: string;
+  mottoTitle: string; mottoText: string; moreText: string;
   comingSoon: ComingSoonCard;
 };
-
 export type CommunityIntro = {
-  introTitle: string;
-  introText: string;
-  accessTitle?: string;
-  accessText?: string;
-  moreText: string;
-  comingSoon: ComingSoonCard;
+  introTitle: string; introText: string; accessTitle?: string;
+  accessText?: string; moreText: string; comingSoon: ComingSoonCard;
 };
-
 export type Experience = {
-  title: string;
-  description: string;
-  tags: string[];
-  includes: string[];
-  packages: string[];
-  featured?: boolean;
+  title: string; description: string; tags: string[];
+  includes: string[]; packages: string[]; featured?: boolean;
 };
-
 export type CommunityProgram = Experience;
-
 export type EventItem = {
-  title: string;
-  image: string;
-  status: string;
-  date?: string;
-  time?: string;
-  location?: string;
-  type?: "birthday" | "standard";
+  title: string; image: string; status: string; date?: string;
+  time?: string; location?: string; type?: "birthday" | "standard";
 };
-
 export type GalleryItem = {
-  title: string;
-  image: string;
-  type?: "image" | "video";
-  video?: string;
+  title: string; image: string; type?: "image" | "video"; video?: string;
 };
-
 export type RibbonContent = {
-  title: string;
-  location: string;
-  action: string;
-  today: string;
-  oneDay: string;
-  days: (count: number) => string;
+  title: string; location: string; action: string; today: string;
+  oneDay: string; days: (count: number) => string;
 };
-
 export type HomeCardContent = {
-  label: string;
-  title: string;
-  text: string;
-  path: string;
+  label: string; title: string; text: string; path: string;
 };
-
 export type HomeContent = {
-  eyebrow: string;
-  title: string;
-  explore: string;
-  cards: HomeCardContent[];
+  eyebrow: string; title: string; explore: string; cards: HomeCardContent[];
 };
-
-export type SeoContent = {
-  siteTitle: string;
-  description: string;
+export type SeoContent = { siteTitle: string; description: string };
+export type ContactFormContent = {
+  name: string; email: string; phone: string; message: string;
+  submit: string; whatsapp: string; success: string;
 };
-
+export type HumanDevelopmentProgramme = {
+  title: string; description: string; points: string[]; closing?: string;
+};
+export type HumanDevelopmentContent = {
+  label: string; title: string; intro: string; detailsLabel: string;
+  approach: { title: string; paragraphs: string[] };
+  youth: { title: string; programmes: HumanDevelopmentProgramme[] };
+  adults: { title: string; programmes: HumanDevelopmentProgramme[] };
+  difference: {
+    title: string; paragraphs: string[]; journey: string; examples: string[];
+  };
+  focus: { title: string; items: { title: string; text: string }[] };
+  important: { title: string; paragraphs: string[] };
+  contact: { title: string; button: string };
+};
+export type TestimonialsContent = {
+  eyebrow: string; title: string; titleAccent: string; description: string;
+  items: { quote: string; name: string; role: string }[];
+};
 export type Translation = {
   brand: BrandContent;
   nav: NavContent;
@@ -241,6 +114,7 @@ export type Translation = {
   hero: HeroContent;
   vision: VisionContent;
   humanDevelopment: HumanDevelopmentContent;
+  testimonials: TestimonialsContent;
   about: AboutContent;
   experiences: ExperiencesIntro;
   community: CommunityIntro;
@@ -250,67 +124,4 @@ export type Translation = {
   join: JoinContent;
   footer: FooterContent;
   seo: SeoContent;
-};
-
-export type ContactFormContent = {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-  submit: string;
-  whatsapp: string;
-  success: string;
-};
-export type HumanDevelopmentProgramme = {
-  title: string;
-  description: string;
-  points: string[];
-  closing?: string;
-};
-
-export type HumanDevelopmentContent = {
-  label: string;
-  title: string;
-  intro: string;
-  detailsLabel: string;
-
-  approach: {
-    title: string;
-    paragraphs: string[];
-  };
-
-  youth: {
-    title: string;
-    programmes: HumanDevelopmentProgramme[];
-  };
-
-  adults: {
-    title: string;
-    programmes: HumanDevelopmentProgramme[];
-  };
-
-  difference: {
-    title: string;
-    paragraphs: string[];
-    journey: string;
-    examples: string[];
-  };
-
-  focus: {
-    title: string;
-    items: {
-      title: string;
-      text: string;
-    }[];
-  };
-
-  important: {
-    title: string;
-    paragraphs: string[];
-  };
-
-  contact: {
-    title: string;
-    button: string;
-  };
 };

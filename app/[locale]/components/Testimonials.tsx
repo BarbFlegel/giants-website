@@ -1,117 +1,164 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+import { useState } from "react";
+import type { Locale, Translation } from "../content/types";
 
-import {
-  getTranslations,
-  type Locale,
-} from "../lib/i18n";
+export default function ContactForm({ t, locale }: { t: Translation; locale: Locale }) {
+  const [sent, setSent] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
-type TestimonialsProps = {
-  locale: Locale;
-};
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-export default function Testimonials({
-  locale,
-}: TestimonialsProps) {
-  const t = getTranslations(locale);
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", { method: "POST", body: formData });
+      if (!response.ok) {
+        const body = await response.json().catch(() => null);
+        throw new Error(body?.code ?? "REQUEST_FAILED");
+      }
+      setSent(true);
+      form.reset();
+    } catch (reason) {
+      const code = reason instanceof Error ? reason.message : "REQUEST_FAILED";
+      setError(
+        code === "EMAIL_NOT_CONFIGURED"
+          ? "Email is not configured on this deployment yet. Please contact GIANTS via WhatsApp."
+          : "Your message could not be sent. Please try again or contact GIANTS via WhatsApp."
+      );
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  if (sent) {
+    return (
+      <div className="rounded-3xl border border-orange-500/40 bg-orange-500/10 p-8 text-center">
+        <h3 className="text-2xl font-black text-orange-300">
+          {t.contactForm.success}
+        </h3>
+      </div>
+    );
+  }
 
   return (
-    <section
-      className="relative overflow-hidden bg-zinc-950 px-5 py-20 text-white sm:px-8 lg:py-28"
-      aria-labelledby="testimonials-heading"
-    >
-      <div
-        className="absolute right-0 top-0 h-80 w-80 rounded-full bg-orange-500/5 blur-3xl"
-        aria-hidden="true"
-      />
-
-      <div className="relative mx-auto max-w-7xl">
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 24,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.25,
-          }}
-          transition={{
-            duration: 0.55,
-          }}
-          className="max-w-3xl"
-        >
-          <p className="text-xs font-black uppercase tracking-[0.3em] text-orange-400">
-            {t.testimonials.eyebrow}
-          </p>
-
-          <h2
-            id="testimonials-heading"
-            className="mt-4 text-4xl font-black uppercase leading-tight sm:text-5xl lg:text-6xl"
+    <>
+      <div className="grid gap-4 md:grid-cols-3">
+        {["🏀 Basketball", "🤝 Community", "💼 Corporate"].map((item) => (
+          <div
+            key={item}
+            className="rounded-3xl border border-orange-500/20 bg-orange-500/10 p-5 text-center font-black"
           >
-            {t.testimonials.title}
-
-            <span className="block text-orange-400">
-              {t.testimonials.titleAccent}
-            </span>
-          </h2>
-
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">
-            {t.testimonials.description}
-          </p>
-        </motion.div>
-
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {t.testimonials.items.map(
-            (testimonial, index) => (
-              <motion.article
-                key={`${testimonial.name}-${index}`}
-                initial={{
-                  opacity: 0,
-                  y: 30,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.2,
-                }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.08,
-                }}
-                className="group relative rounded-3xl border border-white/10 bg-white/[0.035] p-7 transition duration-300 hover:-translate-y-1 hover:border-orange-500/30 hover:bg-white/[0.055]"
-              >
-                <Quote
-                  aria-hidden="true"
-                  className="mb-6 h-8 w-8 text-orange-400"
-                />
-
-                <blockquote className="text-lg font-medium leading-relaxed text-white/85">
-                  “{testimonial.quote}”
-                </blockquote>
-
-                <footer className="mt-7 border-t border-white/10 pt-5">
-                  <p className="font-bold text-white">
-                    {testimonial.name}
-                  </p>
-
-                  <p className="mt-1 text-sm text-white/45">
-                    {testimonial.role}
-                  </p>
-                </footer>
-              </motion.article>
-            )
-          )}
-        </div>
+            {item}
+          </div>
+        ))}
       </div>
-    </section>
+
+      <div className="mt-6 rounded-3xl border border-green-500/30 bg-green-500/10 p-6 text-center">
+        <p className="text-zinc-300">Prefer a quick conversation?</p>
+
+        <a
+          href="https://wa.me/32465545947?text=Hi%20GIANTS,%20I'd%20like%20to%20learn%20more%20about%20your%20experiences."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex rounded-full bg-green-500 px-8 py-4 font-black text-black transition hover:scale-105 hover:bg-green-400"
+        >
+          {t.contactForm.whatsapp}
+        </a>
+      </div>
+
+      <form
+        onSubmit={handleSubmit}
+        className="giants-contact-form"
+      >
+        <input type="hidden" name="locale" value={locale} />
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" className="giants-honeypot" aria-hidden="true" />
+        <div className="giants-contact-row">
+          <input
+            type="text"
+            name="name"
+            placeholder={t.contactForm.name}
+            required
+            className="giants-field"
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder={t.contactForm.email}
+            required
+            className="giants-field"
+          />
+        </div>
+
+        <select
+          id="requestType"
+          name="requestType"
+          aria-label="Request type"
+          className="giants-field"
+        >
+          <option>Book an experience</option>
+          <option>Birthday event</option>
+          <option>Join a community session</option>
+          <option>Team / corporate experience</option>
+          <option>Partnership / collaboration</option>
+        </select>
+
+        <textarea
+          name="message"
+          placeholder={t.contactForm.message}
+          rows={5}
+          required
+          className="giants-field"
+        />
+
+        <button
+          type="button"
+          onClick={() => setMoreOpen(!moreOpen)}
+          className="giants-contact-more"
+          aria-expanded={moreOpen}
+        >
+          {moreOpen ? "Hide additional details" : "+ Additional details"}
+        </button>
+
+        {moreOpen && (
+          <div className="giants-contact-extra">
+            <input
+              type="text"
+              name="preferredDate"
+              placeholder="Preferred date or period"
+              className="giants-field"
+            />
+
+            <input
+              type="text"
+              name="location"
+              placeholder="Location / city"
+              className="giants-field"
+            />
+
+            <input
+              type="text"
+              name="groupSize"
+              placeholder="Group size / age group"
+              className="giants-field"
+            />
+          </div>
+        )}
+
+        {error && <p className="giants-contact-error" role="alert">{error}</p>}
+        <button type="submit" className="giants-contact-submit" disabled={submitting}>
+          {submitting ? "Sending…" : t.contactForm.submit}
+        </button>
+      </form>
+    </>
   );
 }
