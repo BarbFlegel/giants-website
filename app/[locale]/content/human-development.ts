@@ -2,7 +2,7 @@ import type { HumanDevelopmentContent } from "./types";
 
 export const humanDevelopmentEn: HumanDevelopmentContent = {
   label: "Human Development",
-  title: "GIANTS — People & Personal Development",
+  title: "GIANTS - People & Personal Development",
   intro:
     "Sport, mentoring and community activities to help people understand themselves, build life skills and grow.",
   detailsLabel: "Read more",
