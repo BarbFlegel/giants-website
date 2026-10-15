@@ -38,6 +38,10 @@ export default function Header({
       path: "/vision",
     },
     {
+      label: t.humanDevelopment.label,
+      path: "/human-development",
+    },
+    {
       label: "Mindset",
       path: "/letters",
     },

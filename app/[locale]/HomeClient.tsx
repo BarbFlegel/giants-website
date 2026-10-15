@@ -81,6 +81,40 @@ export default function HomeClient({
         </div>
       </section>
 
+      <section className="giants-explore-section">
+        <div className="giants-container">
+          <div className="giants-access-panel">
+            <p className="giants-eyebrow">
+              {t.humanDevelopment.label}
+            </p>
+
+            <h2 className="giants-section-title">
+              {t.humanDevelopment.title}
+            </h2>
+
+            <p className="giants-content-intro-text">
+              {t.humanDevelopment.intro}
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-4">
+              <Link
+                href={`/${locale}/human-development`}
+                className="giants-button giants-button-secondary"
+              >
+                {home.explore} →
+              </Link>
+
+              <Link
+                href={`/${locale}/contact?interest=human-development`}
+                className="giants-button giants-button-primary"
+              >
+                {t.humanDevelopment.contact.button}
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <JoinSection
         locale={locale}
         t={t}
